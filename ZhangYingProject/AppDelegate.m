@@ -20,9 +20,28 @@
     window.backgroundColor = [UIColor whiteColor];
     TabbarController *tabBarController = [[TabbarController alloc] init];
     window.rootViewController = tabBarController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem = tabBar.items[2];
+    tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIColor *color =  RGB(230, 230, 230, 1);
+    CGContextSetFillColorWithColor(context,[color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    tabBar.backgroundImage = image;
+    
+    //更改导航栏的颜色跟字体颜色
+    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    //更改状态栏的颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [window makeKeyAndVisible];
     self.window = window;
-
     return YES;
 }
 

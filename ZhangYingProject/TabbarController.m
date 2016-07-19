@@ -39,6 +39,7 @@
     // 5.添加第5个控制器
     MineController *mineVC = [[MineController alloc]init];
     [self setUpOneChildViewController:mineVC image:[UIImage imageNamed:@"nav04_normal"] selectImage:[UIImage imageNamed:@"nav04_click"]  title:@"我的"];
+
     [self setSelectedIndex:2];
 }
 

@@ -1,0 +1,16 @@
+//
+//  zhangying.pch
+//  ZhangYingProject
+//
+//  Created by 杨晓婧 on 16/7/19.
+//  Copyright © 2016年 QingDaoShangTong. All rights reserved.
+//
+
+#ifndef zhangying_pch
+#define zhangying_pch
+
+#define RGB(a,b,c,d)      [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:d];
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
+#endif
