@@ -52,11 +52,11 @@ static const CGFloat toolbarHeight = 44;
 -(void)loadComponents {
     UIToolbar  *toolBar = [[UIToolbar alloc] init];
 
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(didTouchCancelButton)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(didTouchCancelButton)];
 
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Accept" style:UIBarButtonItemStylePlain target:self action:@selector(didTouchAcceptButton)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(didTouchAcceptButton)];
     
     [toolBar setItems:@[leftButton, flexibleSpace, rightButton]];
     self.cancelButtonItem = leftButton;

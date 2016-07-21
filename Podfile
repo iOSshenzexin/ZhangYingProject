@@ -1,6 +1,7 @@
 platform :ios, ‘9.3’
+inhibit_all_warnings!
 pod "LECropPictureViewController", "0.1.2"
-pod "AFNetworking", “3.1.0”
-pod "Reachability", “3.2”
-pod "SDWebImage", “3.8.0”
-pod "MJRefresh", “3.1.9”
+pod "AFNetworking"
+pod "Reachability"
+pod "SDWebImage"
+pod "MJRefresh"

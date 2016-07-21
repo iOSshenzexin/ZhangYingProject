@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011050B71D4055DA009494F7 /* CustomPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050B51D4055DA009494F7 /* CustomPersonCell.m */; };
+		011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050B61D4055DA009494F7 /* CustomPersonCell.xib */; };
+		011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050BA1D4069AB009494F7 /* ChangePhoneController.m */; };
+		011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050BB1D4069AB009494F7 /* ChangePhoneController.xib */; };
+		011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050BF1D40742A009494F7 /* ModifyPhoneController.m */; };
+		011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050C01D40742A009494F7 /* ModifyPhoneController.xib */; };
+		011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050C51D407C17009494F7 /* ZXGetCheckCode.m */; };
 		012304541D3DC83500B19284 /* TopBannerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304531D3DC83500B19284 /* TopBannerTool.m */; };
 		012304621D3DC87B00B19284 /* KNBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304571D3DC87B00B19284 /* KNBannerView.m */; };
 		012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304591D3DC87B00B19284 /* KNCollectionViewCell.m */; };
@@ -41,6 +48,9 @@
 		019199361D3CCA66000F2483 /* ProductController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019199341D3CCA66000F2483 /* ProductController.xib */; };
 		0191993A1D3CCA76000F2483 /* DealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 019199381D3CCA76000F2483 /* DealController.m */; };
 		0191993B1D3CCA76000F2483 /* DealController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019199391D3CCA76000F2483 /* DealController.xib */; };
+		01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */; };
+		01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */; };
+		01D2CFF11D3F1BA5002D5575 /* PersonInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */; };
 		136CE08FD2D9F8F1D4F9B348 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482BFF76FA8D3ABF36CD44C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +72,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011050B41D4055DA009494F7 /* CustomPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPersonCell.h; sourceTree = "<group>"; };
+		011050B51D4055DA009494F7 /* CustomPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPersonCell.m; sourceTree = "<group>"; };
+		011050B61D4055DA009494F7 /* CustomPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPersonCell.xib; sourceTree = "<group>"; };
+		011050B91D4069AB009494F7 /* ChangePhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePhoneController.h; sourceTree = "<group>"; };
+		011050BA1D4069AB009494F7 /* ChangePhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePhoneController.m; sourceTree = "<group>"; };
+		011050BB1D4069AB009494F7 /* ChangePhoneController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePhoneController.xib; sourceTree = "<group>"; };
+		011050BE1D40742A009494F7 /* ModifyPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPhoneController.h; sourceTree = "<group>"; };
+		011050BF1D40742A009494F7 /* ModifyPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPhoneController.m; sourceTree = "<group>"; };
+		011050C01D40742A009494F7 /* ModifyPhoneController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPhoneController.xib; sourceTree = "<group>"; };
+		011050C41D407C17009494F7 /* ZXGetCheckCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXGetCheckCode.h; sourceTree = "<group>"; };
+		011050C51D407C17009494F7 /* ZXGetCheckCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXGetCheckCode.m; sourceTree = "<group>"; };
 		012304501D3DB8B900B19284 /* zhangying.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhangying.pch; sourceTree = "<group>"; };
 		012304521D3DC83500B19284 /* TopBannerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopBannerTool.h; path = ../TopBannerTool.h; sourceTree = "<group>"; };
 		012304531D3DC83500B19284 /* TopBannerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopBannerTool.m; path = ../TopBannerTool.m; sourceTree = "<group>"; };
@@ -122,6 +143,11 @@
 		019199371D3CCA76000F2483 /* DealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealController.h; sourceTree = "<group>"; };
 		019199381D3CCA76000F2483 /* DealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealController.m; sourceTree = "<group>"; };
 		019199391D3CCA76000F2483 /* DealController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealController.xib; sourceTree = "<group>"; };
+		01D2CFEA1D3F06E4002D5575 /* ZXCircleHeadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXCircleHeadImage.h; sourceTree = "<group>"; };
+		01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXCircleHeadImage.m; sourceTree = "<group>"; };
+		01D2CFED1D3F1BA5002D5575 /* PersonInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoController.h; sourceTree = "<group>"; };
+		01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoController.m; sourceTree = "<group>"; };
+		01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoController.xib; sourceTree = "<group>"; };
 		17B154C749B70D47B63A439E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		482BFF76FA8D3ABF36CD44C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65664CBCDA546F2E3861216 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,9 +179,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011050C31D407C17009494F7 /* GetCode */ = {
+			isa = PBXGroup;
+			children = (
+				011050C41D407C17009494F7 /* ZXGetCheckCode.h */,
+				011050C51D407C17009494F7 /* ZXGetCheckCode.m */,
+			);
+			path = GetCode;
+			sourceTree = "<group>";
+		};
 		012304511D3DC81D00B19284 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				011050C31D407C17009494F7 /* GetCode */,
+				01D2CFE91D3F06E4002D5575 /* ZXCircleHeadImage */,
 				0169F1831D3DD1CE0049B13D /* SearchBar */,
 				012304551D3DC87B00B19284 /* KNBannerView */,
 			);
@@ -190,6 +227,22 @@
 				0169F1851D3DD1E40049B13D /* ZXSearchBar.m */,
 			);
 			name = SearchBar;
+			sourceTree = "<group>";
+		};
+		0188229F1D3FD8FD009F812C /* Necessary */ = {
+			isa = PBXGroup;
+			children = (
+				019198D31D3CC32C000F2483 /* AppDelegate.h */,
+				019198D41D3CC32C000F2483 /* AppDelegate.m */,
+				019198DF1D3CC32D000F2483 /* Assets.xcassets */,
+				019198E11D3CC32D000F2483 /* LaunchScreen.storyboard */,
+				019198E41D3CC32D000F2483 /* Info.plist */,
+				019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */,
+				019199201D3CC94D000F2483 /* TabbarController.h */,
+				019199211D3CC94D000F2483 /* TabbarController.m */,
+				012304501D3DB8B900B19284 /* zhangying.pch */,
+			);
+			name = Necessary;
 			sourceTree = "<group>";
 		};
 		019198C41D3CC32A000F2483 = {
@@ -384,6 +437,15 @@
 				0191992D1D3CCA54000F2483 /* MineController.h */,
 				0191992E1D3CCA54000F2483 /* MineController.m */,
 				0191992F1D3CCA54000F2483 /* MineController.xib */,
+				01D2CFED1D3F1BA5002D5575 /* PersonInfoController.h */,
+				01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */,
+				01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */,
+				011050B91D4069AB009494F7 /* ChangePhoneController.h */,
+				011050BA1D4069AB009494F7 /* ChangePhoneController.m */,
+				011050BB1D4069AB009494F7 /* ChangePhoneController.xib */,
+				011050BE1D40742A009494F7 /* ModifyPhoneController.h */,
+				011050BF1D40742A009494F7 /* ModifyPhoneController.m */,
+				011050C01D40742A009494F7 /* ModifyPhoneController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -398,6 +460,9 @@
 		019199151D3CC8D5000F2483 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				011050B41D4055DA009494F7 /* CustomPersonCell.h */,
+				011050B51D4055DA009494F7 /* CustomPersonCell.m */,
+				011050B61D4055DA009494F7 /* CustomPersonCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,18 +504,19 @@
 		0191991A1D3CC8DA000F2483 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				0188229F1D3FD8FD009F812C /* Necessary */,
 				012304511D3DC81D00B19284 /* Tools */,
-				019198D31D3CC32C000F2483 /* AppDelegate.h */,
-				019198D41D3CC32C000F2483 /* AppDelegate.m */,
-				019198DF1D3CC32D000F2483 /* Assets.xcassets */,
-				019198E11D3CC32D000F2483 /* LaunchScreen.storyboard */,
-				019198E41D3CC32D000F2483 /* Info.plist */,
-				019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */,
-				019199201D3CC94D000F2483 /* TabbarController.h */,
-				019199211D3CC94D000F2483 /* TabbarController.m */,
-				012304501D3DB8B900B19284 /* zhangying.pch */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		01D2CFE91D3F06E4002D5575 /* ZXCircleHeadImage */ = {
+			isa = PBXGroup;
+			children = (
+				01D2CFEA1D3F06E4002D5575 /* ZXCircleHeadImage.h */,
+				01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */,
+			);
+			path = ZXCircleHeadImage;
 			sourceTree = "<group>";
 		};
 		76E100CE699F656BBC901953 /* Frameworks */ = {
@@ -540,6 +606,7 @@
 				TargetAttributes = {
 					019198CC1D3CC32B000F2483 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = SY5LQ5UGTM;
 					};
 					019198E81D3CC32D000F2483 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -577,6 +644,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
+				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
+				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
 				0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */,
 				0169F19C1D3E32120049B13D /* FourthView.xib in Resources */,
 				019198E31D3CC32D000F2483 /* LaunchScreen.storyboard in Resources */,
@@ -584,6 +653,8 @@
 				019199311D3CCA54000F2483 /* MineController.xib in Resources */,
 				019199271D3CCA2D000F2483 /* MessageController.xib in Resources */,
 				0169F1921D3E00430049B13D /* SecondView.xib in Resources */,
+				01D2CFF11D3F1BA5002D5575 /* PersonInfoController.xib in Resources */,
+				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
 				019199361D3CCA66000F2483 /* ProductController.xib in Resources */,
 				0169F1941D3E25630049B13D /* ThirdView.xib in Resources */,
@@ -664,18 +735,24 @@
 				019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */,
 				019198D21D3CC32C000F2483 /* main.m in Sources */,
 				019199221D3CC94D000F2483 /* TabbarController.m in Sources */,
+				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
+				011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */,
+				011050B71D4055DA009494F7 /* CustomPersonCell.m in Sources */,
 				0169F1891D3DD9770049B13D /* FirstView.m in Sources */,
 				012304541D3DC83500B19284 /* TopBannerTool.m in Sources */,
+				011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */,
 				0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */,
 				012304621D3DC87B00B19284 /* KNBannerView.m in Sources */,
 				012304641D3DC87B00B19284 /* KNJudgementTool.m in Sources */,
+				01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */,
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
 				019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */,
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
+				011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */,
 				012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */,
 				019199261D3CCA2D000F2483 /* MessageController.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,
@@ -813,13 +890,37 @@
 			baseConfigurationReference = 17B154C749B70D47B63A439E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhangYingProject/zhangying.pch";
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"LECropPictureViewController\"",
+					"-l\"MJRefresh\"",
+					"-l\"Reachability\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-w",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = vshoutao.com.ZhangYingProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Debug;
 		};
@@ -828,13 +929,37 @@
 			baseConfigurationReference = B65664CBCDA546F2E3861216 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhangYingProject/zhangying.pch";
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"LECropPictureViewController\"",
+					"-l\"MJRefresh\"",
+					"-l\"Reachability\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-w",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = vshoutao.com.ZhangYingProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Release;
 		};

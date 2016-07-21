@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MineController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
