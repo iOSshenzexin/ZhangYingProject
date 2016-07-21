@@ -29,6 +29,9 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-xE-0a5">
                             <rect key="frame" x="87" y="62" width="64" height="20"/>
                             <state key="normal" image="my-rz"/>
+                            <connections>
+                                <action selector="memberAuthenticationBtn:" destination="-1" eventType="touchUpInside" id="LGs-z1-7YD"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-mK-Zhb">
                             <rect key="frame" x="9" y="15" width="72" height="72"/>
@@ -76,6 +79,9 @@
                     <state key="normal" title="钱包" image="my-wallet">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="didClickEnterMyWallet:" destination="-1" eventType="touchUpInside" id="KbF-zA-cAQ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPa-cT-amV">
                     <rect key="frame" x="249" y="191" width="73" height="77"/>
@@ -84,6 +90,9 @@
                     <state key="normal" title="卡券" image="my-coupon">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="didClickEnterMyCard:" destination="-1" eventType="touchUpInside" id="ONM-57-qYB"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>

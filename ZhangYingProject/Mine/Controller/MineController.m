@@ -9,10 +9,14 @@
 #import "MineController.h"
 #import "ZXCircleHeadImage.h"
 #import "PersonInfoController.h"
+#import "MemberAuthenticationController.h"
+#import "MyWalletController.h"
+#import "MyCardController.h"
 @interface MineController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *dataSource;
 @property (nonatomic,copy) NSArray *imageArray;
+
 - (IBAction)didClickSetPersonInfo:(id)sender;
 
 @end
@@ -92,4 +96,27 @@
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:allString]];
 }
 
+- (IBAction)memberAuthenticationBtn:(id)sender {
+    MemberAuthenticationController *vc = [[MemberAuthenticationController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    vc.title = @"身份认证";
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+- (IBAction)didClickEnterMyWallet:(id)sender {
+    MyWalletController *vc = [[MyWalletController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    vc.title = @"钱包";
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+- (IBAction)didClickEnterMyCard:(id)sender {
+    MyCardController *vc = [[MyCardController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    vc.title = @"我的卡券";
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
 @end

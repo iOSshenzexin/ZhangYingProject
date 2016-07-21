@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TabbarController.h"
+#import "LoginController.h"
 @interface AppDelegate ()
 
 @end
@@ -23,6 +24,12 @@
     UITabBar *tabBar = tabBarController.tabBar;
     UITabBarItem *tabBarItem = tabBar.items[2];
     tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    
+    UIButton *tabbarButton = tabBarController.tabBar.subviews[2];
+    [tabbarButton addTarget:self action:@selector(showLoginController:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    
 
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -32,9 +39,9 @@
     CGContextFillRect(context, rect);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     tabBar.backgroundImage = image;
     
+
     //更改导航栏的颜色跟字体颜色
     [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -45,6 +52,13 @@
     return YES;
 }
 
+
+- (void)showLoginController:(UIButton *)btn{
+    LoginController *vc = [[LoginController alloc] init];
+    
+    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+    NSLog(@"xxx");
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

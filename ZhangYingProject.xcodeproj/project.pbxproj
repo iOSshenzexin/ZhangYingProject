@@ -14,6 +14,18 @@
 		011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050BF1D40742A009494F7 /* ModifyPhoneController.m */; };
 		011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050C01D40742A009494F7 /* ModifyPhoneController.xib */; };
 		011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050C51D407C17009494F7 /* ZXGetCheckCode.m */; };
+		011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050CD1D4096E0009494F7 /* MemberAuthenticationController.m */; };
+		011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050CE1D4096E0009494F7 /* MemberAuthenticationController.xib */; };
+		011050D61D409E4F009494F7 /* CustomLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050D51D409E4F009494F7 /* CustomLine.m */; };
+		011050DA1D40B5D2009494F7 /* AddImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050D91D40B5D2009494F7 /* AddImage.m */; };
+		011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050DC1D40BC6F009494F7 /* MyWalletController.m */; };
+		011050DF1D40BC6F009494F7 /* MyWalletController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050DD1D40BC6F009494F7 /* MyWalletController.xib */; };
+		011050E31D40C3D8009494F7 /* MyCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050E11D40C3D8009494F7 /* MyCardController.m */; };
+		011050E41D40C3D8009494F7 /* MyCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050E21D40C3D8009494F7 /* MyCardController.xib */; };
+		011050E81D40C70D009494F7 /* CardCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050E61D40C70D009494F7 /* CardCustomCell.m */; };
+		011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050E71D40C70D009494F7 /* CardCustomCell.xib */; };
+		011050EE1D40CC97009494F7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011050EC1D40CC97009494F7 /* LoginController.m */; };
+		011050EF1D40CC97009494F7 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011050ED1D40CC97009494F7 /* LoginController.xib */; };
 		012304541D3DC83500B19284 /* TopBannerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304531D3DC83500B19284 /* TopBannerTool.m */; };
 		012304621D3DC87B00B19284 /* KNBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304571D3DC87B00B19284 /* KNBannerView.m */; };
 		012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304591D3DC87B00B19284 /* KNCollectionViewCell.m */; };
@@ -83,6 +95,25 @@
 		011050C01D40742A009494F7 /* ModifyPhoneController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPhoneController.xib; sourceTree = "<group>"; };
 		011050C41D407C17009494F7 /* ZXGetCheckCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXGetCheckCode.h; sourceTree = "<group>"; };
 		011050C51D407C17009494F7 /* ZXGetCheckCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXGetCheckCode.m; sourceTree = "<group>"; };
+		011050CC1D4096E0009494F7 /* MemberAuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberAuthenticationController.h; sourceTree = "<group>"; };
+		011050CD1D4096E0009494F7 /* MemberAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberAuthenticationController.m; sourceTree = "<group>"; };
+		011050CE1D4096E0009494F7 /* MemberAuthenticationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberAuthenticationController.xib; sourceTree = "<group>"; };
+		011050D41D409E4F009494F7 /* CustomLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLine.h; sourceTree = "<group>"; };
+		011050D51D409E4F009494F7 /* CustomLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLine.m; sourceTree = "<group>"; };
+		011050D81D40B5D2009494F7 /* AddImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddImage.h; sourceTree = "<group>"; };
+		011050D91D40B5D2009494F7 /* AddImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddImage.m; sourceTree = "<group>"; };
+		011050DB1D40BC6F009494F7 /* MyWalletController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletController.h; sourceTree = "<group>"; };
+		011050DC1D40BC6F009494F7 /* MyWalletController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletController.m; sourceTree = "<group>"; };
+		011050DD1D40BC6F009494F7 /* MyWalletController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyWalletController.xib; sourceTree = "<group>"; };
+		011050E01D40C3D8009494F7 /* MyCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardController.h; sourceTree = "<group>"; };
+		011050E11D40C3D8009494F7 /* MyCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardController.m; sourceTree = "<group>"; };
+		011050E21D40C3D8009494F7 /* MyCardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardController.xib; sourceTree = "<group>"; };
+		011050E51D40C70D009494F7 /* CardCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCustomCell.h; sourceTree = "<group>"; };
+		011050E61D40C70D009494F7 /* CardCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCustomCell.m; sourceTree = "<group>"; };
+		011050E71D40C70D009494F7 /* CardCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCustomCell.xib; sourceTree = "<group>"; };
+		011050EB1D40CC97009494F7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		011050EC1D40CC97009494F7 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		011050ED1D40CC97009494F7 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
 		012304501D3DB8B900B19284 /* zhangying.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhangying.pch; sourceTree = "<group>"; };
 		012304521D3DC83500B19284 /* TopBannerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopBannerTool.h; path = ../TopBannerTool.h; sourceTree = "<group>"; };
 		012304531D3DC83500B19284 /* TopBannerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopBannerTool.m; path = ../TopBannerTool.m; sourceTree = "<group>"; };
@@ -188,9 +219,29 @@
 			path = GetCode;
 			sourceTree = "<group>";
 		};
+		011050D71D40B5D2009494F7 /* AddPicture */ = {
+			isa = PBXGroup;
+			children = (
+				011050D81D40B5D2009494F7 /* AddImage.h */,
+				011050D91D40B5D2009494F7 /* AddImage.m */,
+			);
+			path = AddPicture;
+			sourceTree = "<group>";
+		};
+		011050EA1D40CC7E009494F7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				011050EB1D40CC97009494F7 /* LoginController.h */,
+				011050EC1D40CC97009494F7 /* LoginController.m */,
+				011050ED1D40CC97009494F7 /* LoginController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		012304511D3DC81D00B19284 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				011050D71D40B5D2009494F7 /* AddPicture */,
 				011050C31D407C17009494F7 /* GetCode */,
 				01D2CFE91D3F06E4002D5575 /* ZXCircleHeadImage */,
 				0169F1831D3DD1CE0049B13D /* SearchBar */,
@@ -270,6 +321,7 @@
 		019198CF1D3CC32C000F2483 /* ZhangYingProject */ = {
 			isa = PBXGroup;
 			children = (
+				011050EA1D40CC7E009494F7 /* Login */,
 				0191991A1D3CC8DA000F2483 /* Other */,
 				019199061D3CC8D5000F2483 /* Deal */,
 				0191990A1D3CC8D5000F2483 /* Home */,
@@ -437,6 +489,9 @@
 				0191992D1D3CCA54000F2483 /* MineController.h */,
 				0191992E1D3CCA54000F2483 /* MineController.m */,
 				0191992F1D3CCA54000F2483 /* MineController.xib */,
+				011050CC1D4096E0009494F7 /* MemberAuthenticationController.h */,
+				011050CD1D4096E0009494F7 /* MemberAuthenticationController.m */,
+				011050CE1D4096E0009494F7 /* MemberAuthenticationController.xib */,
 				01D2CFED1D3F1BA5002D5575 /* PersonInfoController.h */,
 				01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */,
 				01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */,
@@ -446,6 +501,12 @@
 				011050BE1D40742A009494F7 /* ModifyPhoneController.h */,
 				011050BF1D40742A009494F7 /* ModifyPhoneController.m */,
 				011050C01D40742A009494F7 /* ModifyPhoneController.xib */,
+				011050DB1D40BC6F009494F7 /* MyWalletController.h */,
+				011050DC1D40BC6F009494F7 /* MyWalletController.m */,
+				011050DD1D40BC6F009494F7 /* MyWalletController.xib */,
+				011050E01D40C3D8009494F7 /* MyCardController.h */,
+				011050E11D40C3D8009494F7 /* MyCardController.m */,
+				011050E21D40C3D8009494F7 /* MyCardController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -463,6 +524,11 @@
 				011050B41D4055DA009494F7 /* CustomPersonCell.h */,
 				011050B51D4055DA009494F7 /* CustomPersonCell.m */,
 				011050B61D4055DA009494F7 /* CustomPersonCell.xib */,
+				011050D41D409E4F009494F7 /* CustomLine.h */,
+				011050D51D409E4F009494F7 /* CustomLine.m */,
+				011050E51D40C70D009494F7 /* CardCustomCell.h */,
+				011050E61D40C70D009494F7 /* CardCustomCell.m */,
+				011050E71D40C70D009494F7 /* CardCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -645,6 +711,7 @@
 			files = (
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
+				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
 				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
 				0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */,
 				0169F19C1D3E32120049B13D /* FourthView.xib in Resources */,
@@ -654,7 +721,11 @@
 				019199271D3CCA2D000F2483 /* MessageController.xib in Resources */,
 				0169F1921D3E00430049B13D /* SecondView.xib in Resources */,
 				01D2CFF11D3F1BA5002D5575 /* PersonInfoController.xib in Resources */,
+				011050E41D40C3D8009494F7 /* MyCardController.xib in Resources */,
+				011050EF1D40CC97009494F7 /* LoginController.xib in Resources */,
+				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
+				011050DF1D40BC6F009494F7 /* MyWalletController.xib in Resources */,
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
 				019199361D3CCA66000F2483 /* ProductController.xib in Resources */,
 				0169F1941D3E25630049B13D /* ThirdView.xib in Resources */,
@@ -735,7 +806,9 @@
 				019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */,
 				019198D21D3CC32C000F2483 /* main.m in Sources */,
 				019199221D3CC94D000F2483 /* TabbarController.m in Sources */,
+				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
+				011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
 				011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */,
 				011050B71D4055DA009494F7 /* CustomPersonCell.m in Sources */,
@@ -745,16 +818,21 @@
 				0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */,
 				012304621D3DC87B00B19284 /* KNBannerView.m in Sources */,
 				012304641D3DC87B00B19284 /* KNJudgementTool.m in Sources */,
+				011050E31D40C3D8009494F7 /* MyCardController.m in Sources */,
 				01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */,
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
+				011050EE1D40CC97009494F7 /* LoginController.m in Sources */,
+				011050DA1D40B5D2009494F7 /* AddImage.m in Sources */,
 				019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */,
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
 				011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */,
 				012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */,
+				011050D61D409E4F009494F7 /* CustomLine.m in Sources */,
 				019199261D3CCA2D000F2483 /* MessageController.m in Sources */,
+				011050E81D40C70D009494F7 /* CardCustomCell.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,
 				019199301D3CCA54000F2483 /* MineController.m in Sources */,
 			);

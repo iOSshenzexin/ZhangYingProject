@@ -12,4 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)didClickEnterMyWallet:(id)sender;
+
+- (IBAction)didClickEnterMyCard:(id)sender;
+
 @end
