@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCardController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecuritySetController">
             <connections>
-                <outlet property="cardTableView" destination="bMH-Dt-SUM" id="oOz-XK-F8o"/>
+                <outlet property="securityTableView" destination="9Yg-Sy-Vjc" id="8Tf-LO-g6L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,24 +16,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bMH-Dt-SUM">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9Yg-Sy-Vjc">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="XCo-B6-Mo6"/>
-                        <outlet property="delegate" destination="-1" id="Oaf-hZ-add"/>
+                        <outlet property="dataSource" destination="-1" id="5oP-cx-oJy"/>
+                        <outlet property="delegate" destination="-1" id="QTp-wy-odw"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="bMH-Dt-SUM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3sa-L3-DQ2"/>
-                <constraint firstAttribute="bottom" secondItem="bMH-Dt-SUM" secondAttribute="bottom" id="95n-UF-ZSZ"/>
-                <constraint firstAttribute="trailing" secondItem="bMH-Dt-SUM" secondAttribute="trailing" id="K6N-Fp-1hs"/>
-                <constraint firstItem="bMH-Dt-SUM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yWn-Y6-baT"/>
+                <constraint firstAttribute="bottom" secondItem="9Yg-Sy-Vjc" secondAttribute="bottom" id="4JM-Mr-7Ph"/>
+                <constraint firstItem="9Yg-Sy-Vjc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NV8-HD-LGh"/>
+                <constraint firstAttribute="trailing" secondItem="9Yg-Sy-Vjc" secondAttribute="trailing" id="dBy-Va-S6y"/>
+                <constraint firstItem="9Yg-Sy-Vjc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xag-de-7Ux"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="219.5" y="317.5"/>
         </view>
     </objects>
 </document>

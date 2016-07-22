@@ -12,6 +12,9 @@
 #import "MemberAuthenticationController.h"
 #import "MyWalletController.h"
 #import "MyCardController.h"
+
+#import "DealSettingController.h"
+#import "SecuritySetController.h"
 @interface MineController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *dataSource;
@@ -74,6 +77,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:str];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.textLabel.text = self.dataSource[indexPath.row];
@@ -89,12 +93,48 @@
 
 - (void)makeServiceCall:(UITapGestureRecognizer *)tap{
     UIWebView *callWebview =[[UIWebView alloc] init];
-    NSURL *telURL =[NSURL URLWithString:@"tel://400-666-8888"];// 貌似tel:// 或者 tel: 都行
+    NSURL *telURL =[NSURL URLWithString:@"tel://400-666-8888"];
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     [self.view addSubview:callWebview];
-//    NSString *allString = [NSString stringWithFormat:@"tel:10086"];
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:allString]];
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    switch (indexPath.row) {
+        case 0:{
+            self.hidesBottomBarWhenPushed = YES;
+            DealSettingController *vc = [[DealSettingController alloc] init];
+            vc.title = @"交易设置";
+            [self.navigationController pushViewController:vc animated:YES];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+        }
+        case 1:{
+            self.hidesBottomBarWhenPushed = YES;
+            SecuritySetController *vc = [[SecuritySetController alloc] init];
+            vc.title = @"安全设置";
+            [self.navigationController pushViewController:vc animated:YES];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+        }
+        case 2:
+        {
+            break;
+        }
+        case 3:
+        {
+            break;
+        }
+            
+        default:
+            break;
+    }
+
+}
+
+
+
 
 - (IBAction)memberAuthenticationBtn:(id)sender {
     MemberAuthenticationController *vc = [[MemberAuthenticationController alloc] init];
@@ -119,4 +159,7 @@
     [self.navigationController pushViewController:vc animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
+
+
+
 @end

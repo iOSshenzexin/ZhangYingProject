@@ -33,7 +33,7 @@
 }
 
 - (void)setupTxtFieldAndImage{
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 120, self.nameTxt.frame.size.height)];
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, self.nameTxt.frame.size.height)];
     UILabel *leftLbl = [[UILabel alloc] init];
     leftLbl.bounds = CGRectMake(0, 0, 80, self.nameTxt.frame.size.height);
     leftLbl.text = @"真实姓名";
@@ -42,7 +42,7 @@
     self.nameTxt.leftView = leftView;
     self.nameTxt.leftViewMode = UITextFieldViewModeAlways;
     
-    UIView *memberView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 120, self.memberIDTxt.frame.size.height)];
+    UIView *memberView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, self.memberIDTxt.frame.size.height)];
     UILabel *memberLbl = [[UILabel alloc] init];
     memberLbl.bounds = CGRectMake(0, 0, 80, self.nameTxt.frame.size.height);
     memberLbl.text = @"身份证号";

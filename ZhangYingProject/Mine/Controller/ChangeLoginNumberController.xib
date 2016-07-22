@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePhoneController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeLoginNumberController">
             <connections>
-                <outlet property="txtField" destination="Jmc-4Z-UZA" id="z6M-Mf-Rlu"/>
+                <outlet property="txtField" destination="s9Z-7k-tWk" id="iEL-RU-bgI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,41 +16,41 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jmc-4Z-UZA">
-                    <rect key="frame" x="0.0" y="85" width="375" height="50"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-7k-tWk">
+                    <rect key="frame" x="0.0" y="68" width="375" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="etH-Pw-ELl"/>
+                        <constraint firstAttribute="height" constant="50" id="J1s-In-G17"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-oG-sEe">
-                    <rect key="frame" x="30" y="246" width="315" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqs-5p-ss6">
+                    <rect key="frame" x="30" y="229" width="315" height="40"/>
                     <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="YwI-Lk-cwK"/>
+                        <constraint firstAttribute="height" constant="40" id="xUK-JA-a0R"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <state key="normal" title="下一步">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="modifyPhoneNumber:" destination="-1" eventType="touchUpInside" id="1UW-nM-ad7"/>
+                        <action selector="modifyPhoneNumber:" destination="-1" eventType="touchUpInside" id="ouZ-8w-Qx6"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="yB1-oG-sEe" secondAttribute="trailing" constant="30" id="Ipb-cf-sju"/>
-                <constraint firstItem="yB1-oG-sEe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="cfv-zr-9g4"/>
-                <constraint firstItem="yB1-oG-sEe" firstAttribute="top" secondItem="Jmc-4Z-UZA" secondAttribute="bottom" constant="111" id="gGv-U3-A89"/>
-                <constraint firstAttribute="trailing" secondItem="Jmc-4Z-UZA" secondAttribute="trailing" id="jfO-ov-rvo"/>
-                <constraint firstItem="Jmc-4Z-UZA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="ukN-Y0-HKy"/>
-                <constraint firstItem="Jmc-4Z-UZA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vrX-9J-BuK"/>
+                <constraint firstAttribute="trailing" secondItem="s9Z-7k-tWk" secondAttribute="trailing" id="AMI-Ue-Gz3"/>
+                <constraint firstItem="kqs-5p-ss6" firstAttribute="top" secondItem="s9Z-7k-tWk" secondAttribute="bottom" constant="111" id="FOf-gk-xLp"/>
+                <constraint firstItem="s9Z-7k-tWk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dMp-NG-ndD"/>
+                <constraint firstItem="kqs-5p-ss6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="elN-4N-Krk"/>
+                <constraint firstItem="s9Z-7k-tWk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="j9N-WF-Hsw"/>
+                <constraint firstAttribute="trailing" secondItem="kqs-5p-ss6" secondAttribute="trailing" constant="30" id="jup-xQ-cN7"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="252.5" y="188.5"/>
+            <point key="canvasLocation" x="135.5" y="264.5"/>
         </view>
     </objects>
 </document>

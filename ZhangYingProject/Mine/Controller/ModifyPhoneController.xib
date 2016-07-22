@@ -17,28 +17,48 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q0O-7Y-9JD">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q0O-7Y-9JD">
                     <rect key="frame" x="0.0" y="80" width="375" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="3Cp-Bv-yvV"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-jQ-I4L">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-jQ-I4L">
                     <rect key="frame" x="30" y="293" width="315" height="40"/>
                     <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hFq-ae-Xfv"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <state key="normal" title="绑定">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-19-2td">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-19-2td">
                     <rect key="frame" x="0.0" y="149" width="375" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WtH-uf-Ja4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="oSD-jQ-I4L" firstAttribute="top" secondItem="Gdb-19-2td" secondAttribute="bottom" constant="94" id="4M4-V7-1PS"/>
+                <constraint firstAttribute="trailing" secondItem="Q0O-7Y-9JD" secondAttribute="trailing" id="CEf-IO-1rO"/>
+                <constraint firstItem="Q0O-7Y-9JD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="JCU-mA-s4E"/>
+                <constraint firstItem="Gdb-19-2td" firstAttribute="top" secondItem="Q0O-7Y-9JD" secondAttribute="bottom" constant="19" id="MLn-5F-Umo"/>
+                <constraint firstAttribute="trailing" secondItem="Gdb-19-2td" secondAttribute="trailing" id="SJU-oh-W9g"/>
+                <constraint firstItem="Q0O-7Y-9JD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XKS-8X-GRx"/>
+                <constraint firstItem="Gdb-19-2td" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eEH-MD-7sX"/>
+                <constraint firstAttribute="trailing" secondItem="oSD-jQ-I4L" secondAttribute="trailing" constant="30" id="hCh-nd-dxx"/>
+                <constraint firstItem="oSD-jQ-I4L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="vnx-p4-p0A"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="135.5" y="249.5"/>
         </view>

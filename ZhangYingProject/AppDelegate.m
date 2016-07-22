@@ -25,11 +25,12 @@
     UITabBarItem *tabBarItem = tabBar.items[2];
     tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
     
+    if(self.isLogin == NO){
     UIButton *tabbarButton = tabBarController.tabBar.subviews[2];
     [tabbarButton addTarget:self action:@selector(showLoginController:) forControlEvents:UIControlEventTouchUpInside];
+        self.isLogin = !self.isLogin;
+    }
 
-
-    
 
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);

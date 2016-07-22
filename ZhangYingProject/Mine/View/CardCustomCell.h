@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CardCustomCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *priceLbl;
+@property (weak, nonatomic) IBOutlet UILabel *numberLbl;
+@property (weak, nonatomic) IBOutlet UILabel *amountLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
 @end

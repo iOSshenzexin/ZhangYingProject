@@ -18,9 +18,19 @@
 
 @implementation TabbarController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpAllChildViewController];
+}
+
++ (TabbarController *)sharedTabBarController{
+    static TabbarController *vc = nil;
+    if (!vc) {
+        vc = [[TabbarController alloc] init];
+    }
+    return vc;
 }
 
 - (void)setUpAllChildViewController{
@@ -40,7 +50,7 @@
     MineController *mineVC = [[MineController alloc]init];
     [self setUpOneChildViewController:mineVC image:[UIImage imageNamed:@"nav04_normal"] selectImage:[UIImage imageNamed:@"nav04_click"]  title:@"我的"];
 
-    [self setSelectedIndex:4];
+    [self setSelectedIndex:2];
 }
 
 - (void)setUpOneChildViewController:(UIViewController *)viewController image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title {

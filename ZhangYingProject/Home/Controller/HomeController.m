@@ -7,16 +7,20 @@
 //
 
 #import "HomeController.h"
+#import "SearchController.h"
+
+
 #import "TopBannerTool.h"
 #import "ZXSearchBar.h"
 #import "FirstView.h"
 #import "SecondView.h"
 #import "ThirdView.h"
 #import "FourthView.h"
-@interface HomeController ()<KNBannerViewDelegate>
+@interface HomeController ()<KNBannerViewDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (weak,nonatomic) UITextField *textField;
 @property (nonatomic,strong) UITableView *tv;
 @end
 
@@ -26,11 +30,31 @@
     [super viewDidLoad];
     //添加搜索框
     self.navigationItem.titleView = [ZXSearchBar searchBar];
+    UITextField *txt = (UITextField *)self.navigationItem.titleView;
+    txt.delegate = self;
+    self.textField = txt;
     //添加轮播图
     [self.scrollView addSubview:[TopBannerTool setupNetWorkBannerViewAtViewController:self]];
-
+    //创建模块视图
     [self setupView];
-    
+    //自定义返回按钮样式
+    [self deleteBack];
+}
+
+- (void)deleteBack{
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = backButtonItem;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pictureNumber" object:nil userInfo:nil];
+    self.hidesBottomBarWhenPushed = YES;
+    SearchController *vc = [SearchController sharedSearchController];
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+    return NO;
 }
 
 - (void)setupView{
@@ -70,6 +94,7 @@
 
 - (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSInteger)index{
     NSLog(@"%zd---%zd",bannerView.tag,index);
+  
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

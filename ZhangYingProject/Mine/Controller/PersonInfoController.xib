@@ -17,18 +17,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYO-hO-2iK">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYO-hO-2iK">
                     <rect key="frame" x="0.0" y="64" width="375" height="120"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRU-we-U8e">
-                            <rect key="frame" x="147" y="20" width="80" height="80"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRU-we-U8e">
+                            <rect key="frame" x="148" y="20" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="cSd-YP-BqW"/>
+                                <constraint firstAttribute="width" constant="80" id="yWt-9e-LRx"/>
+                            </constraints>
                             <state key="normal" image="my-phone"/>
                             <connections>
                                 <action selector="handOffHeadImage:" destination="-1" eventType="touchUpInside" id="muE-SI-Rjf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMG-S5-7W0">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMG-S5-7W0">
                             <rect key="frame" x="210" y="78" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="2k9-yj-cyc"/>
+                                <constraint firstAttribute="height" constant="22" id="qAv-H4-1la"/>
+                            </constraints>
                             <state key="normal" image="my-phone02"/>
                             <connections>
                                 <action selector="handOffHeadImage:" destination="-1" eventType="touchUpInside" id="NVT-nj-L52"/>
@@ -36,10 +44,20 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="LRU-we-U8e" firstAttribute="centerX" secondItem="yYO-hO-2iK" secondAttribute="centerX" id="0pD-Ni-enp"/>
+                        <constraint firstAttribute="height" constant="120" id="5ln-jh-3Ck"/>
+                        <constraint firstItem="LMG-S5-7W0" firstAttribute="top" secondItem="LRU-we-U8e" secondAttribute="bottom" constant="-22" id="Bam-Hc-vRu"/>
+                        <constraint firstItem="LRU-we-U8e" firstAttribute="top" secondItem="yYO-hO-2iK" secondAttribute="top" constant="20" id="pbN-kq-1Vm"/>
+                        <constraint firstItem="LMG-S5-7W0" firstAttribute="leading" secondItem="LRU-we-U8e" secondAttribute="trailing" constant="-18" id="yIu-nB-l0T"/>
+                    </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-tu-goe">
-                    <rect key="frame" x="0.0" y="203" width="375" height="222"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-tu-goe">
+                    <rect key="frame" x="0.0" y="202" width="375" height="220"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="vea-Y7-FUM"/>
+                    </constraints>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -47,9 +65,12 @@
                         <outlet property="delegate" destination="-1" id="4HY-Yy-fG5"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MV-TL-7zw">
-                    <rect key="frame" x="35" y="545" width="305" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MV-TL-7zw">
+                    <rect key="frame" x="30" y="545" width="315" height="40"/>
                     <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="M7g-zC-eHp"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="确认修改">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,6 +78,17 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="yYO-hO-2iK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="7Nl-vI-9cN"/>
+                <constraint firstItem="gq4-tu-goe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="80l-uG-4FZ"/>
+                <constraint firstItem="gq4-tu-goe" firstAttribute="top" secondItem="yYO-hO-2iK" secondAttribute="bottom" constant="18" id="9ZT-We-kGL"/>
+                <constraint firstItem="1MV-TL-7zw" firstAttribute="top" secondItem="gq4-tu-goe" secondAttribute="bottom" constant="123" id="TRO-E1-ef6"/>
+                <constraint firstAttribute="trailing" secondItem="1MV-TL-7zw" secondAttribute="trailing" constant="30" id="Zbz-eh-9Jv"/>
+                <constraint firstAttribute="trailing" secondItem="gq4-tu-goe" secondAttribute="trailing" id="b5x-QH-nTZ"/>
+                <constraint firstItem="1MV-TL-7zw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="kOS-hx-Cb0"/>
+                <constraint firstAttribute="trailing" secondItem="yYO-hO-2iK" secondAttribute="trailing" id="m59-Ta-rFK"/>
+                <constraint firstItem="yYO-hO-2iK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pik-O6-CCn"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="-356.5" y="152.5"/>
         </view>

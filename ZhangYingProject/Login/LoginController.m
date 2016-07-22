@@ -7,8 +7,10 @@
 //
 
 #import "LoginController.h"
+#import "AppDelegate.h"
+#import "TabbarController.h"
 
-@interface LoginController ()
+@interface LoginController ()<UIApplicationDelegate>
 
 @end
 
@@ -21,6 +23,9 @@
 
 
 - (IBAction)didClickBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+    [self dismissViewControllerAnimated:YES completion:^{
+        TabbarController *tc = [TabbarController sharedTabBarController];
+        [tc setSelectedIndex:0];
+    }];
+   }
 @end

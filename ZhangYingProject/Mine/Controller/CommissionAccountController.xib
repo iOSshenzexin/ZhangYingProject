@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommissionAccountController">
+            <connections>
+                <outlet property="amountTableView" destination="4bW-yf-kgI" id="HO0-Kj-IG7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-yf-kgI">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" red="1" green="0.20392156859999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="eHU-TT-zxS"/>
+                        <outlet property="delegate" destination="-1" id="L7n-AU-hZj"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz3-64-UOt">
+                    <rect key="frame" x="30" y="410" width="315" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.20392156859999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="b1C-xt-w9c"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="提交">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4bW-yf-kgI" secondAttribute="trailing" id="8qZ-Jc-LIl"/>
+                <constraint firstItem="Nz3-64-UOt" firstAttribute="top" secondItem="4bW-yf-kgI" secondAttribute="bottom" constant="60" id="G7U-7l-SYa"/>
+                <constraint firstItem="Nz3-64-UOt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="L0V-Fq-lkg"/>
+                <constraint firstItem="4bW-yf-kgI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NGU-XJ-c6h"/>
+                <constraint firstAttribute="trailing" secondItem="Nz3-64-UOt" secondAttribute="trailing" constant="30" id="Nih-2e-TYw"/>
+                <constraint firstItem="Nz3-64-UOt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="410" id="V1j-1s-1mD"/>
+                <constraint firstItem="4bW-yf-kgI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tnJ-wD-FjD"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="94.5" y="110.5"/>
+        </view>
+    </objects>
+</document>

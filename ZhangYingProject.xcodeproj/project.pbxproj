@@ -63,6 +63,22 @@
 		01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */; };
 		01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */; };
 		01D2CFF11D3F1BA5002D5575 /* PersonInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */; };
+		01E525821D41B6DD00617491 /* DealSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E525801D41B6DD00617491 /* DealSettingController.m */; };
+		01E525831D41B6DD00617491 /* DealSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E525811D41B6DD00617491 /* DealSettingController.xib */; };
+		01E525881D41C30000617491 /* CommissionAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E525861D41C30000617491 /* CommissionAccountController.m */; };
+		01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E525871D41C30000617491 /* CommissionAccountController.xib */; };
+		01E5258D1D41C95600617491 /* DealCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E5258B1D41C95600617491 /* DealCustomCell.m */; };
+		01E5258E1D41C95600617491 /* DealCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E5258C1D41C95600617491 /* DealCustomCell.xib */; };
+		01E525971D420BAD00617491 /* AddAdressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E525951D420BAD00617491 /* AddAdressController.m */; };
+		01E525981D420BAE00617491 /* AddAdressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E525961D420BAD00617491 /* AddAdressController.xib */; };
+		01E5259D1D4210ED00617491 /* SecuritySetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E5259B1D4210ED00617491 /* SecuritySetController.m */; };
+		01E5259E1D4210ED00617491 /* SecuritySetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E5259C1D4210ED00617491 /* SecuritySetController.xib */; };
+		01E525A21D42169300617491 /* ChangeLoginNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E525A01D42169300617491 /* ChangeLoginNumberController.m */; };
+		01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E525A11D42169300617491 /* ChangeLoginNumberController.xib */; };
+		01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E525A51D421A1300617491 /* SetNewPWDController.m */; };
+		01E525A81D421A1300617491 /* SetNewPWDController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E525A61D421A1300617491 /* SetNewPWDController.xib */; };
+		01E525AC1D42223700617491 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E525AA1D42223700617491 /* SearchController.m */; };
+		01E525AD1D42223700617491 /* SearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E525AB1D42223700617491 /* SearchController.xib */; };
 		136CE08FD2D9F8F1D4F9B348 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482BFF76FA8D3ABF36CD44C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +195,30 @@
 		01D2CFED1D3F1BA5002D5575 /* PersonInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoController.h; sourceTree = "<group>"; };
 		01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoController.m; sourceTree = "<group>"; };
 		01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoController.xib; sourceTree = "<group>"; };
+		01E5257F1D41B6DD00617491 /* DealSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealSettingController.h; sourceTree = "<group>"; };
+		01E525801D41B6DD00617491 /* DealSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealSettingController.m; sourceTree = "<group>"; };
+		01E525811D41B6DD00617491 /* DealSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealSettingController.xib; sourceTree = "<group>"; };
+		01E525851D41C30000617491 /* CommissionAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionAccountController.h; sourceTree = "<group>"; };
+		01E525861D41C30000617491 /* CommissionAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionAccountController.m; sourceTree = "<group>"; };
+		01E525871D41C30000617491 /* CommissionAccountController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommissionAccountController.xib; sourceTree = "<group>"; };
+		01E5258A1D41C95600617491 /* DealCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealCustomCell.h; sourceTree = "<group>"; };
+		01E5258B1D41C95600617491 /* DealCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealCustomCell.m; sourceTree = "<group>"; };
+		01E5258C1D41C95600617491 /* DealCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealCustomCell.xib; sourceTree = "<group>"; };
+		01E525941D420BAD00617491 /* AddAdressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAdressController.h; sourceTree = "<group>"; };
+		01E525951D420BAD00617491 /* AddAdressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAdressController.m; sourceTree = "<group>"; };
+		01E525961D420BAD00617491 /* AddAdressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAdressController.xib; sourceTree = "<group>"; };
+		01E5259A1D4210ED00617491 /* SecuritySetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecuritySetController.h; sourceTree = "<group>"; };
+		01E5259B1D4210ED00617491 /* SecuritySetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecuritySetController.m; sourceTree = "<group>"; };
+		01E5259C1D4210ED00617491 /* SecuritySetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecuritySetController.xib; sourceTree = "<group>"; };
+		01E5259F1D42169300617491 /* ChangeLoginNumberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeLoginNumberController.h; sourceTree = "<group>"; };
+		01E525A01D42169300617491 /* ChangeLoginNumberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeLoginNumberController.m; sourceTree = "<group>"; };
+		01E525A11D42169300617491 /* ChangeLoginNumberController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeLoginNumberController.xib; sourceTree = "<group>"; };
+		01E525A41D421A1300617491 /* SetNewPWDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNewPWDController.h; sourceTree = "<group>"; };
+		01E525A51D421A1300617491 /* SetNewPWDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetNewPWDController.m; sourceTree = "<group>"; };
+		01E525A61D421A1300617491 /* SetNewPWDController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetNewPWDController.xib; sourceTree = "<group>"; };
+		01E525A91D42223700617491 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
+		01E525AA1D42223700617491 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
+		01E525AB1D42223700617491 /* SearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchController.xib; sourceTree = "<group>"; };
 		17B154C749B70D47B63A439E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		482BFF76FA8D3ABF36CD44C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65664CBCDA546F2E3861216 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -409,6 +449,9 @@
 				019199281D3CCA43000F2483 /* HomeController.h */,
 				019199291D3CCA43000F2483 /* HomeController.m */,
 				0191992A1D3CCA43000F2483 /* HomeController.xib */,
+				01E525A91D42223700617491 /* SearchController.h */,
+				01E525AA1D42223700617491 /* SearchController.m */,
+				01E525AB1D42223700617491 /* SearchController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -486,6 +529,8 @@
 		019199131D3CC8D5000F2483 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01E525991D4210AD00617491 /* SecuritySetting */,
+				01E525841D41C11A00617491 /* DealSetting */,
 				0191992D1D3CCA54000F2483 /* MineController.h */,
 				0191992E1D3CCA54000F2483 /* MineController.m */,
 				0191992F1D3CCA54000F2483 /* MineController.xib */,
@@ -529,6 +574,9 @@
 				011050E51D40C70D009494F7 /* CardCustomCell.h */,
 				011050E61D40C70D009494F7 /* CardCustomCell.m */,
 				011050E71D40C70D009494F7 /* CardCustomCell.xib */,
+				01E5258A1D41C95600617491 /* DealCustomCell.h */,
+				01E5258B1D41C95600617491 /* DealCustomCell.m */,
+				01E5258C1D41C95600617491 /* DealCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -583,6 +631,38 @@
 				01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */,
 			);
 			path = ZXCircleHeadImage;
+			sourceTree = "<group>";
+		};
+		01E525841D41C11A00617491 /* DealSetting */ = {
+			isa = PBXGroup;
+			children = (
+				01E5257F1D41B6DD00617491 /* DealSettingController.h */,
+				01E525801D41B6DD00617491 /* DealSettingController.m */,
+				01E525811D41B6DD00617491 /* DealSettingController.xib */,
+				01E525941D420BAD00617491 /* AddAdressController.h */,
+				01E525951D420BAD00617491 /* AddAdressController.m */,
+				01E525961D420BAD00617491 /* AddAdressController.xib */,
+				01E525851D41C30000617491 /* CommissionAccountController.h */,
+				01E525861D41C30000617491 /* CommissionAccountController.m */,
+				01E525871D41C30000617491 /* CommissionAccountController.xib */,
+			);
+			name = DealSetting;
+			sourceTree = "<group>";
+		};
+		01E525991D4210AD00617491 /* SecuritySetting */ = {
+			isa = PBXGroup;
+			children = (
+				01E5259A1D4210ED00617491 /* SecuritySetController.h */,
+				01E5259B1D4210ED00617491 /* SecuritySetController.m */,
+				01E5259C1D4210ED00617491 /* SecuritySetController.xib */,
+				01E5259F1D42169300617491 /* ChangeLoginNumberController.h */,
+				01E525A01D42169300617491 /* ChangeLoginNumberController.m */,
+				01E525A11D42169300617491 /* ChangeLoginNumberController.xib */,
+				01E525A41D421A1300617491 /* SetNewPWDController.h */,
+				01E525A51D421A1300617491 /* SetNewPWDController.m */,
+				01E525A61D421A1300617491 /* SetNewPWDController.xib */,
+			);
+			name = SecuritySetting;
 			sourceTree = "<group>";
 		};
 		76E100CE699F656BBC901953 /* Frameworks */ = {
@@ -712,11 +792,15 @@
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
 				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
+				01E525A81D421A1300617491 /* SetNewPWDController.xib in Resources */,
 				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
+				01E5259E1D4210ED00617491 /* SecuritySetController.xib in Resources */,
 				0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */,
 				0169F19C1D3E32120049B13D /* FourthView.xib in Resources */,
 				019198E31D3CC32D000F2483 /* LaunchScreen.storyboard in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
+				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
+				01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */,
 				019199311D3CCA54000F2483 /* MineController.xib in Resources */,
 				019199271D3CCA2D000F2483 /* MessageController.xib in Resources */,
 				0169F1921D3E00430049B13D /* SecondView.xib in Resources */,
@@ -726,9 +810,13 @@
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
 				011050DF1D40BC6F009494F7 /* MyWalletController.xib in Resources */,
+				01E5258E1D41C95600617491 /* DealCustomCell.xib in Resources */,
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
 				019199361D3CCA66000F2483 /* ProductController.xib in Resources */,
+				01E525831D41B6DD00617491 /* DealSettingController.xib in Resources */,
 				0169F1941D3E25630049B13D /* ThirdView.xib in Resources */,
+				01E525981D420BAE00617491 /* AddAdressController.xib in Resources */,
+				01E525AD1D42223700617491 /* SearchController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,27 +892,34 @@
 				012304671D3DC87B00B19284 /* UIView+Extension.m in Sources */,
 				0169F1901D3E00300049B13D /* SecondView.m in Sources */,
 				019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */,
+				01E525AC1D42223700617491 /* SearchController.m in Sources */,
 				019198D21D3CC32C000F2483 /* main.m in Sources */,
+				01E525821D41B6DD00617491 /* DealSettingController.m in Sources */,
 				019199221D3CC94D000F2483 /* TabbarController.m in Sources */,
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
 				011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
 				011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */,
+				01E525971D420BAD00617491 /* AddAdressController.m in Sources */,
 				011050B71D4055DA009494F7 /* CustomPersonCell.m in Sources */,
 				0169F1891D3DD9770049B13D /* FirstView.m in Sources */,
 				012304541D3DC83500B19284 /* TopBannerTool.m in Sources */,
 				011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */,
+				01E5258D1D41C95600617491 /* DealCustomCell.m in Sources */,
 				0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */,
 				012304621D3DC87B00B19284 /* KNBannerView.m in Sources */,
 				012304641D3DC87B00B19284 /* KNJudgementTool.m in Sources */,
 				011050E31D40C3D8009494F7 /* MyCardController.m in Sources */,
+				01E5259D1D4210ED00617491 /* SecuritySetController.m in Sources */,
 				01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */,
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
+				01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
 				011050EE1D40CC97009494F7 /* LoginController.m in Sources */,
 				011050DA1D40B5D2009494F7 /* AddImage.m in Sources */,
 				019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */,
+				01E525A21D42169300617491 /* ChangeLoginNumberController.m in Sources */,
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
@@ -834,6 +929,7 @@
 				019199261D3CCA2D000F2483 /* MessageController.m in Sources */,
 				011050E81D40C70D009494F7 /* CardCustomCell.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,
+				01E525881D41C30000617491 /* CommissionAccountController.m in Sources */,
 				019199301D3CCA54000F2483 /* MineController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
