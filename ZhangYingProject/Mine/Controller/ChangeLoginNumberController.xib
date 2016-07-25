@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-7k-tWk">
-                    <rect key="frame" x="0.0" y="68" width="375" height="50"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入原登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-7k-tWk">
+                    <rect key="frame" x="0.0" y="75" width="375" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="J1s-In-G17"/>
@@ -26,7 +26,7 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqs-5p-ss6">
-                    <rect key="frame" x="30" y="229" width="315" height="40"/>
+                    <rect key="frame" x="30" y="236" width="315" height="40"/>
                     <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="xUK-JA-a0R"/>
@@ -46,7 +46,7 @@
                 <constraint firstItem="kqs-5p-ss6" firstAttribute="top" secondItem="s9Z-7k-tWk" secondAttribute="bottom" constant="111" id="FOf-gk-xLp"/>
                 <constraint firstItem="s9Z-7k-tWk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dMp-NG-ndD"/>
                 <constraint firstItem="kqs-5p-ss6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="elN-4N-Krk"/>
-                <constraint firstItem="s9Z-7k-tWk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="j9N-WF-Hsw"/>
+                <constraint firstItem="s9Z-7k-tWk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="j9N-WF-Hsw"/>
                 <constraint firstAttribute="trailing" secondItem="kqs-5p-ss6" secondAttribute="trailing" constant="30" id="jup-xQ-cN7"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

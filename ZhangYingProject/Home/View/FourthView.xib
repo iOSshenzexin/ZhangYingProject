@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,12 +12,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xp9-Pa-qwA">
-                    <rect key="frame" x="8" y="0.0" width="360" height="85"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp9-Pa-qwA">
+                    <rect key="frame" x="7" y="0.0" width="361" height="85"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCq-R0-gXs">
-                            <rect key="frame" x="288" y="11" width="64" height="64"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCq-R0-gXs">
+                            <rect key="frame" x="284" y="11" width="64" height="64"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="0yR-eC-MeZ"/>
+                                <constraint firstAttribute="width" constant="64" id="CMf-8D-WCW"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
@@ -24,9 +29,13 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6M-Kz-ydJ">
-                            <rect key="frame" x="101" y="11" width="64" height="64"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6M-Kz-ydJ">
+                            <rect key="frame" x="103" y="11" width="64" height="64"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="FJq-wX-StN"/>
+                                <constraint firstAttribute="height" constant="64" id="inJ-95-Xg6"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
@@ -34,9 +43,13 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TD4-Qi-XaE">
-                            <rect key="frame" x="8" y="11" width="64" height="64"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TD4-Qi-XaE">
+                            <rect key="frame" x="13" y="11" width="64" height="64"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="VBs-pf-G8d"/>
+                                <constraint firstAttribute="height" constant="64" id="YwM-e0-3E6"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
@@ -44,9 +57,13 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-ml-YNn">
-                            <rect key="frame" x="195" y="11" width="64" height="64"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-ml-YNn">
+                            <rect key="frame" x="194" y="11" width="64" height="64"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="3jb-xS-IZe"/>
+                                <constraint firstAttribute="width" constant="64" id="pRR-As-7o9"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
@@ -56,8 +73,24 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="b6M-Kz-ydJ" firstAttribute="centerX" secondItem="xp9-Pa-qwA" secondAttribute="centerX" multiplier="0.75" id="3X0-JK-9Yj"/>
+                        <constraint firstItem="Bch-ml-YNn" firstAttribute="centerX" secondItem="xp9-Pa-qwA" secondAttribute="centerX" multiplier="1.25" id="82V-h2-IMB"/>
+                        <constraint firstItem="cCq-R0-gXs" firstAttribute="centerX" secondItem="xp9-Pa-qwA" secondAttribute="centerX" multiplier="1.75" id="FvE-lL-IgK"/>
+                        <constraint firstItem="TD4-Qi-XaE" firstAttribute="centerX" secondItem="xp9-Pa-qwA" secondAttribute="centerX" multiplier="0.25" id="KgQ-or-kfQ"/>
+                        <constraint firstItem="cCq-R0-gXs" firstAttribute="top" secondItem="xp9-Pa-qwA" secondAttribute="top" constant="11" id="R6B-rN-YTf"/>
+                        <constraint firstItem="Bch-ml-YNn" firstAttribute="top" secondItem="xp9-Pa-qwA" secondAttribute="top" constant="11" id="paa-Kq-yQa"/>
+                        <constraint firstItem="b6M-Kz-ydJ" firstAttribute="top" secondItem="xp9-Pa-qwA" secondAttribute="top" constant="11" id="rGh-UR-iu1"/>
+                        <constraint firstItem="TD4-Qi-XaE" firstAttribute="top" secondItem="xp9-Pa-qwA" secondAttribute="top" constant="11" id="z2h-NY-aCy"/>
+                    </constraints>
                 </view>
             </subviews>
+            <constraints>
+                <constraint firstItem="xp9-Pa-qwA" firstAttribute="top" secondItem="1f1-pX-If6" secondAttribute="top" id="DMc-kT-9eP"/>
+                <constraint firstAttribute="bottom" secondItem="xp9-Pa-qwA" secondAttribute="bottom" id="a9f-CC-GbR"/>
+                <constraint firstAttribute="trailing" secondItem="xp9-Pa-qwA" secondAttribute="trailing" constant="7" id="wyf-e3-OLT"/>
+                <constraint firstItem="xp9-Pa-qwA" firstAttribute="leading" secondItem="1f1-pX-If6" secondAttribute="leading" constant="7" id="yt3-pe-JwA"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="194.5" y="336.5"/>

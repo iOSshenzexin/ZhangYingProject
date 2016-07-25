@@ -1,45 +1,45 @@
 //
-//  CommissionAccountController.m
+//  DeliveryAddressController.m
 //  ZhangYingProject
 //
-//  Created by 杨晓婧 on 16/7/22.
+//  Created by 杨晓婧 on 16/7/25.
 //  Copyright © 2016年 QingDaoShangTong. All rights reserved.
 //
 
-#import "CommissionAccountController.h"
+#import "DeliveryAddressController.h"
 #import "DealCustomCell.h"
-@interface CommissionAccountController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DeliveryAddressController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *placeholderArray;
 @property (nonatomic,copy) NSArray *titleArray;
 
 @end
 
-@implementation CommissionAccountController
+@implementation DeliveryAddressController
 
 -(NSArray *)placeholderArray{
     if (!_placeholderArray) {
-        _placeholderArray = [NSArray arrayWithObjects:@"请输入开户时的真实姓名",@"请仔细核对每一位数字",@"如招商银行",@"具体的开户支行", nil];
+        _placeholderArray = [NSArray arrayWithObjects:@"请输入联系人姓名",@"请输入联系人手机号码",@"请选择地区",@"请输入详细地址", nil];
     }
     return _placeholderArray;
 }
 
 -(NSArray *)titleArray{
     if (!_titleArray) {
-        _titleArray = [NSArray arrayWithObjects:@"账户名称",@"收款账户",@"银行名称",@"开户支行", nil];
+        _titleArray = [NSArray arrayWithObjects:@"联系人姓名",@"联系人手机",@"省/市/区",@"详细地址", nil];
     }
     return _titleArray;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.amountTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    self.addressTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     [self registerCell];
 }
 
 static NSString *cellID = @"cellId";
 - (void)registerCell{
     UINib *nib = [UINib nibWithNibName:@"DealCustomCell" bundle:nil];
-    [self.amountTableView registerNib:nib forCellReuseIdentifier:cellID];
+    [self.addressTableView registerNib:nib forCellReuseIdentifier:cellID];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -54,14 +54,18 @@ static NSString *cellID = @"cellId";
     DealCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[DealCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-//    cell.layer.borderWidth = 1;
-//    UIColor *color = [UIColor blackColor];
-//    //RGB(242, 242, 242, 1);
-//    cell.layer.borderColor = [color CGColor];
+    //    cell.layer.borderWidth = 1;
+    //    UIColor *color = [UIColor blackColor];
+    //    //RGB(242, 242, 242, 1);
+    //    cell.layer.borderColor = [color CGColor];
     cell.txtField.placeholder = self.placeholderArray[indexPath.row];
     cell.lbl.text = self.titleArray[indexPath.row];
     return cell;
 }
+
+
+
 
 @end

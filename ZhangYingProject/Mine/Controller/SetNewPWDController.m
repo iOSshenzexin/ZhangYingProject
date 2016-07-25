@@ -52,10 +52,10 @@
 }
 
 - (IBAction)modifyPhoneNumber:(id)sender {
-    SetNewPWDController *vc = [[SetNewPWDController alloc] init];
-    vc.title = @"更换绑定手机";
-    [self.navigationController pushViewController:vc animated:YES];
-    [self deleteBack];
+//    SetNewPWDController *vc = [[SetNewPWDController alloc] init];
+//    vc.title = @"更换绑定手机";
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [self deleteBack];
 }
 
 - (void)deleteBack{

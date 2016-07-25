@@ -42,6 +42,16 @@
 		0169F1971D3E257A0049B13D /* ThirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169F1961D3E257A0049B13D /* ThirdView.m */; };
 		0169F19A1D3E32020049B13D /* FourthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169F1991D3E32020049B13D /* FourthView.m */; };
 		0169F19C1D3E32120049B13D /* FourthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169F19B1D3E32120049B13D /* FourthView.xib */; };
+		016D9F2E1D45BFE00002AD16 /* AddressCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F2C1D45BFE00002AD16 /* AddressCustomCell.m */; };
+		016D9F2F1D45BFE00002AD16 /* AddressCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F2D1D45BFE00002AD16 /* AddressCustomCell.xib */; };
+		016D9F331D45E1260002AD16 /* DeliveryAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F311D45E1260002AD16 /* DeliveryAddressController.m */; };
+		016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F321D45E1260002AD16 /* DeliveryAddressController.xib */; };
+		016D9F361D45E80E0002AD16 /* AboutUsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F351D45E80E0002AD16 /* AboutUsController.storyboard */; };
+		016D9F3C1D45E8E80002AD16 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F3B1D45E8E80002AD16 /* AboutUsController.m */; };
+		016D9F401D4620650002AD16 /* MessageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F3E1D4620650002AD16 /* MessageCustomCell.m */; };
+		016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F3F1D4620650002AD16 /* MessageCustomCell.xib */; };
+		016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F431D4628550002AD16 /* MessageDetailController.m */; };
+		016D9F461D4628550002AD16 /* MessageDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F441D4628550002AD16 /* MessageDetailController.xib */; };
 		019198D21D3CC32C000F2483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198D11D3CC32C000F2483 /* main.m */; };
 		019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198D41D3CC32C000F2483 /* AppDelegate.m */; };
 		019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */; };
@@ -159,6 +169,21 @@
 		0169F1981D3E32020049B13D /* FourthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthView.h; sourceTree = "<group>"; };
 		0169F1991D3E32020049B13D /* FourthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthView.m; sourceTree = "<group>"; };
 		0169F19B1D3E32120049B13D /* FourthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthView.xib; sourceTree = "<group>"; };
+		016D9F2B1D45BFE00002AD16 /* AddressCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCustomCell.h; sourceTree = "<group>"; };
+		016D9F2C1D45BFE00002AD16 /* AddressCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCustomCell.m; sourceTree = "<group>"; };
+		016D9F2D1D45BFE00002AD16 /* AddressCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCustomCell.xib; sourceTree = "<group>"; };
+		016D9F301D45E1260002AD16 /* DeliveryAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressController.h; sourceTree = "<group>"; };
+		016D9F311D45E1260002AD16 /* DeliveryAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressController.m; sourceTree = "<group>"; };
+		016D9F321D45E1260002AD16 /* DeliveryAddressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryAddressController.xib; sourceTree = "<group>"; };
+		016D9F351D45E80E0002AD16 /* AboutUsController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUsController.storyboard; sourceTree = "<group>"; };
+		016D9F3A1D45E8E70002AD16 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsController.h; sourceTree = "<group>"; };
+		016D9F3B1D45E8E80002AD16 /* AboutUsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsController.m; sourceTree = "<group>"; };
+		016D9F3D1D4620650002AD16 /* MessageCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCustomCell.h; sourceTree = "<group>"; };
+		016D9F3E1D4620650002AD16 /* MessageCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCustomCell.m; sourceTree = "<group>"; };
+		016D9F3F1D4620650002AD16 /* MessageCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCustomCell.xib; sourceTree = "<group>"; };
+		016D9F421D4628550002AD16 /* MessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailController.h; sourceTree = "<group>"; };
+		016D9F431D4628550002AD16 /* MessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailController.m; sourceTree = "<group>"; };
+		016D9F441D4628550002AD16 /* MessageDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageDetailController.xib; sourceTree = "<group>"; };
 		019198CD1D3CC32B000F2483 /* ZhangYingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhangYingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		019198D11D3CC32C000F2483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		019198D31D3CC32C000F2483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -177,7 +202,7 @@
 		019199211D3CC94D000F2483 /* TabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarController.m; sourceTree = "<group>"; };
 		019199231D3CCA2D000F2483 /* MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
 		019199241D3CCA2D000F2483 /* MessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageController.m; sourceTree = "<group>"; };
-		019199251D3CCA2D000F2483 /* MessageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageController.xib; path = ../Controller/MessageController.xib; sourceTree = "<group>"; };
+		019199251D3CCA2D000F2483 /* MessageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageController.xib; sourceTree = "<group>"; };
 		019199281D3CCA43000F2483 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		019199291D3CCA43000F2483 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		0191992A1D3CCA43000F2483 /* HomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeController.xib; sourceTree = "<group>"; };
@@ -497,6 +522,10 @@
 			children = (
 				019199231D3CCA2D000F2483 /* MessageController.h */,
 				019199241D3CCA2D000F2483 /* MessageController.m */,
+				019199251D3CCA2D000F2483 /* MessageController.xib */,
+				016D9F421D4628550002AD16 /* MessageDetailController.h */,
+				016D9F431D4628550002AD16 /* MessageDetailController.m */,
+				016D9F441D4628550002AD16 /* MessageDetailController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -511,7 +540,9 @@
 		019199111D3CC8D5000F2483 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				019199251D3CCA2D000F2483 /* MessageController.xib */,
+				016D9F3D1D4620650002AD16 /* MessageCustomCell.h */,
+				016D9F3E1D4620650002AD16 /* MessageCustomCell.m */,
+				016D9F3F1D4620650002AD16 /* MessageCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -552,6 +583,9 @@
 				011050E01D40C3D8009494F7 /* MyCardController.h */,
 				011050E11D40C3D8009494F7 /* MyCardController.m */,
 				011050E21D40C3D8009494F7 /* MyCardController.xib */,
+				016D9F3A1D45E8E70002AD16 /* AboutUsController.h */,
+				016D9F3B1D45E8E80002AD16 /* AboutUsController.m */,
+				016D9F351D45E80E0002AD16 /* AboutUsController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -577,6 +611,9 @@
 				01E5258A1D41C95600617491 /* DealCustomCell.h */,
 				01E5258B1D41C95600617491 /* DealCustomCell.m */,
 				01E5258C1D41C95600617491 /* DealCustomCell.xib */,
+				016D9F2B1D45BFE00002AD16 /* AddressCustomCell.h */,
+				016D9F2C1D45BFE00002AD16 /* AddressCustomCell.m */,
+				016D9F2D1D45BFE00002AD16 /* AddressCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,6 +679,9 @@
 				01E525941D420BAD00617491 /* AddAdressController.h */,
 				01E525951D420BAD00617491 /* AddAdressController.m */,
 				01E525961D420BAD00617491 /* AddAdressController.xib */,
+				016D9F301D45E1260002AD16 /* DeliveryAddressController.h */,
+				016D9F311D45E1260002AD16 /* DeliveryAddressController.m */,
+				016D9F321D45E1260002AD16 /* DeliveryAddressController.xib */,
 				01E525851D41C30000617491 /* CommissionAccountController.h */,
 				01E525861D41C30000617491 /* CommissionAccountController.m */,
 				01E525871D41C30000617491 /* CommissionAccountController.xib */,
@@ -795,9 +835,12 @@
 				01E525A81D421A1300617491 /* SetNewPWDController.xib in Resources */,
 				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
 				01E5259E1D4210ED00617491 /* SecuritySetController.xib in Resources */,
+				016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */,
 				0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */,
+				016D9F2F1D45BFE00002AD16 /* AddressCustomCell.xib in Resources */,
 				0169F19C1D3E32120049B13D /* FourthView.xib in Resources */,
 				019198E31D3CC32D000F2483 /* LaunchScreen.storyboard in Resources */,
+				016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
 				01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */,
@@ -806,10 +849,12 @@
 				0169F1921D3E00430049B13D /* SecondView.xib in Resources */,
 				01D2CFF11D3F1BA5002D5575 /* PersonInfoController.xib in Resources */,
 				011050E41D40C3D8009494F7 /* MyCardController.xib in Resources */,
+				016D9F461D4628550002AD16 /* MessageDetailController.xib in Resources */,
 				011050EF1D40CC97009494F7 /* LoginController.xib in Resources */,
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
 				011050DF1D40BC6F009494F7 /* MyWalletController.xib in Resources */,
+				016D9F361D45E80E0002AD16 /* AboutUsController.storyboard in Resources */,
 				01E5258E1D41C95600617491 /* DealCustomCell.xib in Resources */,
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
 				019199361D3CCA66000F2483 /* ProductController.xib in Resources */,
@@ -922,12 +967,17 @@
 				01E525A21D42169300617491 /* ChangeLoginNumberController.m in Sources */,
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
+				016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
+				016D9F401D4620650002AD16 /* MessageCustomCell.m in Sources */,
 				011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */,
+				016D9F3C1D45E8E80002AD16 /* AboutUsController.m in Sources */,
 				012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */,
 				011050D61D409E4F009494F7 /* CustomLine.m in Sources */,
+				016D9F2E1D45BFE00002AD16 /* AddressCustomCell.m in Sources */,
 				019199261D3CCA2D000F2483 /* MessageController.m in Sources */,
 				011050E81D40C70D009494F7 /* CardCustomCell.m in Sources */,
+				016D9F331D45E1260002AD16 /* DeliveryAddressController.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,
 				01E525881D41C30000617491 /* CommissionAccountController.m in Sources */,
 				019199301D3CCA54000F2483 /* MineController.m in Sources */,

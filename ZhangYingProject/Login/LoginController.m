@@ -23,9 +23,6 @@
 
 
 - (IBAction)didClickBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        TabbarController *tc = [TabbarController sharedTabBarController];
-        [tc setSelectedIndex:0];
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
    }
 @end

@@ -67,6 +67,7 @@
 
     //第二部分
     ThirdView *thirdView = [[[NSBundle mainBundle]loadNibNamed:@"ThirdView" owner:self options:nil] firstObject];
+    //thirdView.layer.masksToBounds = YES
     thirdView.frame = CGRectMake(0, Y, ScreenW, 40);
     [self.scrollView addSubview:thirdView];
 

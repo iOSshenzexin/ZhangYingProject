@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,10 +53,10 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-tu-goe">
-                    <rect key="frame" x="0.0" y="202" width="375" height="220"/>
+                    <rect key="frame" x="0.0" y="202" width="375" height="180"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="220" id="vea-Y7-FUM"/>
+                        <constraint firstAttribute="height" constant="180" id="vea-Y7-FUM"/>
                     </constraints>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -66,7 +66,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MV-TL-7zw">
-                    <rect key="frame" x="30" y="545" width="315" height="40"/>
+                    <rect key="frame" x="30" y="402" width="315" height="40"/>
                     <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="M7g-zC-eHp"/>
@@ -82,7 +82,7 @@
                 <constraint firstItem="yYO-hO-2iK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="7Nl-vI-9cN"/>
                 <constraint firstItem="gq4-tu-goe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="80l-uG-4FZ"/>
                 <constraint firstItem="gq4-tu-goe" firstAttribute="top" secondItem="yYO-hO-2iK" secondAttribute="bottom" constant="18" id="9ZT-We-kGL"/>
-                <constraint firstItem="1MV-TL-7zw" firstAttribute="top" secondItem="gq4-tu-goe" secondAttribute="bottom" constant="123" id="TRO-E1-ef6"/>
+                <constraint firstItem="1MV-TL-7zw" firstAttribute="top" secondItem="gq4-tu-goe" secondAttribute="bottom" constant="20" id="TRO-E1-ef6"/>
                 <constraint firstAttribute="trailing" secondItem="1MV-TL-7zw" secondAttribute="trailing" constant="30" id="Zbz-eh-9Jv"/>
                 <constraint firstAttribute="trailing" secondItem="gq4-tu-goe" secondAttribute="trailing" id="b5x-QH-nTZ"/>
                 <constraint firstItem="1MV-TL-7zw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="kOS-hx-Cb0"/>

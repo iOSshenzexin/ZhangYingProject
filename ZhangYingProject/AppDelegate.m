@@ -20,18 +20,12 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.backgroundColor = [UIColor whiteColor];
     TabbarController *tabBarController = [[TabbarController alloc] init];
+    tabBarController.delegate = self;
     window.rootViewController = tabBarController;
     UITabBar *tabBar = tabBarController.tabBar;
     UITabBarItem *tabBarItem = tabBar.items[2];
     tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
     
-    if(self.isLogin == NO){
-    UIButton *tabbarButton = tabBarController.tabBar.subviews[2];
-    [tabbarButton addTarget:self action:@selector(showLoginController:) forControlEvents:UIControlEventTouchUpInside];
-        self.isLogin = !self.isLogin;
-    }
-
-
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -42,7 +36,6 @@
     UIGraphicsEndImageContext();
     tabBar.backgroundImage = image;
     
-
     //更改导航栏的颜色跟字体颜色
     [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -53,13 +46,24 @@
     return YES;
 }
 
-
-- (void)showLoginController:(UIButton *)btn{
-    LoginController *vc = [[LoginController alloc] init];
-    
-    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-    NSLog(@"xxx");
+/*
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    NSLog(@"--tabbaritem.title--%@",viewController.tabBarItem.title);
+    if ([viewController.tabBarItem.title isEqualToString:@"交易"] | [viewController.tabBarItem.title isEqualToString:@"我的"] ) {
+        //如果用户ID存在的话，说明已登陆
+        if (self.isLogin) {
+            return YES;
+        }
+        else{//跳到登录页面
+           LoginController *login = [[LoginController alloc] init];
+           [self.window.rootViewController presentViewController:login animated:YES completion:nil];
+            self.isLogin = YES;
+            return NO;
+        }
+    }
+    else  return YES;
 }
+*/
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

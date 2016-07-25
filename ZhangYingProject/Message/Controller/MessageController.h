@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MessageController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 
 @end

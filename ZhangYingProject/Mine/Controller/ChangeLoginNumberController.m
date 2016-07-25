@@ -51,7 +51,7 @@
 
 - (IBAction)modifyPhoneNumber:(id)sender {
     SetNewPWDController *vc = [[SetNewPWDController alloc] init];
-    vc.title = @"更换绑定手机";
+    vc.title = @"修改登录密码";
     [self.navigationController pushViewController:vc animated:YES];
     [self deleteBack];
 }

@@ -15,6 +15,7 @@
 
 #import "DealSettingController.h"
 #import "SecuritySetController.h"
+#import "AboutUsController.h"
 @interface MineController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *dataSource;
@@ -118,8 +119,12 @@
             self.hidesBottomBarWhenPushed = NO;
             break;
         }
-        case 2:
-        {
+        case 2:{
+            self.hidesBottomBarWhenPushed = YES;
+            AboutUsController *vc = [[UIStoryboard storyboardWithName:@"AboutUsController" bundle:nil]instantiateViewControllerWithIdentifier:@"aboutUs"];
+            vc.title = @"关于我们";
+            [self.navigationController pushViewController:vc animated:YES];
+            self.hidesBottomBarWhenPushed = NO;
             break;
         }
         case 3:
