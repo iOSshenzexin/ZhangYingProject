@@ -52,6 +52,17 @@
 		016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F3F1D4620650002AD16 /* MessageCustomCell.xib */; };
 		016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F431D4628550002AD16 /* MessageDetailController.m */; };
 		016D9F461D4628550002AD16 /* MessageDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F441D4628550002AD16 /* MessageDetailController.xib */; };
+		01773D931D46FAB40028BC7D /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773D911D46FAB40028BC7D /* RegisterController.m */; };
+		01773D941D46FAB40028BC7D /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773D921D46FAB40028BC7D /* RegisterController.xib */; };
+		01773D981D470F170028BC7D /* ForgetPWDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773D961D470F170028BC7D /* ForgetPWDController.m */; };
+		01773D991D470F170028BC7D /* ForgetPWDController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773D971D470F170028BC7D /* ForgetPWDController.xib */; };
+		01773DA11D472CB30028BC7D /* MBProgressHUD+WJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773D9D1D472CB30028BC7D /* MBProgressHUD+WJTools.m */; };
+		01773DA21D472CB30028BC7D /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01773D9E1D472CB30028BC7D /* MBProgressHUD.bundle */; };
+		01773DA31D472CB30028BC7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773DA01D472CB30028BC7D /* MBProgressHUD.m */; };
+		01773DA71D4769E30028BC7D /* RegularIntroduceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773DA51D4769E30028BC7D /* RegularIntroduceController.m */; };
+		01773DA81D4769E30028BC7D /* RegularIntroduceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773DA61D4769E30028BC7D /* RegularIntroduceController.xib */; };
+		01773DAC1D476DD60028BC7D /* MyBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773DAA1D476DD60028BC7D /* MyBillController.m */; };
+		01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773DAB1D476DD60028BC7D /* MyBillController.xib */; };
 		019198D21D3CC32C000F2483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198D11D3CC32C000F2483 /* main.m */; };
 		019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198D41D3CC32C000F2483 /* AppDelegate.m */; };
 		019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */; };
@@ -184,6 +195,23 @@
 		016D9F421D4628550002AD16 /* MessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailController.h; sourceTree = "<group>"; };
 		016D9F431D4628550002AD16 /* MessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailController.m; sourceTree = "<group>"; };
 		016D9F441D4628550002AD16 /* MessageDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageDetailController.xib; sourceTree = "<group>"; };
+		01773D901D46FAB40028BC7D /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		01773D911D46FAB40028BC7D /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		01773D921D46FAB40028BC7D /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
+		01773D951D470F170028BC7D /* ForgetPWDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWDController.h; sourceTree = "<group>"; };
+		01773D961D470F170028BC7D /* ForgetPWDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPWDController.m; sourceTree = "<group>"; };
+		01773D971D470F170028BC7D /* ForgetPWDController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPWDController.xib; sourceTree = "<group>"; };
+		01773D9C1D472CB30028BC7D /* MBProgressHUD+WJTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+WJTools.h"; sourceTree = "<group>"; };
+		01773D9D1D472CB30028BC7D /* MBProgressHUD+WJTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+WJTools.m"; sourceTree = "<group>"; };
+		01773D9E1D472CB30028BC7D /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		01773D9F1D472CB30028BC7D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		01773DA01D472CB30028BC7D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		01773DA41D4769E30028BC7D /* RegularIntroduceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularIntroduceController.h; sourceTree = "<group>"; };
+		01773DA51D4769E30028BC7D /* RegularIntroduceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularIntroduceController.m; sourceTree = "<group>"; };
+		01773DA61D4769E30028BC7D /* RegularIntroduceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegularIntroduceController.xib; sourceTree = "<group>"; };
+		01773DA91D476DD60028BC7D /* MyBillController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBillController.h; sourceTree = "<group>"; };
+		01773DAA1D476DD60028BC7D /* MyBillController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBillController.m; sourceTree = "<group>"; };
+		01773DAB1D476DD60028BC7D /* MyBillController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBillController.xib; sourceTree = "<group>"; };
 		019198CD1D3CC32B000F2483 /* ZhangYingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhangYingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		019198D11D3CC32C000F2483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		019198D31D3CC32C000F2483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -299,6 +327,12 @@
 				011050EB1D40CC97009494F7 /* LoginController.h */,
 				011050EC1D40CC97009494F7 /* LoginController.m */,
 				011050ED1D40CC97009494F7 /* LoginController.xib */,
+				01773D901D46FAB40028BC7D /* RegisterController.h */,
+				01773D911D46FAB40028BC7D /* RegisterController.m */,
+				01773D921D46FAB40028BC7D /* RegisterController.xib */,
+				01773D951D470F170028BC7D /* ForgetPWDController.h */,
+				01773D961D470F170028BC7D /* ForgetPWDController.m */,
+				01773D971D470F170028BC7D /* ForgetPWDController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -343,6 +377,26 @@
 				0169F1851D3DD1E40049B13D /* ZXSearchBar.m */,
 			);
 			name = SearchBar;
+			sourceTree = "<group>";
+		};
+		01773D9A1D472C890028BC7D /* ThridLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				01773D9B1D472CB30028BC7D /* MBProgressHUD */,
+			);
+			name = ThridLibrary;
+			sourceTree = "<group>";
+		};
+		01773D9B1D472CB30028BC7D /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				01773D9C1D472CB30028BC7D /* MBProgressHUD+WJTools.h */,
+				01773D9D1D472CB30028BC7D /* MBProgressHUD+WJTools.m */,
+				01773D9E1D472CB30028BC7D /* MBProgressHUD.bundle */,
+				01773D9F1D472CB30028BC7D /* MBProgressHUD.h */,
+				01773DA01D472CB30028BC7D /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		0188229F1D3FD8FD009F812C /* Necessary */ = {
@@ -580,9 +634,15 @@
 				011050DB1D40BC6F009494F7 /* MyWalletController.h */,
 				011050DC1D40BC6F009494F7 /* MyWalletController.m */,
 				011050DD1D40BC6F009494F7 /* MyWalletController.xib */,
+				01773DA91D476DD60028BC7D /* MyBillController.h */,
+				01773DAA1D476DD60028BC7D /* MyBillController.m */,
+				01773DAB1D476DD60028BC7D /* MyBillController.xib */,
 				011050E01D40C3D8009494F7 /* MyCardController.h */,
 				011050E11D40C3D8009494F7 /* MyCardController.m */,
 				011050E21D40C3D8009494F7 /* MyCardController.xib */,
+				01773DA41D4769E30028BC7D /* RegularIntroduceController.h */,
+				01773DA51D4769E30028BC7D /* RegularIntroduceController.m */,
+				01773DA61D4769E30028BC7D /* RegularIntroduceController.xib */,
 				016D9F3A1D45E8E70002AD16 /* AboutUsController.h */,
 				016D9F3B1D45E8E80002AD16 /* AboutUsController.m */,
 				016D9F351D45E80E0002AD16 /* AboutUsController.storyboard */,
@@ -655,6 +715,7 @@
 		0191991A1D3CC8DA000F2483 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				01773D9A1D472C890028BC7D /* ThridLibrary */,
 				0188229F1D3FD8FD009F812C /* Necessary */,
 				012304511D3DC81D00B19284 /* Tools */,
 			);
@@ -831,8 +892,11 @@
 			files = (
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
+				01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */,
 				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
+				01773D991D470F170028BC7D /* ForgetPWDController.xib in Resources */,
 				01E525A81D421A1300617491 /* SetNewPWDController.xib in Resources */,
+				01773DA21D472CB30028BC7D /* MBProgressHUD.bundle in Resources */,
 				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
 				01E5259E1D4210ED00617491 /* SecuritySetController.xib in Resources */,
 				016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */,
@@ -840,6 +904,7 @@
 				016D9F2F1D45BFE00002AD16 /* AddressCustomCell.xib in Resources */,
 				0169F19C1D3E32120049B13D /* FourthView.xib in Resources */,
 				019198E31D3CC32D000F2483 /* LaunchScreen.storyboard in Resources */,
+				01773DA81D4769E30028BC7D /* RegularIntroduceController.xib in Resources */,
 				016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
@@ -853,6 +918,7 @@
 				011050EF1D40CC97009494F7 /* LoginController.xib in Resources */,
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
+				01773D941D46FAB40028BC7D /* RegisterController.xib in Resources */,
 				011050DF1D40BC6F009494F7 /* MyWalletController.xib in Resources */,
 				016D9F361D45E80E0002AD16 /* AboutUsController.storyboard in Resources */,
 				01E5258E1D41C95600617491 /* DealCustomCell.xib in Resources */,
@@ -941,13 +1007,16 @@
 				019198D21D3CC32C000F2483 /* main.m in Sources */,
 				01E525821D41B6DD00617491 /* DealSettingController.m in Sources */,
 				019199221D3CC94D000F2483 /* TabbarController.m in Sources */,
+				01773DA31D472CB30028BC7D /* MBProgressHUD.m in Sources */,
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
+				01773D931D46FAB40028BC7D /* RegisterController.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
 				011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
 				011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */,
 				01E525971D420BAD00617491 /* AddAdressController.m in Sources */,
 				011050B71D4055DA009494F7 /* CustomPersonCell.m in Sources */,
+				01773D981D470F170028BC7D /* ForgetPWDController.m in Sources */,
 				0169F1891D3DD9770049B13D /* FirstView.m in Sources */,
 				012304541D3DC83500B19284 /* TopBannerTool.m in Sources */,
 				011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */,
@@ -965,6 +1034,7 @@
 				011050DA1D40B5D2009494F7 /* AddImage.m in Sources */,
 				019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */,
 				01E525A21D42169300617491 /* ChangeLoginNumberController.m in Sources */,
+				01773DA71D4769E30028BC7D /* RegularIntroduceController.m in Sources */,
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
 				016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */,
@@ -972,6 +1042,8 @@
 				016D9F401D4620650002AD16 /* MessageCustomCell.m in Sources */,
 				011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */,
 				016D9F3C1D45E8E80002AD16 /* AboutUsController.m in Sources */,
+				01773DAC1D476DD60028BC7D /* MyBillController.m in Sources */,
+				01773DA11D472CB30028BC7D /* MBProgressHUD+WJTools.m in Sources */,
 				012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */,
 				011050D61D409E4F009494F7 /* CustomLine.m in Sources */,
 				016D9F2E1D45BFE00002AD16 /* AddressCustomCell.m in Sources */,

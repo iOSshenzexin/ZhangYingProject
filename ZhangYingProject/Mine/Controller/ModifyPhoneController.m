@@ -29,6 +29,10 @@
     self.NumberTxt.leftView = leftView;
     self.NumberTxt.leftViewMode = UITextFieldViewModeAlways;
     
+    self.NumberTxt.layer.borderWidth = 1;
+    UIColor *color = RGB(216, 216, 216, 0.8);
+    self.NumberTxt.layer.borderColor = [color CGColor];
+    
     UIView *leftCodeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.verificationCodeTxt.frame.size.height)];
     UIImageView *leftCodeImg = [[UIImageView alloc] init];
     leftCodeImg.bounds = CGRectMake(0, 0, 18, 18);
@@ -51,6 +55,9 @@
     [rightView addSubview:codeBtn];
     self.verificationCodeTxt.rightView = rightView;
     self.verificationCodeTxt.rightViewMode = UITextFieldViewModeAlways;
+    
+    self.verificationCodeTxt.layer.borderWidth = 1;
+    self.verificationCodeTxt.layer.borderColor = [color CGColor];
 }
 
 - (void)getSMSCode:(UIButton *)btn{

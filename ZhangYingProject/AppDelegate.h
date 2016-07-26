@@ -18,7 +18,9 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic,assign) BOOL isLogin;
+
 - (void)saveContext;
+
 - (NSURL *)applicationDocumentsDirectory;
 
 

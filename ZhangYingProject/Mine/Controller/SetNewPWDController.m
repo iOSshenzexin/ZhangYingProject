@@ -32,6 +32,10 @@
     self.txtField.leftView = leftView;
     self.txtField.leftViewMode = UITextFieldViewModeAlways;
     
+    self.txtField.layer.borderWidth = 1;
+    UIColor *color = RGB(216, 216, 216, 0.8);
+    self.txtField.layer.borderColor = [color CGColor];
+    
     UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.txtField.frame.size.height)];
     UIImageView *rightImg = [[UIImageView alloc] init];
     rightImg.bounds = CGRectMake(0, 0, 20, 14);
@@ -43,6 +47,7 @@
     rightImg.image = [UIImage imageNamed:@"my-code02"];
     self.txtField.rightView = rightView;
     self.txtField.rightViewMode = UITextFieldViewModeAlways;
+    
 }
 
 - (void)showPassWord:(UITapGestureRecognizer *)tap{

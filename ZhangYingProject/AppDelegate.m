@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TabbarController.h"
 #import "LoginController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -46,24 +47,28 @@
     return YES;
 }
 
-/*
+
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    NSLog(@"--tabbaritem.index--%lu",[tabBarController.viewControllers indexOfObject:viewController]);
     NSLog(@"--tabbaritem.title--%@",viewController.tabBarItem.title);
     if ([viewController.tabBarItem.title isEqualToString:@"交易"] | [viewController.tabBarItem.title isEqualToString:@"我的"] ) {
         //如果用户ID存在的话，说明已登陆
-        if (self.isLogin) {
+        if (self.isLogin == YES) {
             return YES;
         }
-        else{//跳到登录页面
+        else{ //跳到登录页面
            LoginController *login = [[LoginController alloc] init];
-           [self.window.rootViewController presentViewController:login animated:YES completion:nil];
-            self.isLogin = YES;
+          //确定当前选择的第几个controller
+           login.selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];
+           UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+           //nav.navigationBarHidden = YES;
+           [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
             return NO;
         }
     }
-    else  return YES;
+    else return YES;
 }
-*/
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

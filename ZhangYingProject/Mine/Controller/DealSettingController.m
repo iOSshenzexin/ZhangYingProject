@@ -64,6 +64,10 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.layer.borderWidth = 1;
+    UIColor *color = RGB(216, 216, 216, 0.8);
+    cell.layer.borderColor = [color CGColor];
+    
     cell.imageView.image = [UIImage imageNamed:self.imgArray[indexPath.section]];
     cell.textLabel.text = self.titleArray[indexPath.section];
     return cell;

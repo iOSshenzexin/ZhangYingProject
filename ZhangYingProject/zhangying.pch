@@ -17,6 +17,9 @@
 #ifdef __OBJC__
 
 #import "LECropPictureViewController.h"
+#import "MBProgressHUD+WJTools.h"
+#import "TabbarController.h"
+#import "AppDelegate.h"
 
 #endif
 

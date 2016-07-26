@@ -26,7 +26,7 @@
 
 -(NSArray *)imgArray{
     if (!_imgArray) {
-        _imgArray = [NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"", nil];
+        _imgArray = [NSArray arrayWithObjects:@"message01",@"message02",@"message04",@"message03",@"message02",@"message04", nil];
     }
     return _imgArray;
 }
@@ -85,6 +85,7 @@ static NSString *cellID = @"cellID";
     UIColor *color = RGB(242, 242, 242, 1);
     cell.layer.borderColor = [color CGColor];
     cell.layer.borderWidth = 2;
+    cell.img.image = [UIImage imageNamed:self.imgArray[indexPath.row]];
     cell.titleLbl.text = self.titleArray[indexPath.row];
     cell.timeLbl.text = self.timeArray[indexPath.row];
     cell.subTitleLbl.text = self.subtitleArray[indexPath.row];

@@ -8,6 +8,8 @@
 
 #import "MyCardController.h"
 #import "CardCustomCell.h"
+
+#import "RegularIntroduceController.h"
 @interface MyCardController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *priceArray;
@@ -51,6 +53,16 @@
     [super viewDidLoad];
     [self setupRightBarBtn];
     [self registerCell];
+    [self deleteBack];
+    self.hidesBottomBarWhenPushed = YES;
+
+}
+
+- (void)deleteBack{
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 static NSString *cellId = @"cellId";
@@ -63,7 +75,14 @@ static NSString *cellId = @"cellId";
     btn.frame = CGRectMake(0, 0, 80, 30);
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
     [btn setTitle:@"规则说明" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(didClickRegularIntrouduce:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+}
+
+- (void)didClickRegularIntrouduce:(UIButton *)btn{
+    RegularIntroduceController *vc = [[RegularIntroduceController alloc] init];
+    vc.title = btn.titleLabel.text;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark  UITableViewDataSource and UITableViewDelegate

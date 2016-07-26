@@ -35,6 +35,11 @@
                     <state key="normal" title="设置">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="modifyPhoneNumber:" destination="-1" eventType="touchUpInside" id="osy-lc-bFl"/>
                     </connections>

@@ -40,6 +40,10 @@
     rightImg.image = [UIImage imageNamed:@"my-code02"];
     self.txtField.rightView = rightView;
     self.txtField.rightViewMode = UITextFieldViewModeAlways;
+    
+    self.txtField.layer.borderWidth = 1;
+    UIColor *color = RGB(216, 216, 216, 0.8);
+    self.txtField.layer.borderColor = [color CGColor];
 }
 
 - (void)showPassWord:(UITapGestureRecognizer *)tap{

@@ -8,6 +8,7 @@
 
 #import "MyWalletController.h"
 
+#import "MyBillController.h"
 @interface MyWalletController ()
 
 @end
@@ -17,6 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRightBarBtn];
+    [self deleteBack];
+    self.hidesBottomBarWhenPushed = YES;
+}
+
+- (void)deleteBack{
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 - (void)setupRightBarBtn{
@@ -24,8 +34,16 @@
     btn.frame = CGRectMake(0, 0, 40, 30);
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
     [btn setTitle:@"账单" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(didClickMyBill:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
+
+- (void)didClickMyBill:(UIButton *)btn{
+    MyBillController *vc = [[MyBillController alloc] init];
+    vc.title = btn.titleLabel.text;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 
 @end

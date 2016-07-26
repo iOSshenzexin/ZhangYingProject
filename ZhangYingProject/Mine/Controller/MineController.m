@@ -16,6 +16,8 @@
 #import "DealSettingController.h"
 #import "SecuritySetController.h"
 #import "AboutUsController.h"
+
+#import "LoginController.h"
 @interface MineController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *dataSource;
@@ -163,6 +165,17 @@
     vc.title = @"我的卡券";
     [self.navigationController pushViewController:vc animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+}
+- (IBAction)didClickExitLogin:(id)sender {
+    UIApplication *application = [UIApplication sharedApplication];
+    TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
+//    tab.selectedIndex = 2;
+    LoginController *vc = [[LoginController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    app.isLogin = NO;
+    vc.quit = 1;
+    [tab presentViewController:nav animated:YES completion:^{}];
 }
 
 
