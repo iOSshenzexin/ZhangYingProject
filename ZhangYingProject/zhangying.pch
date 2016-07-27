@@ -11,6 +11,8 @@
 
 #define RGB(a,b,c,d)      [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:d];
 
+#define backGroundColor     [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
+
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 
@@ -20,7 +22,7 @@
 #import "MBProgressHUD+WJTools.h"
 #import "TabbarController.h"
 #import "AppDelegate.h"
-
+#import "LXSegmentScrollView.h"
 #endif
 
 #endif

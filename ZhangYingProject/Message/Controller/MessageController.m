@@ -82,6 +82,7 @@ static NSString *cellID = @"cellID";
     if (!cell) {
         cell = [[MessageCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIColor *color = RGB(242, 242, 242, 1);
     cell.layer.borderColor = [color CGColor];
     cell.layer.borderWidth = 2;

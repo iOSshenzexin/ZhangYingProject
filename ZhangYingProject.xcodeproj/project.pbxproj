@@ -33,6 +33,12 @@
 		012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123045D1D3DC87B00B19284 /* NSData+KNCache.m */; };
 		012304661D3DC87B00B19284 /* NSString+hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123045F1D3DC87B00B19284 /* NSString+hash.m */; };
 		012304671D3DC87B00B19284 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304611D3DC87B00B19284 /* UIView+Extension.m */; };
+		0125A02B1D4864E400D02522 /* LiuXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A0281D4864E400D02522 /* LiuXSegmentView.m */; };
+		0125A02C1D4864E400D02522 /* LXSegmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A02A1D4864E400D02522 /* LXSegmentScrollView.m */; };
+		0125A0301D48A43C00D02522 /* TrustCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A02E1D48A43C00D02522 /* TrustCustomCell.m */; };
+		0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */; };
+		0125A0351D48AEDD00D02522 /* ProductDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A0331D48AEDD00D02522 /* ProductDetailController.m */; };
+		0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A0341D48AEDD00D02522 /* ProductDetailController.xib */; };
 		0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169F1851D3DD1E40049B13D /* ZXSearchBar.m */; };
 		0169F1891D3DD9770049B13D /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169F1881D3DD9770049B13D /* FirstView.m */; };
 		0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169F18C1D3DF2570049B13D /* FirstView.xib */; };
@@ -166,6 +172,16 @@
 		0123045F1D3DC87B00B19284 /* NSString+hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+hash.m"; sourceTree = "<group>"; };
 		012304601D3DC87B00B19284 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		012304611D3DC87B00B19284 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		0125A0271D4864E400D02522 /* LiuXSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuXSegmentView.h; sourceTree = "<group>"; };
+		0125A0281D4864E400D02522 /* LiuXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuXSegmentView.m; sourceTree = "<group>"; };
+		0125A0291D4864E400D02522 /* LXSegmentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSegmentScrollView.h; sourceTree = "<group>"; };
+		0125A02A1D4864E400D02522 /* LXSegmentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSegmentScrollView.m; sourceTree = "<group>"; };
+		0125A02D1D48A43C00D02522 /* TrustCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrustCustomCell.h; sourceTree = "<group>"; };
+		0125A02E1D48A43C00D02522 /* TrustCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustCustomCell.m; sourceTree = "<group>"; };
+		0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrustCustomCell.xib; sourceTree = "<group>"; };
+		0125A0321D48AEDD00D02522 /* ProductDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailController.h; sourceTree = "<group>"; };
+		0125A0331D48AEDD00D02522 /* ProductDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailController.m; sourceTree = "<group>"; };
+		0125A0341D48AEDD00D02522 /* ProductDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailController.xib; sourceTree = "<group>"; };
 		0169F1841D3DD1E40049B13D /* ZXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXSearchBar.h; sourceTree = "<group>"; };
 		0169F1851D3DD1E40049B13D /* ZXSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXSearchBar.m; sourceTree = "<group>"; };
 		0169F1871D3DD9770049B13D /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
@@ -370,6 +386,17 @@
 			path = KNBannerView;
 			sourceTree = "<group>";
 		};
+		0125A0261D4864E400D02522 /* LXSegment */ = {
+			isa = PBXGroup;
+			children = (
+				0125A0271D4864E400D02522 /* LiuXSegmentView.h */,
+				0125A0281D4864E400D02522 /* LiuXSegmentView.m */,
+				0125A0291D4864E400D02522 /* LXSegmentScrollView.h */,
+				0125A02A1D4864E400D02522 /* LXSegmentScrollView.m */,
+			);
+			path = LXSegment;
+			sourceTree = "<group>";
+		};
 		0169F1831D3DD1CE0049B13D /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +409,7 @@
 		01773D9A1D472C890028BC7D /* ThridLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				0125A0261D4864E400D02522 /* LXSegment */,
 				01773D9B1D472CB30028BC7D /* MBProgressHUD */,
 			);
 			name = ThridLibrary;
@@ -694,6 +722,9 @@
 				019199321D3CCA66000F2483 /* ProductController.h */,
 				019199331D3CCA66000F2483 /* ProductController.m */,
 				019199341D3CCA66000F2483 /* ProductController.xib */,
+				0125A0321D48AEDD00D02522 /* ProductDetailController.h */,
+				0125A0331D48AEDD00D02522 /* ProductDetailController.m */,
+				0125A0341D48AEDD00D02522 /* ProductDetailController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -708,6 +739,9 @@
 		019199191D3CC8D5000F2483 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0125A02D1D48A43C00D02522 /* TrustCustomCell.h */,
+				0125A02E1D48A43C00D02522 /* TrustCustomCell.m */,
+				0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -908,6 +942,7 @@
 				016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
+				0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */,
 				01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */,
 				019199311D3CCA54000F2483 /* MineController.xib in Resources */,
 				019199271D3CCA2D000F2483 /* MessageController.xib in Resources */,
@@ -925,6 +960,7 @@
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
 				019199361D3CCA66000F2483 /* ProductController.xib in Resources */,
 				01E525831D41B6DD00617491 /* DealSettingController.xib in Resources */,
+				0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */,
 				0169F1941D3E25630049B13D /* ThirdView.xib in Resources */,
 				01E525981D420BAE00617491 /* AddAdressController.xib in Resources */,
 				01E525AD1D42223700617491 /* SearchController.xib in Resources */,
@@ -1006,6 +1042,7 @@
 				01E525AC1D42223700617491 /* SearchController.m in Sources */,
 				019198D21D3CC32C000F2483 /* main.m in Sources */,
 				01E525821D41B6DD00617491 /* DealSettingController.m in Sources */,
+				0125A02B1D4864E400D02522 /* LiuXSegmentView.m in Sources */,
 				019199221D3CC94D000F2483 /* TabbarController.m in Sources */,
 				01773DA31D472CB30028BC7D /* MBProgressHUD.m in Sources */,
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
@@ -1018,13 +1055,16 @@
 				011050B71D4055DA009494F7 /* CustomPersonCell.m in Sources */,
 				01773D981D470F170028BC7D /* ForgetPWDController.m in Sources */,
 				0169F1891D3DD9770049B13D /* FirstView.m in Sources */,
+				0125A02C1D4864E400D02522 /* LXSegmentScrollView.m in Sources */,
 				012304541D3DC83500B19284 /* TopBannerTool.m in Sources */,
 				011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */,
 				01E5258D1D41C95600617491 /* DealCustomCell.m in Sources */,
 				0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */,
 				012304621D3DC87B00B19284 /* KNBannerView.m in Sources */,
+				0125A0301D48A43C00D02522 /* TrustCustomCell.m in Sources */,
 				012304641D3DC87B00B19284 /* KNJudgementTool.m in Sources */,
 				011050E31D40C3D8009494F7 /* MyCardController.m in Sources */,
+				0125A0351D48AEDD00D02522 /* ProductDetailController.m in Sources */,
 				01E5259D1D4210ED00617491 /* SecuritySetController.m in Sources */,
 				01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */,
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,

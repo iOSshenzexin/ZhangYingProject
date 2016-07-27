@@ -12,6 +12,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0Q-gX-OqC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="华领洪凯对冲5号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbM-1J-3nN">
                     <rect key="frame" x="82" y="3" width="269" height="38"/>
                     <constraints>
@@ -121,6 +128,7 @@
                 <constraint firstItem="uK3-cU-p8L" firstAttribute="top" secondItem="aUi-je-VKo" secondAttribute="bottom" constant="8" id="52t-x5-cTz"/>
                 <constraint firstItem="ELH-Xf-xmd" firstAttribute="leading" secondItem="kC8-uf-U1L" secondAttribute="leading" constant="8" id="754-Pi-bNf"/>
                 <constraint firstItem="aUi-je-VKo" firstAttribute="leading" secondItem="gDh-qs-PSc" secondAttribute="trailing" constant="9" id="91i-2L-0FJ"/>
+                <constraint firstItem="t0Q-gX-OqC" firstAttribute="leading" secondItem="kC8-uf-U1L" secondAttribute="leading" id="AqF-lv-fb7"/>
                 <constraint firstItem="t5O-7f-aal" firstAttribute="centerX" secondItem="kC8-uf-U1L" secondAttribute="centerX" multiplier="1.38" id="BZw-NN-uh3"/>
                 <constraint firstItem="mbM-1J-3nN" firstAttribute="leading" secondItem="gDh-qs-PSc" secondAttribute="trailing" constant="9" id="Cek-jg-qmP"/>
                 <constraint firstAttribute="bottom" secondItem="EYV-eg-zug" secondAttribute="bottom" constant="39" id="I0C-tW-fuG"/>
@@ -129,6 +137,7 @@
                 <constraint firstItem="DCS-7P-VcD" firstAttribute="top" secondItem="aUi-je-VKo" secondAttribute="bottom" constant="8" id="Mf4-CN-bQV"/>
                 <constraint firstAttribute="trailing" secondItem="DCS-7P-VcD" secondAttribute="trailing" constant="3" id="TC5-n3-cf2"/>
                 <constraint firstItem="gDh-qs-PSc" firstAttribute="leading" secondItem="kC8-uf-U1L" secondAttribute="leading" constant="3" id="dDJ-sw-CG0"/>
+                <constraint firstItem="t0Q-gX-OqC" firstAttribute="top" secondItem="kC8-uf-U1L" secondAttribute="top" id="eFO-y3-SGc"/>
                 <constraint firstItem="0lr-wX-KcN" firstAttribute="leading" secondItem="gDh-qs-PSc" secondAttribute="trailing" id="k5s-5C-Frf"/>
                 <constraint firstItem="Nu4-vp-Mcb" firstAttribute="leading" secondItem="kC8-uf-U1L" secondAttribute="leading" constant="11" id="mJy-qJ-6uH"/>
                 <constraint firstItem="gDh-qs-PSc" firstAttribute="top" secondItem="kC8-uf-U1L" secondAttribute="top" constant="25" id="p1d-dq-CDG"/>
@@ -136,6 +145,8 @@
                 <constraint firstItem="EYV-eg-zug" firstAttribute="leading" secondItem="kC8-uf-U1L" secondAttribute="leading" constant="11" id="wUG-6l-RXT"/>
                 <constraint firstItem="uK3-cU-p8L" firstAttribute="centerX" secondItem="kC8-uf-U1L" secondAttribute="centerX" id="wdZ-YN-iSj"/>
                 <constraint firstItem="aUi-je-VKo" firstAttribute="top" secondItem="mbM-1J-3nN" secondAttribute="bottom" constant="-10" id="wv5-8h-amh"/>
+                <constraint firstAttribute="trailing" secondItem="t0Q-gX-OqC" secondAttribute="trailing" id="xT4-P2-taB"/>
+                <constraint firstAttribute="bottom" secondItem="t0Q-gX-OqC" secondAttribute="bottom" id="z2r-xv-iBn"/>
                 <constraint firstItem="Nu4-vp-Mcb" firstAttribute="top" secondItem="kC8-uf-U1L" secondAttribute="top" constant="32" id="zhH-10-dC5"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

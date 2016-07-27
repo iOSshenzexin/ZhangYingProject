@@ -9,22 +9,42 @@
 #import "HomeController.h"
 #import "SearchController.h"
 
-
 #import "TopBannerTool.h"
 #import "ZXSearchBar.h"
 #import "FirstView.h"
 #import "SecondView.h"
 #import "ThirdView.h"
 #import "FourthView.h"
-@interface HomeController ()<KNBannerViewDelegate,UITextFieldDelegate>
+#import "TrustCustomCell.h"
+#import "ProductDetailController.h"
+@interface HomeController ()<KNBannerViewDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak,nonatomic) UITextField *textField;
 @property (nonatomic,strong) UITableView *tv;
+
+@property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation HomeController
+
+
+static NSString *str = @"cellId";
+-(UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init] ;
+                       //]WithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.rowHeight = 120;
+        [_tableView registerNib:[UINib nibWithNibName:@"TrustCustomCell" bundle:nil] forCellReuseIdentifier:str];
+        _tableView.contentInset = UIEdgeInsetsMake(-5, 0, 0, 0);
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.scrollEnabled = NO;
+    }
+    return _tableView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,17 +93,20 @@
 
     
     CGFloat secondY = CGRectGetMaxY(thirdView.frame);
+    
     //第三部分
-    NSInteger count = 5;
-    for (NSInteger i = 0; i < count; i ++) {
-        SecondView *secondView = [[[NSBundle mainBundle]loadNibNamed:@"SecondView" owner:self options:nil] firstObject];
-        secondView.frame = CGRectMake(8, secondY + i * 120, ScreenW - 16, 120);
-        UIColor *color = RGB(240, 240, 240, 1);
-        secondView.layer.borderColor = [color CGColor];
-        secondView.layer.borderWidth = 0.6;
-        [self.scrollView addSubview:secondView];
-    }
-    CGFloat scrollViewY =  secondY + count * 120;
+    self.tableView.frame = CGRectMake(0, secondY, ScreenW, 5*120);
+    [self.scrollView addSubview:self.tableView];
+//    NSInteger count = 5;
+//    for (NSInteger i = 0; i < count; i ++) {
+//        SecondView *secondView = [[[NSBundle mainBundle]loadNibNamed:@"SecondView" owner:self options:nil] firstObject];
+//        secondView.frame = CGRectMake(8, secondY + i * 120, ScreenW - 16, 120);
+//        UIColor *color = RGB(240, 240, 240, 1);
+//        secondView.layer.borderColor = [color CGColor];
+//        secondView.layer.borderWidth = 0.6;
+//        [self.scrollView addSubview:secondView];
+//    }
+    CGFloat scrollViewY =  CGRectGetMaxY(self.tableView.frame) + 10;
     
     FourthView *fourthView = [[[NSBundle mainBundle]loadNibNamed:@"FourthView" owner:self options:nil] firstObject];
     fourthView.frame = CGRectMake(0, scrollViewY, ScreenW, 85);
@@ -101,4 +124,38 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TrustCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
+    if (!cell) {
+        cell = [[TrustCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.layer.borderWidth = 5;
+    UIColor *color = RGB(240, 240, 240, 1);
+    cell.layer.borderColor = [color CGColor];
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.hidesBottomBarWhenPushed = YES;
+    TrustCustomCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    ProductDetailController *vc = [[ProductDetailController alloc] init];
+    vc.title = cell.titleLbl.text;
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+    
+}
+
+
+
+
+
+
+
 @end
