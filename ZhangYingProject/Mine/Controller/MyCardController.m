@@ -95,6 +95,7 @@ static NSString *cellId = @"cellId";
     if (!cell) {
         cell = [[CardCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.priceLbl.text = self.priceArray[indexPath.row];
     cell.numberLbl.text = self.numberArray[indexPath.row];
     cell.amountLbl.text = self.amountArray[indexPath.row];

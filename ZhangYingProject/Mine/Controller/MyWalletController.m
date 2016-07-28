@@ -9,6 +9,8 @@
 #import "MyWalletController.h"
 
 #import "MyBillController.h"
+
+#import "WithdrawCashController.h"
 @interface MyWalletController ()
 
 @end
@@ -32,7 +34,7 @@
 - (void)setupRightBarBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, 30);
-    btn.titleLabel.font = [UIFont systemFontOfSize:16];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [btn setTitle:@"账单" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(didClickMyBill:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -46,4 +48,9 @@
 
 
 
+- (IBAction)didClickWithdrawCash:(id)sender {
+    WithdrawCashController *vc = [[WithdrawCashController alloc] init];
+    vc.title = @"提现";
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

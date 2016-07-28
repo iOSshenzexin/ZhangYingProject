@@ -87,6 +87,20 @@
 		019199361D3CCA66000F2483 /* ProductController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019199341D3CCA66000F2483 /* ProductController.xib */; };
 		0191993A1D3CCA76000F2483 /* DealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 019199381D3CCA76000F2483 /* DealController.m */; };
 		0191993B1D3CCA76000F2483 /* DealController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019199391D3CCA76000F2483 /* DealController.xib */; };
+		01C8D9161D49A7C800E51E53 /* BankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D9141D49A7C800E51E53 /* BankCardCell.m */; };
+		01C8D9171D49A7C800E51E53 /* BankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D9151D49A7C800E51E53 /* BankCardCell.xib */; };
+		01C8D91C1D49D87100E51E53 /* WithdrawCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D91A1D49D87100E51E53 /* WithdrawCashController.m */; };
+		01C8D91D1D49D87100E51E53 /* WithdrawCashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D91B1D49D87100E51E53 /* WithdrawCashController.xib */; };
+		01C8D9221D49E31400E51E53 /* WithdrawCashStyleOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D9201D49E31400E51E53 /* WithdrawCashStyleOneCell.m */; };
+		01C8D9231D49E31400E51E53 /* WithdrawCashStyleOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D9211D49E31400E51E53 /* WithdrawCashStyleOneCell.xib */; };
+		01C8D9271D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D9251D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m */; };
+		01C8D9281D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D9261D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib */; };
+		01C8D92C1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D92A1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.m */; };
+		01C8D92D1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D92B1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.xib */; };
+		01C8D9311D4A0AA400E51E53 /* DealTopCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D92F1D4A0AA400E51E53 /* DealTopCustomCell.m */; };
+		01C8D9321D4A0AA400E51E53 /* DealTopCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D9301D4A0AA400E51E53 /* DealTopCustomCell.xib */; };
+		01C8D93B1D4A13AA00E51E53 /* MyReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D9391D4A13AA00E51E53 /* MyReservationController.m */; };
+		01C8D93C1D4A13AA00E51E53 /* MyReservationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8D93A1D4A13AA00E51E53 /* MyReservationController.xib */; };
 		01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */; };
 		01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2CFEE1D3F1BA5002D5575 /* PersonInfoController.m */; };
 		01D2CFF11D3F1BA5002D5575 /* PersonInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D2CFEF1D3F1BA5002D5575 /* PersonInfoController.xib */; };
@@ -259,6 +273,27 @@
 		019199371D3CCA76000F2483 /* DealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealController.h; sourceTree = "<group>"; };
 		019199381D3CCA76000F2483 /* DealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealController.m; sourceTree = "<group>"; };
 		019199391D3CCA76000F2483 /* DealController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealController.xib; sourceTree = "<group>"; };
+		01C8D9131D49A7C800E51E53 /* BankCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardCell.h; sourceTree = "<group>"; };
+		01C8D9141D49A7C800E51E53 /* BankCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardCell.m; sourceTree = "<group>"; };
+		01C8D9151D49A7C800E51E53 /* BankCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardCell.xib; sourceTree = "<group>"; };
+		01C8D9191D49D87100E51E53 /* WithdrawCashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawCashController.h; sourceTree = "<group>"; };
+		01C8D91A1D49D87100E51E53 /* WithdrawCashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawCashController.m; sourceTree = "<group>"; };
+		01C8D91B1D49D87100E51E53 /* WithdrawCashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawCashController.xib; sourceTree = "<group>"; };
+		01C8D91F1D49E31400E51E53 /* WithdrawCashStyleOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawCashStyleOneCell.h; sourceTree = "<group>"; };
+		01C8D9201D49E31400E51E53 /* WithdrawCashStyleOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawCashStyleOneCell.m; sourceTree = "<group>"; };
+		01C8D9211D49E31400E51E53 /* WithdrawCashStyleOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawCashStyleOneCell.xib; sourceTree = "<group>"; };
+		01C8D9241D49E7C100E51E53 /* WithdrawCashStyleTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawCashStyleTwoCell.h; sourceTree = "<group>"; };
+		01C8D9251D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawCashStyleTwoCell.m; sourceTree = "<group>"; };
+		01C8D9261D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawCashStyleTwoCell.xib; sourceTree = "<group>"; };
+		01C8D9291D49EEA300E51E53 /* WithdrawCashStyleThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawCashStyleThreeCell.h; sourceTree = "<group>"; };
+		01C8D92A1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawCashStyleThreeCell.m; sourceTree = "<group>"; };
+		01C8D92B1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawCashStyleThreeCell.xib; sourceTree = "<group>"; };
+		01C8D92E1D4A0AA400E51E53 /* DealTopCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealTopCustomCell.h; sourceTree = "<group>"; };
+		01C8D92F1D4A0AA400E51E53 /* DealTopCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealTopCustomCell.m; sourceTree = "<group>"; };
+		01C8D9301D4A0AA400E51E53 /* DealTopCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTopCustomCell.xib; sourceTree = "<group>"; };
+		01C8D9381D4A13AA00E51E53 /* MyReservationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReservationController.h; sourceTree = "<group>"; };
+		01C8D9391D4A13AA00E51E53 /* MyReservationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReservationController.m; sourceTree = "<group>"; };
+		01C8D93A1D4A13AA00E51E53 /* MyReservationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReservationController.xib; sourceTree = "<group>"; };
 		01D2CFEA1D3F06E4002D5575 /* ZXCircleHeadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXCircleHeadImage.h; sourceTree = "<group>"; };
 		01D2CFEB1D3F06E4002D5575 /* ZXCircleHeadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXCircleHeadImage.m; sourceTree = "<group>"; };
 		01D2CFED1D3F1BA5002D5575 /* PersonInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoController.h; sourceTree = "<group>"; };
@@ -522,6 +557,9 @@
 				019199371D3CCA76000F2483 /* DealController.h */,
 				019199381D3CCA76000F2483 /* DealController.m */,
 				019199391D3CCA76000F2483 /* DealController.xib */,
+				01C8D9381D4A13AA00E51E53 /* MyReservationController.h */,
+				01C8D9391D4A13AA00E51E53 /* MyReservationController.m */,
+				01C8D93A1D4A13AA00E51E53 /* MyReservationController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -536,6 +574,9 @@
 		019199091D3CC8D5000F2483 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01C8D92E1D4A0AA400E51E53 /* DealTopCustomCell.h */,
+				01C8D92F1D4A0AA400E51E53 /* DealTopCustomCell.m */,
+				01C8D9301D4A0AA400E51E53 /* DealTopCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,6 +683,7 @@
 		019199131D3CC8D5000F2483 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01C8D9181D49D82800E51E53 /* WithdrawCash */,
 				01E525991D4210AD00617491 /* SecuritySetting */,
 				01E525841D41C11A00617491 /* DealSetting */,
 				0191992D1D3CCA54000F2483 /* MineController.h */,
@@ -688,6 +730,7 @@
 		019199151D3CC8D5000F2483 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01C8D91E1D49E2CC00E51E53 /* WithdrawCashCell */,
 				011050B41D4055DA009494F7 /* CustomPersonCell.h */,
 				011050B51D4055DA009494F7 /* CustomPersonCell.m */,
 				011050B61D4055DA009494F7 /* CustomPersonCell.xib */,
@@ -702,6 +745,9 @@
 				016D9F2B1D45BFE00002AD16 /* AddressCustomCell.h */,
 				016D9F2C1D45BFE00002AD16 /* AddressCustomCell.m */,
 				016D9F2D1D45BFE00002AD16 /* AddressCustomCell.xib */,
+				01C8D9131D49A7C800E51E53 /* BankCardCell.h */,
+				01C8D9141D49A7C800E51E53 /* BankCardCell.m */,
+				01C8D9151D49A7C800E51E53 /* BankCardCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -754,6 +800,32 @@
 				012304511D3DC81D00B19284 /* Tools */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		01C8D9181D49D82800E51E53 /* WithdrawCash */ = {
+			isa = PBXGroup;
+			children = (
+				01C8D9191D49D87100E51E53 /* WithdrawCashController.h */,
+				01C8D91A1D49D87100E51E53 /* WithdrawCashController.m */,
+				01C8D91B1D49D87100E51E53 /* WithdrawCashController.xib */,
+			);
+			name = WithdrawCash;
+			sourceTree = "<group>";
+		};
+		01C8D91E1D49E2CC00E51E53 /* WithdrawCashCell */ = {
+			isa = PBXGroup;
+			children = (
+				01C8D91F1D49E31400E51E53 /* WithdrawCashStyleOneCell.h */,
+				01C8D9201D49E31400E51E53 /* WithdrawCashStyleOneCell.m */,
+				01C8D9211D49E31400E51E53 /* WithdrawCashStyleOneCell.xib */,
+				01C8D9241D49E7C100E51E53 /* WithdrawCashStyleTwoCell.h */,
+				01C8D9251D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m */,
+				01C8D9261D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib */,
+				01C8D9291D49EEA300E51E53 /* WithdrawCashStyleThreeCell.h */,
+				01C8D92A1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.m */,
+				01C8D92B1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.xib */,
+			);
+			name = WithdrawCashCell;
 			sourceTree = "<group>";
 		};
 		01D2CFE91D3F06E4002D5575 /* ZXCircleHeadImage */ = {
@@ -924,17 +996,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01C8D91D1D49D87100E51E53 /* WithdrawCashController.xib in Resources */,
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
 				01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */,
 				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
+				01C8D93C1D4A13AA00E51E53 /* MyReservationController.xib in Resources */,
 				01773D991D470F170028BC7D /* ForgetPWDController.xib in Resources */,
 				01E525A81D421A1300617491 /* SetNewPWDController.xib in Resources */,
 				01773DA21D472CB30028BC7D /* MBProgressHUD.bundle in Resources */,
+				01C8D9321D4A0AA400E51E53 /* DealTopCustomCell.xib in Resources */,
 				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
 				01E5259E1D4210ED00617491 /* SecuritySetController.xib in Resources */,
 				016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */,
 				0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */,
+				01C8D9231D49E31400E51E53 /* WithdrawCashStyleOneCell.xib in Resources */,
 				016D9F2F1D45BFE00002AD16 /* AddressCustomCell.xib in Resources */,
 				0169F19C1D3E32120049B13D /* FourthView.xib in Resources */,
 				019198E31D3CC32D000F2483 /* LaunchScreen.storyboard in Resources */,
@@ -951,6 +1027,7 @@
 				011050E41D40C3D8009494F7 /* MyCardController.xib in Resources */,
 				016D9F461D4628550002AD16 /* MessageDetailController.xib in Resources */,
 				011050EF1D40CC97009494F7 /* LoginController.xib in Resources */,
+				01C8D9281D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib in Resources */,
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
 				01773D941D46FAB40028BC7D /* RegisterController.xib in Resources */,
@@ -958,10 +1035,12 @@
 				016D9F361D45E80E0002AD16 /* AboutUsController.storyboard in Resources */,
 				01E5258E1D41C95600617491 /* DealCustomCell.xib in Resources */,
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
+				01C8D92D1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.xib in Resources */,
 				019199361D3CCA66000F2483 /* ProductController.xib in Resources */,
 				01E525831D41B6DD00617491 /* DealSettingController.xib in Resources */,
 				0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */,
 				0169F1941D3E25630049B13D /* ThirdView.xib in Resources */,
+				01C8D9171D49A7C800E51E53 /* BankCardCell.xib in Resources */,
 				01E525981D420BAE00617491 /* AddAdressController.xib in Resources */,
 				01E525AD1D42223700617491 /* SearchController.xib in Resources */,
 			);
@@ -1037,6 +1116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				012304671D3DC87B00B19284 /* UIView+Extension.m in Sources */,
+				01C8D9271D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m in Sources */,
 				0169F1901D3E00300049B13D /* SecondView.m in Sources */,
 				019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */,
 				01E525AC1D42223700617491 /* SearchController.m in Sources */,
@@ -1048,6 +1128,7 @@
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
 				01773D931D46FAB40028BC7D /* RegisterController.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
+				01C8D9311D4A0AA400E51E53 /* DealTopCustomCell.m in Sources */,
 				011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
 				011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */,
@@ -1061,23 +1142,28 @@
 				01E5258D1D41C95600617491 /* DealCustomCell.m in Sources */,
 				0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */,
 				012304621D3DC87B00B19284 /* KNBannerView.m in Sources */,
+				01C8D9221D49E31400E51E53 /* WithdrawCashStyleOneCell.m in Sources */,
 				0125A0301D48A43C00D02522 /* TrustCustomCell.m in Sources */,
 				012304641D3DC87B00B19284 /* KNJudgementTool.m in Sources */,
 				011050E31D40C3D8009494F7 /* MyCardController.m in Sources */,
 				0125A0351D48AEDD00D02522 /* ProductDetailController.m in Sources */,
+				01C8D92C1D49EEA300E51E53 /* WithdrawCashStyleThreeCell.m in Sources */,
 				01E5259D1D4210ED00617491 /* SecuritySetController.m in Sources */,
 				01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */,
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
 				01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
 				011050EE1D40CC97009494F7 /* LoginController.m in Sources */,
+				01C8D9161D49A7C800E51E53 /* BankCardCell.m in Sources */,
 				011050DA1D40B5D2009494F7 /* AddImage.m in Sources */,
+				01C8D91C1D49D87100E51E53 /* WithdrawCashController.m in Sources */,
 				019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */,
 				01E525A21D42169300617491 /* ChangeLoginNumberController.m in Sources */,
 				01773DA71D4769E30028BC7D /* RegularIntroduceController.m in Sources */,
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
 				016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */,
+				01C8D93B1D4A13AA00E51E53 /* MyReservationController.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
 				016D9F401D4620650002AD16 /* MessageCustomCell.m in Sources */,
 				011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */,

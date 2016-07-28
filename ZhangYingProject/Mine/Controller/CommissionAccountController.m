@@ -17,6 +17,15 @@
 
 @implementation CommissionAccountController
 
+
++(CommissionAccountController *)sharedCommissionAccountController{
+    static CommissionAccountController *vc = nil;
+    if (!vc) {
+        vc = [[CommissionAccountController alloc] init];
+    }
+    return vc;
+}
+
 -(NSArray *)placeholderArray{
     if (!_placeholderArray) {
         _placeholderArray = [NSArray arrayWithObjects:@"请输入开户时的真实姓名",@"请仔细核对每一位数字",@"如招商银行",@"具体的开户支行", nil];
@@ -62,6 +71,14 @@ static NSString *cellID = @"cellId";
     cell.txtField.placeholder = self.placeholderArray[indexPath.row];
     cell.lbl.text = self.titleArray[indexPath.row];
     return cell;
+}
+- (IBAction)didClickSubmit:(id)sender {
+    if ([self.registerAmount isEqualToString:@"registerAmount"]) {
+        if ([self.delegate respondsToSelector:@selector(commissionAccountController:andCardNumber:cardStyle:)]) {
+            [self.delegate commissionAccountController:self andCardNumber:@"12345678901234" cardStyle:nil];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

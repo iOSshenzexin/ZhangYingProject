@@ -50,7 +50,7 @@
     MineController *mineVC = [[MineController alloc]init];
     [self setUpOneChildViewController:mineVC image:[UIImage imageNamed:@"nav04_normal"] selectImage:[UIImage imageNamed:@"nav04_click"]  title:@"我的"];
 
-    [self setSelectedIndex:2];
+    [self setSelectedIndex:4];
 }
 
 - (void)setUpOneChildViewController:(UIViewController *)viewController image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title {

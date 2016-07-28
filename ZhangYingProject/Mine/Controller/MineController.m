@@ -141,8 +141,6 @@
 }
 
 
-
-
 - (IBAction)memberAuthenticationBtn:(id)sender {
     MemberAuthenticationController *vc = [[MemberAuthenticationController alloc] init];
     self.hidesBottomBarWhenPushed = YES;
@@ -167,15 +165,25 @@
     self.hidesBottomBarWhenPushed = NO;
 }
 - (IBAction)didClickExitLogin:(id)sender {
-    UIApplication *application = [UIApplication sharedApplication];
-    TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
-//    tab.selectedIndex = 2;
-    LoginController *vc = [[LoginController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    app.isLogin = NO;
-    vc.quit = 1;
-    [tab presentViewController:nav animated:YES completion:^{}];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您确定要退出吗?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"取消");
+    }];
+    [alertController addAction:cancleAction];
+    
+    UIAlertAction *determineAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIApplication *application = [UIApplication sharedApplication];
+        TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
+    //    tab.selectedIndex = 2;
+        LoginController *vc = [[LoginController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+        app.isLogin = NO;
+        vc.quit = 1;
+        [tab presentViewController:nav animated:YES completion:^{}];
+    }];
+    [alertController addAction:determineAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
