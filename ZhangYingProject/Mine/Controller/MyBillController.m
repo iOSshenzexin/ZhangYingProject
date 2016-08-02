@@ -74,8 +74,7 @@ static NSString *str = @"cellId";
         view.backgroundColor = RGB(242, 242, 242, 1);
         [contentArray addObject:view];
     }
-    [contentArray addObject:self.withdrawalsTableView];
-    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
+    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:self.titleArray contentViewArray:contentArray];
     [self.view addSubview:scView];
     
     UIView *view = (UIView *)contentArray[0];
