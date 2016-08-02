@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DealTopCustomCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet UIView *backView;
 
+@property (weak, nonatomic) IBOutlet UIButton *showCardBtn;
 @end

@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface DealController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *dealTableView;
 
+@property (strong, nonatomic) IBOutlet UITableView *dealTableView;
+
+@property (nonatomic,strong) UISegmentedControl *seg;
+
++(DealController *)sharedDealController;
 @end

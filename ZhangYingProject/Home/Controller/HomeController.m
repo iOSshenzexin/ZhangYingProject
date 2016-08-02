@@ -51,6 +51,8 @@ static NSString *str = @"cellId";
     //添加搜索框
     self.navigationItem.titleView = [ZXSearchBar searchBar];
     UITextField *txt = (UITextField *)self.navigationItem.titleView;
+    txt.placeholder = @"请输入您要搜索的产品";
+
     txt.delegate = self;
     self.textField = txt;
     //添加轮播图

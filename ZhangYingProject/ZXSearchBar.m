@@ -20,8 +20,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.size = CGSizeMake(250, 32);
-        self.font = [UIFont systemFontOfSize:15];
-        self.placeholder = @"请输入您要搜索的产品";
+        self.font = [UIFont systemFontOfSize:14];
+        self.adjustsFontSizeToFitWidth = YES;
         //拉伸图片防止变形的处理方法: 或者 提前在Xcode上设置图片中间拉伸
         UIImage *image = [UIImage imageNamed:@"searchbar_textfield_background"];
         CGFloat top = image.size.height * 0.5;

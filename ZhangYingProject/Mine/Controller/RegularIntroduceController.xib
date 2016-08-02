@@ -21,7 +21,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="430" id="A00-Iv-5M4"/>
                     </constraints>
-                    <mutableString key="text">银行人民币理财产品大致可分为债券型、信托型、挂钩型及QDII型。[3] 
+                    <string key="text">银行人民币理财产品大致可分为债券型、信托型、挂钩型及QDII型。[3] 
 债券型
 投资于货币市场中，投资的产品一般为央行票据与企业短期融资券。因为央行票据与企业短期融资券个人无法直接投资，这类人民币理财产品实际上为客户提供了分享货币市场投资收益的机会。
 信托型
@@ -29,7 +29,7 @@
 及与港股挂购等。
 QDII型
 所谓QDII，即合格的境内投资机构代客境外理财，是指取得代客境外理财业务资格的商业银行。
-QDII型人民币理财产品，简单说，即是客户将手中的人民币资金委托给合格商业银行，由合格</mutableString>
+QDII型人民币理财产品，简单说，即是客户将手中的人民币资金委托给合格商业银行，由合格</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>

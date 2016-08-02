@@ -101,4 +101,9 @@ static NSString *cellStyleThree = @"threecell";
 - (IBAction)didClickWithdrawCash:(id)sender {
     
 }
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 @end

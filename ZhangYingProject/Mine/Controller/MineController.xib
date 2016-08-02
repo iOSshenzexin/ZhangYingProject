@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cK-Ky-N8s">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="39l-GD-Ufr">
                                     <rect key="frame" x="0.0" y="232" width="375" height="260"/>
@@ -157,10 +157,11 @@
                             </subviews>
                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="750" id="8K6-oj-yyr"/>
+                                <constraint firstAttribute="height" constant="700" id="8K6-oj-yyr"/>
                                 <constraint firstItem="9mL-hl-YAf" firstAttribute="leading" secondItem="9cK-Ky-N8s" secondAttribute="leading" id="BOU-cN-jCh"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="750" id="Lc9-wX-EvP"/>
                                 <constraint firstAttribute="trailing" secondItem="39l-GD-Ufr" secondAttribute="trailing" id="NFE-kt-ddW"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="650" id="QaB-op-KAg"/>
                                 <constraint firstItem="39l-GD-Ufr" firstAttribute="leading" secondItem="9cK-Ky-N8s" secondAttribute="leading" id="RlD-vu-u7Q"/>
                                 <constraint firstItem="XQd-nh-Tea" firstAttribute="centerX" secondItem="9cK-Ky-N8s" secondAttribute="centerX" multiplier="1.5" id="U1w-nP-B8b"/>
                                 <constraint firstAttribute="trailing" secondItem="9mL-hl-YAf" secondAttribute="trailing" id="UTW-h6-Cb4"/>
@@ -172,11 +173,22 @@
                                 <constraint firstAttribute="trailing" secondItem="Z5y-OO-aEC" secondAttribute="trailing" id="eQM-WC-WB5"/>
                                 <constraint firstItem="Z5y-OO-aEC" firstAttribute="top" secondItem="9cK-Ky-N8s" secondAttribute="top" constant="10" id="g0o-8N-TUa"/>
                                 <constraint firstItem="8Nv-y5-mQl" firstAttribute="top" secondItem="39l-GD-Ufr" secondAttribute="bottom" constant="10" id="jne-Y2-MDZ"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="700" id="mFA-k1-WO1"/>
+                                <constraint firstAttribute="height" constant="700" id="mJs-CW-fMt"/>
                                 <constraint firstItem="9mL-hl-YAf" firstAttribute="top" secondItem="Z5y-OO-aEC" secondAttribute="bottom" constant="8" id="rC4-MZ-Hml"/>
                                 <constraint firstItem="39l-GD-Ufr" firstAttribute="top" secondItem="9mL-hl-YAf" secondAttribute="bottom" constant="14" id="rry-ar-doa"/>
                                 <constraint firstItem="Z5y-OO-aEC" firstAttribute="leading" secondItem="9cK-Ky-N8s" secondAttribute="leading" id="s8y-0q-UYG"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="700" id="v7p-sn-Gs2"/>
                                 <constraint firstItem="db4-ql-VLz" firstAttribute="centerX" secondItem="9cK-Ky-N8s" secondAttribute="centerX" multiplier="0.5" id="wSW-dN-bWB"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="8K6-oj-yyr"/>
+                                    <exclude reference="Lc9-wX-EvP"/>
+                                    <exclude reference="QaB-op-KAg"/>
+                                    <exclude reference="mJs-CW-fMt"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <constraints>

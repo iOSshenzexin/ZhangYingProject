@@ -14,16 +14,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sum-add" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-CP-qBs">
-                        <rect key="frame" x="8" y="22" width="17" height="17"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sum-add" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-CP-qBs">
+                        <rect key="frame" x="8" y="21" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="fJA-Cj-NA8"/>
+                            <constraint firstAttribute="width" constant="17" id="oLm-qW-dhi"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您还没有添加结佣账户,去登记吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-U9-FfP">
-                        <rect key="frame" x="29" y="10" width="323" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有添加结佣账户,去登记吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-U9-FfP">
+                        <rect key="frame" x="29" y="9" width="331" height="41"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="ZuU-CP-qBs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="W0g-7A-nRQ"/>
+                    <constraint firstItem="ZuU-CP-qBs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Xtf-Rw-ixK"/>
+                    <constraint firstItem="kzq-U9-FfP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="bhD-Lu-1Af"/>
+                    <constraint firstItem="kzq-U9-FfP" firstAttribute="leading" secondItem="ZuU-CP-qBs" secondAttribute="trailing" constant="4" id="g2S-uA-6mp"/>
+                    <constraint firstAttribute="trailing" secondItem="kzq-U9-FfP" secondAttribute="trailing" constant="15" id="q5L-oM-BKM"/>
+                    <constraint firstAttribute="bottom" secondItem="kzq-U9-FfP" secondAttribute="bottom" constant="9" id="umV-fS-ZUQ"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="255.5" y="234"/>
         </tableViewCell>

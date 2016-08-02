@@ -8,23 +8,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DealTopCustomCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="229"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="roU-JZ-FPa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roU-JZ-FPa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="交易近况 (近60天)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fH-3l-m8O">
-                                <rect key="frame" x="8" y="8" width="130" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易近况 (近60天)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fH-3l-m8O">
+                                <rect key="frame" x="8" y="4" width="130" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="XLS-6L-uuj"/>
+                                    <constraint firstAttribute="height" constant="23" id="gdk-iz-udg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jRY-Ik-SSj">
-                                <rect key="frame" x="8" y="44" width="359" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jRY-Ik-SSj">
+                                <rect key="frame" x="8" y="31" width="359" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="gYm-gH-JxK"/>
+                                </constraints>
                                 <segments>
                                     <segment title="订单"/>
                                     <segment title="佣金"/>
@@ -33,14 +40,98 @@
                                 <color key="tintColor" red="0.94901960780000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jRY-Ik-SSj" firstAttribute="top" secondItem="1fH-3l-m8O" secondAttribute="bottom" constant="4" id="7qC-eh-68l"/>
+                            <constraint firstItem="1fH-3l-m8O" firstAttribute="leading" secondItem="roU-JZ-FPa" secondAttribute="leading" constant="8" id="SIn-66-ekg"/>
+                            <constraint firstItem="jRY-Ik-SSj" firstAttribute="leading" secondItem="roU-JZ-FPa" secondAttribute="leading" constant="8" id="X6z-Wt-Uoc"/>
+                            <constraint firstItem="1fH-3l-m8O" firstAttribute="top" secondItem="roU-JZ-FPa" secondAttribute="top" constant="4" id="Z3d-8M-3AA"/>
+                            <constraint firstAttribute="trailing" secondItem="jRY-Ik-SSj" secondAttribute="trailing" constant="8" id="ZdS-lw-zix"/>
+                            <constraint firstAttribute="height" constant="134" id="yMc-H0-Azm"/>
+                        </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcP-rW-i3Y">
-                        <rect key="frame" x="0.0" y="116" width="375" height="62"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trade-base" translatesAutoresizingMaskIntoConstraints="NO" id="pcP-rW-i3Y">
+                        <rect key="frame" x="0.0" y="163" width="375" height="66"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T34-Ix-nts">
+                        <rect key="frame" x="0.0" y="165" width="125" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="b2U-rz-HHy"/>
+                        </constraints>
+                        <inset key="titleEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="收藏 10" image="trade-icon01">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4q-5v-4uL">
+                        <rect key="frame" x="0.0" y="133" width="375" height="30"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="h2L-7t-9i9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="查看佣金钱包&gt;&gt;">
+                            <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-gy-UEz">
+                        <rect key="frame" x="250" y="165" width="125" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="M8X-kb-mD7"/>
+                        </constraints>
+                        <inset key="titleEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="订阅 10" image="trade-icon03">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omC-s3-Mfm">
+                        <rect key="frame" x="126" y="165" width="125" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="tDU-JI-OMC"/>
+                        </constraints>
+                        <inset key="titleEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="分享 10" image="trade-icon02">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="h4q-5v-4uL" secondAttribute="trailing" id="1kX-LM-hwd"/>
+                    <constraint firstItem="Bf1-gy-UEz" firstAttribute="trailing" secondItem="pcP-rW-i3Y" secondAttribute="trailing" id="1lK-1t-540"/>
+                    <constraint firstAttribute="bottom" secondItem="pcP-rW-i3Y" secondAttribute="bottom" id="4mK-ST-qU1"/>
+                    <constraint firstAttribute="trailing" secondItem="roU-JZ-FPa" secondAttribute="trailing" id="8GU-wf-b9T"/>
+                    <constraint firstItem="roU-JZ-FPa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="99F-b8-fxR"/>
+                    <constraint firstItem="T34-Ix-nts" firstAttribute="leading" secondItem="pcP-rW-i3Y" secondAttribute="leading" id="Gb6-Bb-83U"/>
+                    <constraint firstItem="Bf1-gy-UEz" firstAttribute="leading" secondItem="omC-s3-Mfm" secondAttribute="trailing" constant="-1" id="MjK-K9-zRU"/>
+                    <constraint firstItem="pcP-rW-i3Y" firstAttribute="top" secondItem="h4q-5v-4uL" secondAttribute="bottom" id="P2O-Ln-1YG"/>
+                    <constraint firstItem="pcP-rW-i3Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UZa-Gu-8fs"/>
+                    <constraint firstAttribute="bottom" secondItem="omC-s3-Mfm" secondAttribute="bottom" id="dLO-TF-sdU"/>
+                    <constraint firstItem="omC-s3-Mfm" firstAttribute="leading" secondItem="T34-Ix-nts" secondAttribute="trailing" constant="1" id="dmc-Pn-SsW"/>
+                    <constraint firstAttribute="trailing" secondItem="pcP-rW-i3Y" secondAttribute="trailing" id="jCD-Yw-da4"/>
+                    <constraint firstItem="roU-JZ-FPa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jYH-lV-HZd"/>
+                    <constraint firstAttribute="bottom" secondItem="Bf1-gy-UEz" secondAttribute="bottom" id="phB-TH-9FO"/>
+                    <constraint firstItem="h4q-5v-4uL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qOK-ep-4kC"/>
+                    <constraint firstItem="h4q-5v-4uL" firstAttribute="top" secondItem="roU-JZ-FPa" secondAttribute="bottom" constant="-1" id="qPt-qq-5dn"/>
+                    <constraint firstItem="Bf1-gy-UEz" firstAttribute="width" secondItem="T34-Ix-nts" secondAttribute="width" id="sJQ-3U-Bw3"/>
+                    <constraint firstItem="omC-s3-Mfm" firstAttribute="width" secondItem="T34-Ix-nts" secondAttribute="width" id="slz-GJ-W5O"/>
+                    <constraint firstAttribute="bottom" secondItem="T34-Ix-nts" secondAttribute="bottom" id="zyX-LY-hLt"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="234.5" y="206"/>
+            <connections>
+                <outlet property="backView" destination="roU-JZ-FPa" id="qry-3i-AJS"/>
+                <outlet property="segmentControl" destination="jRY-Ik-SSj" id="5Ee-CO-dat"/>
+                <outlet property="showCardBtn" destination="h4q-5v-4uL" id="I5I-ZY-XcK"/>
+            </connections>
+            <point key="canvasLocation" x="-185.5" y="125"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="trade-base" width="360" height="59"/>
+        <image name="trade-icon01" width="29" height="29"/>
+        <image name="trade-icon02" width="29" height="29"/>
+        <image name="trade-icon03" width="29" height="29"/>
+    </resources>
 </document>

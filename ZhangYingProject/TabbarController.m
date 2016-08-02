@@ -44,13 +44,13 @@
     HomeController *homeVC = [[HomeController alloc]init];
     [self setUpOneChildViewController:homeVC image:[UIImage imageNamed:@"nav05_normal"] selectImage:[UIImage imageNamed:@"nav05_click"] title:@""];
     // 4.添加第4个控制器
-    DealController *dealVC = [[DealController alloc]init];
+    DealController *dealVC = [DealController sharedDealController];
     [self setUpOneChildViewController:dealVC image:[UIImage imageNamed:@"nav03_normal"] selectImage:[UIImage imageNamed:@"nav03_click"]  title:@"交易"];
     // 5.添加第5个控制器
     MineController *mineVC = [[MineController alloc]init];
     [self setUpOneChildViewController:mineVC image:[UIImage imageNamed:@"nav04_normal"] selectImage:[UIImage imageNamed:@"nav04_click"]  title:@"我的"];
 
-    [self setSelectedIndex:4];
+    [self setSelectedIndex:3];
 }
 
 - (void)setUpOneChildViewController:(UIViewController *)viewController image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title {
