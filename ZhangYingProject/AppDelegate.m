@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "TabbarController.h"
 #import "LoginController.h"
-
+#import "FloatingView.h"
 @interface AppDelegate ()
 
 @end
@@ -42,8 +42,12 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     //更改状态栏的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [window makeKeyAndVisible];
     self.window = window;
+    
+    //添加悬浮窗
+    [window makeKeyAndVisible];
+    FloatingView * floatingView = [[FloatingView alloc]initWithFrame:CGRectMake(ScreenW - 54, ScreenH - 110, 52.5, 52.5)];
+    [self.window addSubview:floatingView];
     return YES;
 }
 

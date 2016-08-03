@@ -30,7 +30,7 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尊敬的客户您好:在您提交提现申请后,我们通常会在1-2个工作日内完成对本次申请的审核,确认无误后,资金将转入您的结佣账户." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5q-qc-D4f">
-                    <rect key="frame" x="8" y="210" width="359" height="80"/>
+                    <rect key="frame" x="8" y="190" width="359" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="fRY-BL-0AY"/>
                     </constraints>
@@ -39,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-tq-WBo">
-                    <rect key="frame" x="30" y="380" width="315" height="40"/>
+                    <rect key="frame" x="30" y="360" width="315" height="40"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="QLX-Ee-rh7"/>
@@ -64,7 +64,7 @@
                 <constraint firstAttribute="trailing" secondItem="oi9-rt-ovt" secondAttribute="trailing" id="6RY-5x-Raz"/>
                 <constraint firstItem="oi9-rt-ovt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="8tq-Av-vfy"/>
                 <constraint firstItem="NiQ-tq-WBo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="DCw-TD-OKQ"/>
-                <constraint firstItem="o5q-qc-D4f" firstAttribute="top" secondItem="oi9-rt-ovt" secondAttribute="bottom" id="Hga-Eg-ZYI"/>
+                <constraint firstItem="o5q-qc-D4f" firstAttribute="top" secondItem="oi9-rt-ovt" secondAttribute="bottom" constant="-20" id="Hga-Eg-ZYI"/>
                 <constraint firstAttribute="trailing" secondItem="o5q-qc-D4f" secondAttribute="trailing" constant="8" id="KMY-QN-Ec2"/>
                 <constraint firstAttribute="trailing" secondItem="NiQ-tq-WBo" secondAttribute="trailing" constant="30" id="QsL-2z-8XB"/>
                 <constraint firstItem="oi9-rt-ovt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="avu-5A-aPe"/>

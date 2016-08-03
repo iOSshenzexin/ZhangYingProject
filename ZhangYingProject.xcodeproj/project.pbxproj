@@ -54,6 +54,15 @@
 		0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */; };
 		0125A0351D48AEDD00D02522 /* ProductDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A0331D48AEDD00D02522 /* ProductDetailController.m */; };
 		0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A0341D48AEDD00D02522 /* ProductDetailController.xib */; };
+		0169E1D81D518EFA009241A8 /* FloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169E1D71D518EFA009241A8 /* FloatingView.m */; };
+		0169E1DC1D51D117009241A8 /* ProductDetailStyleOneCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169E1DA1D51D117009241A8 /* ProductDetailStyleOneCustomCell.m */; };
+		0169E1DD1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169E1DB1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib */; };
+		0169E1E11D51D131009241A8 /* ProductDetailStyleTwoCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169E1DF1D51D131009241A8 /* ProductDetailStyleTwoCustomCell.m */; };
+		0169E1E21D51D131009241A8 /* ProductDetailStyleTwoCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169E1E01D51D131009241A8 /* ProductDetailStyleTwoCustomCell.xib */; };
+		0169E1E61D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169E1E41D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m */; };
+		0169E1E71D51D145009241A8 /* ProductDetailStyleThreeCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169E1E51D51D145009241A8 /* ProductDetailStyleThreeCustomCell.xib */; };
+		0169E1EB1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169E1E91D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m */; };
+		0169E1EC1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169E1EA1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib */; };
 		0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169F1851D3DD1E40049B13D /* ZXSearchBar.m */; };
 		0169F1891D3DD9770049B13D /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169F1881D3DD9770049B13D /* FirstView.m */; };
 		0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169F18C1D3DF2570049B13D /* FirstView.xib */; };
@@ -234,6 +243,20 @@
 		0125A0321D48AEDD00D02522 /* ProductDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailController.h; sourceTree = "<group>"; };
 		0125A0331D48AEDD00D02522 /* ProductDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailController.m; sourceTree = "<group>"; };
 		0125A0341D48AEDD00D02522 /* ProductDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailController.xib; sourceTree = "<group>"; };
+		0169E1D61D518EFA009241A8 /* FloatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingView.h; sourceTree = "<group>"; };
+		0169E1D71D518EFA009241A8 /* FloatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingView.m; sourceTree = "<group>"; };
+		0169E1D91D51D117009241A8 /* ProductDetailStyleOneCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailStyleOneCustomCell.h; sourceTree = "<group>"; };
+		0169E1DA1D51D117009241A8 /* ProductDetailStyleOneCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailStyleOneCustomCell.m; sourceTree = "<group>"; };
+		0169E1DB1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailStyleOneCustomCell.xib; sourceTree = "<group>"; };
+		0169E1DE1D51D131009241A8 /* ProductDetailStyleTwoCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailStyleTwoCustomCell.h; sourceTree = "<group>"; };
+		0169E1DF1D51D131009241A8 /* ProductDetailStyleTwoCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailStyleTwoCustomCell.m; sourceTree = "<group>"; };
+		0169E1E01D51D131009241A8 /* ProductDetailStyleTwoCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailStyleTwoCustomCell.xib; sourceTree = "<group>"; };
+		0169E1E31D51D145009241A8 /* ProductDetailStyleThreeCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailStyleThreeCustomCell.h; sourceTree = "<group>"; };
+		0169E1E41D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailStyleThreeCustomCell.m; sourceTree = "<group>"; };
+		0169E1E51D51D145009241A8 /* ProductDetailStyleThreeCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailStyleThreeCustomCell.xib; sourceTree = "<group>"; };
+		0169E1E81D51D15B009241A8 /* ProductDetailStyleFourCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailStyleFourCustomCell.h; sourceTree = "<group>"; };
+		0169E1E91D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailStyleFourCustomCell.m; sourceTree = "<group>"; };
+		0169E1EA1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailStyleFourCustomCell.xib; sourceTree = "<group>"; };
 		0169F1841D3DD1E40049B13D /* ZXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXSearchBar.h; sourceTree = "<group>"; };
 		0169F1851D3DD1E40049B13D /* ZXSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXSearchBar.m; sourceTree = "<group>"; };
 		0169F1871D3DD9770049B13D /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
@@ -479,6 +502,15 @@
 			path = LXSegment;
 			sourceTree = "<group>";
 		};
+		0169E1CD1D518979009241A8 /* FloatingWindow */ = {
+			isa = PBXGroup;
+			children = (
+				0169E1D61D518EFA009241A8 /* FloatingView.h */,
+				0169E1D71D518EFA009241A8 /* FloatingView.m */,
+			);
+			path = FloatingWindow;
+			sourceTree = "<group>";
+		};
 		0169F1831D3DD1CE0049B13D /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +523,7 @@
 		01773D9A1D472C890028BC7D /* ThridLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				0169E1CD1D518979009241A8 /* FloatingWindow */,
 				011B480E1D4B3E210079877A /* PopoverView */,
 				0125A0261D4864E400D02522 /* LXSegment */,
 				01773D9B1D472CB30028BC7D /* MBProgressHUD */,
@@ -857,6 +890,18 @@
 				0125A02D1D48A43C00D02522 /* TrustCustomCell.h */,
 				0125A02E1D48A43C00D02522 /* TrustCustomCell.m */,
 				0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */,
+				0169E1D91D51D117009241A8 /* ProductDetailStyleOneCustomCell.h */,
+				0169E1DA1D51D117009241A8 /* ProductDetailStyleOneCustomCell.m */,
+				0169E1DB1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib */,
+				0169E1DE1D51D131009241A8 /* ProductDetailStyleTwoCustomCell.h */,
+				0169E1DF1D51D131009241A8 /* ProductDetailStyleTwoCustomCell.m */,
+				0169E1E01D51D131009241A8 /* ProductDetailStyleTwoCustomCell.xib */,
+				0169E1E31D51D145009241A8 /* ProductDetailStyleThreeCustomCell.h */,
+				0169E1E41D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m */,
+				0169E1E51D51D145009241A8 /* ProductDetailStyleThreeCustomCell.xib */,
+				0169E1E81D51D15B009241A8 /* ProductDetailStyleFourCustomCell.h */,
+				0169E1E91D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m */,
+				0169E1EA1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1069,6 +1114,7 @@
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
 				011D84651D4F33C500C3F128 /* CustomAnnouncementCell.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
+				0169E1DD1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib in Resources */,
 				01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */,
 				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
 				01C8D93C1D4A13AA00E51E53 /* MyReservationController.xib in Resources */,
@@ -1078,6 +1124,7 @@
 				01773DA21D472CB30028BC7D /* MBProgressHUD.bundle in Resources */,
 				01C8D9321D4A0AA400E51E53 /* DealTopCustomCell.xib in Resources */,
 				011050BD1D4069AB009494F7 /* ChangePhoneController.xib in Resources */,
+				0169E1E21D51D131009241A8 /* ProductDetailStyleTwoCustomCell.xib in Resources */,
 				01E5259E1D4210ED00617491 /* SecuritySetController.xib in Resources */,
 				016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */,
 				0169F18D1D3DF2570049B13D /* FirstView.xib in Resources */,
@@ -1114,7 +1161,9 @@
 				01E525831D41B6DD00617491 /* DealSettingController.xib in Resources */,
 				011D84561D4F2E4000C3F128 /* CustomInTransitCell.xib in Resources */,
 				0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */,
+				0169E1EC1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib in Resources */,
 				011D844C1D4F262800C3F128 /* CustomOrderCell.xib in Resources */,
+				0169E1E71D51D145009241A8 /* ProductDetailStyleThreeCustomCell.xib in Resources */,
 				0169F1941D3E25630049B13D /* ThirdView.xib in Resources */,
 				01C8D9171D49A7C800E51E53 /* BankCardCell.xib in Resources */,
 				01E525981D420BAE00617491 /* AddAdressController.xib in Resources */,
@@ -1205,11 +1254,13 @@
 				01773DA31D472CB30028BC7D /* MBProgressHUD.m in Sources */,
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
 				01773D931D46FAB40028BC7D /* RegisterController.m in Sources */,
+				0169E1E61D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
 				01C8D9311D4A0AA400E51E53 /* DealTopCustomCell.m in Sources */,
 				011D84551D4F2E4000C3F128 /* CustomInTransitCell.m in Sources */,
 				011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
+				0169E1EB1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m in Sources */,
 				011D845A1D4F318100C3F128 /* ProductAnnouncementController.m in Sources */,
 				011050C61D407C17009494F7 /* ZXGetCheckCode.m in Sources */,
 				011D844B1D4F262800C3F128 /* CustomOrderCell.m in Sources */,
@@ -1237,6 +1288,7 @@
 				01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
 				011050EE1D40CC97009494F7 /* LoginController.m in Sources */,
+				0169E1DC1D51D117009241A8 /* ProductDetailStyleOneCustomCell.m in Sources */,
 				01C8D9161D49A7C800E51E53 /* BankCardCell.m in Sources */,
 				011050DA1D40B5D2009494F7 /* AddImage.m in Sources */,
 				01C8D91C1D49D87100E51E53 /* WithdrawCashController.m in Sources */,
@@ -1246,6 +1298,7 @@
 				0191992B1D3CCA43000F2483 /* HomeController.m in Sources */,
 				012304661D3DC87B00B19284 /* NSString+hash.m in Sources */,
 				016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */,
+				0169E1D81D518EFA009241A8 /* FloatingView.m in Sources */,
 				01C8D93B1D4A13AA00E51E53 /* MyReservationController.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
 				016D9F401D4620650002AD16 /* MessageCustomCell.m in Sources */,
@@ -1255,6 +1308,7 @@
 				01773DA11D472CB30028BC7D /* MBProgressHUD+WJTools.m in Sources */,
 				012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */,
 				011050D61D409E4F009494F7 /* CustomLine.m in Sources */,
+				0169E1E11D51D131009241A8 /* ProductDetailStyleTwoCustomCell.m in Sources */,
 				016D9F2E1D45BFE00002AD16 /* AddressCustomCell.m in Sources */,
 				019199261D3CCA2D000F2483 /* MessageController.m in Sources */,
 				011D84641D4F33C500C3F128 /* CustomAnnouncementCell.m in Sources */,
