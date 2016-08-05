@@ -18,8 +18,6 @@
 
 @implementation TabbarController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpAllChildViewController];

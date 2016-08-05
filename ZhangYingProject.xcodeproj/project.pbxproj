@@ -48,6 +48,14 @@
 		012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123045D1D3DC87B00B19284 /* NSData+KNCache.m */; };
 		012304661D3DC87B00B19284 /* NSString+hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123045F1D3DC87B00B19284 /* NSString+hash.m */; };
 		012304671D3DC87B00B19284 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 012304611D3DC87B00B19284 /* UIView+Extension.m */; };
+		0124FFDF1D5316DD00F17D4B /* ProductShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124FFDD1D5316DD00F17D4B /* ProductShareController.m */; };
+		0124FFE01D5316DD00F17D4B /* ProductShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124FFDE1D5316DD00F17D4B /* ProductShareController.xib */; };
+		0124FFE41D53188900F17D4B /* ProductShareCustomSyleOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124FFE21D53188900F17D4B /* ProductShareCustomSyleOneCell.m */; };
+		0124FFE51D53188900F17D4B /* ProductShareCustomSyleOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124FFE31D53188900F17D4B /* ProductShareCustomSyleOneCell.xib */; };
+		0124FFE91D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124FFE71D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m */; };
+		0124FFEA1D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124FFE81D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib */; };
+		0124FFEE1D533C1D00F17D4B /* ProductReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124FFEC1D533C1D00F17D4B /* ProductReservationController.m */; };
+		0124FFEF1D533C1D00F17D4B /* ProductReservationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124FFED1D533C1D00F17D4B /* ProductReservationController.xib */; };
 		0125A02B1D4864E400D02522 /* LiuXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A0281D4864E400D02522 /* LiuXSegmentView.m */; };
 		0125A02C1D4864E400D02522 /* LXSegmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A02A1D4864E400D02522 /* LXSegmentScrollView.m */; };
 		0125A0301D48A43C00D02522 /* TrustCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A02E1D48A43C00D02522 /* TrustCustomCell.m */; };
@@ -233,6 +241,18 @@
 		0123045F1D3DC87B00B19284 /* NSString+hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+hash.m"; sourceTree = "<group>"; };
 		012304601D3DC87B00B19284 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		012304611D3DC87B00B19284 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		0124FFDC1D5316DD00F17D4B /* ProductShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShareController.h; sourceTree = "<group>"; };
+		0124FFDD1D5316DD00F17D4B /* ProductShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShareController.m; sourceTree = "<group>"; };
+		0124FFDE1D5316DD00F17D4B /* ProductShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShareController.xib; sourceTree = "<group>"; };
+		0124FFE11D53188900F17D4B /* ProductShareCustomSyleOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShareCustomSyleOneCell.h; sourceTree = "<group>"; };
+		0124FFE21D53188900F17D4B /* ProductShareCustomSyleOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShareCustomSyleOneCell.m; sourceTree = "<group>"; };
+		0124FFE31D53188900F17D4B /* ProductShareCustomSyleOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShareCustomSyleOneCell.xib; sourceTree = "<group>"; };
+		0124FFE61D53189C00F17D4B /* ProductShareCustomSyleTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShareCustomSyleTwoCell.h; sourceTree = "<group>"; };
+		0124FFE71D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShareCustomSyleTwoCell.m; sourceTree = "<group>"; };
+		0124FFE81D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShareCustomSyleTwoCell.xib; sourceTree = "<group>"; };
+		0124FFEB1D533C1D00F17D4B /* ProductReservationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReservationController.h; sourceTree = "<group>"; };
+		0124FFEC1D533C1D00F17D4B /* ProductReservationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReservationController.m; sourceTree = "<group>"; };
+		0124FFED1D533C1D00F17D4B /* ProductReservationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductReservationController.xib; sourceTree = "<group>"; };
 		0125A0271D4864E400D02522 /* LiuXSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuXSegmentView.h; sourceTree = "<group>"; };
 		0125A0281D4864E400D02522 /* LiuXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuXSegmentView.m; sourceTree = "<group>"; };
 		0125A0291D4864E400D02522 /* LXSegmentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSegmentScrollView.h; sourceTree = "<group>"; };
@@ -873,6 +893,12 @@
 				0125A0321D48AEDD00D02522 /* ProductDetailController.h */,
 				0125A0331D48AEDD00D02522 /* ProductDetailController.m */,
 				0125A0341D48AEDD00D02522 /* ProductDetailController.xib */,
+				0124FFDC1D5316DD00F17D4B /* ProductShareController.h */,
+				0124FFDD1D5316DD00F17D4B /* ProductShareController.m */,
+				0124FFDE1D5316DD00F17D4B /* ProductShareController.xib */,
+				0124FFEB1D533C1D00F17D4B /* ProductReservationController.h */,
+				0124FFEC1D533C1D00F17D4B /* ProductReservationController.m */,
+				0124FFED1D533C1D00F17D4B /* ProductReservationController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -902,6 +928,12 @@
 				0169E1E81D51D15B009241A8 /* ProductDetailStyleFourCustomCell.h */,
 				0169E1E91D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m */,
 				0169E1EA1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib */,
+				0124FFE11D53188900F17D4B /* ProductShareCustomSyleOneCell.h */,
+				0124FFE21D53188900F17D4B /* ProductShareCustomSyleOneCell.m */,
+				0124FFE31D53188900F17D4B /* ProductShareCustomSyleOneCell.xib */,
+				0124FFE61D53189C00F17D4B /* ProductShareCustomSyleTwoCell.h */,
+				0124FFE71D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m */,
+				0124FFE81D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1113,10 +1145,12 @@
 				01C8D91D1D49D87100E51E53 /* WithdrawCashController.xib in Resources */,
 				0191992C1D3CCA43000F2483 /* HomeController.xib in Resources */,
 				011D84651D4F33C500C3F128 /* CustomAnnouncementCell.xib in Resources */,
+				0124FFEA1D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
 				0169E1DD1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib in Resources */,
 				01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */,
 				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
+				0124FFEF1D533C1D00F17D4B /* ProductReservationController.xib in Resources */,
 				01C8D93C1D4A13AA00E51E53 /* MyReservationController.xib in Resources */,
 				011D84601D4F321800C3F128 /* ProductRequirementController.xib in Resources */,
 				01773D991D470F170028BC7D /* ForgetPWDController.xib in Resources */,
@@ -1136,6 +1170,7 @@
 				01773DA81D4769E30028BC7D /* RegularIntroduceController.xib in Resources */,
 				016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
+				0124FFE01D5316DD00F17D4B /* ProductShareController.xib in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
 				0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */,
 				01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */,
@@ -1161,6 +1196,7 @@
 				01E525831D41B6DD00617491 /* DealSettingController.xib in Resources */,
 				011D84561D4F2E4000C3F128 /* CustomInTransitCell.xib in Resources */,
 				0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */,
+				0124FFE51D53188900F17D4B /* ProductShareCustomSyleOneCell.xib in Resources */,
 				0169E1EC1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.xib in Resources */,
 				011D844C1D4F262800C3F128 /* CustomOrderCell.xib in Resources */,
 				0169E1E71D51D145009241A8 /* ProductDetailStyleThreeCustomCell.xib in Resources */,
@@ -1254,6 +1290,7 @@
 				01773DA31D472CB30028BC7D /* MBProgressHUD.m in Sources */,
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
 				01773D931D46FAB40028BC7D /* RegisterController.m in Sources */,
+				0124FFE41D53188900F17D4B /* ProductShareCustomSyleOneCell.m in Sources */,
 				0169E1E61D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
 				01C8D9311D4A0AA400E51E53 /* DealTopCustomCell.m in Sources */,
@@ -1273,6 +1310,7 @@
 				011050C11D40742A009494F7 /* ModifyPhoneController.m in Sources */,
 				01E5258D1D41C95600617491 /* DealCustomCell.m in Sources */,
 				0169F1861D3DD1E40049B13D /* ZXSearchBar.m in Sources */,
+				0124FFDF1D5316DD00F17D4B /* ProductShareController.m in Sources */,
 				012304621D3DC87B00B19284 /* KNBannerView.m in Sources */,
 				01C8D9221D49E31400E51E53 /* WithdrawCashStyleOneCell.m in Sources */,
 				0125A0301D48A43C00D02522 /* TrustCustomCell.m in Sources */,
@@ -1286,7 +1324,9 @@
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
 				011D84681D4F399100C3F128 /* CustomAlertView.m in Sources */,
 				01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */,
+				0124FFE91D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
+				0124FFEE1D533C1D00F17D4B /* ProductReservationController.m in Sources */,
 				011050EE1D40CC97009494F7 /* LoginController.m in Sources */,
 				0169E1DC1D51D117009241A8 /* ProductDetailStyleOneCustomCell.m in Sources */,
 				01C8D9161D49A7C800E51E53 /* BankCardCell.m in Sources */,
@@ -1480,6 +1520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vshoutao.com.ZhangYingProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Debug;
@@ -1519,6 +1560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vshoutao.com.ZhangYingProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Release;

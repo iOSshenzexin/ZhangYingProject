@@ -22,6 +22,19 @@
 
 @implementation ProductController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appDlg.isReachable){
+        NSLog(@"网络已连接!");//执行网络正常时的代码
+    }
+    else{
+//        NSLog(@"网络连接异常");//执行网络异常时的代码
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alert show];
+    }
+}
+
  static NSString *str = @"cellId";
 -(UITableView *)trustTableView{
     if (!_trustTableView) {
@@ -42,6 +55,7 @@
     }
     return _titleArray;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -52,7 +66,6 @@
     self.textField = txt;
     [self setupTopSegment];
     [self setupNavigationBarBtn];
-    
     [self deleteBack];
 }
 
@@ -62,6 +75,7 @@
     backButtonItem.title = @"";
     self.navigationItem.backBarButtonItem = backButtonItem;
 }
+
 #pragma mark UITextFielDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pictureNumber" object:nil userInfo:nil];

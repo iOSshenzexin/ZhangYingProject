@@ -18,6 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //实时监测网络状态
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
+    //开始监听，会启动一个run loop
+    [self.hostReach startNotifier];
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.backgroundColor = [UIColor whiteColor];
     TabbarController *tabBarController = [[TabbarController alloc] init];
@@ -48,10 +54,18 @@
     [window makeKeyAndVisible];
     FloatingView * floatingView = [[FloatingView alloc]initWithFrame:CGRectMake(ScreenW - 54, ScreenH - 110, 52.5, 52.5)];
     [self.window addSubview:floatingView];
+    
+    [self fixTextViewInitSlowly];
     return YES;
 }
 
-/*
+- (void)fixTextViewInitSlowly{
+    UITextView *textView = [[UITextView alloc] init];
+    [self.window addSubview:textView];
+    [textView removeFromSuperview];
+}
+
+
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     NSLog(@"--tabbaritem.index--%lu",[tabBarController.viewControllers indexOfObject:viewController]);
     NSLog(@"--tabbaritem.title--%@",viewController.tabBarItem.title);
@@ -72,7 +86,29 @@
     }
     else return YES;
 }
-*/
+
+
+- (void)reachabilityChanged:(NSNotification *)note{
+    Reachability *currReach = [note object];
+    NSParameterAssert([currReach isKindOfClass:[Reachability class]]);
+    //对连接改变做出响应处理动作
+    NetworkStatus status = [currReach currentReachabilityStatus];
+    //如果没有连接到网络就弹出提醒实况
+    self.isReachable = YES;
+    if(status == NotReachable){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您的网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        self.isReachable = NO;
+        return;
+    }
+    if (status== ReachableViaWiFi||status== ReachableViaWWAN) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接信息" message:@"网络连接正常" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        self.isReachable = YES;
+    }
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -177,4 +213,9 @@
     }
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    [self.hostReach stopNotifier];
+    
+}
 @end
