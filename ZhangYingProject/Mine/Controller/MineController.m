@@ -18,7 +18,7 @@
 #import "AboutUsController.h"
 
 #import "LoginController.h"
-@interface MineController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MineController ()<UITableViewDelegate,UITableViewDataSource,PersonInfoControllerDelegate>
 
 @property (nonatomic,copy) NSArray *dataSource;
 @property (nonatomic,copy) NSArray *imageArray;
@@ -32,11 +32,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(appDlg.isReachable){
-        NSLog(@"网络已连接!");//执行网络正常时的代码
-    }
-    else{
-        NSLog(@"网络连接异常");//执行网络异常时的代码
+    if(!appDlg.isReachable){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
     }
@@ -58,7 +54,7 @@
 
   //设置个人信息
 - (IBAction)didClickSetPersonInfo:(id)sender {
-    PersonInfoController *vc = [[PersonInfoController alloc] init];
+    PersonInfoController *vc = [PersonInfoController sharedPersonController];
     self.hidesBottomBarWhenPushed = YES;
     vc.title = @"个人资料";
     [self.navigationController pushViewController:vc animated:YES];
@@ -68,11 +64,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.headImage.image = [ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:4 borderColor:[UIColor redColor]];
+    PersonInfoController *vc = [PersonInfoController sharedPersonController];
+    vc.delegate = self;
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
     self.tableView.sectionFooterHeight = 0;
     [self deleteBack];
+}
+
+-(void)setupUserHeadImage:(PersonInfoController *)vc{
+    self.headImage.image = vc.headImage;
 }
 
 - (void)deleteBack{

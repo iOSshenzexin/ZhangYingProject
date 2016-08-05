@@ -18,11 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //实时监测网络状态
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
-    self.hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
-    //开始监听，会启动一个run loop
-    [self.hostReach startNotifier];
     
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.backgroundColor = [UIColor whiteColor];
@@ -50,12 +45,21 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window = window;
     
+    //实时监测网络状态
+    self.hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
+    //开始监听，会启动一个run loop
+    [self.hostReach startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    
+    
     //添加悬浮窗
     [window makeKeyAndVisible];
     FloatingView * floatingView = [[FloatingView alloc]initWithFrame:CGRectMake(ScreenW - 54, ScreenH - 110, 52.5, 52.5)];
     [self.window addSubview:floatingView];
     
     [self fixTextViewInitSlowly];
+    
     return YES;
 }
 
@@ -87,7 +91,6 @@
     else return YES;
 }
 
-
 - (void)reachabilityChanged:(NSNotification *)note{
     Reachability *currReach = [note object];
     NSParameterAssert([currReach isKindOfClass:[Reachability class]]);
@@ -101,10 +104,11 @@
         self.isReachable = NO;
         return;
     }
-    if (status== ReachableViaWiFi||status== ReachableViaWWAN) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接信息" message:@"网络连接正常" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
+    if (status== ReachableViaWiFi | status== ReachableViaWWAN ) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接信息" message:@"您的app当前网络连接正常" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alert show];
         self.isReachable = YES;
+        return;
     }
 }
 
@@ -214,8 +218,7 @@
 }
 
 -(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.hostReach stopNotifier];
-    
 }
 @end

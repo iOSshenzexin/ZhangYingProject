@@ -96,4 +96,8 @@
 }
 
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [_searchBar resignFirstResponder];
+}
 @end

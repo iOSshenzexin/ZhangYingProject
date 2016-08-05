@@ -10,7 +10,10 @@
 #import "ZXCircleHeadImage.h"
 #import "ChangePhoneController.h"
 #import "CustomPersonCell.h"
-@interface PersonInfoController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
+
+#import "ModifyPhoneController.h"
+
+@interface PersonInfoController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,ModifyPhoneControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *headImageBtn;
 
 @property (nonatomic,copy) NSArray *imgArray;
@@ -24,6 +27,13 @@
 
 @implementation PersonInfoController
 
++(PersonInfoController *)sharedPersonController{
+    static PersonInfoController *vc = nil;
+    if (!vc) {
+        vc = [[PersonInfoController alloc] init];
+    }
+    return vc;
+}
 
 -(NSArray *)imgArray{
     if (!_imgArray) {
@@ -56,6 +66,15 @@ static NSString *str = @"cellId";
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
+    
+    ModifyPhoneController *vc = [ModifyPhoneController sharedModifyPhoneController];
+    vc.delegate = self;
+}
+
+- (void)bindingPhoneNumber:(ModifyPhoneController *)vc{
+    NSIndexPath *path = [NSIndexPath indexPathForRow:3 inSection:0];
+    CustomPersonCell *cell = [self.tableView cellForRowAtIndexPath:path];
+    cell.txtField.text = vc.NumberTxt.text;
 }
 
 #pragma mark UITableViewDataSource
@@ -145,7 +164,11 @@ static NSString *str = @"cellId";
     cropPictureController.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cropPictureController.photoAcceptedBlock = ^(UIImage *croppedPicture){
         UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 5 borderColor: [UIColor redColor] ];
-        [self.headImageBtn setImage:img forState:UIControlStateNormal] ;
+        [self.headImageBtn setImage:img forState:UIControlStateNormal];
+        self.headImage = img;
+        if ([self.delegate respondsToSelector:@selector(setupUserHeadImage:)]) {
+            [self.delegate setupUserHeadImage:self];
+        }
         [self dismissViewControllerAnimated:YES completion:nil];
     };
     [self presentViewController:cropPictureController animated:YES completion:nil];

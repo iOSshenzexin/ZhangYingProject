@@ -104,6 +104,6 @@ static NSString *cellStyleThree = @"threecell";
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.view endEditing:YES];
+  [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 @end

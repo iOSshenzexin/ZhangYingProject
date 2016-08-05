@@ -75,4 +75,9 @@
     [(UIView *)[self.view viewWithTag:102] removeFromSuperview];
     [(UIView *)[self.view viewWithTag:103] removeFromSuperview];
 }
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
 @end

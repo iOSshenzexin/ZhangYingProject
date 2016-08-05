@@ -32,11 +32,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(appDlg.isReachable){
-        NSLog(@"网络已连接!");//执行网络正常时的代码
-    }
-    else{
-        NSLog(@"网络连接异常");//执行网络异常时的代码
+    if(!appDlg.isReachable){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
     }

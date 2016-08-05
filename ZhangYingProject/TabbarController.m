@@ -47,18 +47,14 @@
     // 5.添加第5个控制器
     MineController *mineVC = [[MineController alloc]init];
     [self setUpOneChildViewController:mineVC image:[UIImage imageNamed:@"nav04_normal"] selectImage:[UIImage imageNamed:@"nav04_click"]  title:@"我的"];
-
     [self setSelectedIndex:0];
 }
 
 - (void)setUpOneChildViewController:(UIViewController *)viewController image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title {
-   
     UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:viewController];
     navC.title = title;
     navC.tabBarItem.selectedImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
      navC.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    //[navC.navigationBar setBackgroundImage:[UIImage imageNamed:@"commentary_num_bg"] forBarMetrics:UIBarMetricsDefault];
-    //[navC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor grayColor]} forState:UIControlStateNormal];
     [navC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} forState:UIControlStateSelected];
     viewController.navigationItem.title = title;
     [self addChildViewController:navC];

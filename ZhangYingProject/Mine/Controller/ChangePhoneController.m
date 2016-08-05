@@ -53,7 +53,7 @@
 }
 
 - (IBAction)modifyPhoneNumber:(id)sender {
-    ModifyPhoneController *vc = [[ModifyPhoneController alloc] init];
+    ModifyPhoneController *vc = [ModifyPhoneController sharedModifyPhoneController];
     vc.title = @"更换绑定手机";
     [self.navigationController pushViewController:vc animated:YES];
     [self deleteBack];

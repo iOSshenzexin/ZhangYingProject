@@ -7,10 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ModifyPhoneController;
+@protocol ModifyPhoneControllerDelegate <NSObject>
 
+@optional
+- (void)bindingPhoneNumber:(ModifyPhoneController *)vc;
+
+
+@end
 @interface ModifyPhoneController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *NumberTxt;
 
 @property (weak, nonatomic) IBOutlet UITextField *verificationCodeTxt;
+
+@property (weak,nonatomic) id <ModifyPhoneControllerDelegate>delegate;
+
++ (ModifyPhoneController *)sharedModifyPhoneController;
 @end

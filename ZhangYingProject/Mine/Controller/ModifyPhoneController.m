@@ -14,9 +14,24 @@
 
 @implementation ModifyPhoneController
 
++(ModifyPhoneController *)sharedModifyPhoneController{
+    static ModifyPhoneController *vc = nil;
+    if (!vc) {
+        vc = [[ModifyPhoneController alloc] init];
+    }
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTxtField];
+}
+
+- (IBAction)didClickBinding:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(bindingPhoneNumber:)]) {
+        [self.delegate bindingPhoneNumber:self];
+    }
+    [MBProgressHUD showSuccess:@"绑定成功"];
 }
 
 - (void)setupTxtField{
