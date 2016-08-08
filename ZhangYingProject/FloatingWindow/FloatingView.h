@@ -17,4 +17,6 @@ typedef void (^DownLoadBlock) ();
 
 @property (nonatomic ,copy) DownLoadBlock downLoadBlock;
 
+@property (nonatomic,strong) UIView *popView;
+
 @end

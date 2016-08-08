@@ -74,37 +74,38 @@
         
         [self addSubview:_imageView];
         self.layer.cornerRadius = kDownLoadWidth / 2;
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenH, ScreenW, ScreenH)];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        btn.frame = CGRectMake(view.frame.size.width - 80, view.frame.size.height - 200, 80, 30);
+        btn.backgroundColor = [UIColor orangeColor];
+        [btn setTitle:@"联系客服" forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:16];
+        [view addSubview:btn];
+        
+        UIButton *callBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        callBtn.frame = CGRectMake(view.frame.size.width - 80, view.frame.size.height-250, 80, 30);
+        callBtn.backgroundColor = [UIColor orangeColor];
+        [callBtn setTitle:@"拨打电话" forState:UIControlStateNormal];
+        [callBtn addTarget:self action:@selector(didClickCallPhone:) forControlEvents:UIControlEventTouchUpInside];
+        callBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+        [view addSubview:callBtn];
+        
+        view.backgroundColor = [UIColor blackColor];
+        view.alpha = 0.8;
+        self.popView = view;
+        UITapGestureRecognizer *clickTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidePopView:)];
+        [self.popView addGestureRecognizer:clickTap];
         //开启呼吸动画
         [self HighlightAnimation];
     }
     return self;
     
 }
-
-- (void)didClickFloatingImage:(UITapGestureRecognizer *)tap{
-    static BOOL isCreated = YES;
-    UIApplication *app = [UIApplication sharedApplication];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenH, ScreenW, ScreenH)];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    btn.frame = CGRectMake(view.frame.size.width - 80, view.frame.size.height-200, 80, 30);
-    btn.backgroundColor = [UIColor orangeColor];
-    [btn setTitle:@"联系客服" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [view addSubview:btn];
-
-    UIButton *callBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    callBtn.frame = CGRectMake(view.frame.size.width - 80, view.frame.size.height-250, 80, 30);
-    callBtn.backgroundColor = [UIColor orangeColor];
-    [callBtn setTitle:@"拨打电话" forState:UIControlStateNormal];
-    [callBtn addTarget:self action:@selector(didClickCallPhone:) forControlEvents:UIControlEventTouchUpInside];
-    callBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [view addSubview:callBtn];
-    
-    view.backgroundColor = [UIColor blackColor];
-    view.alpha = 0.8;
+   static BOOL isCreated = YES;
+- (void)hidePopView:(UITapGestureRecognizer *)tap{
     CGFloat animationDuration = 0.4;
     NSInteger animationCurve = 7;
     [UIView beginAnimations:nil context:NULL];
@@ -112,14 +113,27 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationCurve:animationCurve];
-        if (isCreated) {
-            view.transform = CGAffineTransformTranslate(view.transform, 0, -view.bounds.size.height);
-            [UIView commitAnimations];
-            [app.keyWindow insertSubview:view atIndex:1];
-        }else{
-            view.transform = CGAffineTransformIdentity;
-            [UIView commitAnimations];
-            [app.keyWindow.subviews[1] removeFromSuperview];
+    self.popView.transform = CGAffineTransformIdentity;
+    [UIView commitAnimations];
+     isCreated = !isCreated;
+}
+
+- (void)didClickFloatingImage:(UITapGestureRecognizer *)tap{
+    UIApplication *app = [UIApplication sharedApplication];
+    CGFloat animationDuration = 0.4;
+    NSInteger animationCurve = 7;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationCurve:animationCurve];
+    if (isCreated) {
+        self.popView.transform = CGAffineTransformTranslate( self.popView.transform, 0, - self.popView.bounds.size.height);
+        [UIView commitAnimations];
+        [app.keyWindow insertSubview: self.popView atIndex:1];
+    }else{
+        self.popView.transform = CGAffineTransformIdentity;
+        [UIView commitAnimations];
         }
     isCreated = !isCreated;
 }
@@ -132,50 +146,31 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
     //得到触摸点
-    
     UITouch *startTouch = [touches anyObject];
-    
     //返回触摸点坐标
-    
     self.startPoint = [startTouch locationInView:self.superview];
-    
     // 移除之前的所有行为
-    
     [self.animator removeAllBehaviors];
-    
-    
 }
 
 //触摸移动
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    
     //得到触摸点
-    
     UITouch *startTouch = [touches anyObject];
-    
     //将触摸点赋值给touchView的中心点 也就是根据触摸的位置实时修改view的位置
-    
     self.center = [startTouch locationInView:self.superview];
-    
 }
 
 //结束触摸
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    
     //得到触摸结束点
-    
     UITouch *endTouch = [touches anyObject];
-    
     //返回触摸结束点
-    
     self.endPoint = [endTouch locationInView:self.superview];
-    
     //判断是否移动了视图 (误差范围5)
-    
     CGFloat errorRange = 5;
     
     if (( self.endPoint.x - self.startPoint.x >= -errorRange && self.endPoint.x - self.startPoint.x <= errorRange ) && ( self.endPoint.y - self.startPoint.y >= -errorRange && self.endPoint.y - self.startPoint.y <= errorRange )) {
@@ -284,13 +279,9 @@
     
 }
 
-
-
 #pragma mark ---LazyLoading
 
-- (UIDynamicAnimator *)animator
-{
-    
+- (UIDynamicAnimator *)animator{
     if (!_animator) {
         
         // 创建物理仿真器(ReferenceView : 仿真范围)

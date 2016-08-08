@@ -8,6 +8,8 @@
 
 #import "MyBillController.h"
 #import "BankCardCell.h"
+
+#define RowHeight 100
 @interface MyBillController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,copy) NSArray *titleArray;
 @property (nonatomic,strong) UITableView *tableView;
@@ -27,13 +29,13 @@
 }
 
 
-static NSString *str = @"cellId";
+ static NSString *str = @"cellId";
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - 108)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.rowHeight = 120;
+        _tableView.rowHeight = RowHeight;
        [_tableView registerNib:[UINib nibWithNibName:@"BankCardCell" bundle:nil] forCellReuseIdentifier:str];
         _tableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _tableView.backgroundColor = [UIColor clearColor];
@@ -46,7 +48,7 @@ static NSString *str = @"cellId";
         _withdrawalsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - 108)];
         _withdrawalsTableView.dataSource = self;
         _withdrawalsTableView.delegate = self;
-        _withdrawalsTableView.rowHeight = 120;
+        _withdrawalsTableView.rowHeight = RowHeight;
         [_withdrawalsTableView registerNib:[UINib nibWithNibName:@"BankCardCell" bundle:nil] forCellReuseIdentifier:str];
         _withdrawalsTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _withdrawalsTableView.backgroundColor = [UIColor clearColor];
@@ -95,7 +97,7 @@ static NSString *str = @"cellId";
     }
     cell.iconImage.image = [UIImage imageNamed:self.bankIconImageArray[indexPath.row]];
     cell.layer.borderWidth = 3;
-    UIColor *color = RGB(216, 216, 216, 1);
+    UIColor *color = RGB(242, 242, 242, 1);
     cell.layer.borderColor = [color CGColor];
     return cell;
 }

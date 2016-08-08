@@ -27,15 +27,15 @@
 
 @implementation DealController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(!appDlg.isReachable){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-    }
-    
-}
+//-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:YES];
+//    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    if(!appDlg.isReachable){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alert show];
+//    }
+//    
+//}
 
 static NSString *cellId = @"cell";
 
@@ -135,7 +135,7 @@ static NSString *defaultCell = @"defaultCell";
     PopoverView *pop = [PopoverView sharedPopview];
     pop.delegate = self;
     self.pop = pop;
-    [pop showAtPoint:point inView:self.seg withText:@"·交易成功 10 单 ·进行中 8 单 ·交易失败 0 单"];
+    [pop showAtPoint:point inView:self.seg withText:@"· 交易成功 10 单 · 进行中 8 单 · 交易失败 0 单"];
 }
 
 - (void)didClickSegmentControler:(UISegmentedControl *)segmentControl{
@@ -144,19 +144,19 @@ static NSString *defaultCell = @"defaultCell";
         case 0:{
             CGFloat pointOneX = segmentControl.center.x - 130;
             CGPoint point = CGPointMake(pointOneX, pointOneY);
-            [self.pop showAtPoint:point inView:segmentControl withText:@"·交易成功 10 单 ·进行中 8 单 ·交易失败 0 单"];
+            [self.pop showAtPoint:point inView:segmentControl withText:@"· 交易成功 10 单 · 进行中 8 单 · 交易失败 0 单"];
         }
             break;
                 case 1:{
                     CGFloat pointOneX = segmentControl.center.x;
                     CGPoint point = CGPointMake(pointOneX, pointOneY);
-                    [self.pop showAtPoint:point inView:segmentControl withText:@"·我的佣金 1000.00 元 ·已提现金额 800.00 元 ·可提现金额 10000 元"];
+                    [self.pop showAtPoint:point inView:segmentControl withText:@"· 我的佣金 1000.00 元 · 已提现金额 800.00 元 · 可提现金额 10000 元"];
                 }
             break;
         case 2:{
             CGFloat pointOneX = segmentControl.center.x + 130;
             CGPoint point = CGPointMake(pointOneX, pointOneY);
-            [self.pop showAtPoint:point inView:segmentControl withText:@"·我的预约 10 单 ·进行中 8 单 ·收藏预约 20 单"];
+            [self.pop showAtPoint:point inView:segmentControl withText:@"· 我的预约 10 单 · 进行中 8 单 · 收藏预约 20 单"];
         }
             break;
         default:

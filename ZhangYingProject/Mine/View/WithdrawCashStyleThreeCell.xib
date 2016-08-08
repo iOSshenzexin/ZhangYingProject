@@ -15,35 +15,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sum-card" translatesAutoresizingMaskIntoConstraints="NO" id="UXN-0n-QcG">
-                        <rect key="frame" x="8" y="20" width="18" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="18" id="aPY-0d-sbl"/>
-                            <constraint firstAttribute="width" constant="18" id="jcF-WF-Oc0"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行卡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfR-e0-u5o">
-                        <rect key="frame" x="29" y="9" width="52" height="41"/>
+                        <rect key="frame" x="11" y="9" width="52" height="41"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="52" id="D7C-cH-cOH"/>
+                            <constraint firstAttribute="width" constant="52" id="7nu-U1-ztl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="628962896289*****777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-CJ-Uwf">
-                        <rect key="frame" x="115" y="9" width="232" height="41"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="107" y="9" width="234" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank01" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-4a-QfV">
-                        <rect key="frame" x="83" y="12" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="QjK-TY-Zva"/>
-                            <constraint firstAttribute="width" constant="30" id="fvg-3o-Yas"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHT-g0-a6b">
                         <rect key="frame" x="349" y="19" width="18" height="22"/>
                         <constraints>
@@ -52,21 +38,26 @@
                         </constraints>
                         <state key="normal" image="my-trade04"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank01" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-4a-QfV">
+                        <rect key="frame" x="71" y="15" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="4Yp-2z-V0T"/>
+                            <constraint firstAttribute="width" constant="30" id="igA-XH-1bV"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aHT-g0-a6b" firstAttribute="leading" secondItem="8i9-CJ-Uwf" secondAttribute="trailing" constant="2" id="0wT-3R-p1C"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="UfR-e0-u5o" secondAttribute="bottom" constant="1" id="LEp-6s-Osp"/>
-                    <constraint firstItem="UfR-e0-u5o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="OhV-17-HZn"/>
-                    <constraint firstItem="UfR-e0-u5o" firstAttribute="leading" secondItem="UXN-0n-QcG" secondAttribute="trailing" constant="3" id="UVI-z9-qGU"/>
-                    <constraint firstItem="8i9-CJ-Uwf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="Wbg-71-7YY"/>
-                    <constraint firstItem="UXN-0n-QcG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="Zna-li-IE2"/>
-                    <constraint firstItem="8i9-CJ-Uwf" firstAttribute="leading" secondItem="oHR-4a-QfV" secondAttribute="trailing" constant="2" id="bNy-nh-Q8D"/>
+                    <constraint firstItem="aHT-g0-a6b" firstAttribute="leading" secondItem="8i9-CJ-Uwf" secondAttribute="trailing" constant="8" id="4OD-7J-shF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oHR-4a-QfV" secondAttribute="bottom" constant="6" id="Ebt-Fq-TB6"/>
+                    <constraint firstItem="UfR-e0-u5o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="MTC-eb-6n4"/>
+                    <constraint firstItem="oHR-4a-QfV" firstAttribute="leading" secondItem="UfR-e0-u5o" secondAttribute="trailing" constant="8" id="Mcr-hG-osX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8i9-CJ-Uwf" secondAttribute="bottom" constant="1" id="NdP-QQ-UY7"/>
+                    <constraint firstItem="8i9-CJ-Uwf" firstAttribute="leading" secondItem="oHR-4a-QfV" secondAttribute="trailing" constant="6" id="POO-nf-2Bi"/>
+                    <constraint firstItem="8i9-CJ-Uwf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="QfO-cI-fLf"/>
+                    <constraint firstItem="UfR-e0-u5o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="3" id="R1s-Sr-66C"/>
                     <constraint firstAttribute="bottomMargin" secondItem="aHT-g0-a6b" secondAttribute="bottom" constant="10" id="bkK-js-Yqj"/>
-                    <constraint firstItem="oHR-4a-QfV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="jgZ-PR-CQP"/>
-                    <constraint firstItem="oHR-4a-QfV" firstAttribute="leading" secondItem="UfR-e0-u5o" secondAttribute="trailing" constant="2" id="p5F-nf-eIn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="UfR-e0-u5o" secondAttribute="bottom" constant="1" id="qqU-sU-yRS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="aHT-g0-a6b" secondAttribute="trailing" id="rrZ-gT-iSa"/>
-                    <constraint firstItem="UXN-0n-QcG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tIJ-3S-usF"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="8i9-CJ-Uwf" secondAttribute="bottom" constant="1" id="wPh-py-wJK"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="274.5" y="317"/>
@@ -75,6 +66,5 @@
     <resources>
         <image name="bank01" width="36" height="36"/>
         <image name="my-trade04" width="18" height="18"/>
-        <image name="sum-card" width="17" height="17"/>
     </resources>
 </document>

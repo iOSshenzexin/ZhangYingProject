@@ -36,6 +36,7 @@
                                 <constraint firstAttribute="width" constant="46" id="CcQ-oW-QVN"/>
                                 <constraint firstAttribute="height" constant="30" id="WgC-Fu-1sk"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="back">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>

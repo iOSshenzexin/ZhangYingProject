@@ -66,7 +66,7 @@
 
 - (void)didClickConfirmBtn:(UIButton *)btn{
     CustomAlertView *alerView = (CustomAlertView *)[self.view viewWithTag:103];
-    NSString *str = [NSString stringWithFormat:@"请确认 %@  能联系到您",alerView.numberTxt.text];
+    NSString *str = [NSString stringWithFormat:@"请确认 %@ 能联系到您",alerView.numberTxt.text];
     if (alerView.numberTxt.text.length == 0) {
         
     }else{

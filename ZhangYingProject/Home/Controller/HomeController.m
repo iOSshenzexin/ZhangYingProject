@@ -29,15 +29,14 @@
 
 @implementation HomeController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(!appDlg.isReachable){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-    }
-    
-}
+//-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:YES];
+//    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    if(appDlg.isReachable == NO){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alert show];
+//    }
+//}
 
 static NSString *str = @"cellId";
 -(UITableView *)tableView{

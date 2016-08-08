@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请确认 15712713245  能联系到您" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNj-Ed-Y6j">
-                    <rect key="frame" x="25" y="74" width="262" height="46"/>
+                    <rect key="frame" x="25" y="74" width="298" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="KFi-oB-3bP"/>
                     </constraints>
@@ -25,16 +25,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  请填写您的需求" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cAq-O4-UMh">
-                    <rect key="frame" x="25" y="121" width="325" height="243"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="243" id="Gad-bW-fry"/>
-                    </constraints>
-                    <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBe-DX-cwt">
                     <rect key="frame" x="30" y="423" width="315" height="40"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,16 +42,26 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yh0-UF-zAv">
-                    <rect key="frame" x="287" y="86" width="58" height="22"/>
+                    <rect key="frame" x="323" y="86" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="0kL-BS-KRa"/>
-                        <constraint firstAttribute="width" constant="58" id="7L2-Hp-GmI"/>
+                        <constraint firstAttribute="width" constant="22" id="7L2-Hp-GmI"/>
                     </constraints>
                     <state key="normal" image="my-trade04"/>
                     <connections>
                         <action selector="didClickChangePhoneNumber:" destination="-1" eventType="touchUpInside" id="1Cv-v3-3J1"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  请填写您的需求" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cAq-O4-UMh">
+                    <rect key="frame" x="25" y="121" width="325" height="243"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="243" id="Gad-bW-fry"/>
+                    </constraints>
+                    <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

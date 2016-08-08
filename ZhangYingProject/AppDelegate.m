@@ -18,6 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //实时监测网络状态,reachabilityForInternetConnection改变了调用两次的情况
+    self.hostReach = [Reachability reachabilityForInternetConnection] ;
+    [self.hostReach startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.backgroundColor = [UIColor whiteColor];
@@ -44,17 +48,10 @@
     //更改状态栏的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window = window;
-    
-    //实时监测网络状态
-    self.hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
-    //开始监听，会启动一个run loop
-    [self.hostReach startNotifier];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
-    
-    
+    [window makeKeyAndVisible];
+
     
     //添加悬浮窗
-    [window makeKeyAndVisible];
     FloatingView * floatingView = [[FloatingView alloc]initWithFrame:CGRectMake(ScreenW - 54, ScreenH - 110, 52.5, 52.5)];
     [self.window addSubview:floatingView];
     
@@ -71,14 +68,13 @@
 
 
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    NSLog(@"--tabbaritem.index--%lu",[tabBarController.viewControllers indexOfObject:viewController]);
+//    NSLog(@"--tabbaritem.index--%lu",[tabBarController.viewControllers indexOfObject:viewController]);
     NSLog(@"--tabbaritem.title--%@",viewController.tabBarItem.title);
     if ([viewController.tabBarItem.title isEqualToString:@"交易"] | [viewController.tabBarItem.title isEqualToString:@"我的"] ) {
         //如果用户ID存在的话，说明已登陆
         if (self.isLogin == YES) {
             return YES;
-        }
-        else{ //跳到登录页面
+        }else{ //跳到登录页面
            LoginController *login = [[LoginController alloc] init];
           //确定当前选择的第几个controller
            login.selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];
@@ -92,21 +88,20 @@
 }
 
 - (void)reachabilityChanged:(NSNotification *)note{
+    NSLog(@"%s",__func__);
     Reachability *currReach = [note object];
-    NSParameterAssert([currReach isKindOfClass:[Reachability class]]);
     //对连接改变做出响应处理动作
     NetworkStatus status = [currReach currentReachabilityStatus];
     //如果没有连接到网络就弹出提醒实况
-    self.isReachable = YES;
     if(status == NotReachable){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您的网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
         self.isReachable = NO;
         return;
     }
     if (status== ReachableViaWiFi | status== ReachableViaWWAN ) {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接信息" message:@"您的app当前网络连接正常" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-//        [alert show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Congratulation,您当前网络连接正常!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
         self.isReachable = YES;
         return;
     }
