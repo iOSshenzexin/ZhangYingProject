@@ -13,7 +13,6 @@
 #import "SearchController.h"
 #import "ProductDetailController.h"
 
-#import "SortView.h"
 #import "FilterBottomView.h"
 #import "BlockView.h"
 #define DurationTime 0.35

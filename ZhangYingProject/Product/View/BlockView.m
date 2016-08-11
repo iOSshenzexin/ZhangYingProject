@@ -53,10 +53,9 @@
 
 - (void)didClick:(UIButton *)btn{
     static BOOL isSelected = YES;
-    //self.propertyBtn.selected = isSelected;
     if (btn != self.propertyBtn) {
         self.propertyBtn = btn;
-        isSelected = YES;
+        isSelected = !self.propertyBtn.selected;
     }
     if (isSelected) {
         btn.backgroundColor = [UIColor redColor];
@@ -65,7 +64,8 @@
         btn.backgroundColor = btnBackgroundColor;
         [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
     }
-    
+    btn.selected = isSelected;
+
     isSelected = !isSelected;
 }
 

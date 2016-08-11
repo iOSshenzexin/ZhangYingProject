@@ -62,8 +62,6 @@
 		0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */; };
 		0125A0351D48AEDD00D02522 /* ProductDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A0331D48AEDD00D02522 /* ProductDetailController.m */; };
 		0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A0341D48AEDD00D02522 /* ProductDetailController.xib */; };
-		014156B21D5AF7C00071A614 /* SortView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156B11D5AF7C00071A614 /* SortView.m */; };
-		014156B41D5AF7DC0071A614 /* SortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014156B31D5AF7DC0071A614 /* SortView.xib */; };
 		014156B61D5B20CA0071A614 /* FilterBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014156B51D5B20CA0071A614 /* FilterBottomView.xib */; };
 		014156B91D5B20E70071A614 /* FilterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156B81D5B20E70071A614 /* FilterBottomView.m */; };
 		014156BC1D5B2FC50071A614 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156BB1D5B2FC50071A614 /* BlockView.m */; };
@@ -271,9 +269,6 @@
 		0125A0321D48AEDD00D02522 /* ProductDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailController.h; sourceTree = "<group>"; };
 		0125A0331D48AEDD00D02522 /* ProductDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailController.m; sourceTree = "<group>"; };
 		0125A0341D48AEDD00D02522 /* ProductDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailController.xib; sourceTree = "<group>"; };
-		014156B01D5AF7C00071A614 /* SortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortView.h; sourceTree = "<group>"; };
-		014156B11D5AF7C00071A614 /* SortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortView.m; sourceTree = "<group>"; };
-		014156B31D5AF7DC0071A614 /* SortView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortView.xib; sourceTree = "<group>"; };
 		014156B51D5B20CA0071A614 /* FilterBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterBottomView.xib; sourceTree = "<group>"; };
 		014156B71D5B20E70071A614 /* FilterBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBottomView.h; sourceTree = "<group>"; };
 		014156B81D5B20E70071A614 /* FilterBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBottomView.m; sourceTree = "<group>"; };
@@ -961,9 +956,6 @@
 				0124FFE61D53189C00F17D4B /* ProductShareCustomSyleTwoCell.h */,
 				0124FFE71D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m */,
 				0124FFE81D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib */,
-				014156B01D5AF7C00071A614 /* SortView.h */,
-				014156B11D5AF7C00071A614 /* SortView.m */,
-				014156B31D5AF7DC0071A614 /* SortView.xib */,
 				014156B71D5B20E70071A614 /* FilterBottomView.h */,
 				014156B81D5B20E70071A614 /* FilterBottomView.m */,
 				014156B51D5B20CA0071A614 /* FilterBottomView.xib */,
@@ -1210,7 +1202,6 @@
 				0124FFE01D5316DD00F17D4B /* ProductShareController.xib in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
 				0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */,
-				014156B41D5AF7DC0071A614 /* SortView.xib in Resources */,
 				01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */,
 				019199311D3CCA54000F2483 /* MineController.xib in Resources */,
 				019199271D3CCA2D000F2483 /* MessageController.xib in Resources */,
@@ -1382,7 +1373,6 @@
 				016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */,
 				0169E1D81D518EFA009241A8 /* FloatingView.m in Sources */,
 				01C8D93B1D4A13AA00E51E53 /* MyReservationController.m in Sources */,
-				014156B21D5AF7C00071A614 /* SortView.m in Sources */,
 				0169F19A1D3E32020049B13D /* FourthView.m in Sources */,
 				016D9F401D4620650002AD16 /* MessageCustomCell.m in Sources */,
 				011050BC1D4069AB009494F7 /* ChangePhoneController.m in Sources */,
