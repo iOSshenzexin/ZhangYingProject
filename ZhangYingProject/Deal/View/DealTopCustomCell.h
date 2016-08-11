@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *backView;
 
 @property (weak, nonatomic) IBOutlet UIButton *showCardBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
+
 @end

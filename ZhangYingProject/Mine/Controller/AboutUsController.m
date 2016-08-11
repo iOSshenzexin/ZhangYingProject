@@ -25,9 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.aboutUsTableVeiw.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
+    self.aboutUsTableVeiw.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
     self.aboutUsTableVeiw.sectionHeaderHeight = 0;
-    self.aboutUsTableVeiw.sectionFooterHeight = 40;
+    self.aboutUsTableVeiw.sectionFooterHeight = 15;
     [self deleteBack];
 }
 

@@ -30,6 +30,8 @@
 @property (nonatomic,strong) UIScrollView *sortView;
 @property (nonatomic,strong) UIScrollView *filterView;
 
+@property (nonatomic,assign) BOOL isShow;
+
 @end
 
 @implementation ProductController
@@ -112,11 +114,17 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
 }
 
+static BOOL isCreated = YES;
 
 #pragma mark       左边筛选按钮对应事件
 - (void)didClickFilter:(UIButton *)btn{
-    static BOOL isCreated = YES;
     UIApplication *app = [UIApplication sharedApplication];
+    if (self.isShow == YES) {
+        if (self.showSortView) {
+            self.showSortView.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0];
+            [self.showSortView removeFromSuperview];
+        }
+    }
     if (isCreated) {
         UIView *showView = [[UIView alloc] initWithFrame:CGRectMake(0,64, ScreenW, ScreenH - 64)];
         self.showView = showView;
@@ -135,6 +143,9 @@
             }
         
         FilterBottomView *filterBottomView = [[[NSBundle mainBundle]loadNibNamed:@"FilterBottomView" owner:self options:nil] firstObject];
+        [filterBottomView.cancleBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
+        [filterBottomView.confirmBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
+        
         filterBottomView.frame = CGRectMake(0,780, ScreenW, 60);
         UIColor *color = RGB(242, 242, 242, 1);
         
@@ -154,6 +165,7 @@
             self.filterView.frame = CGRectMake(0, 64, self.filterView.frame.size.width,ScreenH - 64);
         }];
         [app.keyWindow insertSubview:self.filterView atIndex:3];
+        self.isShow = YES;
     }else{
         [UIView animateWithDuration:DurationTime animations:^{
             self.filterView.frame = CGRectMake(0, 64, self.filterView.frame.size.width, 0);
@@ -166,21 +178,47 @@
     isCreated = !isCreated;
 }
 
+  // 收起列表
+- (void)hideShowView:(UIButton *)btn{
+    [UIView animateWithDuration:DurationTime animations:^{
+        self.filterView.frame = CGRectMake(0, 64, self.filterView.frame.size.width, 0);
+    }completion:nil];
+    [UIView animateWithDuration:DurationTime animations:^{}completion:^(BOOL finished) {
+        self.showView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0  blue:255/255.0  alpha:0];
+        [self.showView removeFromSuperview];
+    }];
+    isCreated = YES;
+}
+
+
+
+
+
+static BOOL isSetUp = YES;
+
 #pragma mark      右边排序按钮对应事件
 - (void)didClickSort:(UIButton *)btn{
-    static BOOL isCreated = YES;
     UIApplication *app = [UIApplication sharedApplication];
-    if (isCreated) {
+    if (self.isShow == YES) {
+        if (self.showView) {
+            self.showView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0  blue:255/255.0  alpha:0];
+            [self.filterView removeFromSuperview];
+            [self.showView removeFromSuperview];
+        }
+    }
+    if (isSetUp) {
         UIView *showView = [[UIView alloc] initWithFrame:CGRectMake(0,64, ScreenW, ScreenH-64)];
+        
         self.showSortView = showView;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideShowSortView:)];
+        [self.showSortView addGestureRecognizer:tap];
         
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 0)];
         scrollView.backgroundColor = [UIColor whiteColor];
         self.sortView = scrollView ;
         
         [self.showSortView addSubview:self.sortView];
-
-        
         BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0,0, ScreenW, 130)];
         [block setupSortBlockContentView:[NSArray arrayWithObjects:@"全部",@"<12个月",@"12个月",@"13-23个月",@"13-23个月",@"13-23个月",@"13-23个月", nil]];
         [self.sortView addSubview:block];
@@ -190,6 +228,7 @@
             self.sortView.frame = CGRectMake(0, 0, self.sortView.frame.size.width,130);
             }completion:nil];
         [app.keyWindow insertSubview:self.showSortView atIndex:4];
+        self.isShow = YES;
     }else{
         [UIView animateWithDuration:DurationTime animations:^{
             self.sortView.frame = CGRectMake(0, 0, self.sortView.frame.size.width, 0);
@@ -198,8 +237,23 @@
             [self.showSortView removeFromSuperview];
         }];
     }
-    isCreated = !isCreated;
+    isSetUp = !isSetUp;
 }
+
+- (void)hideShowSortView:(UITapGestureRecognizer *)tap{
+    CGPoint point =[tap locationInView:tap.view];
+    if (point.y > 130) {
+        [UIView animateWithDuration:DurationTime animations:^{
+            self.sortView.frame = CGRectMake(0, 0, self.sortView.frame.size.width, 0);
+        }completion:^(BOOL finished) {
+            self.showSortView.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0];
+            [self.showSortView removeFromSuperview];
+        }];
+        isSetUp = YES;
+    }
+}
+
+
 
 - (void)setupTopSegment{
     self.automaticallyAdjustsScrollViewInsets= NO; //iOS7新增属性

@@ -18,8 +18,6 @@
 
 @property (nonatomic,strong) UIButton *propertyBtn;
 
-
-
 @end
 
 @implementation BlockView

@@ -11,6 +11,4 @@
 @implementation FilterBottomView
 
 
-
-
 @end

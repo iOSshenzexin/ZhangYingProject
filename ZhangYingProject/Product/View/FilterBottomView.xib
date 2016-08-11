@@ -67,6 +67,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cancleBtn" destination="5Jt-48-63P" id="mZr-WG-y4D"/>
+                <outlet property="confirmBtn" destination="cUD-O2-h8F" id="co0-gA-Srs"/>
                 <outlet property="removeBtn" destination="472-Kn-6Nz" id="8SP-f9-6SE"/>
             </connections>
             <point key="canvasLocation" x="42.5" y="160"/>

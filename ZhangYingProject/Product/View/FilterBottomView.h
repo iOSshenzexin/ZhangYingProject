@@ -11,4 +11,9 @@
 @interface FilterBottomView : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *removeBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *cancleBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+
 @end

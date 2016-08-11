@@ -24,8 +24,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="628962896289*****777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-CJ-Uwf">
-                        <rect key="frame" x="107" y="9" width="234" height="41"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="628962896289*****777" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-CJ-Uwf">
+                        <rect key="frame" x="114" y="9" width="227" height="41"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                         <state key="normal" image="my-trade04"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank01" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-4a-QfV">
-                        <rect key="frame" x="71" y="15" width="30" height="30"/>
+                        <rect key="frame" x="78" y="15" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="4Yp-2z-V0T"/>
                             <constraint firstAttribute="width" constant="30" id="igA-XH-1bV"/>
@@ -50,7 +50,7 @@
                     <constraint firstItem="aHT-g0-a6b" firstAttribute="leading" secondItem="8i9-CJ-Uwf" secondAttribute="trailing" constant="8" id="4OD-7J-shF"/>
                     <constraint firstAttribute="bottomMargin" secondItem="oHR-4a-QfV" secondAttribute="bottom" constant="6" id="Ebt-Fq-TB6"/>
                     <constraint firstItem="UfR-e0-u5o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="MTC-eb-6n4"/>
-                    <constraint firstItem="oHR-4a-QfV" firstAttribute="leading" secondItem="UfR-e0-u5o" secondAttribute="trailing" constant="8" id="Mcr-hG-osX"/>
+                    <constraint firstItem="oHR-4a-QfV" firstAttribute="leading" secondItem="UfR-e0-u5o" secondAttribute="trailing" constant="15" id="Mcr-hG-osX"/>
                     <constraint firstAttribute="bottomMargin" secondItem="8i9-CJ-Uwf" secondAttribute="bottom" constant="1" id="NdP-QQ-UY7"/>
                     <constraint firstItem="8i9-CJ-Uwf" firstAttribute="leading" secondItem="oHR-4a-QfV" secondAttribute="trailing" constant="6" id="POO-nf-2Bi"/>
                     <constraint firstItem="8i9-CJ-Uwf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="QfO-cI-fLf"/>

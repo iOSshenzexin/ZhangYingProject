@@ -86,7 +86,6 @@
 }
 
 - (void)modifyAddress:(UIButton *)btn{
-    NSLog(@"xxxxxxx");
     DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
     vc.title = @"修改收货地址";
     [self.navigationController pushViewController:vc animated:YES];

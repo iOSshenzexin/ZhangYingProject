@@ -49,6 +49,7 @@ static NSString *cellID = @"cellId";
 - (void)registerCell{
     UINib *nib = [UINib nibWithNibName:@"DealCustomCell" bundle:nil];
     [self.amountTableView registerNib:nib forCellReuseIdentifier:cellID];
+    self.amountTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

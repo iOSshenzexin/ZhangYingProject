@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有添加结佣账户,去登记吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-U9-FfP">
-                        <rect key="frame" x="29" y="9" width="331" height="41"/>
+                        <rect key="frame" x="43" y="9" width="317" height="41"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                     <constraint firstItem="ZuU-CP-qBs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="W0g-7A-nRQ"/>
                     <constraint firstItem="ZuU-CP-qBs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Xtf-Rw-ixK"/>
                     <constraint firstItem="kzq-U9-FfP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="bhD-Lu-1Af"/>
-                    <constraint firstItem="kzq-U9-FfP" firstAttribute="leading" secondItem="ZuU-CP-qBs" secondAttribute="trailing" constant="4" id="g2S-uA-6mp"/>
+                    <constraint firstItem="kzq-U9-FfP" firstAttribute="leading" secondItem="ZuU-CP-qBs" secondAttribute="trailing" constant="18" id="g2S-uA-6mp"/>
                     <constraint firstAttribute="trailing" secondItem="kzq-U9-FfP" secondAttribute="trailing" constant="15" id="q5L-oM-BKM"/>
                     <constraint firstAttribute="bottom" secondItem="kzq-U9-FfP" secondAttribute="bottom" constant="9" id="umV-fS-ZUQ"/>
                 </constraints>

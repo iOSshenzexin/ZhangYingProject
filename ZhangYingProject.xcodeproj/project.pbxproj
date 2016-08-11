@@ -93,6 +93,10 @@
 		016D9F411D4620660002AD16 /* MessageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F3F1D4620650002AD16 /* MessageCustomCell.xib */; };
 		016D9F451D4628550002AD16 /* MessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D9F431D4628550002AD16 /* MessageDetailController.m */; };
 		016D9F461D4628550002AD16 /* MessageDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016D9F441D4628550002AD16 /* MessageDetailController.xib */; };
+		0173D36A1D5C5BD200D68826 /* MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0173D3681D5C5BD200D68826 /* MyCollectionController.m */; };
+		0173D36B1D5C5BD200D68826 /* MyCollectionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0173D3691D5C5BD200D68826 /* MyCollectionController.xib */; };
+		0173D36F1D5C66D500D68826 /* CustomCollectionStyleOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0173D36D1D5C66D500D68826 /* CustomCollectionStyleOneCell.m */; };
+		0173D3701D5C66D500D68826 /* CustomCollectionStyleOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0173D36E1D5C66D500D68826 /* CustomCollectionStyleOneCell.xib */; };
 		01773D931D46FAB40028BC7D /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773D911D46FAB40028BC7D /* RegisterController.m */; };
 		01773D941D46FAB40028BC7D /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773D921D46FAB40028BC7D /* RegisterController.xib */; };
 		01773D981D470F170028BC7D /* ForgetPWDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773D961D470F170028BC7D /* ForgetPWDController.m */; };
@@ -317,6 +321,12 @@
 		016D9F421D4628550002AD16 /* MessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailController.h; sourceTree = "<group>"; };
 		016D9F431D4628550002AD16 /* MessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailController.m; sourceTree = "<group>"; };
 		016D9F441D4628550002AD16 /* MessageDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageDetailController.xib; sourceTree = "<group>"; };
+		0173D3671D5C5BD200D68826 /* MyCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionController.h; sourceTree = "<group>"; };
+		0173D3681D5C5BD200D68826 /* MyCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionController.m; sourceTree = "<group>"; };
+		0173D3691D5C5BD200D68826 /* MyCollectionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionController.xib; sourceTree = "<group>"; };
+		0173D36C1D5C66D500D68826 /* CustomCollectionStyleOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionStyleOneCell.h; sourceTree = "<group>"; };
+		0173D36D1D5C66D500D68826 /* CustomCollectionStyleOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionStyleOneCell.m; sourceTree = "<group>"; };
+		0173D36E1D5C66D500D68826 /* CustomCollectionStyleOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionStyleOneCell.xib; sourceTree = "<group>"; };
 		01773D901D46FAB40028BC7D /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		01773D911D46FAB40028BC7D /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		01773D921D46FAB40028BC7D /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
@@ -689,6 +699,9 @@
 				011D84571D4F318100C3F128 /* ProductAnnouncementController.h */,
 				011D84581D4F318100C3F128 /* ProductAnnouncementController.m */,
 				011D84591D4F318100C3F128 /* ProductAnnouncementController.xib */,
+				0173D3671D5C5BD200D68826 /* MyCollectionController.h */,
+				0173D3681D5C5BD200D68826 /* MyCollectionController.m */,
+				0173D3691D5C5BD200D68826 /* MyCollectionController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -718,6 +731,9 @@
 				011D84661D4F399100C3F128 /* CustomAlertView.h */,
 				011D84671D4F399100C3F128 /* CustomAlertView.m */,
 				011D84691D4F39B000C3F128 /* CustomAlertView.xib */,
+				0173D36C1D5C66D500D68826 /* CustomCollectionStyleOneCell.h */,
+				0173D36D1D5C66D500D68826 /* CustomCollectionStyleOneCell.m */,
+				0173D36E1D5C66D500D68826 /* CustomCollectionStyleOneCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1210,9 +1226,11 @@
 				011050E41D40C3D8009494F7 /* MyCardController.xib in Resources */,
 				011D84511D4F2C0300C3F128 /* MyOrderController.xib in Resources */,
 				016D9F461D4628550002AD16 /* MessageDetailController.xib in Resources */,
+				0173D3701D5C66D500D68826 /* CustomCollectionStyleOneCell.xib in Resources */,
 				011050EF1D40CC97009494F7 /* LoginController.xib in Resources */,
 				014156B61D5B20CA0071A614 /* FilterBottomView.xib in Resources */,
 				01C8D9281D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib in Resources */,
+				0173D36B1D5C5BD200D68826 /* MyCollectionController.xib in Resources */,
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
 				01773D941D46FAB40028BC7D /* RegisterController.xib in Resources */,
@@ -1310,7 +1328,9 @@
 				01C8D9271D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m in Sources */,
 				0169F1901D3E00300049B13D /* SecondView.m in Sources */,
 				011D84501D4F2C0300C3F128 /* MyOrderController.m in Sources */,
+				0173D36F1D5C66D500D68826 /* CustomCollectionStyleOneCell.m in Sources */,
 				019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */,
+				0173D36A1D5C5BD200D68826 /* MyCollectionController.m in Sources */,
 				011D845F1D4F321800C3F128 /* ProductRequirementController.m in Sources */,
 				01E525AC1D42223700617491 /* SearchController.m in Sources */,
 				019198D21D3CC32C000F2483 /* main.m in Sources */,

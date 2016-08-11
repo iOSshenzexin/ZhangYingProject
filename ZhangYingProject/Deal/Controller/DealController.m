@@ -18,6 +18,7 @@
 #import "MyOrderController.h"
 #import "ProductAnnouncementController.h"
 #import "ProductRequirementController.h"
+#import "MyCollectionController.h"
 @interface DealController ()<UITableViewDelegate,UITableViewDataSource,PopoverViewDelegate>
 
 @property (nonatomic,copy) NSArray *titleArray;
@@ -99,6 +100,7 @@ static NSString *defaultCell = @"defaultCell";
         [cell.showCardBtn addTarget:self action:@selector(didClickCheckCardInfo:) forControlEvents:UIControlEventTouchUpInside];
         self.seg.selectedSegmentIndex = cell.segmentControl.selectedSegmentIndex;
         [cell.segmentControl addTarget:self action:@selector(didClickSegmentControler:) forControlEvents:UIControlEventValueChanged];
+        [cell.collectionBtn addTarget:self action:@selector(didClickEnterCollection:) forControlEvents:UIControlEventTouchUpInside];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
@@ -116,6 +118,13 @@ static NSString *defaultCell = @"defaultCell";
     return nil;
 }
 
+- (void)didClickEnterCollection:(UIButton *)btn{
+    self.hidesBottomBarWhenPushed = YES;
+    MyCollectionController *vc = [[MyCollectionController alloc] init];
+    vc.title = @"我的收藏";
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
 
 - (void)didClickCheckCardInfo:(UIButton *)btn{
     self.hidesBottomBarWhenPushed = YES;
