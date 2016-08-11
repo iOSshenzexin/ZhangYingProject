@@ -93,8 +93,7 @@
         callBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [view addSubview:callBtn];
         
-        view.backgroundColor = [UIColor blackColor];
-        view.alpha = 0.8;
+        view.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0.65];
         self.popView = view;
         UITapGestureRecognizer *clickTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidePopView:)];
         [self.popView addGestureRecognizer:clickTap];

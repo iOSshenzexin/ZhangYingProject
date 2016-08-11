@@ -8,18 +8,34 @@
 
 #import "AboutUsController.h"
 
+#import "ZYDelegateController.h"
 @interface AboutUsController ()
 
 @end
 
 @implementation AboutUsController
 
+- (IBAction)didClickShowZYDelegate:(id)sender {
+    NSLog(@"ccccc");
+    self.hidesBottomBarWhenPushed = YES;
+    ZYDelegateController *vc = [[ZYDelegateController alloc] init];
+    vc.title = @"掌盈用户服务协议";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.aboutUsTableVeiw.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
     self.aboutUsTableVeiw.sectionHeaderHeight = 0;
     self.aboutUsTableVeiw.sectionFooterHeight = 40;
+    [self deleteBack];
+}
 
+- (void)deleteBack{
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 
