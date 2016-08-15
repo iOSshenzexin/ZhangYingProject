@@ -124,6 +124,7 @@
                 <outlet property="backView" destination="roU-JZ-FPa" id="qry-3i-AJS"/>
                 <outlet property="collectionBtn" destination="T34-Ix-nts" id="Zyf-7A-DJV"/>
                 <outlet property="segmentControl" destination="jRY-Ik-SSj" id="5Ee-CO-dat"/>
+                <outlet property="shareBtn" destination="omC-s3-Mfm" id="SCa-9e-1Ij"/>
                 <outlet property="showCardBtn" destination="h4q-5v-4uL" id="I5I-ZY-XcK"/>
             </connections>
             <point key="canvasLocation" x="-185.5" y="125"/>

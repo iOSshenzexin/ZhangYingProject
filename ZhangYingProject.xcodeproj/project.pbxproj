@@ -108,6 +108,17 @@
 		01773DA81D4769E30028BC7D /* RegularIntroduceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773DA61D4769E30028BC7D /* RegularIntroduceController.xib */; };
 		01773DAC1D476DD60028BC7D /* MyBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01773DAA1D476DD60028BC7D /* MyBillController.m */; };
 		01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01773DAB1D476DD60028BC7D /* MyBillController.xib */; };
+		017E92AD1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017E92AB1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.m */; };
+		017E92AE1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017E92AC1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.xib */; };
+		017E92B21D5D6E7D004A27C9 /* MyShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017E92B01D5D6E7D004A27C9 /* MyShareController.m */; };
+		017E92B31D5D6E7D004A27C9 /* MyShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017E92B11D5D6E7D004A27C9 /* MyShareController.xib */; };
+		017E92B71D5D71F3004A27C9 /* CustomShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017E92B51D5D71F3004A27C9 /* CustomShareCell.m */; };
+		017E92B81D5D71F3004A27C9 /* CustomShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017E92B61D5D71F3004A27C9 /* CustomShareCell.xib */; };
+		017E92BC1D5D76D2004A27C9 /* ShareDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017E92BA1D5D76D2004A27C9 /* ShareDetailController.m */; };
+		017E92BD1D5D76D2004A27C9 /* ShareDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017E92BB1D5D76D2004A27C9 /* ShareDetailController.xib */; };
+		017E92C01D5DA297004A27C9 /* CustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 017E92BF1D5DA297004A27C9 /* CustomHeaderView.m */; };
+		017E92C41D5DC436004A27C9 /* CustomShareStyleOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017E92C21D5DC436004A27C9 /* CustomShareStyleOneCell.m */; };
+		017E92C51D5DC436004A27C9 /* CustomShareStyleOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017E92C31D5DC436004A27C9 /* CustomShareStyleOneCell.xib */; };
 		019198D21D3CC32C000F2483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198D11D3CC32C000F2483 /* main.m */; };
 		019198D51D3CC32C000F2483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198D41D3CC32C000F2483 /* AppDelegate.m */; };
 		019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */; };
@@ -126,6 +137,7 @@
 		019199361D3CCA66000F2483 /* ProductController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019199341D3CCA66000F2483 /* ProductController.xib */; };
 		0191993A1D3CCA76000F2483 /* DealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 019199381D3CCA76000F2483 /* DealController.m */; };
 		0191993B1D3CCA76000F2483 /* DealController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019199391D3CCA76000F2483 /* DealController.xib */; };
+		01AF9DCC1D5F0BE9002FFA84 /* ShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AF9DCB1D5F0BE9002FFA84 /* ShareModel.m */; };
 		01B1E4FD1D5971D3009E3A4F /* ZYDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E4FB1D5971D3009E3A4F /* ZYDelegateController.m */; };
 		01B1E4FE1D5971D3009E3A4F /* ZYDelegateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B1E4FC1D5971D3009E3A4F /* ZYDelegateController.xib */; };
 		01C8D9161D49A7C800E51E53 /* BankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8D9141D49A7C800E51E53 /* BankCardCell.m */; };
@@ -344,6 +356,23 @@
 		01773DA91D476DD60028BC7D /* MyBillController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBillController.h; sourceTree = "<group>"; };
 		01773DAA1D476DD60028BC7D /* MyBillController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBillController.m; sourceTree = "<group>"; };
 		01773DAB1D476DD60028BC7D /* MyBillController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBillController.xib; sourceTree = "<group>"; };
+		017E92AA1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionStyleTwoCell.h; sourceTree = "<group>"; };
+		017E92AB1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionStyleTwoCell.m; sourceTree = "<group>"; };
+		017E92AC1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionStyleTwoCell.xib; sourceTree = "<group>"; };
+		017E92AF1D5D6E7D004A27C9 /* MyShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShareController.h; sourceTree = "<group>"; };
+		017E92B01D5D6E7D004A27C9 /* MyShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShareController.m; sourceTree = "<group>"; };
+		017E92B11D5D6E7D004A27C9 /* MyShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyShareController.xib; sourceTree = "<group>"; };
+		017E92B41D5D71F3004A27C9 /* CustomShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareCell.h; sourceTree = "<group>"; };
+		017E92B51D5D71F3004A27C9 /* CustomShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareCell.m; sourceTree = "<group>"; };
+		017E92B61D5D71F3004A27C9 /* CustomShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomShareCell.xib; sourceTree = "<group>"; };
+		017E92B91D5D76D2004A27C9 /* ShareDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareDetailController.h; sourceTree = "<group>"; };
+		017E92BA1D5D76D2004A27C9 /* ShareDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareDetailController.m; sourceTree = "<group>"; };
+		017E92BB1D5D76D2004A27C9 /* ShareDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareDetailController.xib; sourceTree = "<group>"; };
+		017E92BE1D5DA297004A27C9 /* CustomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeaderView.h; sourceTree = "<group>"; };
+		017E92BF1D5DA297004A27C9 /* CustomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeaderView.m; sourceTree = "<group>"; };
+		017E92C11D5DC436004A27C9 /* CustomShareStyleOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareStyleOneCell.h; sourceTree = "<group>"; };
+		017E92C21D5DC436004A27C9 /* CustomShareStyleOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareStyleOneCell.m; sourceTree = "<group>"; };
+		017E92C31D5DC436004A27C9 /* CustomShareStyleOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomShareStyleOneCell.xib; sourceTree = "<group>"; };
 		019198CD1D3CC32B000F2483 /* ZhangYingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhangYingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		019198D11D3CC32C000F2483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		019198D31D3CC32C000F2483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -375,6 +404,8 @@
 		019199371D3CCA76000F2483 /* DealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealController.h; sourceTree = "<group>"; };
 		019199381D3CCA76000F2483 /* DealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealController.m; sourceTree = "<group>"; };
 		019199391D3CCA76000F2483 /* DealController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealController.xib; sourceTree = "<group>"; };
+		01AF9DCA1D5F0BE9002FFA84 /* ShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareModel.h; sourceTree = "<group>"; };
+		01AF9DCB1D5F0BE9002FFA84 /* ShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareModel.m; sourceTree = "<group>"; };
 		01B1E4F81D585041009E3A4F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		01B1E4FA1D5971D3009E3A4F /* ZYDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDelegateController.h; sourceTree = "<group>"; };
 		01B1E4FB1D5971D3009E3A4F /* ZYDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDelegateController.m; sourceTree = "<group>"; };
@@ -702,6 +733,12 @@
 				0173D3671D5C5BD200D68826 /* MyCollectionController.h */,
 				0173D3681D5C5BD200D68826 /* MyCollectionController.m */,
 				0173D3691D5C5BD200D68826 /* MyCollectionController.xib */,
+				017E92AF1D5D6E7D004A27C9 /* MyShareController.h */,
+				017E92B01D5D6E7D004A27C9 /* MyShareController.m */,
+				017E92B11D5D6E7D004A27C9 /* MyShareController.xib */,
+				017E92B91D5D76D2004A27C9 /* ShareDetailController.h */,
+				017E92BA1D5D76D2004A27C9 /* ShareDetailController.m */,
+				017E92BB1D5D76D2004A27C9 /* ShareDetailController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -709,6 +746,8 @@
 		019199081D3CC8D5000F2483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01AF9DCA1D5F0BE9002FFA84 /* ShareModel.h */,
+				01AF9DCB1D5F0BE9002FFA84 /* ShareModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -734,6 +773,17 @@
 				0173D36C1D5C66D500D68826 /* CustomCollectionStyleOneCell.h */,
 				0173D36D1D5C66D500D68826 /* CustomCollectionStyleOneCell.m */,
 				0173D36E1D5C66D500D68826 /* CustomCollectionStyleOneCell.xib */,
+				017E92AA1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.h */,
+				017E92AB1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.m */,
+				017E92AC1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.xib */,
+				017E92B41D5D71F3004A27C9 /* CustomShareCell.h */,
+				017E92B51D5D71F3004A27C9 /* CustomShareCell.m */,
+				017E92B61D5D71F3004A27C9 /* CustomShareCell.xib */,
+				017E92C11D5DC436004A27C9 /* CustomShareStyleOneCell.h */,
+				017E92C21D5DC436004A27C9 /* CustomShareStyleOneCell.m */,
+				017E92C31D5DC436004A27C9 /* CustomShareStyleOneCell.xib */,
+				017E92BE1D5DA297004A27C9 /* CustomHeaderView.h */,
+				017E92BF1D5DA297004A27C9 /* CustomHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1197,6 +1247,7 @@
 				0124FFEF1D533C1D00F17D4B /* ProductReservationController.xib in Resources */,
 				01C8D93C1D4A13AA00E51E53 /* MyReservationController.xib in Resources */,
 				011D84601D4F321800C3F128 /* ProductRequirementController.xib in Resources */,
+				017E92B31D5D6E7D004A27C9 /* MyShareController.xib in Resources */,
 				01773D991D470F170028BC7D /* ForgetPWDController.xib in Resources */,
 				01E525A81D421A1300617491 /* SetNewPWDController.xib in Resources */,
 				01773DA21D472CB30028BC7D /* MBProgressHUD.bundle in Resources */,
@@ -1216,7 +1267,9 @@
 				016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
 				0124FFE01D5316DD00F17D4B /* ProductShareController.xib in Resources */,
+				017E92C51D5DC436004A27C9 /* CustomShareStyleOneCell.xib in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
+				017E92AE1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.xib in Resources */,
 				0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */,
 				01E525A31D42169300617491 /* ChangeLoginNumberController.xib in Resources */,
 				019199311D3CCA54000F2483 /* MineController.xib in Resources */,
@@ -1232,9 +1285,11 @@
 				01C8D9281D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib in Resources */,
 				0173D36B1D5C5BD200D68826 /* MyCollectionController.xib in Resources */,
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
+				017E92BD1D5D76D2004A27C9 /* ShareDetailController.xib in Resources */,
 				011050C21D40742A009494F7 /* ModifyPhoneController.xib in Resources */,
 				01773D941D46FAB40028BC7D /* RegisterController.xib in Resources */,
 				011050DF1D40BC6F009494F7 /* MyWalletController.xib in Resources */,
+				017E92B81D5D71F3004A27C9 /* CustomShareCell.xib in Resources */,
 				016D9F361D45E80E0002AD16 /* AboutUsController.storyboard in Resources */,
 				01E5258E1D41C95600617491 /* DealCustomCell.xib in Resources */,
 				0191993B1D3CCA76000F2483 /* DealController.xib in Resources */,
@@ -1324,6 +1379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017E92C01D5DA297004A27C9 /* CustomHeaderView.m in Sources */,
 				012304671D3DC87B00B19284 /* UIView+Extension.m in Sources */,
 				01C8D9271D49E7C100E51E53 /* WithdrawCashStyleTwoCell.m in Sources */,
 				0169F1901D3E00300049B13D /* SecondView.m in Sources */,
@@ -1339,12 +1395,15 @@
 				019199221D3CC94D000F2483 /* TabbarController.m in Sources */,
 				01773DA31D472CB30028BC7D /* MBProgressHUD.m in Sources */,
 				011050DE1D40BC6F009494F7 /* MyWalletController.m in Sources */,
+				017E92BC1D5D76D2004A27C9 /* ShareDetailController.m in Sources */,
 				01773D931D46FAB40028BC7D /* RegisterController.m in Sources */,
 				0124FFE41D53188900F17D4B /* ProductShareCustomSyleOneCell.m in Sources */,
 				0169E1E61D51D145009241A8 /* ProductDetailStyleThreeCustomCell.m in Sources */,
 				01D2CFEC1D3F06E4002D5575 /* ZXCircleHeadImage.m in Sources */,
+				017E92AD1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.m in Sources */,
 				01C8D9311D4A0AA400E51E53 /* DealTopCustomCell.m in Sources */,
 				011D84551D4F2E4000C3F128 /* CustomInTransitCell.m in Sources */,
+				017E92B71D5D71F3004A27C9 /* CustomShareCell.m in Sources */,
 				011050CF1D4096E0009494F7 /* MemberAuthenticationController.m in Sources */,
 				019199351D3CCA66000F2483 /* ProductController.m in Sources */,
 				0169E1EB1D51D15B009241A8 /* ProductDetailStyleFourCustomCell.m in Sources */,
@@ -1377,6 +1436,7 @@
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
 				011D84681D4F399100C3F128 /* CustomAlertView.m in Sources */,
 				01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */,
+				017E92C41D5DC436004A27C9 /* CustomShareStyleOneCell.m in Sources */,
 				0124FFE91D53189C00F17D4B /* ProductShareCustomSyleTwoCell.m in Sources */,
 				0169F1971D3E257A0049B13D /* ThirdView.m in Sources */,
 				0124FFEE1D533C1D00F17D4B /* ProductReservationController.m in Sources */,
@@ -1400,6 +1460,7 @@
 				01773DAC1D476DD60028BC7D /* MyBillController.m in Sources */,
 				01B1E4FD1D5971D3009E3A4F /* ZYDelegateController.m in Sources */,
 				01773DA11D472CB30028BC7D /* MBProgressHUD+WJTools.m in Sources */,
+				01AF9DCC1D5F0BE9002FFA84 /* ShareModel.m in Sources */,
 				012304631D3DC87B00B19284 /* KNCollectionViewCell.m in Sources */,
 				011050D61D409E4F009494F7 /* CustomLine.m in Sources */,
 				0169E1E11D51D131009241A8 /* ProductDetailStyleTwoCustomCell.m in Sources */,
@@ -1409,6 +1470,7 @@
 				011050E81D40C70D009494F7 /* CardCustomCell.m in Sources */,
 				016D9F331D45E1260002AD16 /* DeliveryAddressController.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,
+				017E92B21D5D6E7D004A27C9 /* MyShareController.m in Sources */,
 				01E525881D41C30000617491 /* CommissionAccountController.m in Sources */,
 				019199301D3CCA54000F2483 /* MineController.m in Sources */,
 			);

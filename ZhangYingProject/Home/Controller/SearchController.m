@@ -8,11 +8,13 @@
 
 #import "SearchController.h"
 
+#import "HomeController.h"
 @interface SearchController ()<UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource>{
     UISearchBar *_searchBar;
     UISearchDisplayController *searchDisplayController;
     NSMutableArray *suggestResults;
 }
+
 @property (nonatomic,strong) UISearchBar *searchBarTop;
 @end
 
@@ -32,16 +34,20 @@
     //隐藏掉当前页的返回按钮
     self.navigationItem.hidesBackButton = YES;
     [self initSearchBarAndMysearchDisPlay];
-   
-    self.searchBarTop = _searchBar;
-    [self.searchBarTop becomeFirstResponder];
+
     //添加右侧返回按钮
     [self setupRightBarBtn];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+
+    [_searchBar becomeFirstResponder];
+}
+
 - (void)getPicNumber:(NSNotification *)notification{
     NSLog(@"first");
-    [self.searchBarTop becomeFirstResponder];
+    [_searchBarTop becomeFirstResponder];
 }
 
 - (void)setupRightBarBtn{
@@ -69,7 +75,8 @@
     _searchBar.placeholder = @"请输入您要搜索的产品";
     [_searchBar sizeToFit];
     
-    
+    self.searchBarTop = _searchBar;
+
     searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
     
     searchDisplayController.delegate = self;
@@ -88,6 +95,8 @@
 }
 
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    [self.searchBarTop becomeFirstResponder];
+
     NSLog(@"xxxxxxx");
 }
 

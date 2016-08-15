@@ -14,6 +14,11 @@
 
 @implementation ForgetPWDController
 
+
+- (IBAction)didClickSetNewPWD:(id)sender {
+    [MBProgressHUD showSuccess:@"新密码设置成功!"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTextField];

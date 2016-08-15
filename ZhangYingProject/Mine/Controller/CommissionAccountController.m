@@ -39,6 +39,7 @@
     }
     return _titleArray;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.amountTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);

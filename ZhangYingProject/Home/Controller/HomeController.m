@@ -29,6 +29,14 @@
 
 @implementation HomeController
 
++(HomeController *)sharedHomeController{
+    static HomeController *vc = nil;
+    if (!vc) {
+        vc = [[HomeController alloc] init
+              ];
+    }
+    return vc;
+}
 //-(void)viewWillAppear:(BOOL)animated{
 //    [super viewWillAppear:YES];
 //    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -42,7 +50,6 @@ static NSString *str = @"cellId";
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] init] ;
-                       //]WithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.rowHeight = 120;
@@ -60,9 +67,9 @@ static NSString *str = @"cellId";
     self.navigationItem.titleView = [ZXSearchBar searchBar];
     UITextField *txt = (UITextField *)self.navigationItem.titleView;
     txt.placeholder = @"请输入您要搜索的产品";
-
     txt.delegate = self;
     self.textField = txt;
+    
     //添加轮播图
     [self.scrollView addSubview:[TopBannerTool setupNetWorkBannerViewAtViewController:self]];
     //创建模块视图
@@ -77,6 +84,8 @@ static NSString *str = @"cellId";
     backButtonItem.title = @"";
     self.navigationItem.backBarButtonItem = backButtonItem;
 }
+
+
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pictureNumber" object:nil userInfo:nil];
@@ -107,15 +116,6 @@ static NSString *str = @"cellId";
     //第三部分
     self.tableView.frame = CGRectMake(0, secondY, ScreenW, 5*120);
     [self.scrollView addSubview:self.tableView];
-//    NSInteger count = 5;
-//    for (NSInteger i = 0; i < count; i ++) {
-//        SecondView *secondView = [[[NSBundle mainBundle]loadNibNamed:@"SecondView" owner:self options:nil] firstObject];
-//        secondView.frame = CGRectMake(8, secondY + i * 120, ScreenW - 16, 120);
-//        UIColor *color = RGB(240, 240, 240, 1);
-//        secondView.layer.borderColor = [color CGColor];
-//        secondView.layer.borderWidth = 0.6;
-//        [self.scrollView addSubview:secondView];
-//    }
     CGFloat scrollViewY =  CGRectGetMaxY(self.tableView.frame) + 10;
     
     FourthView *fourthView = [[[NSBundle mainBundle]loadNibNamed:@"FourthView" owner:self options:nil] firstObject];

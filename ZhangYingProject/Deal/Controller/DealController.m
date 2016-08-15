@@ -19,6 +19,7 @@
 #import "ProductAnnouncementController.h"
 #import "ProductRequirementController.h"
 #import "MyCollectionController.h"
+#import "MyShareController.h"
 @interface DealController ()<UITableViewDelegate,UITableViewDataSource,PopoverViewDelegate>
 
 @property (nonatomic,copy) NSArray *titleArray;
@@ -101,6 +102,7 @@ static NSString *defaultCell = @"defaultCell";
         self.seg.selectedSegmentIndex = cell.segmentControl.selectedSegmentIndex;
         [cell.segmentControl addTarget:self action:@selector(didClickSegmentControler:) forControlEvents:UIControlEventValueChanged];
         [cell.collectionBtn addTarget:self action:@selector(didClickEnterCollection:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.shareBtn addTarget:self action:@selector(didClickEnterShare:) forControlEvents:UIControlEventTouchUpInside];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
@@ -116,6 +118,15 @@ static NSString *defaultCell = @"defaultCell";
         return cell;
     }
     return nil;
+}
+
+
+- (void)didClickEnterShare:(UIButton *)btn{
+    self.hidesBottomBarWhenPushed = YES;
+    MyShareController *vc = [[MyShareController alloc] init];
+    vc.title = @"分享记录";
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (void)didClickEnterCollection:(UIButton *)btn{

@@ -16,4 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *shareBtn;
+
+
 @end
