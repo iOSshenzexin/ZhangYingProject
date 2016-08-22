@@ -65,6 +65,9 @@
 		013474681D6A8FB400E00541 /* ZXPop.m in Sources */ = {isa = PBXBuildFile; fileRef = 013474671D6A8FB400E00541 /* ZXPop.m */; };
 		0134746B1D6A93E900E00541 /* ZXWindowiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 0134746A1D6A93E900E00541 /* ZXWindowiew.m */; };
 		0134746D1D6A940A00E00541 /* ZXWindowiew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0134746C1D6A940A00E00541 /* ZXWindowiew.xib */; };
+		013474721D6AD2BA00E00541 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = 013474711D6AD2BA00E00541 /* Province.plist */; };
+		013474761D6AD63200E00541 /* SZXSelectProvinceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 013474741D6AD63200E00541 /* SZXSelectProvinceView.m */; };
+		013474771D6AD63200E00541 /* SZXSelectProvinceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013474751D6AD63200E00541 /* SZXSelectProvinceView.xib */; };
 		014156B61D5B20CA0071A614 /* FilterBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014156B51D5B20CA0071A614 /* FilterBottomView.xib */; };
 		014156B91D5B20E70071A614 /* FilterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156B81D5B20E70071A614 /* FilterBottomView.m */; };
 		014156BC1D5B2FC50071A614 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156BB1D5B2FC50071A614 /* BlockView.m */; };
@@ -293,6 +296,10 @@
 		013474691D6A93E900E00541 /* ZXWindowiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXWindowiew.h; sourceTree = "<group>"; };
 		0134746A1D6A93E900E00541 /* ZXWindowiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXWindowiew.m; sourceTree = "<group>"; };
 		0134746C1D6A940A00E00541 /* ZXWindowiew.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXWindowiew.xib; sourceTree = "<group>"; };
+		013474711D6AD2BA00E00541 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
+		013474731D6AD63200E00541 /* SZXSelectProvinceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZXSelectProvinceView.h; sourceTree = "<group>"; };
+		013474741D6AD63200E00541 /* SZXSelectProvinceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZXSelectProvinceView.m; sourceTree = "<group>"; };
+		013474751D6AD63200E00541 /* SZXSelectProvinceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZXSelectProvinceView.xib; sourceTree = "<group>"; };
 		014156B51D5B20CA0071A614 /* FilterBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterBottomView.xib; sourceTree = "<group>"; };
 		014156B71D5B20E70071A614 /* FilterBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBottomView.h; sourceTree = "<group>"; };
 		014156B81D5B20E70071A614 /* FilterBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBottomView.m; sourceTree = "<group>"; };
@@ -636,6 +643,7 @@
 				019198D41D3CC32C000F2483 /* AppDelegate.m */,
 				019198DF1D3CC32D000F2483 /* Assets.xcassets */,
 				019198E11D3CC32D000F2483 /* LaunchScreen.storyboard */,
+				013474711D6AD2BA00E00541 /* Province.plist */,
 				019198E41D3CC32D000F2483 /* Info.plist */,
 				019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */,
 				019199201D3CC94D000F2483 /* TabbarController.h */,
@@ -948,6 +956,9 @@
 		019199151D3CC8D5000F2483 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				013474731D6AD63200E00541 /* SZXSelectProvinceView.h */,
+				013474741D6AD63200E00541 /* SZXSelectProvinceView.m */,
+				013474751D6AD63200E00541 /* SZXSelectProvinceView.xib */,
 				01C8D91E1D49E2CC00E51E53 /* WithdrawCashCell */,
 				011050B41D4055DA009494F7 /* CustomPersonCell.h */,
 				011050B51D4055DA009494F7 /* CustomPersonCell.m */,
@@ -1255,6 +1266,7 @@
 				0124FFEA1D53189C00F17D4B /* ProductShareCustomSyleTwoCell.xib in Resources */,
 				011050B81D4055DA009494F7 /* CustomPersonCell.xib in Resources */,
 				0169E1DD1D51D117009241A8 /* ProductDetailStyleOneCustomCell.xib in Resources */,
+				013474771D6AD63200E00541 /* SZXSelectProvinceView.xib in Resources */,
 				01773DAD1D476DD60028BC7D /* MyBillController.xib in Resources */,
 				011050E91D40C70D009494F7 /* CardCustomCell.xib in Resources */,
 				0124FFEF1D533C1D00F17D4B /* ProductReservationController.xib in Resources */,
@@ -1296,6 +1308,7 @@
 				0173D3701D5C66D500D68826 /* CustomCollectionStyleOneCell.xib in Resources */,
 				011050EF1D40CC97009494F7 /* LoginController.xib in Resources */,
 				014156B61D5B20CA0071A614 /* FilterBottomView.xib in Resources */,
+				013474721D6AD2BA00E00541 /* Province.plist in Resources */,
 				01C8D9281D49E7C100E51E53 /* WithdrawCashStyleTwoCell.xib in Resources */,
 				0173D36B1D5C5BD200D68826 /* MyCollectionController.xib in Resources */,
 				011050D01D4096E0009494F7 /* MemberAuthenticationController.xib in Resources */,
@@ -1482,6 +1495,7 @@
 				016D9F2E1D45BFE00002AD16 /* AddressCustomCell.m in Sources */,
 				019199261D3CCA2D000F2483 /* MessageController.m in Sources */,
 				011D84641D4F33C500C3F128 /* CustomAnnouncementCell.m in Sources */,
+				013474761D6AD63200E00541 /* SZXSelectProvinceView.m in Sources */,
 				011050E81D40C70D009494F7 /* CardCustomCell.m in Sources */,
 				016D9F331D45E1260002AD16 /* DeliveryAddressController.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,

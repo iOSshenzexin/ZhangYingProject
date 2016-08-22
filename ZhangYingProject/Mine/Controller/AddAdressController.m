@@ -10,9 +10,10 @@
 #import "AddressCustomCell.h"
 
 #import "DeliveryAddressController.h"
-@interface AddAdressController ()<UITableViewDelegate,UITableViewDataSource>
+@interface AddAdressController ()<UITableViewDelegate,UITableViewDataSource,DeliveryAddressControllerDelegate>
 
 @property (nonatomic,copy) NSArray *imgArray;
+
 @property (nonatomic,copy) NSMutableArray *titleArray;
 
 @end
@@ -28,6 +29,16 @@
     self.addressTableVeiw.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
     [self.addressTableVeiw registerNib:[UINib nibWithNibName:@"AddressCustomCell" bundle:nil] forCellReuseIdentifier:str];
     [self deleteBack];
+    
+    DeliveryAddressController *vc = [DeliveryAddressController sharedDeliveryAddressController];
+      vc.delegate = self;
+  
+}
+
+-(void)deliveryAddress:(DeliveryAddressController *)vc{
+    NSMutableArray *address = self.titleArray[1];
+    [address insertObject:vc.address atIndex:0];
+    [self.addressTableVeiw reloadData];
 }
 
 - (void)deleteBack{
@@ -86,7 +97,7 @@
 }
 
 - (void)modifyAddress:(UIButton *)btn{
-    DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
+    DeliveryAddressController *vc = [DeliveryAddressController sharedDeliveryAddressController];
     vc.title = @"修改收货地址";
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -115,7 +126,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
+        DeliveryAddressController *vc = [DeliveryAddressController sharedDeliveryAddressController];
         vc.title = @"新增收货地址";
         [self.navigationController pushViewController:vc animated:YES];
     }else{

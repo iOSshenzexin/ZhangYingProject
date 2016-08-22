@@ -74,6 +74,7 @@ static NSString *cellID = @"cellId";
     cell.lbl.text = self.titleArray[indexPath.row];
     return cell;
 }
+
 - (IBAction)didClickSubmit:(id)sender {
     if ([self.registerAmount isEqualToString:@"registerAmount"]) {
         if ([self.delegate respondsToSelector:@selector(commissionAccountController:andCardNumber:cardStyle:)]) {
@@ -83,4 +84,7 @@ static NSString *cellID = @"cellId";
     }
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AddAdressController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITableView *addressTableVeiw;
 
 @end

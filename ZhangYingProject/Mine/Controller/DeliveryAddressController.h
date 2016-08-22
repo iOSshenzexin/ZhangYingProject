@@ -8,7 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@class DeliveryAddressController;
+@protocol DeliveryAddressControllerDelegate <NSObject>
+
+@optional
+
+- (void)deliveryAddress:(DeliveryAddressController *)vc;
+
+
+@end
+
 @interface DeliveryAddressController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITableView *addressTableView;
 
+@property (nonatomic,copy) NSString *address;
+
+
+@property (weak,nonatomic) id<DeliveryAddressControllerDelegate> delegate;
+
++(DeliveryAddressController *)sharedDeliveryAddressController;
 @end
