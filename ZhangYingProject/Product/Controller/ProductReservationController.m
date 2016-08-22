@@ -8,6 +8,8 @@
 
 #import "ProductReservationController.h"
 
+#import "DeliveryAddressController.h"
+
 @interface ProductReservationController ()
 
 @end
@@ -16,9 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
+- (IBAction)didClickChangeAddress:(id)sender {
+    DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
+    vc.title = @"修改收货地址";
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 @end

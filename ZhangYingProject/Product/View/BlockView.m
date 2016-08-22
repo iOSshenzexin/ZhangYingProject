@@ -37,14 +37,20 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(10 + i % 4 *(btnW + 10), 36 + (i / 4) * 50, btnW, 40);
         [btn setTitle:titleArray[i] forState:UIControlStateNormal];
-        [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         [btn addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.layer.cornerRadius = 3;
         btn.layer.borderWidth = 0.5;
         UIColor *color = RGB(227, 227, 227, 1);
         btn.layer.borderColor = [color CGColor];
-        btn.backgroundColor = btnBackgroundColor;
+        if (i == 0) {
+            btn.selected = YES;
+            btn.backgroundColor = [UIColor redColor];
+            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }else{
+            btn.backgroundColor = btnBackgroundColor;
+            [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
+        }
         [self addSubview:btn];
     }
 }

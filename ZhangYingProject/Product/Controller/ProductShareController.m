@@ -10,6 +10,8 @@
 
 #import "ProductShareCustomSyleOneCell.h"
 #import "ProductShareCustomSyleTwoCell.h"
+
+#import "PersonInfoController.h"
 @interface ProductShareController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -65,6 +67,8 @@ static NSString *styleTwo = @"styleTwo";
         if (!cell) {
             cell = [[ProductShareCustomSyleOneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleOne];
         }
+        [cell.editedBtn addTarget:self action:@selector(didClickedEditInfo:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.selectedBtn addTarget:self action:@selector(didClickSelected:) forControlEvents:UIControlEventTouchUpInside];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
         cell.borderView.layer.borderWidth = 1;
@@ -85,6 +89,18 @@ static NSString *styleTwo = @"styleTwo";
         return cell;
     }
     return nil;
+}
+
+- (void)didClickedEditInfo:(UIButton *)btn{
+    PersonInfoController *vc = [[PersonInfoController alloc] init];
+    vc.title = @"个人设置";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickSelected:(UIButton *)btn{
+    static BOOL isSelected = YES;
+    btn.selected = isSelected;
+    isSelected = !isSelected;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -62,6 +62,9 @@
 		0125A0311D48A43C00D02522 /* TrustCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A02F1D48A43C00D02522 /* TrustCustomCell.xib */; };
 		0125A0351D48AEDD00D02522 /* ProductDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A0331D48AEDD00D02522 /* ProductDetailController.m */; };
 		0125A0361D48AEDD00D02522 /* ProductDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125A0341D48AEDD00D02522 /* ProductDetailController.xib */; };
+		013474681D6A8FB400E00541 /* ZXPop.m in Sources */ = {isa = PBXBuildFile; fileRef = 013474671D6A8FB400E00541 /* ZXPop.m */; };
+		0134746B1D6A93E900E00541 /* ZXWindowiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 0134746A1D6A93E900E00541 /* ZXWindowiew.m */; };
+		0134746D1D6A940A00E00541 /* ZXWindowiew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0134746C1D6A940A00E00541 /* ZXWindowiew.xib */; };
 		014156B61D5B20CA0071A614 /* FilterBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014156B51D5B20CA0071A614 /* FilterBottomView.xib */; };
 		014156B91D5B20E70071A614 /* FilterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156B81D5B20E70071A614 /* FilterBottomView.m */; };
 		014156BC1D5B2FC50071A614 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014156BB1D5B2FC50071A614 /* BlockView.m */; };
@@ -285,6 +288,11 @@
 		0125A0321D48AEDD00D02522 /* ProductDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailController.h; sourceTree = "<group>"; };
 		0125A0331D48AEDD00D02522 /* ProductDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailController.m; sourceTree = "<group>"; };
 		0125A0341D48AEDD00D02522 /* ProductDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailController.xib; sourceTree = "<group>"; };
+		013474661D6A8FB400E00541 /* ZXPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPop.h; sourceTree = "<group>"; };
+		013474671D6A8FB400E00541 /* ZXPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPop.m; sourceTree = "<group>"; };
+		013474691D6A93E900E00541 /* ZXWindowiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXWindowiew.h; sourceTree = "<group>"; };
+		0134746A1D6A93E900E00541 /* ZXWindowiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXWindowiew.m; sourceTree = "<group>"; };
+		0134746C1D6A940A00E00541 /* ZXWindowiew.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXWindowiew.xib; sourceTree = "<group>"; };
 		014156B51D5B20CA0071A614 /* FilterBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterBottomView.xib; sourceTree = "<group>"; };
 		014156B71D5B20E70071A614 /* FilterBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBottomView.h; sourceTree = "<group>"; };
 		014156B81D5B20E70071A614 /* FilterBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBottomView.m; sourceTree = "<group>"; };
@@ -994,6 +1002,8 @@
 		019199181D3CC8D5000F2483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				013474661D6A8FB400E00541 /* ZXPop.h */,
+				013474671D6A8FB400E00541 /* ZXPop.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1027,6 +1037,9 @@
 				014156B51D5B20CA0071A614 /* FilterBottomView.xib */,
 				014156BA1D5B2FC50071A614 /* BlockView.h */,
 				014156BB1D5B2FC50071A614 /* BlockView.m */,
+				013474691D6A93E900E00541 /* ZXWindowiew.h */,
+				0134746A1D6A93E900E00541 /* ZXWindowiew.m */,
+				0134746C1D6A940A00E00541 /* ZXWindowiew.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1267,6 +1280,7 @@
 				016D9F341D45E1260002AD16 /* DeliveryAddressController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
 				0124FFE01D5316DD00F17D4B /* ProductShareController.xib in Resources */,
+				0134746D1D6A940A00E00541 /* ZXWindowiew.xib in Resources */,
 				017E92C51D5DC436004A27C9 /* CustomShareStyleOneCell.xib in Resources */,
 				01E525891D41C30000617491 /* CommissionAccountController.xib in Resources */,
 				017E92AE1D5D5890004A27C9 /* CustomCollectionStyleTwoCell.xib in Resources */,
@@ -1434,6 +1448,7 @@
 				01E5259D1D4210ED00617491 /* SecuritySetController.m in Sources */,
 				01D2CFF01D3F1BA5002D5575 /* PersonInfoController.m in Sources */,
 				0191993A1D3CCA76000F2483 /* DealController.m in Sources */,
+				0134746B1D6A93E900E00541 /* ZXWindowiew.m in Sources */,
 				011D84681D4F399100C3F128 /* CustomAlertView.m in Sources */,
 				01E525A71D421A1300617491 /* SetNewPWDController.m in Sources */,
 				017E92C41D5DC436004A27C9 /* CustomShareStyleOneCell.m in Sources */,
@@ -1471,6 +1486,7 @@
 				016D9F331D45E1260002AD16 /* DeliveryAddressController.m in Sources */,
 				012304651D3DC87B00B19284 /* NSData+KNCache.m in Sources */,
 				017E92B21D5D6E7D004A27C9 /* MyShareController.m in Sources */,
+				013474681D6A8FB400E00541 /* ZXPop.m in Sources */,
 				01E525881D41C30000617491 /* CommissionAccountController.m in Sources */,
 				019199301D3CCA54000F2483 /* MineController.m in Sources */,
 			);

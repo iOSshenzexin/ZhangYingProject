@@ -100,6 +100,7 @@
                                     <constraint firstAttribute="height" constant="22" id="ueY-hb-9Iq"/>
                                 </constraints>
                                 <state key="normal" image="my-code07"/>
+                                <state key="selected" image="my-code06"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoM-3o-M3a">
                                 <rect key="frame" x="122" y="134" width="46" height="20"/>
@@ -150,11 +151,17 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="borderView" destination="vA2-0N-k1l" id="8oJ-br-egT"/>
+                <outlet property="changeTelBtn" destination="qoM-3o-M3a" id="MDM-38-I4w"/>
+                <outlet property="editedBtn" destination="SM0-v0-Z76" id="NCo-fr-4vg"/>
+                <outlet property="headImageView" destination="Yjx-Gs-kLY" id="4ZT-nq-17B"/>
+                <outlet property="nameLbl" destination="XcY-ah-n24" id="8Jl-E5-p3f"/>
+                <outlet property="selectedBtn" destination="iq5-Dj-nw1" id="0yO-pA-DEC"/>
             </connections>
-            <point key="canvasLocation" x="241.5" y="296"/>
+            <point key="canvasLocation" x="-114.5" y="281"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="my-code06" width="15" height="15"/>
         <image name="my-code07" width="15" height="15"/>
         <image name="pro2-pho" width="48" height="48"/>
     </resources>

@@ -89,7 +89,7 @@ static NSString *styleTwo = @"styleTwo";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 30;
 }
 
 

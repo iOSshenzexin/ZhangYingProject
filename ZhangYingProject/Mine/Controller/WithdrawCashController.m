@@ -52,6 +52,7 @@ static NSString *cellStyleThree = @"threecell";
             if (!cell) {
                 cell = [[WithdrawCashStyleThreeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStyleThree];
             }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.layer.borderWidth = 1;
             cell.layer.borderColor = [color CGColor];
             return cell;
@@ -60,6 +61,7 @@ static NSString *cellStyleThree = @"threecell";
         if (!cell) {
             cell = [[WithdrawCashStyleTwoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellString];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.layer.borderWidth = 1;
         cell.layer.borderColor = [color CGColor];
             return cell;
@@ -69,6 +71,7 @@ static NSString *cellStyleThree = @"threecell";
     if (!cell) {
          cell = [[WithdrawCashStyleOneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.layer.borderWidth = 1;
     cell.layer.borderColor = [color CGColor];
     return cell;
