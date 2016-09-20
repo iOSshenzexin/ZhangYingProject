@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePhoneController">
+            <connections>
+                <outlet property="txtField" destination="Jmc-4Z-UZA" id="z6M-Mf-Rlu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jmc-4Z-UZA">
+                    <rect key="frame" x="0.0" y="85" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="etH-Pw-ELl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-oG-sEe">
+                    <rect key="frame" x="30" y="246" width="315" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="YwI-Lk-cwK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="modifyPhoneNumber:" destination="-1" eventType="touchUpInside" id="1UW-nM-ad7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="yB1-oG-sEe" secondAttribute="trailing" constant="30" id="Ipb-cf-sju"/>
+                <constraint firstItem="yB1-oG-sEe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="cfv-zr-9g4"/>
+                <constraint firstItem="yB1-oG-sEe" firstAttribute="top" secondItem="Jmc-4Z-UZA" secondAttribute="bottom" constant="111" id="gGv-U3-A89"/>
+                <constraint firstAttribute="trailing" secondItem="Jmc-4Z-UZA" secondAttribute="trailing" id="jfO-ov-rvo"/>
+                <constraint firstItem="Jmc-4Z-UZA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="ukN-Y0-HKy"/>
+                <constraint firstItem="Jmc-4Z-UZA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vrX-9J-BuK"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="252.5" y="188.5"/>
+        </view>
+    </objects>
+</document>

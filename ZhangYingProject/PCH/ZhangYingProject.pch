@@ -1,0 +1,72 @@
+
+/**
+ *  掌盈 - PCH
+ */
+
+#define RGB(a,b,c,d)      [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:d];
+
+#define backGroundColor     [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
+
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
+#define  StandardUser [NSUserDefaults standardUserDefaults]
+
+
+
+#import "ZXConst.h"
+#import "Reachability.h"
+#import "LECropPictureViewController.h"
+#import "MBProgressHUD+WJTools.h"
+#import "TabbarController.h"
+#import "AppDelegate.h"
+#import "LXSegmentScrollView.h"
+#import "ZXVerificationObject.h"
+
+#import <AFNetworking.h>
+#import <IQKeyboardManager.h>
+#import <IQKeyboardReturnKeyHandler.h>
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+
+#import "UILabel+ZXLabel.h"
+#import "NSString+ZXMD5Hashing.h"
+
+#import "ZXLoginModel.h"
+#ifdef DEBUG
+
+#define ZXLog(...)  NSLog(__VA_ARGS__)
+
+#else
+
+#define ZXLog(...)
+
+#endif
+
+/****************接口 **********************/
+/** 产品-Topic API */
+#define Product_Topic_Url [baseUrl stringByAppendingString:@"/m_productType/typeList.do"]
+
+/** 产品-列表 API */ 
+#define Product_List_Url [baseUrl stringByAppendingString:@"/m_product/productList.do"]
+
+/** 产品-详情 API */
+#define Product_Detail_Url [baseUrl stringByAppendingString:@"/m_product/productDetails.do"]
+
+/** 注册 API */
+#define Product_Register_Url [baseUrl stringByAppendingString:@"/m_member/register.do"]
+
+/** 登录 API */
+#define Product_Login_Url [baseUrl stringByAppendingString:@"/m_member/login.do"]
+
+/** 修改密码 API */
+#define Product_UpdatePassword_Url [baseUrl stringByAppendingString:@"/m_member/updatePassword.do"]
+
+/** 用户个人资料修改 API */
+#define Product_MemberAuthentication_Url [baseUrl stringByAppendingString:@"/m_member/updateMember.do"]
+
+/** 用户身份信息 API */
+#define Product_UserInfomation_Url [baseUrl stringByAppendingString:@"/m_member/memberDetails.do"]
+
+
+
