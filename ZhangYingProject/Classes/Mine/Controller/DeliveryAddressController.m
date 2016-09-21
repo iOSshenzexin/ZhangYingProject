@@ -25,6 +25,7 @@
 @end
 
 @implementation DeliveryAddressController
+
 +(DeliveryAddressController *)sharedDeliveryAddressController{
     static DeliveryAddressController *vc = nil;
     if (!vc) {
@@ -117,18 +118,51 @@
 }
 
 - (IBAction)didClickSubmitAddress:(id)sender {
-    NSIndexPath *index = [NSIndexPath indexPathForRow:2 inSection:0];
-    DealCustomCell *cell = [self.addressTableView cellForRowAtIndexPath:index];
-    NSIndexPath *indexOne = [NSIndexPath indexPathForRow:3 inSection:0];
-    DealCustomCell *cellOne = [self.addressTableView cellForRowAtIndexPath:indexOne];
-    self.address = [NSString stringWithFormat:@"%@%@",cell.txtField.text,cellOne.txtField.text];
-    
-    if ([self.delegate respondsToSelector:@selector(deliveryAddress:)]) {
-        [self.delegate deliveryAddress:self];
+    DealCustomCell *cellName = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    DealCustomCell *cellPhone = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    DealCustomCell *cellDetail = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    [MBProgressHUD showMessage:@"提交中......"];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    NSString *URL;
+    if(self.addressID){
+        params[@"id"] = self.addressID;
+        params[@"userName"] = cellName.txtField.text;
+        params[@"userPhone"] = cellPhone.txtField.text;
+        params[@"provinceName"] = self.provinceArray[_provinceIndex][@"province"];
+        params[@"cityName"] = [self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"city"];
+        params[@"areaName"] = [self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"districts"][_regionIndex];
+        params[@"addressDetail"] = cellDetail.txtField.text;
+        URL = Mine_UpdateAddress_Url;
+    }else{
+        ZXLoginModel *model = AppLoginModel;
+        params[@"memberId"] = model.mid;
+        params[@"userName"] = cellName.txtField.text;
+        params[@"userPhone"] = cellPhone.txtField.text;
+        params[@"provinceName"] = self.provinceArray[_provinceIndex][@"province"];
+        params[@"cityName"] = [self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"city"];
+        params[@"areaName"] = [self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"districts"][_regionIndex];
+        params[@"addressDetail"] = cellDetail.txtField.text;
+        URL = Mine_AddAddress_Url;
     }
-    [self.navigationController popViewControllerAnimated:YES];
-    [MBProgressHUD showSuccess:@"新增地址成功!"];
+    
+    [manager POST:URL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [MBProgressHUD hideHUD];
+        if([responseObject[@"status"]intValue] == 1){
+            [MBProgressHUD showSuccess:@"提交成功!"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [MBProgressHUD showError:@"提交失败,请重试!"];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showError:@"提交失败,请检查网络!"];
+        ZXLog(@"%@",error);
+    }];
 }
+
+
+
 
 -(NSArray *)placeholderArray{
     if (!_placeholderArray) {
@@ -170,10 +204,6 @@ static NSString *cellID = @"cellId";
         cell = [[DealCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    //    cell.layer.borderWidth = 1;
-    //    UIColor *color = [UIColor blackColor];
-    //    //RGB(242, 242, 242, 1);
-    //    cell.layer.borderColor = [color CGColor];
     cell.txtField.placeholder = self.placeholderArray[indexPath.row];
     if (indexPath.row == 2){
         cell.txtField.adjustsFontSizeToFitWidth = YES;

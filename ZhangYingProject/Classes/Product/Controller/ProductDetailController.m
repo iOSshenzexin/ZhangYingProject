@@ -70,7 +70,103 @@ static NSString *styleDefault = @"styleDefault";
     params[@"pid"] = self.product_id;
     [manager POST:Product_Detail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         ZXLog(@"responseObject %@",responseObject);
-//        [responseObject writeToFile:@"/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject副本/userInfo.plist" atomically:YES];
+        /*
+         {
+         data =     {
+         commision = 9;
+         commisionType = 1;
+         commisionTypeName = "";
+         createTime = "<null>";
+         earmarking = "中江信托-金鹤131号（第五期）";
+         earnings = 10;
+         enclosure = "中江信托-金鹤131号（第五期）";
+         endRow = 0;
+         financing = "阿斯达是的";
+         initialAmount = 22;
+         initialAmountName = "";
+         issuer = 18;
+         issuerName = "";
+         labelId =         (
+         );
+         labelList =         (
+         {
+         id = 20;
+         labelId = 30;
+         labelName = "一年期";
+         productId = 1;
+         status = 1;
+         },
+         {
+         id = 19;
+         labelId = 9;
+         labelName = "半年付息";
+         productId = 1;
+         status = 1;
+         },
+         {
+         id = 18;
+         labelId = 8;
+         labelName = "2年期";
+         productId = 1;
+         status = 1;
+         },
+         {
+         id = 17;
+         labelId = 7;
+         labelName = "AA主体";
+         productId = 1;
+         status = 1;
+         },
+         {
+         id = 16;
+         labelId = 6;
+         labelName = "工商企业类";
+         productId = 1;
+         status = 1;
+         }
+         );
+         measures = "中江信托-金鹤131号（第五期）";
+         pageIndex = 0;
+         pageSize = 0;
+         payInterest = 26;
+         payInterestName = "";
+         payment = "中江信托-金鹤131号（第五期）";
+         proId = 1;
+         productAllTitle = "中江信托-金鹤131号（第五期）";
+         productDeadline = 1;
+         productDeadlineName = "<12个月";
+         productDesc = "中江信托-金鹤131号（第五期）";
+         productField = 14;
+         productFieldName = "";
+         productTitle = "中江信托-金鹤131号（第五期）";
+         productType = 1;
+         productTypeName = "信托";
+         project = "中江信托-金鹤131号（第五期）";
+         raiseAccount = "中江信托-金鹤131号（第五期）";
+         salesDesc = "第五期开放搭款中";
+         salesStatus = 11;
+         salesStatusName = "开放募集";
+         sort = 0;
+         startRow = 0;
+         status = 1;
+         totalNum = 0;
+         updateTime =         {
+         date = 7;
+         day = 3;
+         hours = 16;
+         minutes = 54;
+         month = 8;
+         seconds = 38;
+         time = 1473238478000;
+         timezoneOffset = "-480";
+         year = 116;
+         };
+         };
+         msg = "查询成功";
+         status = 1;
+         token = "";
+         }
+         */
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXLog(@"%@",error);
     }];

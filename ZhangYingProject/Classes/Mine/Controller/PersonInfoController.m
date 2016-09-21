@@ -19,17 +19,17 @@
     NSArray *_sexArray;
 }
 
-@property (nonatomic, strong) IQKeyboardReturnKeyHandler    *returnKeyHandler;
-
-
-
+//@property (nonatomic, strong) IQKeyboardReturnKeyHandler    *returnKeyHandler;
 @property (weak, nonatomic) IBOutlet UIButton *headImageBtn;
 
 @property (nonatomic,copy) NSArray *imgArray;
 @property (nonatomic,copy) NSArray *nameArray;
+
 @property (nonatomic,copy) NSArray *txtPlaceHolder;
 
 @property (nonatomic,assign) NSInteger row;
+
+@property (nonatomic,copy) ZXLoginModel *loginModel;
 
 - (IBAction)handOffHeadImage:(id)sender;
 
@@ -72,9 +72,11 @@ static NSString *str = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
+    self.loginModel = model;
+    //设置头像
     [self.headImageBtn  sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] forState:UIControlStateNormal placeholderImage:[ZXCircleHeadImage clipImageForHeadImage:[UIImage imageNamed:@"my-phone"] andBorderWidth:5 borderColor:[UIColor redColor]]];
-    UINib *nib = [UINib nibWithNibName:@"CustomPersonCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:str];
+    NSLog(@"%@",self.loginModel.name);
+    
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
@@ -107,18 +109,22 @@ static NSString *str = @"cellId";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CustomPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[CustomPersonCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-    }
+    CustomPersonCell *cell = [CustomPersonCell cellWithTableView:tableView];
     cell.img.image = [UIImage imageNamed:self.imgArray[indexPath.row]];
     cell.nameLbl.text = self.nameArray[indexPath.row];
      (indexPath.row == 3) ? (cell.changeNumberBtn.hidden = NO) : (cell.changeNumberBtn.hidden = YES);
     if (indexPath.row != 3) {
+        if (indexPath.row == 0) {
+            cell.txtField.text = self.loginModel.name;
+        }else if(indexPath.row == 1){
+            cell.txtField.text = self.loginModel.nickname;
+        }else{
+            cell.txtField.text = [NSString stringWithFormat:@"%d",self.loginModel.email];
+        }
         cell.txtField.placeholder = self.txtPlaceHolder[indexPath.row];
         
     }else{
-        cell.txtField.text = @"15198765234";
+        cell.txtField.text = [NSString stringWithFormat:@"%.0f",self.loginModel.phone];
         cell.txtField.enabled = NO;
         [cell.changeNumberBtn addTarget:self action:@selector(changPhoneNumber:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -143,7 +149,7 @@ static NSString *str = @"cellId";
     }
     UIPickerView *pickView = [[UIPickerView alloc] init];
     pickView.frame = CGRectMake(0, 60, ScreenW, 80);
-    [pickView selectRow:0 inComponent:0 animated:NO];
+    [pickView selectRow:1 inComponent:0 animated:NO];
     [inputView addSubview:pickView];
     pickView.delegate = self;
     return  inputView;
@@ -235,9 +241,6 @@ static NSString *str = @"cellId";
         UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 5 borderColor: [UIColor redColor] ];
         [self.headImageBtn setImage:img forState:UIControlStateNormal];
         self.headImage = img;
-        
-        NSLog(@"%@",self.delegate);
-
         if ([self.delegate respondsToSelector:@selector(setupUserHeadImage:)]) {
             [self.delegate setupUserHeadImage:self];
         }
@@ -256,7 +259,6 @@ static NSString *str = @"cellId";
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -264,7 +266,8 @@ static NSString *str = @"cellId";
 }
 
 - (IBAction)didClickConfirmChange:(id)sender {
-    [MBProgressHUD showMessage:@"正在提交修改..."];
+    [MBProgressHUD showMessage:@"正在提交修改..." toView:self.view];
+    //[MBProgressHUD showMessage:@"正在提交修改..."];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     CustomPersonCell *cellName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -275,11 +278,9 @@ static NSString *str = @"cellId";
     params[@"email"] = cellEmail.txtField.text;
     params[@"headPortrait"] = [UIImagePNGRepresentation(self.headImage) base64EncodedStringWithOptions:0];
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
-     ZXLog(@"model.mid %@",model.mid);
      params[@"mid"] = model.mid;
-
     [manager POST:Product_MemberAuthentication_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD hideHUDForView:self.view];
         ZXLog(@"responseObject: %@ ",responseObject);
         if([responseObject[@"status"] intValue] == 1){
             [MBProgressHUD showSuccess:@"修改成功!"];
@@ -287,7 +288,7 @@ static NSString *str = @"cellId";
             [MBProgressHUD showError:@"修改失败,请重试!"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showError:@"修改失败,请检查网络!"];
         ZXLog(@"%@",error);
     }];

@@ -9,34 +9,34 @@
 #import "MyBillController.h"
 #import "BankCardCell.h"
 
-#define RowHeight 100
+#import "ZXEnterRecordModel.h"
+#define RowHeight 80
 @interface MyBillController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,copy) NSArray *titleArray;
+
 @property (nonatomic,strong) UITableView *tableView;
 //提现表格
 @property (nonatomic,strong) UITableView *withdrawalsTableView;
-@property (nonatomic,copy) NSArray *bankIconImageArray;
 
+
+@property (nonatomic,copy) NSMutableArray *dataArray;
 @end
 
 @implementation MyBillController
 
--(NSArray *)bankIconImageArray{
-    if (!_bankIconImageArray) {
-        _bankIconImageArray = [NSArray arrayWithObjects:@"bank01",@"bank02",@"bank03",@"bank02",@"bank01", nil];
+-(NSArray *)titleArray{
+    if (!_titleArray) {
+        _titleArray = [NSArray arrayWithObjects:@"入账记录",@"提现记录", nil];
     }
-    return _bankIconImageArray;
+    return _titleArray;
 }
-
-
- static NSString *str = @"cellId";
+#warning  ruzhangjilu
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - 108)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.rowHeight = RowHeight;
-       [_tableView registerNib:[UINib nibWithNibName:@"BankCardCell" bundle:nil] forCellReuseIdentifier:str];
         _tableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _tableView.backgroundColor = [UIColor clearColor];
     }
@@ -49,24 +49,35 @@
         _withdrawalsTableView.dataSource = self;
         _withdrawalsTableView.delegate = self;
         _withdrawalsTableView.rowHeight = RowHeight;
-        [_withdrawalsTableView registerNib:[UINib nibWithNibName:@"BankCardCell" bundle:nil] forCellReuseIdentifier:str];
         _withdrawalsTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _withdrawalsTableView.backgroundColor = [UIColor clearColor];
     }
     return _withdrawalsTableView;
 }
 
--(NSArray *)titleArray{
-    if (!_titleArray) {
-        _titleArray = [NSArray arrayWithObjects:@"入账记录",@"提现记录", nil];
-    }
-    return _titleArray;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTopSegment];
+    /** 入账列表 */
+    [self requestCommissionLog];
 }
+
+- (void)requestCommissionLog{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    [mgr POST:Mine_CommissionLog_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dataArray = [ZXEnterRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [self.tableView reloadData];
+        ZXResponseObject
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+}
+
 
 - (void)setupTopSegment{
     self.automaticallyAdjustsScrollViewInsets = NO; //iOS7新增属性
@@ -77,6 +88,10 @@
         [contentArray addObject:view];
     }
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:self.titleArray contentViewArray:contentArray];
+    scView.block = ^(int index){
+        NSLog(@"MyBillController: %d",index);
+    };
+    
     [self.view addSubview:scView];
     
     UIView *view = (UIView *)contentArray[0];
@@ -86,21 +101,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BankCardCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[BankCardCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:str];
-    }
-    cell.iconImage.image = [UIImage imageNamed:self.bankIconImageArray[indexPath.row]];
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
+    BankCardCell *cell = [BankCardCell cellWithTableView:tableView];
+    cell.recordModel = self.dataArray[indexPath.row];
     return cell;
 }
-
 
 @end

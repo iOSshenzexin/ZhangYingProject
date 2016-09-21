@@ -66,21 +66,45 @@ static NSString *cellID = @"cellId";
     if (!cell) {
         cell = [[DealCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-//    cell.layer.borderWidth = 1;
-//    UIColor *color = [UIColor blackColor];
-//    //RGB(242, 242, 242, 1);
-//    cell.layer.borderColor = [color CGColor];
     cell.txtField.placeholder = self.placeholderArray[indexPath.row];
     cell.lbl.text = self.titleArray[indexPath.row];
     return cell;
 }
 
 - (IBAction)didClickSubmit:(id)sender {
+    [self.view endEditing:YES];
+    [MBProgressHUD showMessage:@"提交中......" toView:self.view];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    DealCustomCell *cellAccount = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+     DealCustomCell *cellCard = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+     DealCustomCell *cellName = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+     DealCustomCell *cellBranch = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    
     if ([self.registerAmount isEqualToString:@"registerAmount"]) {
         if ([self.delegate respondsToSelector:@selector(commissionAccountController:andCardNumber:cardStyle:)]) {
             [self.delegate commissionAccountController:self andCardNumber:@"12345678901234" cardStyle:nil];
         }
         [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        params[@"accountName"] = cellAccount.txtField.text;
+        params[@"bankCard"] = cellCard.txtField.text;
+        params[@"bankName"] = cellName.txtField.text;
+        params[@"bankBranch"] = cellBranch.txtField.text;
+        ZXLoginModel *model = AppLoginModel;
+        params[@"mid"] = model.mid;
+        [manager POST:Mine_AddBankAccount_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [MBProgressHUD hideHUDForView:self.view];
+            if([responseObject[@"status"]intValue] == 1){
+                [MBProgressHUD showSuccess:@"提交成功!"];
+                [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+            }else{
+                [MBProgressHUD showError:@"提交失败,请重试!"];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [MBProgressHUD hideHUDForView:self.view];
+            [MBProgressHUD showError:@"提交失败,请检查网络!"];
+        }];
     }
 }
 

@@ -63,7 +63,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
-    ZXLog(@"%@",[baseUrl stringByAppendingString:model.headPortrait]);
     self.nickName.text = model.name;
     [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:4 borderColor:[UIColor redColor]]];
     PersonInfoController *vc = [PersonInfoController sharedPersonController];

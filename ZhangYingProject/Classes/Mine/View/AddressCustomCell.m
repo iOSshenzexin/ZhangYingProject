@@ -7,18 +7,27 @@
 //
 
 #import "AddressCustomCell.h"
+#import "ZXAddressModel.h"
+static NSString *str = @"AddressCustomCell";
 
 @implementation AddressCustomCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    AddressCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"AddressCustomCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    UIColor *color = RGB(242, 242, 242, 0.6);
+    cell.layer.borderColor = [color CGColor];
+    cell.layer.borderWidth = 2;
+    return cell;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setAddress:(ZXAddressModel *)address{
+    _address = address;
+    self.phoneLbl.text = address.userPhone;
+    self.nameLbl.text = address.userName;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ %@ %@",address.provinceName,address.cityName,address.areaName];
 }
-
 @end

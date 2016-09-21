@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomPersonCell : UITableViewCell
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;

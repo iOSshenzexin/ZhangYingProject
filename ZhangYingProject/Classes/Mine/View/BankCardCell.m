@@ -8,17 +8,28 @@
 
 #import "BankCardCell.h"
 
+#import "ZXEnterRecordModel.h"
 @implementation BankCardCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+NSString *const cardCell = @"BankCardCell";
+
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    BankCardCell *cell = [tableView dequeueReusableCellWithIdentifier:cardCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"BankCardCell" owner:nil options:nil] lastObject];
+    }
+    cell.layer.borderWidth = 3;
+    UIColor *color = RGB(242, 242, 242, 1);
+    cell.layer.borderColor = [color CGColor];
+    return cell;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setRecordModel:(ZXEnterRecordModel *)recordModel
+{
+    _recordModel = recordModel;
+    self.timeLbl.text = recordModel.time;
+    self.amountLbl.text = recordModel.amount;
+    self.billNumber.text = recordModel.orderNo;
 }
 
 @end

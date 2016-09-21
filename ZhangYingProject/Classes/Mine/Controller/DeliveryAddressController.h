@@ -25,6 +25,8 @@
 @property (nonatomic,copy) NSString *address;
 
 
+@property (nonatomic,copy) NSString *addressID;
+
 @property (weak,nonatomic) id<DeliveryAddressControllerDelegate> delegate;
 
 +(DeliveryAddressController *)sharedDeliveryAddressController;

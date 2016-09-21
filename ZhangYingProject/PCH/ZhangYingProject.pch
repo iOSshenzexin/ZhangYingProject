@@ -12,6 +12,10 @@
 
 #define  StandardUser [NSUserDefaults standardUserDefaults]
 
+#define  AppLoginModel [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]]
+
+#define   ZXResponseObject  ZXLog(@"%@",responseObject);
+#define   ZXError  ZXLog(@"%@",error);
 
 
 #import "ZXConst.h"
@@ -67,6 +71,33 @@
 
 /** 用户身份信息 API */
 #define Product_UserInfomation_Url [baseUrl stringByAppendingString:@"/m_member/memberDetails.do"]
+
+/** 修改绑定手机号 API */
+#define Mine_UpdatePhoneNumber_Url [baseUrl stringByAppendingString:@"/m_member/updatePhone.do"]
+
+/** 我的-修改密码 API */
+#define Mine_UpdatePassword_Url [baseUrl stringByAppendingString:@"/m_member/updatePassword.do"]
+
+/** 我的-提交结佣账号 API */
+#define Mine_AddBankAccount_Url [baseUrl stringByAppendingString:@"/m_bank/addBankAccount.do"]
+
+/** 我的-收货地址列表 API */
+#define Mine_AddressList_Url [baseUrl stringByAppendingString:@"/m_address/addressList.do"]
+
+/** 我的-添加收货地址 API */
+#define Mine_AddAddress_Url [baseUrl stringByAppendingString:@"/m_address/addAddress.do"]
+
+/** 我的-修改收货地址 API */
+#define Mine_UpdateAddress_Url [baseUrl stringByAppendingString:@"/m_address/updateAddress.do"]
+
+/** 我的-删除收货地址 API */
+#define Mine_DeleteAddress_Url [baseUrl stringByAppendingString:@"/m_address/updateAddressStatus.do"]
+
+/** 我的-入账记录列表 API */
+#define Mine_CommissionLog_Url [baseUrl stringByAppendingString:@"/m_commissionlog/logList.do"]
+
+
+
 
 
 

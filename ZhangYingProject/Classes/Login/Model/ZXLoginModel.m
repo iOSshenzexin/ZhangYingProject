@@ -56,8 +56,22 @@
     return self;
 }
 
-- (NSString *)description
+//- (NSString *)description
+//{
+//    return [NSString stringWithFormat:@"name:%@  nickname:%@  mid:%@  email:%d, head:%@ phone: %.0f allCommision:%d" , self.name, self.nickname,self.mid,self.email,self.headPortrait,self.phone ,self.allCommision];
+//}
+
+
+- (id)copyWithZone:(NSZone *)zone
 {
-    return [NSString stringWithFormat:@"name:%@  nickname:%@  mid:%@  email:%d, head:%@ phone: %.0f allCommision:%d" , self.name, self.nickname,self.mid,self.email,self.headPortrait,self.phone ,self.allCommision];
+    ZXLoginModel *model = [[ZXLoginModel alloc]init];
+    model.headPortrait = self.headPortrait;
+    model.name = self.name;
+    model.nickname = self.nickname;
+    model.mid = self.mid;
+    model.email = self.email;
+    model.phone = self.phone;
+    model.allCommision = self.allCommision;
+    return model;
 }
 @end

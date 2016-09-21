@@ -7,18 +7,15 @@
 //
 
 #import "CustomPersonCell.h"
-
+static NSString *str = @"CustomPersonCell";
 @implementation CustomPersonCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    CustomPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([CustomPersonCell class]) owner:nil options:nil] lastObject];
+    }
+    return cell;
 }
 
 @end

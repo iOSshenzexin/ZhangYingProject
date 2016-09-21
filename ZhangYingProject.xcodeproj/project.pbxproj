@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		013474721D6AD2BA00E00541 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = 013474711D6AD2BA00E00541 /* Province.plist */; };
+		013BE5A01D928F310087DDE5 /* ZXEnterRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 013BE59F1D928F310087DDE5 /* ZXEnterRecordModel.m */; };
 		015360D41D90C37A00713825 /* NSString+ZXMD5Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 015360D31D90C37A00713825 /* NSString+ZXMD5Hashing.m */; };
 		015360E11D91100600713825 /* ForgetPWDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015360D71D91100600713825 /* ForgetPWDController.m */; };
 		015360E21D91100600713825 /* ForgetPWDController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015360D81D91100600713825 /* ForgetPWDController.xib */; };
@@ -203,6 +204,7 @@
 		01DAC5301D88E5C400DB0477 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC52A1D88E5C400DB0477 /* UIView+Extension.m */; };
 		01DAC5331D894A8A00DB0477 /* UITextField+ZXTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC5321D894A8A00DB0477 /* UITextField+ZXTF.m */; };
 		01DAC5371D894F0C00DB0477 /* ZXConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC5361D894F0C00DB0477 /* ZXConst.m */; };
+		01E378F91D92309F00DC63EE /* ZXAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E378F81D92309F00DC63EE /* ZXAddressModel.m */; };
 		136CE08FD2D9F8F1D4F9B348 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482BFF76FA8D3ABF36CD44C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +227,8 @@
 
 /* Begin PBXFileReference section */
 		013474711D6AD2BA00E00541 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
+		013BE59E1D928F310087DDE5 /* ZXEnterRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXEnterRecordModel.h; sourceTree = "<group>"; };
+		013BE59F1D928F310087DDE5 /* ZXEnterRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXEnterRecordModel.m; sourceTree = "<group>"; };
 		015360D21D90C37A00713825 /* NSString+ZXMD5Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5Hashing.h"; sourceTree = "<group>"; };
 		015360D31D90C37A00713825 /* NSString+ZXMD5Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5Hashing.m"; sourceTree = "<group>"; };
 		015360D61D91100600713825 /* ForgetPWDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWDController.h; sourceTree = "<group>"; };
@@ -540,6 +544,8 @@
 		01DAC5321D894A8A00DB0477 /* UITextField+ZXTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ZXTF.m"; sourceTree = "<group>"; };
 		01DAC5351D894F0C00DB0477 /* ZXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXConst.h; sourceTree = "<group>"; };
 		01DAC5361D894F0C00DB0477 /* ZXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXConst.m; sourceTree = "<group>"; };
+		01E378F71D92309F00DC63EE /* ZXAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXAddressModel.h; sourceTree = "<group>"; };
+		01E378F81D92309F00DC63EE /* ZXAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXAddressModel.m; sourceTree = "<group>"; };
 		17B154C749B70D47B63A439E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		482BFF76FA8D3ABF36CD44C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65664CBCDA546F2E3861216 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1008,6 +1014,10 @@
 		01DAC3E11D88E11700DB0477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01E378F71D92309F00DC63EE /* ZXAddressModel.h */,
+				01E378F81D92309F00DC63EE /* ZXAddressModel.m */,
+				013BE59E1D928F310087DDE5 /* ZXEnterRecordModel.h */,
+				013BE59F1D928F310087DDE5 /* ZXEnterRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1591,6 +1601,7 @@
 				01DAC5021D88E12700DB0477 /* TopBannerTool.m in Sources */,
 				01DAC4391D88E11700DB0477 /* ProductAnnouncementController.m in Sources */,
 				01C380F91D8E4415002A888F /* UIBarButtonItem+ZXItem.m in Sources */,
+				013BE5A01D928F310087DDE5 /* ZXEnterRecordModel.m in Sources */,
 				01DAC4371D88E11700DB0477 /* MyShareController.m in Sources */,
 				01DAC4A81D88E11700DB0477 /* ProductReservationController.m in Sources */,
 				01DAC4711D88E11700DB0477 /* ChangePhoneController.m in Sources */,
@@ -1661,6 +1672,7 @@
 				01DAC4951D88E11700DB0477 /* CardCustomCell.m in Sources */,
 				01DAC4441D88E11700DB0477 /* CustomCollectionStyleOneCell.m in Sources */,
 				01DAC47B1D88E11700DB0477 /* MineController.m in Sources */,
+				01E378F91D92309F00DC63EE /* ZXAddressModel.m in Sources */,
 				01DAC4A21D88E11700DB0477 /* WithdrawCashStyleTwoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

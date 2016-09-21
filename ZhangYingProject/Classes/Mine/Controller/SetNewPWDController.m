@@ -56,28 +56,38 @@
 
 
 - (IBAction)modifyPhoneNumber:(id)sender {
+    
     if (self.txtField.text.length < 6 | self.txtField.text.length > 20) {
         [MBProgressHUD showError:@"密码的长度不合要求!"];
     }else{
         if (![ZXVerificationObject validatePassWord:self.txtField.text]) {
             [MBProgressHUD showError:@"密码格式不合要求!"];}
         else{
+            [self.view endEditing:YES];
+            [MBProgressHUD showMessage:@"正在修改密码....." toView:self.view];
             AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
             NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//            params[@"password"] = [self.pwdTF.text stringMD5Hash];
-//            NSLog(@"params : %@ ",params);
-            
-            [manager POST:Product_Register_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [MBProgressHUD hideHUD];
+            ZXLoginModel *model = AppLoginModel;
+            params[@"password"] = [self.txtField.text stringMD5Hash];
+            params[@"mid"] = model.mid;
+            [manager POST:Mine_UpdatePassword_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@"%@",responseObject);
+                [MBProgressHUD hideHUDForView:self.view];
+                if ([responseObject[@"status"] intValue] == 1) {
+                    [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+                    [MBProgressHUD showSuccess:@"密码修改成功!"];
+                }
+                else{
+                    [MBProgressHUD showError:@"密码修改失败,请重试!"];
+                }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 ZXLog(@"%@",error);
-                [MBProgressHUD hideHUD];
+                [MBProgressHUD hideHUDForView:self.view];
+                [MBProgressHUD showError:@"网络错误,请重试!"];
             }];
         }
     }
 }
-
-
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];

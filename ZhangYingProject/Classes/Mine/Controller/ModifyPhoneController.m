@@ -41,16 +41,30 @@
 
 - (void)completedBinding
 {
-#warning API don't complete
-    if ([self.delegate respondsToSelector:@selector(bindingPhoneNumber:)]) {
-        [self.delegate bindingPhoneNumber:self];
-    }
-    [MBProgressHUD showSuccess:@"绑定成功"];
-    
-    [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+    [self.view endEditing:YES];
+    [MBProgressHUD showMessage:@"绑定中......"];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"phone"] = self.NumberTxt.text;
+    ZXLoginModel *model = AppLoginModel;
+    params[@"mid"] = model.mid;
+    [manager POST:Mine_UpdatePhoneNumber_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [MBProgressHUD hideHUD];
+        if([responseObject[@"status"]intValue] == 1){
+        if ([self.delegate respondsToSelector:@selector(bindingPhoneNumber:)]) {
+            [self.delegate bindingPhoneNumber:self];
+        }
+        [MBProgressHUD showSuccess:@"绑定成功!"];
+        [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+        }else{
+            [MBProgressHUD showError:@"绑定失败,请重试!"];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showError:@"绑定失败,请检查网络!"];
+        ZXLog(@"%@",error);
+    }];
 }
-
-
 
 - (void)setupTxtField{
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.NumberTxt.frame.size.height)];

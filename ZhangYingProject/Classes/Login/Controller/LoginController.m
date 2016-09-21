@@ -84,7 +84,6 @@
         [MBProgressHUD hideHUD];
         if([responseObject[@"status"] intValue] == 1){
         ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
-        ZXLog(@"responseObject: %@ ",responseObject); 
         [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
             
         AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;

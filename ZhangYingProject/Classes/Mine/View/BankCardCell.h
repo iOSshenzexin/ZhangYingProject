@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZXEnterRecordModel;
 @interface BankCardCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
-@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
-@property (weak, nonatomic) IBOutlet UILabel *amountLbl;
-@property (weak, nonatomic) IBOutlet UILabel *cardNumberLbl;
-@property (weak, nonatomic) IBOutlet UILabel *currentTimeLbl;
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *billNumber;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *amountLbl;
+
+@property (nonatomic,copy) ZXEnterRecordModel *recordModel;
 @end
