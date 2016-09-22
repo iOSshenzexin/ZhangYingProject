@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXReservationModel.h"
 @interface ZXReservationSuccessController : UIViewController
+
+
+@property (weak, nonatomic) IBOutlet UILabel *productTitle;
+@property (weak, nonatomic) IBOutlet UILabel *useName;
+@property (weak, nonatomic) IBOutlet UILabel *memberId;
+@property (weak, nonatomic) IBOutlet UILabel *payDate;
+@property (weak, nonatomic) IBOutlet UILabel *payAccount;
+@property (weak, nonatomic) IBOutlet UILabel *telephone;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+
+
+@property (nonatomic,copy) ZXReservationModel *reservationModel;
 
 @end

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '97E9083470D08BF001C0A92F'
+               BlueprintIdentifier = '394421FDF842C26E4DA847F3'
                BlueprintName = 'LECropPictureViewController-LECropPictureViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'LECropPictureViewController.bundle'>

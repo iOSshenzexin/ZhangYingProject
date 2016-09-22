@@ -16,22 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.productTitle.text = self.reservationModel.proTitle;
+    self.useName.text = [NSString stringWithFormat:@"客户姓名: %@",self.reservationModel.userName];
+    self.memberId.text = [NSString stringWithFormat:@"客户身份证号: %@",self.reservationModel.memberId];
+    self.payDate.text = [NSString stringWithFormat:@"预计打款日期: %@",self.reservationModel.payTimeStr];
+    self.payAccount.text = [NSString stringWithFormat:@"预计打款金额: %@万",self.reservationModel.payAmount];
+    
+    self.telephone.text = [NSString stringWithFormat:@"联系方式: %@",self.reservationModel.phone];
+    self.address.text = [NSString stringWithFormat:@"收货地址: %@",self.reservationModel.address];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

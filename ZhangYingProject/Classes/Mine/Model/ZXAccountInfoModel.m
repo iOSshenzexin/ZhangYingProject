@@ -1,23 +1,23 @@
 //
-//  ZXTopic.m
+//  ZXAccountInfoModel.m
 //  ZhangYingProject
 //
-//  Created by 青岛商通天下 on 16/9/19.
+//  Created by 青岛商通天下 on 16/9/22.
 //  Copyright © 2016年 QingDaoShangTong. All rights reserved.
 //
 
-#import "ZXTopic.h"
-
+#import "ZXAccountInfoModel.h"
 #import "MJExtension.h"
-@implementation ZXTopic
+@implementation ZXAccountInfoModel
+
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key  {
     if([key isEqualToString:@"id"])
-        self.product_id = value;
+        self.accountId = value;
 }
 
 + (NSDictionary *)replacedKeyFromPropertyName
 {
-    return @{@"product_id" : @"id"};
+    return @{@"accountId" : @"id"};
 }
 
 @end

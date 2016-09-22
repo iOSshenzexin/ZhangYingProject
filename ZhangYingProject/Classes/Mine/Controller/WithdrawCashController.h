@@ -13,7 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *withdrawCashTableView;
 - (IBAction)didClickWithdrawCash:(id)sender;
 
-@property (nonatomic,assign) BOOL changeCellStyle;
+@property (nonatomic,assign) BOOL isDefault;
+
 @property (weak, nonatomic) IBOutlet UILabel *explainLbl;
 
 @property (weak, nonatomic) IBOutlet UIButton *withdrawCashBtn;

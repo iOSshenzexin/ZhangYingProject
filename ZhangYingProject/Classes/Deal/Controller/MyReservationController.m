@@ -13,6 +13,7 @@
 #import "ZXReservationWaitController.h"
 
 #import "CustomOrderCell.h"
+#import "ZXReservationModel.h"
 @interface MyReservationController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *titleArray;
@@ -23,18 +24,17 @@
 /**预约失败*/
 @property (nonatomic,strong) UITableView *thirdTableView;
 
+@property (nonatomic,copy) NSArray *dataArray;
+
 @end
 
 @implementation MyReservationController
 
-static NSString *str = @"cellId";
 -(UITableView *)firstTableView{
     if (!_firstTableView) {
         _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
         _firstTableView.dataSource = self;
         _firstTableView.delegate = self;
-        _firstTableView.rowHeight = 120;
-        [_firstTableView registerNib:[UINib nibWithNibName:@"CustomOrderCell" bundle:nil] forCellReuseIdentifier:str];
         _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _firstTableView.backgroundColor = [UIColor clearColor];
         _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -42,14 +42,11 @@ static NSString *str = @"cellId";
     return _firstTableView;
 }
 
-static NSString *secondeStr = @"secondCell";
 -(UITableView *)secondTableView{
     if (!_secondTableView) {
         _secondTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
         _secondTableView.dataSource = self;
         _secondTableView.delegate = self;
-        _secondTableView.rowHeight = 120;
-        [_secondTableView registerNib:[UINib nibWithNibName:@"CustomOrderCell" bundle:nil] forCellReuseIdentifier:str];
         _secondTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _secondTableView.backgroundColor = [UIColor clearColor];
         _secondTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -57,14 +54,11 @@ static NSString *secondeStr = @"secondCell";
     return _secondTableView;
 }
 
-static NSString *thirdStr = @"thirdCell";
 -(UITableView *)thirdTableView{
     if (!_thirdTableView) {
         _thirdTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
         _thirdTableView.dataSource = self;
         _thirdTableView.delegate = self;
-        _thirdTableView.rowHeight = 120;
-        [_thirdTableView registerNib:[UINib nibWithNibName:@"CustomOrderCell" bundle:nil] forCellReuseIdentifier:str];
         _thirdTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
         _thirdTableView.backgroundColor = [UIColor clearColor];
         _thirdTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -72,17 +66,31 @@ static NSString *thirdStr = @"thirdCell";
     return _thirdTableView;
 }
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupTopSegment];
-}
-
 -(NSArray *)titleArray{
     if (!_titleArray) {
         _titleArray = [NSArray arrayWithObjects:@"预约成功",@"待确认",@"预约失败",nil];
     }
     return _titleArray;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupTopSegment];
+    [self requestReservationLogWithUrl:Deal_MyDealList_Url ModelClassString:@"ZXReservationModel" TableView:self.firstTableView Status:1];
+}
+
+- (void)requestReservationLogWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    params[@"status"] = @(status);
+    [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dataArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
 - (void)setupTopSegment{
@@ -93,36 +101,47 @@ static NSString *thirdStr = @"thirdCell";
         view.backgroundColor = RGB(242, 242, 242, 1);
         [contentArray addObject:view];
     }
-    
-    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
-    [self.view addSubview:scView];
-    
     UIView *view = (UIView *)contentArray[0];
     [view addSubview:self.firstTableView];
     UIView *viewSecond = (UIView *)contentArray[1];
     [viewSecond addSubview:self.secondTableView];
     UIView *viewThird = (UIView *)contentArray[2];
     [viewThird addSubview:self.thirdTableView];
+
+    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
+    scView.block = ^(int index){
+        switch (index) {
+            case 1:
+                [self requestReservationLogWithUrl:Deal_MyDealList_Url ModelClassString:@"ZXReservationModel" TableView:self.firstTableView Status:index];
+                break;
+            case 2:
+                [self requestReservationLogWithUrl:Deal_MyDealList_Url ModelClassString:@"ZXReservationModel" TableView:self.secondTableView Status:index];
+                break;
+            case 3:
+                [self requestReservationLogWithUrl:Deal_MyDealList_Url ModelClassString:@"ZXReservationModel" TableView:self.thirdTableView Status:index];
+                break;
+            default:
+                break;
+        }
+    };
+    [self.view addSubview:scView];
 }
 
 
 #pragma mark UITableViewDelegate And UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CustomOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[CustomOrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell.subTitleLbl.attributedText = [self getAttributedString:cell.subTitleLbl.text];
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
+    CustomOrderCell *cell = [CustomOrderCell cellWithTableview:tableView];
+    cell.reservationModel = self.dataArray[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,31 +149,25 @@ static NSString *thirdStr = @"thirdCell";
     if (tableView == self.firstTableView){
     ZXReservationSuccessController *vc = [[ZXReservationSuccessController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
+    vc.reservationModel = self.dataArray[indexPath.row];
     vc.title = @"预约成功详情";
     [self.navigationController pushViewController:vc animated:YES];
     }
     if (tableView == self.thirdTableView) {
         ZXReservationFailureController *vc = [[ZXReservationFailureController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        vc.reservationModel = self.dataArray[indexPath.row];
         vc.title = @"预约失败详情";
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (tableView == self.secondTableView) {
         ZXReservationWaitController *vc = [[ZXReservationWaitController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        vc.reservationModel = self.dataArray[indexPath.row];
+
         vc.title = @"预约待确认详情";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
-- (NSAttributedString *)getAttributedString:(NSString *)string{
-    NSMutableAttributedString *mabString = [[NSMutableAttributedString alloc] initWithString:string];
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(8, 3)];
-    [mabString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(8, 3)];
-    
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(27, 5)];
-    [mabString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(27, 5)];
-    
-    return mabString;
-}
 @end

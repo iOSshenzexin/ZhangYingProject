@@ -10,6 +10,9 @@
 #import "TabbarController.h"
 #import "LoginController.h"
 #import "FloatingView.h"
+
+#import "UMSocial.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,6 +21,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //设置友盟Appkey
+    [UMSocialData setAppKey:UMengAppKey];
+    
     
     //启用IQKeyboardManager
     [self useIQKeyboardManager];

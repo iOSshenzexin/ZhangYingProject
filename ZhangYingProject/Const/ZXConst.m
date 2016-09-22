@@ -10,3 +10,5 @@ NSString *const savePassword = @"savePassword";
 NSString *const userId = @"userId";
 
 NSString *const loginModel = @"loginModel";
+
+NSString *const UMengAppKey = @"57e3a2d4e0f55aac8a001d8c";

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZXReservationModel.h"
 @interface ZXReservationFailureController : UIViewController
+
+@property (nonatomic,copy) ZXReservationModel *reservationModel;
 
 @end

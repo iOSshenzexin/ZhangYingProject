@@ -6,6 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZXReservationSuccessController">
             <connections>
+                <outlet property="address" destination="zJh-u5-1nq" id="nKf-Dh-d9y"/>
+                <outlet property="memberId" destination="YN8-AN-5Yg" id="EFo-W9-XED"/>
+                <outlet property="payAccount" destination="mSr-sU-6aJ" id="7Wl-QR-mD9"/>
+                <outlet property="payDate" destination="iDR-g3-g9Z" id="osR-AQ-rNW"/>
+                <outlet property="productTitle" destination="P3M-E8-xoX" id="Y6Q-j8-gHJ"/>
+                <outlet property="telephone" destination="ESt-Aq-Nc8" id="97C-3R-BMf"/>
+                <outlet property="useName" destination="rSn-3z-mOu" id="3H1-zo-BTo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +36,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="CVU-FV-Jox"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -49,7 +56,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Hbe-Ii-1bY"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -59,7 +66,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="4TP-ri-Fnq"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -69,7 +76,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="vSZ-td-KUa"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -79,7 +86,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="MSD-m8-hsU"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -89,7 +96,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="OBP-OB-7ay"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>

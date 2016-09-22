@@ -8,3 +8,4 @@ UIKIT_EXTERN NSString *const savePassword;
 UIKIT_EXTERN NSString *const userId;
 
 UIKIT_EXTERN NSString *const loginModel;
+UIKIT_EXTERN NSString *const UMengAppKey;

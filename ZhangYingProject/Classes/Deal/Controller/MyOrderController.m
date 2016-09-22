@@ -12,6 +12,8 @@
 #import "ZXOrderUnderwayController.h"
 #import "ZXOrderCompletedController.h"
 #import "ZXOrderFailureController.h"
+
+#import "ZXOrderModel.h"
 @interface MyOrderController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,copy) NSArray *titleArray;
 /**在途订单*/
@@ -21,64 +23,69 @@
 /**交易失败*/
 @property (nonatomic,strong) UITableView *thirdTableView;
 
+@property (nonatomic,copy) NSArray *dataArray;
+
 @end
 
 @implementation MyOrderController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupTopSegment];
-}
-
-static NSString *str = @"cellId";
--(UITableView *)firstTableView{
-    if (!_firstTableView) {
-        _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _firstTableView.dataSource = self;
-        _firstTableView.delegate = self;
-        _firstTableView.rowHeight = 120;
-        [_firstTableView registerNib:[UINib nibWithNibName:@"CustomInTransitCell" bundle:nil] forCellReuseIdentifier:str];
-        _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _firstTableView.backgroundColor = [UIColor clearColor];
-        _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    }
-    return _firstTableView;
-}
-
--(UITableView *)secondTableView{
-    if (!_secondTableView) {
-        _secondTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _secondTableView.dataSource = self;
-        _secondTableView.delegate = self;
-        _secondTableView.rowHeight = 120;
-        [_secondTableView registerNib:[UINib nibWithNibName:@"CustomInTransitCell" bundle:nil] forCellReuseIdentifier:str];
-        _secondTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _secondTableView.backgroundColor = [UIColor clearColor];
-        _secondTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    }
-    return _secondTableView;
-}
-
-
--(UITableView *)thirdTableView{
-    if (!_thirdTableView) {
-        _thirdTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _thirdTableView.dataSource = self;
-        _thirdTableView.delegate = self;
-        _thirdTableView.rowHeight = 120;
-        [_thirdTableView registerNib:[UINib nibWithNibName:@"CustomInTransitCell" bundle:nil] forCellReuseIdentifier:str];
-        _thirdTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _thirdTableView.backgroundColor = [UIColor clearColor];
-        _thirdTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    }
-    return _thirdTableView;
-}
 
 -(NSArray *)titleArray{
     if (!_titleArray) {
         _titleArray = [NSArray arrayWithObjects:@"在途订单",@"交易完成",@"交易失败",nil];
     }
     return _titleArray;
+}
+
+-(UITableView *)firstTableView{
+    if (!_firstTableView) {
+        _firstTableView = [self setupTableview];
+    }
+    return _firstTableView;
+}
+
+-(UITableView *)secondTableView{
+    if (!_secondTableView) {
+        _secondTableView = [self setupTableview];
+    }
+    return _secondTableView;
+}
+
+-(UITableView *)thirdTableView{
+    if (!_thirdTableView) {
+       _thirdTableView = [self setupTableview];
+    }
+    return _thirdTableView;
+}
+
+- (UITableView *)setupTableview{
+    UITableView *customTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
+    customTV.dataSource = self;
+    customTV.delegate = self;
+    customTV.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+    customTV.backgroundColor = [UIColor clearColor];
+    customTV.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    return customTV;
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupTopSegment];
+    [self requestMyOrdeLogWithUrl:Deal_MyOrderList_Url ModelClassString:@"ZXOrderModel" TableView:self.firstTableView Status:1];
+}
+
+- (void)requestMyOrdeLogWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    params[@"status"] = @(status);
+    [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dataArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
 - (void)setupTopSegment{
@@ -89,16 +96,28 @@ static NSString *str = @"cellId";
         view.backgroundColor = RGB(242, 242, 242, 1);
         [contentArray addObject:view];
     }
+    [(UIView *)contentArray[0] addSubview:self.firstTableView];
+    [(UIView *)contentArray[1] addSubview:self.secondTableView];
+    [(UIView *)contentArray[2] addSubview:self.thirdTableView];
     
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
     [self.view addSubview:scView];
-    
-    [(UIView *)contentArray[0] addSubview:self.firstTableView];
-    
-    [(UIView *)contentArray[1] addSubview:self.secondTableView];
-    
-    [(UIView *)contentArray[2] addSubview:self.thirdTableView];
 
+    scView.block = ^(int index){
+        switch (index) {
+            case 1:
+                [self requestMyOrdeLogWithUrl:Deal_MyOrderList_Url ModelClassString:@"ZXOrderModel" TableView:self.firstTableView Status:index];
+                break;
+            case 2:
+                [self requestMyOrdeLogWithUrl:Deal_MyOrderList_Url ModelClassString:@"ZXOrderModel" TableView:self.secondTableView Status:index];
+                break;
+            case 3:
+                [self requestMyOrdeLogWithUrl:Deal_MyOrderList_Url ModelClassString:@"ZXOrderModel" TableView:self.thirdTableView Status:index];
+                break;
+            default:
+                break;
+        }
+    };
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,33 +143,17 @@ static NSString *str = @"cellId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.dataArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CustomInTransitCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[CustomInTransitCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
+    CustomInTransitCell *cell = [CustomInTransitCell cellWithTableview:tableView];
+    cell.orderModel = self.dataArray[indexPath.row];
     return cell;
 }
 
-
-- (NSAttributedString *)getAttributedString:(NSString *)string{
-    NSMutableAttributedString *mabString = [[NSMutableAttributedString alloc] initWithString:string];
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
-    [mabString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(0, 3)];
-    
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(27, 5)];
-    [mabString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(27, 5)];
-    
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(13, 3)];
-    [mabString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(13, 3)];
-    
-    return mabString;
-}
 @end

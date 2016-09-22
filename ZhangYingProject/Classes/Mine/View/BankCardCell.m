@@ -18,18 +18,18 @@ NSString *const cardCell = @"BankCardCell";
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"BankCardCell" owner:nil options:nil] lastObject];
     }
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
     return cell;
 }
 
 -(void)setRecordModel:(ZXEnterRecordModel *)recordModel
 {
     _recordModel = recordModel;
-    self.timeLbl.text = recordModel.time;
-    self.amountLbl.text = recordModel.amount;
-    self.billNumber.text = recordModel.orderNo;
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm"];
+    NSString *timeString = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[recordModel.createTime[@"time"] doubleValue]/1000.0]];
+    self.timeLbl.text = timeString ;
+    self.amountLbl.text = [NSString stringWithFormat:@"+%.2f",[recordModel.amount doubleValue]];
+    self.billNumber.text = [NSString stringWithFormat:@"订单号:%@",recordModel.orderNo];
 }
 
 @end

@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXReservationModel.h"
 @interface CustomOrderCell : UITableViewCell
+
+@property (nonatomic,copy) ZXReservationModel *reservationModel;
+
++ (instancetype)cellWithTableview:(UITableView *)tableview;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
-@property (weak, nonatomic) IBOutlet UILabel *subTitleLbl;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *accountLbl;
 
 @end

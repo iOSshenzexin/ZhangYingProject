@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXOrderModel.h"
 @interface CustomInTransitCell : UITableViewCell
+
+
+@property (weak, nonatomic) IBOutlet UILabel *productTitle;
+
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *account;
+
+@property (weak, nonatomic) IBOutlet UILabel *orderNumber;
+
+
+
+
++(instancetype)cellWithTableview:(UITableView *)tableview;
+
+@property (nonatomic,copy) ZXOrderModel *orderModel;
 
 @end

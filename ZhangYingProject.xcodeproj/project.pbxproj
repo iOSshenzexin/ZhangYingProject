@@ -22,6 +22,12 @@
 		019198EE1D3CC32D000F2483 /* ZhangYingProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198ED1D3CC32D000F2483 /* ZhangYingProjectTests.m */; };
 		019198F91D3CC32D000F2483 /* ZhangYingProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 019198F81D3CC32D000F2483 /* ZhangYingProjectUITests.m */; };
 		01AD21891D8FD58D00BF3797 /* UILabel+ZXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD21881D8FD58D00BF3797 /* UILabel+ZXLabel.m */; };
+		01BAE76E1D936AB4009CACCD /* ZXWithdrawCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE76C1D936AB4009CACCD /* ZXWithdrawCell.m */; };
+		01BAE76F1D936AB4009CACCD /* ZXWithdrawCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BAE76D1D936AB4009CACCD /* ZXWithdrawCell.xib */; };
+		01BAE7721D9371C2009CACCD /* ZXWithdrawRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE7711D9371C2009CACCD /* ZXWithdrawRecordModel.m */; };
+		01BAE7751D938DBD009CACCD /* ZXAccountInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE7741D938DBC009CACCD /* ZXAccountInfoModel.m */; };
+		01BAE7781D93A7FA009CACCD /* ZXReservationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE7771D93A7FA009CACCD /* ZXReservationModel.m */; };
+		01BAE77B1D93BBEA009CACCD /* ZXOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE77A1D93BBEA009CACCD /* ZXOrderModel.m */; };
 		01C380F21D8E3F1B002A888F /* ZXReservationSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C380F01D8E3F1B002A888F /* ZXReservationSuccessController.m */; };
 		01C380F31D8E3F1B002A888F /* ZXReservationSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C380F11D8E3F1B002A888F /* ZXReservationSuccessController.xib */; };
 		01C380F61D8E427F002A888F /* ZXNavgaitonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C380F51D8E427F002A888F /* ZXNavgaitonController.m */; };
@@ -255,6 +261,17 @@
 		01AD21871D8FD58D00BF3797 /* UILabel+ZXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZXLabel.h"; sourceTree = "<group>"; };
 		01AD21881D8FD58D00BF3797 /* UILabel+ZXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZXLabel.m"; sourceTree = "<group>"; };
 		01B1E4F81D585041009E3A4F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		01BAE76B1D936AB4009CACCD /* ZXWithdrawCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXWithdrawCell.h; sourceTree = "<group>"; };
+		01BAE76C1D936AB4009CACCD /* ZXWithdrawCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXWithdrawCell.m; sourceTree = "<group>"; };
+		01BAE76D1D936AB4009CACCD /* ZXWithdrawCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXWithdrawCell.xib; sourceTree = "<group>"; };
+		01BAE7701D9371C2009CACCD /* ZXWithdrawRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXWithdrawRecordModel.h; sourceTree = "<group>"; };
+		01BAE7711D9371C2009CACCD /* ZXWithdrawRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXWithdrawRecordModel.m; sourceTree = "<group>"; };
+		01BAE7731D938DBC009CACCD /* ZXAccountInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXAccountInfoModel.h; sourceTree = "<group>"; };
+		01BAE7741D938DBC009CACCD /* ZXAccountInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXAccountInfoModel.m; sourceTree = "<group>"; };
+		01BAE7761D93A7FA009CACCD /* ZXReservationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXReservationModel.h; sourceTree = "<group>"; };
+		01BAE7771D93A7FA009CACCD /* ZXReservationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXReservationModel.m; sourceTree = "<group>"; };
+		01BAE7791D93BBE9009CACCD /* ZXOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXOrderModel.h; sourceTree = "<group>"; };
+		01BAE77A1D93BBEA009CACCD /* ZXOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXOrderModel.m; sourceTree = "<group>"; };
 		01C380EF1D8E3F1B002A888F /* ZXReservationSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXReservationSuccessController.h; sourceTree = "<group>"; };
 		01C380F01D8E3F1B002A888F /* ZXReservationSuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXReservationSuccessController.m; sourceTree = "<group>"; };
 		01C380F11D8E3F1B002A888F /* ZXReservationSuccessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXReservationSuccessController.xib; sourceTree = "<group>"; };
@@ -798,6 +815,10 @@
 			children = (
 				01DAC3591D88E11600DB0477 /* ShareModel.h */,
 				01DAC35A1D88E11600DB0477 /* ShareModel.m */,
+				01BAE7761D93A7FA009CACCD /* ZXReservationModel.h */,
+				01BAE7771D93A7FA009CACCD /* ZXReservationModel.m */,
+				01BAE7791D93BBE9009CACCD /* ZXOrderModel.h */,
+				01BAE77A1D93BBEA009CACCD /* ZXOrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1018,6 +1039,10 @@
 				01E378F81D92309F00DC63EE /* ZXAddressModel.m */,
 				013BE59E1D928F310087DDE5 /* ZXEnterRecordModel.h */,
 				013BE59F1D928F310087DDE5 /* ZXEnterRecordModel.m */,
+				01BAE7701D9371C2009CACCD /* ZXWithdrawRecordModel.h */,
+				01BAE7711D9371C2009CACCD /* ZXWithdrawRecordModel.m */,
+				01BAE7731D938DBC009CACCD /* ZXAccountInfoModel.h */,
+				01BAE7741D938DBC009CACCD /* ZXAccountInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1031,6 +1056,9 @@
 				01DAC3E61D88E11700DB0477 /* BankCardCell.h */,
 				01DAC3E71D88E11700DB0477 /* BankCardCell.m */,
 				01DAC3E81D88E11700DB0477 /* BankCardCell.xib */,
+				01BAE76B1D936AB4009CACCD /* ZXWithdrawCell.h */,
+				01BAE76C1D936AB4009CACCD /* ZXWithdrawCell.m */,
+				01BAE76D1D936AB4009CACCD /* ZXWithdrawCell.xib */,
 				01DAC3E91D88E11700DB0477 /* CardCustomCell.h */,
 				01DAC3EA1D88E11700DB0477 /* CardCustomCell.m */,
 				01DAC3EB1D88E11700DB0477 /* CardCustomCell.xib */,
@@ -1408,6 +1436,7 @@
 			files = (
 				01DAC47E1D88E11700DB0477 /* ModifyPhoneController.xib in Resources */,
 				01DAC4801D88E11700DB0477 /* MyBillController.xib in Resources */,
+				01BAE76F1D936AB4009CACCD /* ZXWithdrawCell.xib in Resources */,
 				01DAC4A71D88E11700DB0477 /* ProductDetailController.xib in Resources */,
 				01DAC4471D88E11700DB0477 /* CustomCollectionStyleTwoCell.xib in Resources */,
 				01DAC4FE1D88E12700DB0477 /* MBProgressHUD.bundle in Resources */,
@@ -1572,6 +1601,7 @@
 				01DAC4461D88E11700DB0477 /* CustomCollectionStyleTwoCell.m in Sources */,
 				01DAC4A01D88E11700DB0477 /* WithdrawCashStyleThreeCell.m in Sources */,
 				01DAC4B81D88E11700DB0477 /* ProductShareCustomSyleOneCell.m in Sources */,
+				01BAE7721D9371C2009CACCD /* ZXWithdrawRecordModel.m in Sources */,
 				01DAC4B41D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.m in Sources */,
 				01C380FD1D8E6535002A888F /* ZXReservationFailureController.m in Sources */,
 				01DAC33A1D88E04C00DB0477 /* AppDelegate.m in Sources */,
@@ -1598,8 +1628,10 @@
 				01DAC4531D88E11700DB0477 /* HomeController.m in Sources */,
 				01C8ABC41D8F707C00B7E575 /* ZXTopic.m in Sources */,
 				01DAC4911D88E11700DB0477 /* AddressCustomCell.m in Sources */,
+				01BAE76E1D936AB4009CACCD /* ZXWithdrawCell.m in Sources */,
 				01DAC5021D88E12700DB0477 /* TopBannerTool.m in Sources */,
 				01DAC4391D88E11700DB0477 /* ProductAnnouncementController.m in Sources */,
+				01BAE7781D93A7FA009CACCD /* ZXReservationModel.m in Sources */,
 				01C380F91D8E4415002A888F /* UIBarButtonItem+ZXItem.m in Sources */,
 				013BE5A01D928F310087DDE5 /* ZXEnterRecordModel.m in Sources */,
 				01DAC4371D88E11700DB0477 /* MyShareController.m in Sources */,
@@ -1629,6 +1661,7 @@
 				015360E91D91103D00713825 /* ZXLoginModel.m in Sources */,
 				01DAC4771D88E11700DB0477 /* DeliveryAddressController.m in Sources */,
 				01DAC4791D88E11700DB0477 /* MemberAuthenticationController.m in Sources */,
+				01BAE7751D938DBD009CACCD /* ZXAccountInfoModel.m in Sources */,
 				01DAC3331D88DFEB00DB0477 /* CALayer+BorderWidth.m in Sources */,
 				01DAC4811D88E11700DB0477 /* MyCardController.m in Sources */,
 				01DAC49A1D88E11700DB0477 /* DealCustomCell.m in Sources */,
@@ -1668,6 +1701,7 @@
 				01DAC4A41D88E11700DB0477 /* ProductController.m in Sources */,
 				01C8ABDA1D8F9AB400B7E575 /* ZXProductCell.m in Sources */,
 				01DAC4BC1D88E11700DB0477 /* TrustCustomCell.m in Sources */,
+				01BAE77B1D93BBEA009CACCD /* ZXOrderModel.m in Sources */,
 				01DAC4851D88E11700DB0477 /* PersonInfoController.m in Sources */,
 				01DAC4951D88E11700DB0477 /* CardCustomCell.m in Sources */,
 				01DAC4441D88E11700DB0477 /* CustomCollectionStyleOneCell.m in Sources */,
@@ -1795,6 +1829,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 17B154C749B70D47B63A439E /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1836,6 +1871,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B65664CBCDA546F2E3861216 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";

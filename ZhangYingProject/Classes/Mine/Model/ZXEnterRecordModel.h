@@ -48,7 +48,7 @@
 
 @property (nonatomic,copy) NSString * orderNo;
 
-@property (nonatomic,copy) NSString *time;
+@property (nonatomic,copy) NSDictionary *createTime;
 
 @property (nonatomic,copy) NSString *amount;
 

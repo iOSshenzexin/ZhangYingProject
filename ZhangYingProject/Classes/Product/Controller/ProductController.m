@@ -29,7 +29,13 @@
 @property (nonatomic,copy) NSMutableArray *productArray;
 
 /** 信托 */
-@property (nonatomic,strong) UITableView *trustTableView;
+@property (nonatomic,strong) UITableView *firstTV;
+/** 资管 */
+@property (nonatomic,strong) UITableView *secondTV;
+/** 阳光私募 */
+@property (nonatomic,strong) UITableView *threeTV;
+/** 其他 */
+@property (nonatomic,strong) UITableView *fourTV;
 
 @property (nonatomic,strong) UIView *showView;
 @property (nonatomic,strong) UIView *showSortView;
@@ -53,18 +59,43 @@
     //加载网络数据
 }
 
- static NSString *str = @"cellId";
--(UITableView *)trustTableView{
-    if (!_trustTableView) {
-        _trustTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _trustTableView.dataSource = self;
-        _trustTableView.delegate = self;
-        _trustTableView.rowHeight = 120;
-        [_trustTableView registerNib:[UINib nibWithNibName:@"ZXProductCell" bundle:nil] forCellReuseIdentifier:str];
-        _trustTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _trustTableView.backgroundColor = [UIColor clearColor];
+-(UITableView *)firstTV{
+    if (!_firstTV) {
+        _firstTV = [self createCustomTableView];
     }
-    return _trustTableView;
+    return _firstTV;
+}
+
+-(UITableView *)secondTV{
+    if (!_secondTV) {
+        _secondTV = [self createCustomTableView];
+    }
+    return _secondTV;
+}
+
+-(UITableView *)threeTV{
+    if (!_threeTV) {
+        _threeTV = [self createCustomTableView];
+    }
+    return _threeTV;
+}
+
+-(UITableView *)fourTV{
+    if (!_fourTV) {
+        _fourTV = [self createCustomTableView];
+    }
+    return _fourTV;
+}
+
+- (UITableView *)createCustomTableView
+{
+    UITableView *customTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
+    customTableView.dataSource = self;
+    customTableView.delegate = self;
+    customTableView.rowHeight = 120;
+    customTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+    customTableView.backgroundColor = [UIColor clearColor];
+    return customTableView;
 }
 
 -(NSMutableArray *)titleArray{
@@ -84,39 +115,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavigationBarSubviews];
-    [self loadInternetData];
+    
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.firstTV Status:1];
+    
+    [self loadTopicTitle];
+    
 }
 
-#pragma mark - 加载网络数据
-- (void)loadInternetData
+#pragma mark - 加载头部视图的网络数据
+- (void)loadTopicTitle
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:Product_Topic_Url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.titleArray = [ZXTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self setupTopSegment];
-
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXLog(@"%@",error);
     }];
+}
+#pragma mark - 创建头部视图
+- (void)setupTopSegment{
+    self.automaticallyAdjustsScrollViewInsets= NO; //iOS7新增属性
+    NSMutableArray *contentArray= [NSMutableArray array];
+    NSMutableArray *topics= [NSMutableArray array];
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"productType"] = @1;
-    params[@"sort"] = @"0";
-    [manager POST:Product_List_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.productArray = [ZXProduct mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
-        [self.trustTableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        ZXLog(@"%@",error);
-    }];
+    for (NSInteger i = 0; i < self.titleArray.count; i++) {
+        UIView *view= [[UIView alloc] init];
+        ZXTopic *topic = self.titleArray[i];
+        [topics addObject:topic.typeName];
+        view.backgroundColor = RGB(242, 242, 242, 1);
+        [contentArray addObject:view];
+    }
+    [(UIView *)contentArray[0] addSubview:self.firstTV];
+    [(UIView *)contentArray[1] addSubview:self.secondTV];
+    [(UIView *)contentArray[2] addSubview:self.threeTV];
+    [(UIView *)contentArray[3] addSubview:self.fourTV];
+    
+    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:topics contentViewArray:contentArray];
+    [self.view addSubview:scView];
+    
+    scView.block = ^(int index){
+        ZXTopic *topic = self.titleArray[index-1];
+        int productType = [topic.product_id intValue];
+        switch (index) {
+            case 1:
+                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.firstTV Status:index];
+                break;
+            case 2:
+                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.secondTV Status:index];
+                break;
+            case 3:
+                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.threeTV Status:index];
+                break;
+            case 4:
+                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.fourTV Status:index];
+                break;
+                
+            default:
+                break;
+        }
+        ZXLog(@"Product Index :%d ",index);
+    };
     
 }
-
-#pragma mark UITextFielDelegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    SearchController *vc = [SearchController sharedSearchController];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-    return NO;
+#pragma mark - 请求产品列表数据
+- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"productType"] = @(status);
+    [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
+        self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
 - (void)setupNavigationBarSubviews{
@@ -143,9 +216,16 @@
     self.textField = txt;
 }
 
-static BOOL isCreated = YES;
+#pragma mark UITextFielDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    SearchController *vc = [SearchController sharedSearchController];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    return NO;
+}
 
-#pragma mark       左边筛选按钮对应事件
+static BOOL isCreated = YES;
+#pragma mark - 左边筛选按钮对应事件
 - (void)didClickFilter:(UIButton *)btn{
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isShow == YES) {
@@ -163,7 +243,6 @@ static BOOL isCreated = YES;
         
         self.filterView = scrollView ;
         [self.showView addSubview:self.filterView];
-        
         
         for (NSInteger i = 0; i < 6; i ++) {
             BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0, 0 + i * 130, ScreenW, 130)];
@@ -206,6 +285,13 @@ static BOOL isCreated = YES;
     }
     isCreated = !isCreated;
 }
+
+- (void)requestDataByHttp:(NSString *)url{
+    //Product_SortList_Url
+}
+
+
+
 
   // 收起列表
 - (void)hideShowView:(UIButton *)btn{
@@ -279,31 +365,6 @@ static BOOL isSetUp = YES;
     }
 }
 
-- (void)setupTopSegment{
-    self.automaticallyAdjustsScrollViewInsets= NO; //iOS7新增属性
-    NSMutableArray *contentArray= [NSMutableArray array];
-    NSMutableArray *topics= [NSMutableArray array];
-
-    for (NSInteger i = 0; i < self.titleArray.count; i++) {
-        UIView *view= [[UIView alloc] init];
-        ZXTopic *topic = self.titleArray[i];
-        [topics addObject:topic.typeName];
-        view.backgroundColor = RGB(242, 242, 242, 1);
-        [contentArray addObject:view];
-    }
-    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:topics contentViewArray:contentArray];
-    scView.block = ^(int index){
-        NSLog(@"result %d",index);
-        
-        
-    };
-    [self.view addSubview:scView];
-    
-    //信托
-    UIView *view = (UIView *)contentArray[0];
-    [view addSubview:self.trustTableView];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.productArray.count;
 }
@@ -316,12 +377,11 @@ static BOOL isSetUp = YES;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZXProductCell *cell = [self.trustTableView cellForRowAtIndexPath:indexPath];
+    ZXProductCell *cell = [self.firstTV cellForRowAtIndexPath:indexPath];
     ProductDetailController *vc = [[ProductDetailController alloc] init];
     vc.title = cell.product.productTitle;
     ZXProduct *product = self.productArray[indexPath.row];
     vc.product_id = product.productType;
-    
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

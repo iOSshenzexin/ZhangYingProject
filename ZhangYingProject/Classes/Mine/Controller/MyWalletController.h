@@ -11,4 +11,8 @@
 @interface MyWalletController : UIViewController
 - (IBAction)didClickWithdrawCash:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *commissionLbl;
+@property (weak, nonatomic) IBOutlet UILabel *alreadyMentionedLbl;
+@property (weak, nonatomic) IBOutlet UILabel *canWithdrawLbl;
+
 @end

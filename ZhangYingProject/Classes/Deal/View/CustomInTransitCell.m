@@ -8,17 +8,27 @@
 
 #import "CustomInTransitCell.h"
 
+static NSString *customInTransitCell = @"CustomInTransitCell";
+
 @implementation CustomInTransitCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
++(instancetype)cellWithTableview:(UITableView *)tableview{
+    CustomInTransitCell *cell = [tableview dequeueReusableCellWithIdentifier:customInTransitCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomInTransitCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.layer.borderWidth = 3;
+    UIColor *color = RGB(242, 242, 242, 1);
+    cell.layer.borderColor = [color CGColor];
+    return cell;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setOrderModel:(ZXOrderModel *)orderModel
+{
+    _orderModel = orderModel;
+    self.productTitle.text = orderModel.productTitle;
+    self.userName.text = [NSString stringWithFormat:@"客户姓名: %@",orderModel.userName];
+    self.account.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"打款金额: %@万元",orderModel.payAmount] Color:[UIColor redColor] FontSize:20];
 }
-
 @end

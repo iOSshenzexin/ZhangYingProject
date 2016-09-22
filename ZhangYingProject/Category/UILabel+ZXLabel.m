@@ -12,7 +12,7 @@
 
 +(NSMutableAttributedString *)labelWithRichNumber:(NSString*)labelString Color:(UIColor *) color FontSize:(CGFloat)size
 {
-    NSArray *number = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"%",@"<"];
+    NSArray *number = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"%",@".",@"<"];
     NSMutableAttributedString *attributeString  = [[NSMutableAttributedString alloc]initWithString:labelString];
     for (int i = 0; i < labelString.length; i ++) {
         //这里的小技巧，每次只截取一个字符的范围

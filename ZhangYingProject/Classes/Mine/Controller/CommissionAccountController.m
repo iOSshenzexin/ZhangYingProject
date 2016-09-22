@@ -92,7 +92,7 @@ static NSString *cellID = @"cellId";
         params[@"bankName"] = cellName.txtField.text;
         params[@"bankBranch"] = cellBranch.txtField.text;
         ZXLoginModel *model = AppLoginModel;
-        params[@"mid"] = model.mid;
+        params[@"memberId"] = model.mid;
         [manager POST:Mine_AddBankAccount_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             [MBProgressHUD hideHUDForView:self.view];
             if([responseObject[@"status"]intValue] == 1){
@@ -106,6 +106,11 @@ static NSString *cellID = @"cellId";
             [MBProgressHUD showError:@"提交失败,请检查网络!"];
         }];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MBProgressHUD hideHUDForView:self.view];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

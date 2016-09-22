@@ -20,15 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupRightBarBtn];
-    [self deleteBack];
-    self.hidesBottomBarWhenPushed = YES;
+    [self loadMyWalletInfomation];
 }
 
-- (void)deleteBack{
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
-    backButtonItem.title = @"";
-    self.navigationItem.backBarButtonItem = backButtonItem;
+-(void)loadMyWalletInfomation
+{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"mid"] = model.mid;
+    [mgr POST:Mine_MyWalletContent_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.commissionLbl.text =[NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"allCommision"]doubleValue] ];
+        double alreadyMentionedCash = [responseObject[@"data"][@"allCommision"] doubleValue] - [responseObject[@"data"][@"commision"] doubleValue];
+        self.alreadyMentionedLbl.text = [NSString stringWithFormat:@"%.2f",alreadyMentionedCash];
+        self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"commision"]doubleValue]];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
 - (void)setupRightBarBtn{
@@ -46,11 +54,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
-
 - (IBAction)didClickWithdrawCash:(id)sender {
     WithdrawCashController *vc = [[WithdrawCashController alloc] init];
     vc.title = @"提现";
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 @end

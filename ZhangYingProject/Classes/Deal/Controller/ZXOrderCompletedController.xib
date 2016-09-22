@@ -210,16 +210,35 @@
                                         <constraint firstItem="IdB-S7-7rb" firstAttribute="leading" secondItem="7PR-Z5-XvL" secondAttribute="trailing" constant="28" id="wmd-ZT-fq1"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRl-zZ-yTy">
+                                    <rect key="frame" x="30" y="545" width="315" height="40"/>
+                                    <color key="backgroundColor" red="0.97491776320000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Xpv-TD-dDM"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="提交凭证">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="6"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="1kO-2x-Yxe" secondAttribute="trailing" id="10V-fS-9IY"/>
                                 <constraint firstAttribute="height" constant="667" id="4X0-zW-fka"/>
                                 <constraint firstItem="aL3-ko-35O" firstAttribute="leading" secondItem="f4J-xU-zC0" secondAttribute="leading" id="Jdx-Kq-xIK"/>
+                                <constraint firstItem="uRl-zZ-yTy" firstAttribute="top" secondItem="aL3-ko-35O" secondAttribute="bottom" constant="35" id="Kj6-yI-UER"/>
                                 <constraint firstItem="1kO-2x-Yxe" firstAttribute="leading" secondItem="f4J-xU-zC0" secondAttribute="leading" id="NHq-XD-HsI"/>
+                                <constraint firstAttribute="trailing" secondItem="uRl-zZ-yTy" secondAttribute="trailing" constant="30" id="TiQ-09-gU9"/>
                                 <constraint firstAttribute="trailing" secondItem="aL3-ko-35O" secondAttribute="trailing" id="UAF-Hr-L29"/>
                                 <constraint firstItem="1kO-2x-Yxe" firstAttribute="top" secondItem="f4J-xU-zC0" secondAttribute="top" id="d6e-RU-f6N"/>
                                 <constraint firstItem="aL3-ko-35O" firstAttribute="top" secondItem="1kO-2x-Yxe" secondAttribute="bottom" constant="10" id="h7Q-A3-nWY"/>
+                                <constraint firstItem="uRl-zZ-yTy" firstAttribute="leading" secondItem="f4J-xU-zC0" secondAttribute="leading" constant="30" id="kHF-oC-aOf"/>
                             </constraints>
                         </view>
                     </subviews>
