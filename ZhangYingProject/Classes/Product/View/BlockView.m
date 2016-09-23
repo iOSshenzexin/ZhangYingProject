@@ -8,6 +8,7 @@
 
 #import "BlockView.h"
 
+#import "ZXSortModel.h"
 #define btnTitleColor         [UIColor colorWithRed:150/255.0 green:150/255.0 blue:150/255.0 alpha:1]
 
 #define btnBackgroundColor [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1]
@@ -17,6 +18,8 @@
 @interface BlockView ()
 
 @property (nonatomic,strong) UIButton *propertyBtn;
+
+@property (nonatomic,assign) NSInteger count;
 
 @end
 
@@ -28,21 +31,24 @@
     [self addSubview:imageView];
     
     UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 80, 16)];
+    titleLbl.font = [UIFont systemFontOfSize:14];
     titleLbl.text = title;
     [self addSubview:titleLbl];
     
-    NSInteger count = titleArray.count;
+    self.count = titleArray.count;
+    
     CGFloat btnW = (ScreenW - 50) * 0.25;
-    for (NSInteger i = 0; i < count ; i ++) {
+    for (NSInteger i = 0; i < self.count ; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(10 + i % 4 *(btnW + 10), 36 + (i / 4) * 50, btnW, 40);
-        [btn setTitle:titleArray[i] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        btn.frame = CGRectMake(10 + i % 4 *(btnW + 10), 36 + (i / 4) * 40, btnW, 30);
+        ZXSortModel *model = titleArray[i];
+        [btn setTitle:model.title forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:12];
         [btn addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.layer.cornerRadius = 3;
         btn.layer.borderWidth = 0.5;
         UIColor *color = RGB(227, 227, 227, 1);
-        btn.layer.borderColor = [color CGColor];
+        btn.layer.borderColor = color.CGColor;
         if (i == 0) {
             btn.selected = YES;
             btn.backgroundColor = [UIColor redColor];
@@ -52,8 +58,8 @@
             [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
         }
         [self addSubview:btn];
-    }
-}
+    }}
+
 
 - (void)didClick:(UIButton *)btn{
     static BOOL isSelected = YES;
@@ -79,10 +85,10 @@
     CGFloat btnW = (ScreenW - 50) * 0.25;
     for (NSInteger i = 0; i < count ; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(10 + i % 4 *(btnW + 10),10 + (i / 4) * 50, btnW, 40);
+        btn.frame = CGRectMake(10 + i % 4 *(btnW + 10),10 + (i / 4) * 40, btnW, 30);
         [btn setTitle:titleArray[i] forState:UIControlStateNormal];
         [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        btn.titleLabel.font = [UIFont systemFontOfSize:12];
         [btn addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.layer.cornerRadius = 3;
         btn.layer.borderWidth = 0.5;

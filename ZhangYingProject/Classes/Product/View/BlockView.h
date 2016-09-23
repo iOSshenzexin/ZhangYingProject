@@ -12,5 +12,5 @@
 
 - (void)setupBlockViewContent:(NSArray *)titleArray buttonBorderWidth:(CGFloat )borderWidth borderColor:(UIColor *)borderColor title:(NSString *)title;
 
-- (void)setupSortBlockContentView:(NSArray *)titleArray;
+-(void)setupSortBlockContentView:(NSArray *)titleArray;
 @end

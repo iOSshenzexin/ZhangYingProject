@@ -43,7 +43,7 @@
        // 非根控制器
         viewController.hidesBottomBarWhenPushed = YES;
        // 设置返回按钮,只有非根控制器
-     viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithimage:[UIImage imageNamed:@"back"] highImage:[UIImage imageNamed:@""]  target:self action:@selector(back) title:@""];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithimage:[UIImage imageNamed:@"back"] highImage:nil  target:self action:@selector(back) title:nil];
     }
     // 真正在跳转
     [super pushViewController:viewController animated:animated];

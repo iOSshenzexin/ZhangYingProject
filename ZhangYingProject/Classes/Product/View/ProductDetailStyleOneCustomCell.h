@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZXProuctDetailModel;
 @interface ProductDetailStyleOneCustomCell : UITableViewCell
+
+@property (nonatomic,copy) ZXProuctDetailModel *productDetail;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *summaryLbl;
+@property (weak, nonatomic) IBOutlet UIView *tagView;
 
 @end

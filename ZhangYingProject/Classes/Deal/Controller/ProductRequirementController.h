@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZXTextView.h"
 @interface ProductRequirementController : UIViewController
 - (IBAction)didClickChangePhoneNumber:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+
+@property (weak, nonatomic) IBOutlet ZXTextView *textView;
 
 @end

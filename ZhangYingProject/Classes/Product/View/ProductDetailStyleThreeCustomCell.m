@@ -7,18 +7,42 @@
 //
 
 #import "ProductDetailStyleThreeCustomCell.h"
+#import "ZXProuctDetailModel.h"
 
 @implementation ProductDetailStyleThreeCustomCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+
+NSString *const productDetailStyleThreeCustomCell = @"ProductDetailStyleThreeCustomCell";
+
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=5;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    ProductDetailStyleThreeCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:productDetailStyleThreeCustomCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductDetailStyleThreeCustomCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
+
+-(void)setDetailModel:(ZXProuctDetailModel *)detailModel
+{
+    _detailModel = detailModel;
+    self.productAllTitleLbi.text = detailModel.productAllTitle;
+    self.issuerNameLbl.text = detailModel.issuerName;
+    self.salesAreaLbl.text = detailModel.salesArea;
+    self.productFieldNameLbl.text = detailModel.productFieldName;
+    self.raiseScaleLbl.text = detailModel.raiseScale;
+    self.productDeadlineNameLbl.text = detailModel.productDeadlineName;
+    self.initialAmountLbl.text =detailModel.initialAmount;
+    self.payInterestNameLbl.text =detailModel.payInterestName;
+}
+
+
 
 @end

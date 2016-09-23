@@ -7,18 +7,43 @@
 //
 
 #import "ProductDetailStyleTwoCustomCell.h"
-
+#import "ZXProuctDetailModel.h"
 @implementation ProductDetailStyleTwoCustomCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+NSString *const productDetailStyleTwoCustomCell = @"ProductDetailStyleTwoCustomCell";
+
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=5;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    ProductDetailStyleTwoCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:productDetailStyleTwoCustomCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductDetailStyleTwoCustomCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
+-(void)setDetailModel:(ZXProuctDetailModel *)detailModel
+{
+    _detailModel = detailModel;
+    
+    self.commisionTypeNameLbl.text = detailModel.commisionTypeName;
+    
+    self.lbl1.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[0][@"minAmount"],detailModel.commList[0][@"maxAmount"]];
+     self.lbl4.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[1][@"minAmount"],detailModel.commList[1][@"maxAmount"]];
+     self.lbl7.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[2][@"minAmount"],detailModel.commList[2][@"maxAmount"]];
+    
+    self.lbl2.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"earnings"] floatValue]];
+    self.lbl5.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"earnings"] floatValue]];
+    self.lbl8.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[2][@"earnings"] floatValue]];
+    
+    self.lbl3.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"commision"] floatValue]];
+    self.lbl6.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"commision"] floatValue]];
+    self.lbl9.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[2][@"commision"] floatValue]];
+}
 @end

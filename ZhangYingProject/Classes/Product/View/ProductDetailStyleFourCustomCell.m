@@ -7,18 +7,31 @@
 //
 
 #import "ProductDetailStyleFourCustomCell.h"
+#import "ZXProuctDetailModel.h"
+NSString *const  productDetailStyleFourCustomCell= @"ProductDetailStyleFourCustomCell";
 
 @implementation ProductDetailStyleFourCustomCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=5;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    ProductDetailStyleFourCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:productDetailStyleFourCustomCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductDetailStyleFourCustomCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
+-(void)setDetailModel:(ZXProuctDetailModel *)detailModel
+{
+    _detailModel = detailModel;
+    self.salesStatusNameLbl.text = detailModel.salesStatusName;
+    self.salesDescLbl.text = detailModel.salesDesc;
+}
 @end

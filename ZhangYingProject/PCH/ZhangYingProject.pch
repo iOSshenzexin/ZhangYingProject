@@ -16,7 +16,8 @@
 
 #define   ZXResponseObject  ZXLog(@"%@",responseObject);
 #define   ZXError  ZXLog(@"%@",error);
-
+#define   ZXNotificationCeter [NSNotificationCenter defaultCenter]
+#define   kWindowRootController [UIApplication sharedApplication].keyWindow.rootViewController
 
 #import "ZXConst.h"
 #import "Reachability.h"
@@ -59,6 +60,11 @@
 
 /** 产品-详情 API */
 #define Product_Detail_Url [baseUrl stringByAppendingString:@"/m_product/productDetails.do"]
+
+/** 产品-预约 API */
+#define Product_MakeReservation_Url [baseUrl stringByAppendingString:@"/m_make/addMakes.do"]
+
+
 
 /** 注册 API */
 #define Product_Register_Url [baseUrl stringByAppendingString:@"/m_member/register.do"]
@@ -115,5 +121,8 @@
 
 /** 交易-我的订单 API */
 #define Deal_MyOrderList_Url [baseUrl stringByAppendingString:@"/m_order/orderList.do"]
+
+/** 交易-产品需求 API */
+#define Deal_ProductRequirement_Url [baseUrl stringByAppendingString:@"/m_demand/addProductDemand.do"]
 
 

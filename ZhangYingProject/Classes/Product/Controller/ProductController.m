@@ -18,6 +18,7 @@
 
 #import "ZXTopic.h"
 #import "ZXProduct.h"
+#import "ZXSortModel.h"
 
 #define DurationTime 0.35
 
@@ -45,6 +46,8 @@
 
 @property (nonatomic,assign) BOOL isShow;
 
+
+@property (nonatomic,copy) NSMutableArray *models;
 @end
 
 @implementation ProductController
@@ -157,23 +160,8 @@
     scView.block = ^(int index){
         ZXTopic *topic = self.titleArray[index-1];
         int productType = [topic.product_id intValue];
-        switch (index) {
-            case 1:
-                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.firstTV Status:index];
-                break;
-            case 2:
-                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.secondTV Status:index];
-                break;
-            case 3:
-                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.threeTV Status:index];
-                break;
-            case 4:
-                [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.fourTV Status:index];
-                break;
-                
-            default:
-                break;
-        }
+        UITableView *tableView = [(UIView *)contentArray[index-1] subviews][0];
+        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType];
         ZXLog(@"Product Index :%d ",index);
     };
     
@@ -184,7 +172,6 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"productType"] = @(status);
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
         self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -224,9 +211,13 @@
     return NO;
 }
 
+
 static BOOL isCreated = YES;
 #pragma mark - 左边筛选按钮对应事件
 - (void)didClickFilter:(UIButton *)btn{
+    NSMutableArray *sortTitles = [self requestDataByHttp:Product_SortList_Url];
+    NSInteger count = sortTitles.count;
+    
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isShow == YES) {
         if (self.showSortView) {
@@ -244,17 +235,11 @@ static BOOL isCreated = YES;
         self.filterView = scrollView ;
         [self.showView addSubview:self.filterView];
         
-        for (NSInteger i = 0; i < 6; i ++) {
-            BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0, 0 + i * 130, ScreenW, 130)];
-            [block setupBlockViewContent:[NSArray arrayWithObjects:@"全部",@"<12个月",@"12个月",@"13-23个月",@"13-23个月",@"13-23个月",@"13-23个月", nil] buttonBorderWidth:3 borderColor:[UIColor redColor]  title:@"产品期限"];
-            [self.filterView addSubview:block];
-            }
-        
         FilterBottomView *filterBottomView = [[[NSBundle mainBundle]loadNibNamed:@"FilterBottomView" owner:self options:nil] firstObject];
         [filterBottomView.cancleBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
         [filterBottomView.confirmBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
         
-        filterBottomView.frame = CGRectMake(0,780, ScreenW, 60);
+        filterBottomView.frame = CGRectMake(0,660, ScreenW, 60);
         UIColor *color = RGB(242, 242, 242, 1);
         
         filterBottomView.layer.borderColor = color.CGColor;
@@ -262,7 +247,7 @@ static BOOL isCreated = YES;
         
         [scrollView addSubview:filterBottomView];
         
-        scrollView.contentSize = CGSizeMake(ScreenW, 840);
+        scrollView.contentSize = CGSizeMake(ScreenW, 720);
         
         
         [UIView animateWithDuration:DurationTime animations:^{
@@ -286,8 +271,25 @@ static BOOL isCreated = YES;
     isCreated = !isCreated;
 }
 
-- (void)requestDataByHttp:(NSString *)url{
-    //Product_SortList_Url
+- (NSMutableArray *)requestDataByHttp:(NSString *)url{
+    NSMutableArray *titles = [NSMutableArray array];
+    NSMutableArray *models = [NSMutableArray array];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        for (NSString *key in [responseObject[@"data"] allKeys]) {
+            [titles addObject:key];
+            [models addObject: [ZXSortModel mj_objectArrayWithKeyValuesArray:[responseObject[@"data"]objectForKey:key]]];
+        }
+        for (NSInteger i = 0; i < titles.count; i ++) {
+            BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0, 0 + i * 110, ScreenW, 110)];
+            [block setupBlockViewContent:models[i] buttonBorderWidth:3 borderColor:[UIColor redColor]  title:titles[i]];
+            [self.filterView addSubview:block];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    self.models = models;
+    return titles;
 }
 
 
@@ -310,6 +312,8 @@ static BOOL isSetUp = YES;
 
 #pragma mark - 右边排序按钮对应事件
 - (void)didClickSort:(UIButton *)btn{
+    
+    
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isShow == YES) {
         if (self.showView) {
@@ -331,13 +335,14 @@ static BOOL isSetUp = YES;
         self.sortView = scrollView ;
         
         [self.showSortView addSubview:self.sortView];
-        BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0,0, ScreenW, 130)];
-        [block setupSortBlockContentView:[NSArray arrayWithObjects:@"全部",@"<12个月",@"12个月",@"13-23个月",@"13-23个月",@"13-23个月",@"13-23个月", nil]];
+        CGFloat blockH = 80;
+        BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0,0, ScreenW, blockH)];
+        [block setupSortBlockContentView:[NSArray arrayWithObjects:@"默认",@"最新",@"收益",@"佣金", nil]];
         [self.sortView addSubview:block];
         [UIView animateWithDuration:DurationTime animations:^{
             self.showSortView.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0.65];}];
         [UIView animateWithDuration:DurationTime animations:^{
-            self.sortView.frame = CGRectMake(0, 0, self.sortView.frame.size.width,130);
+            self.sortView.frame = CGRectMake(0, 0, self.sortView.frame.size.width,blockH);
             }completion:nil];
         [app.keyWindow insertSubview:self.showSortView atIndex:4];
         self.isShow = YES;
@@ -377,7 +382,7 @@ static BOOL isSetUp = YES;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZXProductCell *cell = [self.firstTV cellForRowAtIndexPath:indexPath];
+    ZXProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     ProductDetailController *vc = [[ProductDetailController alloc] init];
     vc.title = cell.product.productTitle;
     ZXProduct *product = self.productArray[indexPath.row];

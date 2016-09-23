@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductReservationController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *productNameLbl;
+@property (nonatomic,copy) NSString *productName;
+
+@property (nonatomic,copy) NSString *product_id;
+
 @property (weak, nonatomic) IBOutlet UITextField *nameTxt;
 @property (weak, nonatomic) IBOutlet UITextField *idTxt;
+
 @property (weak, nonatomic) IBOutlet UITextField *dateTxt;
 @property (weak, nonatomic) IBOutlet UITextField *accountTxt;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLbl;

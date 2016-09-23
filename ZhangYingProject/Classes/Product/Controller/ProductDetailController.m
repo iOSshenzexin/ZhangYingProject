@@ -18,25 +18,48 @@
 
 #import "ZXPop.h"
 #import "ZXWindowiew.h"
+#import "ZXProuctDetailModel.h"
+
+#import "LoginController.h"
 @interface ProductDetailController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *titleArray;
+
+
+@property (nonatomic,strong) ZXProuctDetailModel *detailModel;
 
 @end
 
 @implementation ProductDetailController
 - (IBAction)didClickShowProductShare:(id)sender {
-    self.hidesBottomBarWhenPushed = YES;
-    ProductShareController *vc = [[ProductShareController alloc] init];
-    vc.title = @"产品分享";
-    [self.navigationController pushViewController:vc animated:YES];
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    //判断是否登录
+    if (app.isLogin) {
+        ProductShareController *vc = [[ProductShareController alloc] init];
+        vc.title = @"产品分享";
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        LoginController *login = [[LoginController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+        [kWindowRootController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 - (IBAction)didClickProductReservation:(id)sender {
-    self.hidesBottomBarWhenPushed = YES;
-    ProductReservationController *vc = [[ProductReservationController alloc] init];
-    vc.title = @"预约";
-    [self.navigationController pushViewController:vc animated:YES];
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    //判断是否登录
+    if (app.isLogin) {
+        ProductReservationController *vc = [[ProductReservationController alloc] init];
+        vc.title = @"预约";
+        vc.productName = self.title;
+        vc.product_id = self.product_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        LoginController *login = [[LoginController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+        [kWindowRootController presentViewController:nav animated:YES completion:nil];
+    }
+    
 }
 
 -(NSArray *)titleArray{
@@ -46,15 +69,10 @@
     return _titleArray;
 }
 
-static NSString *styleOne = @"styleOne";
-static NSString *styleTwo = @"styleTwo";
-static NSString *styleThree = @"styleThree";
-static NSString *styleFour = @"styleFour";
 static NSString *styleDefault = @"styleDefault";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self registerCustomCell];
     self.bottomImageView.layer.borderWidth = 1;
     UIColor *color = RGB(216, 216, 216, 0.8);
     self.bottomImageView.layer.borderColor = [color CGColor];
@@ -69,12 +87,43 @@ static NSString *styleDefault = @"styleDefault";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pid"] = self.product_id;
     [manager POST:Product_Detail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
-        ZXLog(@"responseObject %@",responseObject);
+        ZXResponseObject
+       self.detailModel = [ZXProuctDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+        [self.productDetailTableview reloadData];
         /*
          {
          data =     {
+         commList =         (
+         {
+         commision = 10;
+         earnings = 10;
+         id = 1;
+         maxAmount = 100;
+         minAmount = 0;
+         productId = 1;
+         status = 1;
+         },
+         {
          commision = 9;
-         commisionType = 1;
+         earnings = 10;
+         id = 2;
+         maxAmount = 200;
+         minAmount = 100;
+         productId = 1;
+         status = 1;
+         },
+         {
+         commision = 9;
+         earnings = 10;
+         id = 3;
+         maxAmount = 0;
+         minAmount = 200;
+         productId = 1;
+         status = 1;
+         }
+         );
+         commision = 9;
+         commisionType = 31;
          commisionTypeName = "";
          createTime = "<null>";
          earmarking = "中江信托-金鹤131号（第五期）";
@@ -84,6 +133,9 @@ static NSString *styleDefault = @"styleDefault";
          financing = "阿斯达是的";
          initialAmount = 22;
          initialAmountName = "";
+         isCollection = 0;
+         isControll = 1;
+         isRecommend = 1;
          issuer = 18;
          issuerName = "";
          labelId =         (
@@ -143,12 +195,15 @@ static NSString *styleDefault = @"styleDefault";
          productTypeName = "信托";
          project = "中江信托-金鹤131号（第五期）";
          raiseAccount = "中江信托-金鹤131号（第五期）";
+         raiseScale = "15亿";
+         salesArea = "青岛";
          salesDesc = "第五期开放搭款中";
          salesStatus = 11;
          salesStatusName = "开放募集";
+         sellers = "金经理";
          sort = 0;
          startRow = 0;
-         status = 1;
+         status = 0;
          totalNum = 0;
          updateTime =         {
          date = 7;
@@ -173,60 +228,29 @@ static NSString *styleDefault = @"styleDefault";
 }
 
 
-- (void)registerCustomCell{
-    [self.productDetailTableview registerNib:[UINib nibWithNibName:@"ProductDetailStyleOneCustomCell" bundle:nil] forCellReuseIdentifier:styleOne];
-    [self.productDetailTableview registerNib:[UINib nibWithNibName:@"ProductDetailStyleTwoCustomCell" bundle:nil] forCellReuseIdentifier:styleTwo];
-    [self.productDetailTableview registerNib:[UINib nibWithNibName:@"ProductDetailStyleThreeCustomCell" bundle:nil] forCellReuseIdentifier:styleThree];
-    [self.productDetailTableview registerNib:[UINib nibWithNibName:@"ProductDetailStyleFourCustomCell" bundle:nil] forCellReuseIdentifier:styleFour];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 11;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        ProductDetailStyleOneCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:styleOne];
-        if (!cell) {
-            cell = [[ProductDetailStyleOneCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleOne];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.layer.borderWidth = 3;
-        UIColor *color = RGB(242, 242, 242, 1);
-        cell.layer.borderColor = [color CGColor];
+        ProductDetailStyleOneCustomCell *cell = [ProductDetailStyleOneCustomCell cellWithTableView:tableView];
+        cell.productDetail = self.detailModel;
         return cell;
     }
     if (indexPath.row == 1) {
-        ProductDetailStyleTwoCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:styleTwo];
-        if (!cell) {
-            cell = [[ProductDetailStyleTwoCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleTwo];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.layer.borderWidth = 3;
-        UIColor *color = RGB(242, 242, 242, 1);
-        cell.layer.borderColor = [color CGColor];
+        ProductDetailStyleTwoCustomCell *cell = [ProductDetailStyleTwoCustomCell cellWithTableView:tableView];
+        cell.detailModel = self.detailModel;
         return cell;
     }
     if (indexPath.row == 2) {
-        ProductDetailStyleThreeCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:styleThree];
-        if (!cell) {
-            cell = [[ProductDetailStyleThreeCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleThree];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.layer.borderWidth = 3;
-        UIColor *color = RGB(242, 242, 242, 1);
-        cell.layer.borderColor = [color CGColor];
+        ProductDetailStyleThreeCustomCell *cell = [ProductDetailStyleThreeCustomCell cellWithTableView:tableView];
+        cell.detailModel = self.detailModel;
         return cell;
     }
     if (indexPath.row == 3) {
-        ProductDetailStyleFourCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:styleFour];
-        if (!cell) {
-            cell = [[ProductDetailStyleFourCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleFour];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.layer.borderWidth = 3;
-        UIColor *color = RGB(242, 242, 242, 1);
-        cell.layer.borderColor = [color CGColor];
+        ProductDetailStyleFourCustomCell *cell = [ProductDetailStyleFourCustomCell cellWithTableView:tableView];
+        cell.detailModel = self.detailModel;
         return cell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:styleDefault];
@@ -245,22 +269,26 @@ static NSString *styleDefault = @"styleDefault";
         return 180;
     }
     if (indexPath.row == 2) {
-        return 265;
+        return 270;
     }
     if (indexPath.row == 3) {
-        return 105;
+        return 115;
     }
     return 44;
 }
 
 - (IBAction)didClickCollecting:(id)sender {
-    self.collectedBtn.selected = !self.collectedBtn.selected;
-    if (self.collectedBtn.selected) {
-        [MBProgressHUD showSuccess:@"收藏成功!"];
-        [self.collectedBtn setImage:[UIImage imageNamed:@"pro2-details09"] forState:UIControlStateSelected];
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    //判断是否登录
+    if (app.isLogin) {
+        self.collectedBtn.selected = !self.collectedBtn.selected;
+        (self.collectedBtn.selected)?( [MBProgressHUD showSuccess:@"收藏成功!"]):([MBProgressHUD showSuccess:@"收藏取消!"]);
     }else{
-        [MBProgressHUD showSuccess:@"收藏取消!"];
+        LoginController *login = [[LoginController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+        [kWindowRootController presentViewController:nav animated:YES completion:nil];
     }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -271,31 +299,31 @@ static NSString *styleDefault = @"styleDefault";
     [window.cancleBtn addTarget:self action:@selector(didClickCancle:) forControlEvents:UIControlEventTouchUpInside];
         switch (indexPath.row) {
             case 4:
-                window.contentTxt.text = @"1.新加坡总理李显龙21日发表长篇演说时突显不适，收看电视转播的观众表示担忧\n 2.不过医生表示情况并不严重，他也在休息后继续完成演说，并提及计划下次大选后交棒给接班人。";
+                window.contentTxt.text = self.detailModel.raiseAccount;
                 window.titleLabel.text = @"募集账号";
                 break;
             case 5:
-                window.contentTxt.text = @"1.8月21日，重庆市气象台发布“高温红色预警”信号。市民在高温天气的火车钢轨上进行实验，把新鲜的肉和鸡蛋放在滚烫的地面上，温度表显示的实时地面温度已达到温度表的最高值50℃\n2.一个小时的时间，肉和鸡蛋几乎都被高温的地面烫熟。";
+                window.contentTxt.text = self.detailModel.earmarking;
                 window.titleLabel.text = @"资金用途";
                 break;
             case 6:
-                window.contentTxt.text = @"1.陕西省榆林市西南方向，距市中心约20公里的毛乌素沙漠边缘地带，一处现代化居民小区孤零零地矗立在荒漠中。\n2.过去四年内，当地2000多户居民将多年的积蓄投入这座名为“凤凰新城”的政府保障房小区，希望在这里实现自己的安居梦。\n3.如今，23栋已竣工近2年的住宅楼，却由于周边配套设施严重滞后以及小区内基础设施缺失，而仅仅收获了不足10%的入住率，俨然成为了沙漠中的“孤岛”。";
+                window.contentTxt.text = self.detailModel.payment;
                 window.titleLabel.text = @"还款来源";
                 break;
             case 7:
-                window.contentTxt.text = @"1.陕西省榆林市西南方向，距市中心约20公里的毛乌素沙漠边缘地带，一处现代化居民小区孤零零地矗立在荒漠中。\n2.过去四年内，当地2000多户居民将多年的积蓄投入这座名为“凤凰新城”的政府保障房小区，希望在这里实现自己的安居梦。\n3.如今，23栋已竣工近2年的住宅楼，却由于周边配套设施严重滞后以及小区内基础设施缺失，而仅仅收获了不足10%的入住率，俨然成为了沙漠中的“孤岛”。\n4.陕西省榆林市西南方向，距市中心约20公里的毛乌素沙漠边缘地带，一处现代化居民小区孤零零地矗立在荒漠中。\n5.过去四年内，当地2000多户居民将多年的积蓄投入这座名为“凤凰新城”的政府保障房小区，希望在这里实现自己的安居梦。\n6.如今，23栋已竣工近2年的住宅楼，却由于周边配套设施严重滞后以及小区内基础设施缺失，而仅仅收获了不足10%的入住率，俨然成为了沙漠中的“孤岛”。\n7.陕西省榆林市西南方向，距市中心约20公里的毛乌素沙漠边缘地带，一处现代化居民小区孤零零地矗立在荒漠中。\n8.过去四年内，当地2000多户居民将多年的积蓄投入这座名为“凤凰新城”的政府保障房小区，希望在这里实现自己的安居梦。\n9.如今，23栋已竣工近2年的住宅楼，却由于周边配套设施严重滞后以及小区内基础设施缺失，而仅仅收获了不足10%的入住率，俨然成为了沙漠中的“孤岛”。";
+                window.contentTxt.text = self.detailModel.financing;
                 window.titleLabel.text = @"融资方介绍";
                 break;
             case 8:
-                window.contentTxt.text = @"";
+                window.contentTxt.text = self.detailModel.measures;
                 window.titleLabel.text = @"风控措施";
                 break;
             case 9:
-                window.contentTxt.text = @"";
+                window.contentTxt.text = self.detailModel.project;
                 window.titleLabel.text = @"项目亮点";
                 break;
             case 10:
-                window.contentTxt.text = @"";
+                window.contentTxt.text = self.detailModel.enclosure;
                 window.titleLabel.text = @"产品附件";
                 break;
             default:

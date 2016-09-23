@@ -65,6 +65,7 @@
                     <state key="normal" image="pro2-details06">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <state key="selected" image="pro2-details09"/>
                     <connections>
                         <action selector="didClickCollecting:" destination="-1" eventType="touchUpInside" id="Mjb-DJ-4Zk"/>
                     </connections>
@@ -96,6 +97,7 @@
         <image name="pro2-details06" width="23" height="23"/>
         <image name="pro2-details07" width="23" height="23"/>
         <image name="pro2-details08" width="20" height="20"/>
+        <image name="pro2-details09" width="23" height="23"/>
         <image name="trade-base" width="360" height="59"/>
     </resources>
 </document>

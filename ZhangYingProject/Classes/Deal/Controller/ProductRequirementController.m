@@ -17,15 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSMutableAttributedString *mabString = [[NSMutableAttributedString alloc] initWithString:self.titleLbl.text];
-//    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4, 11)];
-    self.titleLbl.attributedText = [self getAttributedString:self.titleLbl.text];
-}
-/**富文本*/
-- (NSAttributedString *)getAttributedString:(NSString *)string{
-    NSMutableAttributedString *mabString = [[NSMutableAttributedString alloc] initWithString:string];
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4, 11)];
-    return mabString;
+    self.textView.placeholder = @"请把你的产品需求告诉我们,稍后我们会以电话的方式跟你联系.";
+    self.textView.placeholderTextColor = [UIColor grayColor];
+    ZXLoginModel *model = AppLoginModel;
+    self.titleLbl.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"请确认 %.0f 能联系到您",model.phone] Color:[UIColor redColor] FontSize:16];
 }
 
 /**弹窗动画*/
@@ -67,14 +62,39 @@
 - (void)didClickConfirmBtn:(UIButton *)btn{
     CustomAlertView *alerView = (CustomAlertView *)[self.view viewWithTag:103];
     NSString *str = [NSString stringWithFormat:@"请确认 %@ 能联系到您",alerView.numberTxt.text];
-    if (alerView.numberTxt.text.length == 0) {
-        
-    }else{
-        self.titleLbl.attributedText = [self getAttributedString:str];
+    if((alerView.numberTxt.text.length != 11) | (![ZXVerificationObject validateMobile:alerView.numberTxt.text])){
+        [MBProgressHUD showError:@"手机号码输入有误!"];
     }
-    [(UIView *)[self.view viewWithTag:102] removeFromSuperview];
-    [(UIView *)[self.view viewWithTag:103] removeFromSuperview];
+    else{
+        self.titleLbl.attributedText = [UILabel labelWithRichNumber:str Color:[UIColor redColor] FontSize:16];
+        [(UIView *)[self.view viewWithTag:102] removeFromSuperview];
+        [(UIView *)[self.view viewWithTag:103] removeFromSuperview];
+   }
 }
+
+
+- (IBAction)didClickSubmitRequirement:(id)sender {
+    NSString *phone = [[self.titleLbl.text componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet]] componentsJoinedByString:@""];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = @1;
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    params[@"demandDetail"] = self.textView.text;
+    params[@"phone"] = phone;
+    [manager POST:Deal_ProductRequirement_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if([responseObject[@"status"] intValue] == 1){
+            [MBProgressHUD showSuccess:@"提交成功!"];
+        }else{
+            [MBProgressHUD showError:@"提交失败,请稍后重试!"];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD showError:@"网络错误,请稍后重试!"];
+        ZXError
+    }];
+    
+}
+
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

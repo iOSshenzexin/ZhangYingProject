@@ -89,7 +89,6 @@
 
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
 //    NSLog(@"--tabbaritem.index--%lu",[tabBarController.viewControllers indexOfObject:viewController]);
-    NSLog(@"--tabbaritem.title--%@",viewController.tabBarItem.title);
     if ([viewController.tabBarItem.title isEqualToString:@"交易"] | [viewController.tabBarItem.title isEqualToString:@"我的"] ) {
         //如果用户ID存在的话，说明已登陆
         if (self.isLogin == YES) {

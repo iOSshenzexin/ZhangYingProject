@@ -46,6 +46,9 @@
 		01C8ABD61D8F988200B7E575 /* ZXProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8ABD51D8F988200B7E575 /* ZXProduct.m */; };
 		01C8ABDA1D8F9AB400B7E575 /* ZXProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8ABD81D8F9AB400B7E575 /* ZXProductCell.m */; };
 		01C8ABDB1D8F9AB400B7E575 /* ZXProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C8ABD91D8F9AB400B7E575 /* ZXProductCell.xib */; };
+		01D262B61D94BDB2009E6E61 /* ZXSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D262B51D94BDB2009E6E61 /* ZXSortModel.m */; };
+		01D262B91D94D0B4009E6E61 /* ZXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D262B81D94D0B4009E6E61 /* ZXTextView.m */; };
+		01D262BC1D94F88E009E6E61 /* ZXProuctDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D262BB1D94F88E009E6E61 /* ZXProuctDetailModel.m */; };
 		01DAC3331D88DFEB00DB0477 /* CALayer+BorderWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3321D88DFEB00DB0477 /* CALayer+BorderWidth.m */; };
 		01DAC33A1D88E04C00DB0477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3361D88E04C00DB0477 /* AppDelegate.m */; };
 		01DAC33B1D88E04C00DB0477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3371D88E04C00DB0477 /* main.m */; };
@@ -301,6 +304,12 @@
 		01C8ABD71D8F9AB400B7E575 /* ZXProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXProductCell.h; sourceTree = "<group>"; };
 		01C8ABD81D8F9AB400B7E575 /* ZXProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXProductCell.m; sourceTree = "<group>"; };
 		01C8ABD91D8F9AB400B7E575 /* ZXProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXProductCell.xib; sourceTree = "<group>"; };
+		01D262B41D94BDB2009E6E61 /* ZXSortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXSortModel.h; sourceTree = "<group>"; };
+		01D262B51D94BDB2009E6E61 /* ZXSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXSortModel.m; sourceTree = "<group>"; };
+		01D262B71D94D0B4009E6E61 /* ZXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXTextView.h; sourceTree = "<group>"; };
+		01D262B81D94D0B4009E6E61 /* ZXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXTextView.m; sourceTree = "<group>"; };
+		01D262BA1D94F88E009E6E61 /* ZXProuctDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXProuctDetailModel.h; sourceTree = "<group>"; };
+		01D262BB1D94F88E009E6E61 /* ZXProuctDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXProuctDetailModel.m; sourceTree = "<group>"; };
 		01DAC32F1D88DF7000DB0477 /* ZhangYingProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhangYingProject.pch; sourceTree = "<group>"; };
 		01DAC3311D88DFEB00DB0477 /* CALayer+BorderWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+BorderWidth.h"; sourceTree = "<group>"; };
 		01DAC3321D88DFEB00DB0477 /* CALayer+BorderWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+BorderWidth.m"; sourceTree = "<group>"; };
@@ -855,6 +864,8 @@
 				01DAC3761D88E11600DB0477 /* DealTopCustomCell.h */,
 				01DAC3771D88E11600DB0477 /* DealTopCustomCell.m */,
 				01DAC3781D88E11600DB0477 /* DealTopCustomCell.xib */,
+				01D262B71D94D0B4009E6E61 /* ZXTextView.h */,
+				01D262B81D94D0B4009E6E61 /* ZXTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1124,6 +1135,10 @@
 				01C8ABC31D8F707B00B7E575 /* ZXTopic.m */,
 				01C8ABD41D8F988200B7E575 /* ZXProduct.h */,
 				01C8ABD51D8F988200B7E575 /* ZXProduct.m */,
+				01D262B41D94BDB2009E6E61 /* ZXSortModel.h */,
+				01D262B51D94BDB2009E6E61 /* ZXSortModel.m */,
+				01D262BA1D94F88E009E6E61 /* ZXProuctDetailModel.h */,
+				01D262BB1D94F88E009E6E61 /* ZXProuctDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1131,23 +1146,18 @@
 		01DAC4111D88E11700DB0477 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				01DAC4121D88E11700DB0477 /* BlockView.h */,
-				01DAC4131D88E11700DB0477 /* BlockView.m */,
-				01DAC4141D88E11700DB0477 /* FilterBottomView.h */,
-				01DAC4151D88E11700DB0477 /* FilterBottomView.m */,
-				01DAC4161D88E11700DB0477 /* FilterBottomView.xib */,
-				01DAC4171D88E11700DB0477 /* ProductDetailStyleFourCustomCell.h */,
-				01DAC4181D88E11700DB0477 /* ProductDetailStyleFourCustomCell.m */,
-				01DAC4191D88E11700DB0477 /* ProductDetailStyleFourCustomCell.xib */,
 				01DAC41A1D88E11700DB0477 /* ProductDetailStyleOneCustomCell.h */,
 				01DAC41B1D88E11700DB0477 /* ProductDetailStyleOneCustomCell.m */,
 				01DAC41C1D88E11700DB0477 /* ProductDetailStyleOneCustomCell.xib */,
-				01DAC41D1D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.h */,
-				01DAC41E1D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.m */,
-				01DAC41F1D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.xib */,
 				01DAC4201D88E11700DB0477 /* ProductDetailStyleTwoCustomCell.h */,
 				01DAC4211D88E11700DB0477 /* ProductDetailStyleTwoCustomCell.m */,
 				01DAC4221D88E11700DB0477 /* ProductDetailStyleTwoCustomCell.xib */,
+				01DAC41D1D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.h */,
+				01DAC41E1D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.m */,
+				01DAC41F1D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.xib */,
+				01DAC4171D88E11700DB0477 /* ProductDetailStyleFourCustomCell.h */,
+				01DAC4181D88E11700DB0477 /* ProductDetailStyleFourCustomCell.m */,
+				01DAC4191D88E11700DB0477 /* ProductDetailStyleFourCustomCell.xib */,
 				01DAC4231D88E11700DB0477 /* ProductShareCustomSyleOneCell.h */,
 				01DAC4241D88E11700DB0477 /* ProductShareCustomSyleOneCell.m */,
 				01DAC4251D88E11700DB0477 /* ProductShareCustomSyleOneCell.xib */,
@@ -1163,6 +1173,11 @@
 				01C8ABD71D8F9AB400B7E575 /* ZXProductCell.h */,
 				01C8ABD81D8F9AB400B7E575 /* ZXProductCell.m */,
 				01C8ABD91D8F9AB400B7E575 /* ZXProductCell.xib */,
+				01DAC4121D88E11700DB0477 /* BlockView.h */,
+				01DAC4131D88E11700DB0477 /* BlockView.m */,
+				01DAC4141D88E11700DB0477 /* FilterBottomView.h */,
+				01DAC4151D88E11700DB0477 /* FilterBottomView.m */,
+				01DAC4161D88E11700DB0477 /* FilterBottomView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1594,6 +1609,7 @@
 				01DAC4F31D88E12700DB0477 /* FloatingView.m in Sources */,
 				01DAC46F1D88E11700DB0477 /* ChangeLoginNumberController.m in Sources */,
 				01DAC4B01D88E11700DB0477 /* ProductDetailStyleFourCustomCell.m in Sources */,
+				01D262BC1D94F88E009E6E61 /* ZXProuctDetailModel.m in Sources */,
 				01DAC4FD1D88E12700DB0477 /* MBProgressHUD+WJTools.m in Sources */,
 				01DAC52D1D88E5C400DB0477 /* KNJudgementTool.m in Sources */,
 				01DAC46D1D88E11700DB0477 /* AddAdressController.m in Sources */,
@@ -1648,6 +1664,7 @@
 				01AD21891D8FD58D00BF3797 /* UILabel+ZXLabel.m in Sources */,
 				01DAC4891D88E11700DB0477 /* SecuritySetController.m in Sources */,
 				01C8ABC81D8F853900B7E575 /* ZXOrderUnderwayController.m in Sources */,
+				01D262B61D94BDB2009E6E61 /* ZXSortModel.m in Sources */,
 				015360E11D91100600713825 /* ForgetPWDController.m in Sources */,
 				015360E51D91100600713825 /* RegisterController.m in Sources */,
 				01DAC4FF1D88E12700DB0477 /* MBProgressHUD.m in Sources */,
@@ -1655,6 +1672,7 @@
 				01DAC4831D88E11700DB0477 /* MyWalletController.m in Sources */,
 				01C8ABCD1D8F859300B7E575 /* ZXOrderCompletedController.m in Sources */,
 				01DAC45B1D88E11700DB0477 /* SecondView.m in Sources */,
+				01D262B91D94D0B4009E6E61 /* ZXTextView.m in Sources */,
 				01DAC47D1D88E11700DB0477 /* ModifyPhoneController.m in Sources */,
 				01DAC4481D88E11700DB0477 /* CustomHeaderView.m in Sources */,
 				01DAC48B1D88E11700DB0477 /* SetNewPWDController.m in Sources */,
