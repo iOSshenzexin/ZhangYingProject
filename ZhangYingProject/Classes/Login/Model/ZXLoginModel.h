@@ -54,4 +54,6 @@
 @property (nonatomic,assign) int allCommision;
 
 
+@property (nonatomic,copy) NSString *address;
+
 @end

@@ -386,7 +386,8 @@ static BOOL isSetUp = YES;
     ProductDetailController *vc = [[ProductDetailController alloc] init];
     vc.title = cell.product.productTitle;
     ZXProduct *product = self.productArray[indexPath.row];
-    vc.product_id = product.productType;
+    vc.product_id = product.proId;
+    ZXLog(@"product_id = %@",vc.product_id);
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

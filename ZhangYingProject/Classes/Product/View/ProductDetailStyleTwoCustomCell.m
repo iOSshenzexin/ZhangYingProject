@@ -33,17 +33,31 @@ NSString *const productDetailStyleTwoCustomCell = @"ProductDetailStyleTwoCustomC
     _detailModel = detailModel;
     
     self.commisionTypeNameLbl.text = detailModel.commisionTypeName;
-    
-    self.lbl1.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[0][@"minAmount"],detailModel.commList[0][@"maxAmount"]];
-     self.lbl4.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[1][@"minAmount"],detailModel.commList[1][@"maxAmount"]];
-     self.lbl7.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[2][@"minAmount"],detailModel.commList[2][@"maxAmount"]];
-    
-    self.lbl2.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"earnings"] floatValue]];
-    self.lbl5.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"earnings"] floatValue]];
-    self.lbl8.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[2][@"earnings"] floatValue]];
-    
-    self.lbl3.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"commision"] floatValue]];
-    self.lbl6.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"commision"] floatValue]];
-    self.lbl9.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[2][@"commision"] floatValue]];
+    if ([detailModel.commList count] == 1) {
+        self.lbl1.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[0][@"minAmount"],detailModel.commList[0][@"maxAmount"]];
+        self.lbl2.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"earnings"] floatValue]];
+        self.lbl3.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"commision"] floatValue]];
+    }
+    if ([detailModel.commList count] == 2) {
+        self.lbl1.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[0][@"minAmount"],detailModel.commList[0][@"maxAmount"]];
+        self.lbl2.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"earnings"] floatValue]];
+        self.lbl3.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"commision"] floatValue]];
+        self.lbl4.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[1][@"minAmount"],detailModel.commList[1][@"maxAmount"]];
+        self.lbl5.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"earnings"] floatValue]];
+        self.lbl6.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"commision"] floatValue]];
+
+    }
+    if ([detailModel.commList count] == 3) {
+        self.lbl1.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[0][@"minAmount"],detailModel.commList[0][@"maxAmount"]];
+        self.lbl2.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"earnings"] floatValue]];
+        self.lbl3.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[0][@"commision"] floatValue]];
+        self.lbl4.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[1][@"minAmount"],detailModel.commList[1][@"maxAmount"]];
+        self.lbl5.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"earnings"] floatValue]];
+        self.lbl6.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[1][@"commision"] floatValue]];
+        self.lbl7.text = [NSString stringWithFormat:@"%@-%@万",detailModel.commList[2][@"minAmount"],detailModel.commList[2][@"maxAmount"]];
+         self.lbl8.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[2][@"earnings"] floatValue]];
+         self.lbl9.text = [NSString stringWithFormat:@"%.2f%%",[detailModel.commList[2][@"commision"] floatValue]];
+    }
+
 }
 @end

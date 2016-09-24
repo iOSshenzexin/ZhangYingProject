@@ -25,7 +25,7 @@
  */
 
 /** 产品Id */
-@property (nonatomic,copy) NSString *productType;
+@property (nonatomic,copy) NSString *proId;
 /** 产品标题 */
 @property (nonatomic,copy) NSString *productTitle;
 /** 佣金（显示时后面加%） */

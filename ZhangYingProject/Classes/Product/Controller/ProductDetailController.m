@@ -31,6 +31,7 @@
 @end
 
 @implementation ProductDetailController
+
 - (IBAction)didClickShowProductShare:(id)sender {
     AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
     //判断是否登录
@@ -76,11 +77,11 @@ static NSString *styleDefault = @"styleDefault";
     self.bottomImageView.layer.borderWidth = 1;
     UIColor *color = RGB(216, 216, 216, 0.8);
     self.bottomImageView.layer.borderColor = [color CGColor];
-    /** 加载网络数据 */
+    /** 加载产品详情数据 */
     [self loadInternetData];
 }
 
-#pragma mark - 加载网络数据
+#pragma mark - 加载产品详情数据 
 - (void)loadInternetData
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -90,138 +91,6 @@ static NSString *styleDefault = @"styleDefault";
         ZXResponseObject
        self.detailModel = [ZXProuctDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
         [self.productDetailTableview reloadData];
-        /*
-         {
-         data =     {
-         commList =         (
-         {
-         commision = 10;
-         earnings = 10;
-         id = 1;
-         maxAmount = 100;
-         minAmount = 0;
-         productId = 1;
-         status = 1;
-         },
-         {
-         commision = 9;
-         earnings = 10;
-         id = 2;
-         maxAmount = 200;
-         minAmount = 100;
-         productId = 1;
-         status = 1;
-         },
-         {
-         commision = 9;
-         earnings = 10;
-         id = 3;
-         maxAmount = 0;
-         minAmount = 200;
-         productId = 1;
-         status = 1;
-         }
-         );
-         commision = 9;
-         commisionType = 31;
-         commisionTypeName = "";
-         createTime = "<null>";
-         earmarking = "中江信托-金鹤131号（第五期）";
-         earnings = 10;
-         enclosure = "中江信托-金鹤131号（第五期）";
-         endRow = 0;
-         financing = "阿斯达是的";
-         initialAmount = 22;
-         initialAmountName = "";
-         isCollection = 0;
-         isControll = 1;
-         isRecommend = 1;
-         issuer = 18;
-         issuerName = "";
-         labelId =         (
-         );
-         labelList =         (
-         {
-         id = 20;
-         labelId = 30;
-         labelName = "一年期";
-         productId = 1;
-         status = 1;
-         },
-         {
-         id = 19;
-         labelId = 9;
-         labelName = "半年付息";
-         productId = 1;
-         status = 1;
-         },
-         {
-         id = 18;
-         labelId = 8;
-         labelName = "2年期";
-         productId = 1;
-         status = 1;
-         },
-         {
-         id = 17;
-         labelId = 7;
-         labelName = "AA主体";
-         productId = 1;
-         status = 1;
-         },
-         {
-         id = 16;
-         labelId = 6;
-         labelName = "工商企业类";
-         productId = 1;
-         status = 1;
-         }
-         );
-         measures = "中江信托-金鹤131号（第五期）";
-         pageIndex = 0;
-         pageSize = 0;
-         payInterest = 26;
-         payInterestName = "";
-         payment = "中江信托-金鹤131号（第五期）";
-         proId = 1;
-         productAllTitle = "中江信托-金鹤131号（第五期）";
-         productDeadline = 1;
-         productDeadlineName = "<12个月";
-         productDesc = "中江信托-金鹤131号（第五期）";
-         productField = 14;
-         productFieldName = "";
-         productTitle = "中江信托-金鹤131号（第五期）";
-         productType = 1;
-         productTypeName = "信托";
-         project = "中江信托-金鹤131号（第五期）";
-         raiseAccount = "中江信托-金鹤131号（第五期）";
-         raiseScale = "15亿";
-         salesArea = "青岛";
-         salesDesc = "第五期开放搭款中";
-         salesStatus = 11;
-         salesStatusName = "开放募集";
-         sellers = "金经理";
-         sort = 0;
-         startRow = 0;
-         status = 0;
-         totalNum = 0;
-         updateTime =         {
-         date = 7;
-         day = 3;
-         hours = 16;
-         minutes = 54;
-         month = 8;
-         seconds = 38;
-         time = 1473238478000;
-         timezoneOffset = "-480";
-         year = 116;
-         };
-         };
-         msg = "查询成功";
-         status = 1;
-         token = "";
-         }
-         */
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXLog(@"%@",error);
     }];
@@ -282,7 +151,8 @@ static NSString *styleDefault = @"styleDefault";
     //判断是否登录
     if (app.isLogin) {
         self.collectedBtn.selected = !self.collectedBtn.selected;
-        (self.collectedBtn.selected)?( [MBProgressHUD showSuccess:@"收藏成功!"]):([MBProgressHUD showSuccess:@"收藏取消!"]);
+        (self.collectedBtn.selected)?([MBProgressHUD showSuccess:@"收藏成功!"]):([MBProgressHUD showSuccess:@"收藏取消!"]);
+        [self addFavorite];
     }else{
         LoginController *login = [[LoginController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
@@ -290,6 +160,24 @@ static NSString *styleDefault = @"styleDefault";
     }
     
 }
+
+/**
+ *  添加关注
+ */
+- (void)addFavorite
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"productId"] = self.product_id;
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    [manager POST:Product_AddFavorite_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row > 3){

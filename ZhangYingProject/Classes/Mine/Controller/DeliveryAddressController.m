@@ -150,6 +150,9 @@
         [MBProgressHUD hideHUD];
         if([responseObject[@"status"]intValue] == 1){
             [MBProgressHUD showSuccess:@"提交成功!"];
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:cellName.txtField.text,@"name",cellPhone.txtField.text,@"phone",[NSString stringWithFormat:@"%@%@%@%@",self.provinceArray[_provinceIndex][@"province"],[self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"city"],[self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"districts"][_regionIndex],cellDetail.txtField.text],@"address", nil];
+            [ZXNotificationCeter postNotificationName:@"changAddress" object:nil userInfo:dic];
+           
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             [MBProgressHUD showError:@"提交失败,请重试!"];
@@ -225,7 +228,11 @@ static NSString *cellID = @"cellId";
     [self.view endEditing:YES];
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [ZXNotificationCeter removeObserver:self];
+}
 
 
 @end

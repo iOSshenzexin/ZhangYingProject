@@ -19,9 +19,64 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self requestDefaultAddress];
     self.productNameLbl.text = [NSString stringWithFormat:@"  %@",self.productName];
     ZXLoginModel *model = AppLoginModel;
     self.phoneLbl.text = [NSString stringWithFormat:@"%.0f",model.phone];
+    self.dateTxt.inputView = [self createUIDataPicker];
+    
+    [ZXNotificationCeter addObserver:self selector:@selector(changeDefaultAddress:) name:@"changAddress" object:nil];
+}
+
+- (void)changeDefaultAddress:(NSNotification *)noti
+{
+    NSDictionary *dic = noti.userInfo;
+    self.nameTxt.text = dic[@"name"];
+    
+    self.phoneLbl.text = dic[@"phone"];
+    
+    self.addressLbl.text = dic[@"address"];
+}
+
+- (void)requestDefaultAddress
+{
+    ZXLoginModel *model = AppLoginModel;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"memberId"] = model.mid;
+    [manager POST:Product_DefaultAddress_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
+        NSDictionary *dic = responseObject[@"data"];
+        if ([dic[@"status"] intValue] == 1) {
+            self.addressLbl.text = [NSString stringWithFormat:@"%@%@%@%@",dic[@"provinceName"],dic[@"cityName"],dic[@"areaName"],dic[@"addressDetail"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+    
+}
+
+
+- (UIDatePicker *)createUIDataPicker
+{
+    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 200)];
+    // 本地化
+    datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh"];
+    // 日期控件格式
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(changed:) forControlEvents:UIControlEventValueChanged];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    self.dateTxt.text = [formatter stringFromDate:[datePicker date]];
+    return datePicker;
+}
+
+- (void)changed:(UIDatePicker *)datePicker{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    self.dateTxt.text = [formatter stringFromDate:[datePicker date]];
 }
 
 - (IBAction)didClickChangeAddress:(id)sender {
@@ -43,8 +98,6 @@
     params[@"address"] = self.addressLbl.text ;
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
-    
-    ZXLog(@"params %@",params);
     [manager POST:Product_MakeReservation_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -32,6 +32,7 @@
     
     
     [coder encodeInt:self.allCommision forKey:@"allCommision"];
+    [coder encodeObject:self.address forKey:@"address"];
 
 }
 
@@ -52,6 +53,9 @@
         self.phone = [decoder decodeDoubleForKey:@"phone"];
         
         self.allCommision = [decoder decodeIntForKey:@"allCommision"];
+        
+        self.address = [decoder decodeObjectForKey:@"address"];
+
     }
     return self;
 }
@@ -72,6 +76,7 @@
     model.email = self.email;
     model.phone = self.phone;
     model.allCommision = self.allCommision;
+    model.address = self.address;
     return model;
 }
 @end

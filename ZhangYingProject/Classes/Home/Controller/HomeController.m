@@ -72,19 +72,16 @@ static NSString *str = @"cellId";
     self.textField = txt;
     
     //添加轮播图
-    [self.scrollView addSubview:[TopBannerTool setupNetWorkBannerViewAtViewController:self]];
+    [self.scrollView addSubview:[TopBannerTool setupNetWorkBannerViewAtViewController:self ImageArray:nil IntroduceStringArray:nil]];
     //创建模块视图
     [self setupView];
-    //自定义返回按钮样式
-    [self deleteBack];
 }
 
-- (void)deleteBack{
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
-    backButtonItem.title = @"";
-    self.navigationItem.backBarButtonItem = backButtonItem;
+   /* 轮播图点击响应处理 */
+- (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSInteger)index{
+    NSLog(@"%zd---%zd",bannerView.tag,index);
 }
+
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     SearchController *vc = [SearchController sharedSearchController];
@@ -121,10 +118,6 @@ static NSString *str = @"cellId";
     CGFloat fourthViewY = scrollViewY + fourthView.bounds.size.height + 30;
     self.scrollView.contentSize = CGSizeMake(0, fourthViewY);
     
-}
-
-- (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSInteger)index{
-    NSLog(@"%zd---%zd",bannerView.tag,index);
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

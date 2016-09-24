@@ -54,7 +54,6 @@
             if (![ZXVerificationObject validatePassWord:self.pwdTF.text]) {
                 [MBProgressHUD showError:@"密码格式不合要求!"];
             }else{
-                [MBProgressHUD showMessage:@"登录中,请稍后...."];
                 [self loginAppwithUsernameAndPassword];
             }
         }
@@ -76,11 +75,13 @@
 }
 
 - (void)loginAppwithUsernameAndPassword{
+    [MBProgressHUD showMessage:@"登录中,请稍后...."];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = self.telephoneTF.text;
     params[@"password"] = [self.pwdTF.text stringMD5Hash];
     [manager POST:Product_Login_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
         [MBProgressHUD hideHUD];
         if([responseObject[@"status"] intValue] == 1){
         ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
@@ -110,6 +111,7 @@
         [MBProgressHUD showError:@"登录失败,请检查网络!"];
         ZXLog(@"%@",error);
     }];
+    
 }
 
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010253741D9622EE002AAC63 /* ZXMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 010253731D9622EE002AAC63 /* ZXMessageModel.m */; };
+		010253771D966ACF002AAC63 /* ZXCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 010253761D966ACF002AAC63 /* ZXCardModel.m */; };
 		013474721D6AD2BA00E00541 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = 013474711D6AD2BA00E00541 /* Province.plist */; };
 		013BE5A01D928F310087DDE5 /* ZXEnterRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 013BE59F1D928F310087DDE5 /* ZXEnterRecordModel.m */; };
 		015360D41D90C37A00713825 /* NSString+ZXMD5Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 015360D31D90C37A00713825 /* NSString+ZXMD5Hashing.m */; };
@@ -235,6 +237,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		010253721D9622EE002AAC63 /* ZXMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXMessageModel.h; sourceTree = "<group>"; };
+		010253731D9622EE002AAC63 /* ZXMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXMessageModel.m; sourceTree = "<group>"; };
+		010253751D966ACF002AAC63 /* ZXCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZXCardModel.h; path = ../../Product/Model/ZXCardModel.h; sourceTree = "<group>"; };
+		010253761D966ACF002AAC63 /* ZXCardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZXCardModel.m; path = ../../Product/Model/ZXCardModel.m; sourceTree = "<group>"; };
 		013474711D6AD2BA00E00541 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
 		013BE59E1D928F310087DDE5 /* ZXEnterRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXEnterRecordModel.h; sourceTree = "<group>"; };
 		013BE59F1D928F310087DDE5 /* ZXEnterRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXEnterRecordModel.m; sourceTree = "<group>"; };
@@ -750,23 +756,24 @@
 		01DAC33D1D88E11600DB0477 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				01DAC33E1D88E11600DB0477 /* Deal */,
-				01DAC3791D88E11600DB0477 /* Home */,
+				01DAC33E1D88E11600DB0477 /* Deal(交易) */,
+				01DAC3791D88E11600DB0477 /* Home(首页) */,
 				01DAC38F1D88E11600DB0477 /* Login */,
-				01DAC3991D88E11600DB0477 /* Message */,
-				01DAC3A61D88E11600DB0477 /* Mine */,
-				01DAC4001D88E11700DB0477 /* Product */,
+				01DAC3991D88E11600DB0477 /* Message(信息) */,
+				01DAC3A61D88E11600DB0477 /* Mine(我的) */,
+				01DAC4001D88E11700DB0477 /* Product(产品) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		01DAC33E1D88E11600DB0477 /* Deal */ = {
+		01DAC33E1D88E11600DB0477 /* Deal(交易) */ = {
 			isa = PBXGroup;
 			children = (
 				01DAC33F1D88E11600DB0477 /* Controller */,
 				01DAC3581D88E11600DB0477 /* Model */,
 				01DAC35B1D88E11600DB0477 /* View */,
 			);
+			name = "Deal(交易)";
 			path = Deal;
 			sourceTree = "<group>";
 		};
@@ -870,13 +877,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		01DAC3791D88E11600DB0477 /* Home */ = {
+		01DAC3791D88E11600DB0477 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
 				01DAC37A1D88E11600DB0477 /* Controller */,
 				01DAC3811D88E11600DB0477 /* Model */,
 				01DAC3821D88E11600DB0477 /* View */,
 			);
+			name = "Home(首页)";
 			path = Home;
 			sourceTree = "<group>";
 		};
@@ -929,13 +937,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		01DAC3991D88E11600DB0477 /* Message */ = {
+		01DAC3991D88E11600DB0477 /* Message(信息) */ = {
 			isa = PBXGroup;
 			children = (
 				01DAC39A1D88E11600DB0477 /* Controller */,
 				01DAC3A11D88E11600DB0477 /* Model */,
 				01DAC3A21D88E11600DB0477 /* View */,
 			);
+			name = "Message(信息)";
 			path = Message;
 			sourceTree = "<group>";
 		};
@@ -955,6 +964,8 @@
 		01DAC3A11D88E11600DB0477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				010253721D9622EE002AAC63 /* ZXMessageModel.h */,
+				010253731D9622EE002AAC63 /* ZXMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -969,13 +980,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		01DAC3A61D88E11600DB0477 /* Mine */ = {
+		01DAC3A61D88E11600DB0477 /* Mine(我的) */ = {
 			isa = PBXGroup;
 			children = (
 				01DAC3A71D88E11600DB0477 /* Controller */,
 				01DAC3E11D88E11700DB0477 /* Model */,
 				01DAC3E21D88E11700DB0477 /* View */,
 			);
+			name = "Mine(我的)";
 			path = Mine;
 			sourceTree = "<group>";
 		};
@@ -1054,6 +1066,8 @@
 				01BAE7711D9371C2009CACCD /* ZXWithdrawRecordModel.m */,
 				01BAE7731D938DBC009CACCD /* ZXAccountInfoModel.h */,
 				01BAE7741D938DBC009CACCD /* ZXAccountInfoModel.m */,
+				010253751D966ACF002AAC63 /* ZXCardModel.h */,
+				010253761D966ACF002AAC63 /* ZXCardModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1097,13 +1111,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		01DAC4001D88E11700DB0477 /* Product */ = {
+		01DAC4001D88E11700DB0477 /* Product(产品) */ = {
 			isa = PBXGroup;
 			children = (
 				01DAC4011D88E11700DB0477 /* Controller */,
 				01DAC40E1D88E11700DB0477 /* Model */,
 				01DAC4111D88E11700DB0477 /* View */,
 			);
+			name = "Product(产品)";
 			path = Product;
 			sourceTree = "<group>";
 		};
@@ -1613,6 +1628,7 @@
 				01DAC4FD1D88E12700DB0477 /* MBProgressHUD+WJTools.m in Sources */,
 				01DAC52D1D88E5C400DB0477 /* KNJudgementTool.m in Sources */,
 				01DAC46D1D88E11700DB0477 /* AddAdressController.m in Sources */,
+				010253771D966ACF002AAC63 /* ZXCardModel.m in Sources */,
 				01DAC5331D894A8A00DB0477 /* UITextField+ZXTF.m in Sources */,
 				01DAC4461D88E11700DB0477 /* CustomCollectionStyleTwoCell.m in Sources */,
 				01DAC4A01D88E11700DB0477 /* WithdrawCashStyleThreeCell.m in Sources */,
@@ -1711,6 +1727,7 @@
 				01DAC5001D88E12700DB0477 /* PopoverView.m in Sources */,
 				01DAC4571D88E11700DB0477 /* FirstView.m in Sources */,
 				01DAC4981D88E11700DB0477 /* CustomPersonCell.m in Sources */,
+				010253741D9622EE002AAC63 /* ZXMessageModel.m in Sources */,
 				01DAC4401D88E11700DB0477 /* CustomAlertView.m in Sources */,
 				01DAC33B1D88E04C00DB0477 /* main.m in Sources */,
 				01DAC44D1D88E11700DB0477 /* CustomShareCell.m in Sources */,

@@ -34,7 +34,21 @@ static NSString *str = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTopSegment];
+    [self requestProductAnnouncementInfo];
 }
+
+- (void)requestProductAnnouncementInfo
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [manager POST:Deal_ProductAnnounce_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+
 
 -(NSArray *)titleArray{
     if (!_titleArray) {

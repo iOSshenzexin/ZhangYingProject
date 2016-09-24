@@ -64,6 +64,21 @@
 /** 产品-预约 API */
 #define Product_MakeReservation_Url [baseUrl stringByAppendingString:@"/m_make/addMakes.do"]
 
+/** 产品-设置预约里的默认地址 API */
+#define Product_DefaultAddress_Url [baseUrl stringByAppendingString:@"/m_address/queryAddress.do"]
+
+/** 产品-关注 API */
+#define Product_AddFavorite_Url [baseUrl stringByAppendingString:@"/m_collection/updateCollection.do"]
+
+
+/** 消息-消息列表 API */
+#define Message_MessageList_Url [baseUrl stringByAppendingString:@"/m_message/messageList.do"]
+
+/** 消息-消息内容详情 API */
+#define Message_MessageDetail_Url [baseUrl stringByAppendingString:@"/m_message/messageDetails.do"]
+
+
+
 
 
 /** 注册 API */
@@ -116,6 +131,10 @@
 /** 我的-我的钱包内容 API */
 #define Mine_MyWalletContent_Url [baseUrl stringByAppendingString:@"/m_member/memberDetails.do"]
 
+/** 我的-我的卡券 API */
+#define Mine_MyCardList_Url [baseUrl stringByAppendingString:@"/m_card/cardList.do"]
+
+
 /** 交易-我的交易 API */
 #define Deal_MyDealList_Url [baseUrl stringByAppendingString:@"/m_make/makeList.do"]
 
@@ -124,5 +143,20 @@
 
 /** 交易-产品需求 API */
 #define Deal_ProductRequirement_Url [baseUrl stringByAppendingString:@"/m_demand/addProductDemand.do"]
+
+/** 交易-产品公告 API */
+#define Deal_ProductAnnounce_Url [baseUrl stringByAppendingString:@"/m_announce/productAnnounceList..do"]
+
+
+
+
+/** 首页-广告轮播图列表 API */
+#define Home_AdvertisementList_Url [baseUrl stringByAppendingString:@"/m_advertise/advertiseList.do"]
+
+/** 首页-推荐列表 API */
+//#define Home_AdvertisementList_Url [baseUrl stringByAppendingString:@"/m_product/recommendList.do"]
+
+
+
 
 

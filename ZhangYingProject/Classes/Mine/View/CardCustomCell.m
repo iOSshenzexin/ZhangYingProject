@@ -8,17 +8,32 @@
 
 #import "CardCustomCell.h"
 
+NSString *const cardCustomCell = @"CardCustomCell";
 @implementation CardCustomCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=5;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    CardCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cardCustomCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CardCustomCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
 
-    // Configure the view for the selected state
+-(void)setCardModel:(ZXCardModel *)cardModel
+{
+    _cardModel = cardModel;
+    self.priceLbl.text = cardModel.cardAmount;
+    self.numberLbl.text = cardModel.cardNo;
+    self.amountLbl.text = cardModel.minAmount;
+    self.timeLbl.text = cardModel.endTime[@"time"];
+    
 }
 
 @end

@@ -25,4 +25,5 @@
 @property (weak, nonatomic) IBOutlet UIView *backgorund;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (weak, nonatomic) IBOutlet UIView *addressView;
 @end

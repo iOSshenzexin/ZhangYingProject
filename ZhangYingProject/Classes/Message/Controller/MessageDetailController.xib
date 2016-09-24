@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageDetailController">
             <connections>
+                <outlet property="contentImg" destination="knm-D7-vP5" id="xKf-yi-WvI"/>
+                <outlet property="contentTxt" destination="5bg-PD-o7X" id="vOv-V8-uBS"/>
                 <outlet property="scrollView" destination="B7l-Jf-cYc" id="fJM-zS-Rh3"/>
+                <outlet property="timeLbl" destination="wCb-H9-3xl" id="9wS-kL-sME"/>
+                <outlet property="titleLbl" destination="KuX-Up-dMR" id="COR-a3-oOf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7l-Jf-cYc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="664"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBg-fr-wh6">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,31 +31,31 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[湖南信托-成都新益州] 1期派息提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuX-Up-dMR">
-                            <rect key="frame" x="8" y="74" width="359" height="60"/>
+                            <rect key="frame" x="8" y="70" width="359" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="rU8-vk-mjb"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-06-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-H9-3xl">
-                            <rect key="frame" x="8" y="142" width="98" height="21"/>
+                            <rect key="frame" x="8" y="138" width="120" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="98" id="M9f-8g-keY"/>
+                                <constraint firstAttribute="width" constant="120" id="M9f-8g-keY"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-banner" translatesAutoresizingMaskIntoConstraints="NO" id="knm-D7-vP5">
-                            <rect key="frame" x="8" y="183" width="359" height="164"/>
+                            <rect key="frame" x="8" y="157" width="359" height="164"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="164" id="uoU-XS-4R7"/>
                             </constraints>
                         </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5bg-PD-o7X">
-                            <rect key="frame" x="8" y="375" width="359" height="292"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5bg-PD-o7X">
+                            <rect key="frame" x="8" y="324" width="359" height="292"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="292" id="Odh-DP-zeW"/>
@@ -66,17 +69,17 @@
                         <constraint firstItem="knm-D7-vP5" firstAttribute="trailing" secondItem="5bg-PD-o7X" secondAttribute="trailing" id="7q2-WB-O2Q"/>
                         <constraint firstItem="KuX-Up-dMR" firstAttribute="trailing" secondItem="knm-D7-vP5" secondAttribute="trailing" id="7qa-by-WkM"/>
                         <constraint firstItem="KuX-Up-dMR" firstAttribute="trailing" secondItem="B7l-Jf-cYc" secondAttribute="trailingMargin" id="9eb-Yu-MVj"/>
-                        <constraint firstItem="KuX-Up-dMR" firstAttribute="top" secondItem="B7l-Jf-cYc" secondAttribute="top" constant="74" id="Asa-4d-uhL"/>
+                        <constraint firstItem="KuX-Up-dMR" firstAttribute="top" secondItem="B7l-Jf-cYc" secondAttribute="top" constant="70" id="Asa-4d-uhL"/>
                         <constraint firstItem="vBg-fr-wh6" firstAttribute="top" secondItem="B7l-Jf-cYc" secondAttribute="top" id="JD5-8L-1Af"/>
                         <constraint firstItem="KuX-Up-dMR" firstAttribute="centerX" secondItem="B7l-Jf-cYc" secondAttribute="centerX" id="RRt-Fn-r1m"/>
-                        <constraint firstItem="knm-D7-vP5" firstAttribute="top" secondItem="wCb-H9-3xl" secondAttribute="bottom" constant="20" id="aG2-bE-IKy"/>
+                        <constraint firstItem="knm-D7-vP5" firstAttribute="top" secondItem="wCb-H9-3xl" secondAttribute="bottom" constant="4" id="aG2-bE-IKy"/>
                         <constraint firstItem="KuX-Up-dMR" firstAttribute="leading" secondItem="wCb-H9-3xl" secondAttribute="leading" id="h3k-Ym-nKl"/>
                         <constraint firstItem="vBg-fr-wh6" firstAttribute="leading" secondItem="B7l-Jf-cYc" secondAttribute="leading" id="j5M-ht-zgY"/>
-                        <constraint firstItem="5bg-PD-o7X" firstAttribute="top" secondItem="knm-D7-vP5" secondAttribute="bottom" constant="28" id="js3-e7-WsK"/>
+                        <constraint firstItem="5bg-PD-o7X" firstAttribute="top" secondItem="knm-D7-vP5" secondAttribute="bottom" constant="3" id="js3-e7-WsK"/>
                         <constraint firstItem="knm-D7-vP5" firstAttribute="leading" secondItem="5bg-PD-o7X" secondAttribute="leading" id="mTH-ru-2N0"/>
                         <constraint firstItem="KuX-Up-dMR" firstAttribute="leading" secondItem="B7l-Jf-cYc" secondAttribute="leadingMargin" id="qkK-Sm-enl"/>
                         <constraint firstItem="wCb-H9-3xl" firstAttribute="leading" secondItem="knm-D7-vP5" secondAttribute="leading" id="shH-BM-aD5"/>
-                        <constraint firstAttribute="bottom" secondItem="5bg-PD-o7X" secondAttribute="bottom" constant="147" id="vzc-G8-4ch"/>
+                        <constraint firstAttribute="bottom" secondItem="5bg-PD-o7X" secondAttribute="bottom" constant="174" id="vzc-G8-4ch"/>
                         <constraint firstItem="wCb-H9-3xl" firstAttribute="top" secondItem="KuX-Up-dMR" secondAttribute="bottom" constant="8" symbolic="YES" id="wwX-CJ-UPe"/>
                     </constraints>
                 </scrollView>
@@ -86,7 +89,7 @@
                 <constraint firstAttribute="trailing" secondItem="B7l-Jf-cYc" secondAttribute="trailing" id="Zdb-u3-D0i"/>
                 <constraint firstItem="B7l-Jf-cYc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tHg-oX-0WI"/>
                 <constraint firstItem="B7l-Jf-cYc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="y9o-h5-5rN"/>
-                <constraint firstAttribute="bottom" secondItem="B7l-Jf-cYc" secondAttribute="bottom" constant="-83" id="ypa-S4-7gj"/>
+                <constraint firstAttribute="bottom" secondItem="B7l-Jf-cYc" secondAttribute="bottom" constant="3" id="ypa-S4-7gj"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

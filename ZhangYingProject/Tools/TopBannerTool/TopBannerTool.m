@@ -12,35 +12,45 @@
 @end
 @implementation TopBannerTool
 
-+ (UIView *)setupNetWorkBannerViewAtViewController:(UIViewController<KNBannerViewDelegate> *)vc{
++ (UIView *)setupNetWorkBannerViewAtViewController:(UIViewController<KNBannerViewDelegate> *)vc ImageArray:(NSArray *)images IntroduceStringArray:(NSArray *)introduces {
     NSMutableArray *imgArr = [NSMutableArray array];
-    NSString *img1 = @"http://i3.download.fd.pchome.net/t_960x600/g1/M00/07/09/oYYBAFMv8q2IQHunACi90oB0OHIAABbUQAAXO4AKL3q706.jpg";
-    NSString *img2 = @"http://images.weiphone.net/attachments/photo/Day_120308/118871_91f6133116504086ed1b82e0eb951.jpg";
-    NSString *img3 = @"http://benyouhuifile.it168.com/forum/macos/attachments/month_1104/110425215921926a173e0f728e.jpg";
-    NSString *img4 = @"http://benyouhuifile.it168.com/forum/macos/attachments/month_1104/1104241737046031b3a754f783.jpg";
-    NSString *img5 = @"http://2b.zol-img.com.cn/product/68/951/cerUrKWCmHCnU.jpg";
-    [imgArr addObject:img1];
-    [imgArr addObject:img2];
-    [imgArr addObject:img3];
-    [imgArr addObject:img4];
-    [imgArr addObject:img5];
+    for (NSInteger i = 0; i < images.count; i++) {
+        NSString *urlString = [baseUrl stringByAppendingString:images[i]];
+        [imgArr addObject:urlString];
+    }
+    
+    
+//    NSString *img1 = @"http://i3.download.fd.pchome.net/t_960x600/g1/M00/07/09/oYYBAFMv8q2IQHunACi90oB0OHIAABbUQAAXO4AKL3q706.jpg";
+//    NSString *img2 = @"http://images.weiphone.net/attachments/photo/Day_120308/118871_91f6133116504086ed1b82e0eb951.jpg";
+//    NSString *img3 = @"http://benyouhuifile.it168.com/forum/macos/attachments/month_1104/110425215921926a173e0f728e.jpg";
+//    NSString *img4 = @"http://benyouhuifile.it168.com/forum/macos/attachments/month_1104/1104241737046031b3a754f783.jpg";
+//    NSString *img5 = @"http://2b.zol-img.com.cn/product/68/951/cerUrKWCmHCnU.jpg";
+//    [imgArr addObject:img1];
+//    [imgArr addObject:img2];
+//    [imgArr addObject:img3];
+//    [imgArr addObject:img4];
+//    [imgArr addObject:img5];
     
     // 设置 网络 轮播图
     KNBannerView *bannerView = [KNBannerView bannerViewWithNetWorkImagesArr:imgArr frame:CGRectMake(0, 0, ScreenW, 180)];
     bannerView.delegate = vc;
     
     /****************************** == 描述文字 == ********************************/
-    NSString *string1 = @"网络图片加载时";
-    NSString *string2 = @"图片较大";
-    NSString *string3 = @"所以比较缓慢";
-    NSString *string4 = @"如有框架建议";
-    NSString *string5 = @"GitHub上指教我(通过Email)";
+//    NSString *string1 = @"网络图片加载时";
+//    NSString *string2 = @"图片较大";
+//    NSString *string3 = @"所以比较缓慢";
+//    NSString *string4 = @"如有框架建议";
+//    NSString *string5 = @"GitHub上指教我(通过Email)";
     NSMutableArray *IntroduceArr = [NSMutableArray array];
-    [IntroduceArr addObject:string1];
-    [IntroduceArr addObject:string2];
-    [IntroduceArr addObject:string3];
-    [IntroduceArr addObject:string4];
-    [IntroduceArr addObject:string5];
+    for (NSInteger i = 0; i < introduces.count; i++) {
+        [IntroduceArr addObject:introduces[i]];
+    }
+    
+//    [IntroduceArr addObject:string1];
+//    [IntroduceArr addObject:string2];
+//    [IntroduceArr addObject:string3];
+//    [IntroduceArr addObject:string4];
+//    [IntroduceArr addObject:string5];
     bannerView.IntroduceStringArr = IntroduceArr;
     /****************************** == 占位图 == ********************************/
     bannerView.placeHolder = @"3";

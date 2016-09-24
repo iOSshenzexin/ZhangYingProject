@@ -10,66 +10,38 @@
 #import "CardCustomCell.h"
 
 #import "RegularIntroduceController.h"
+#import "ZXCardModel.h"
 @interface MyCardController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,copy) NSArray *priceArray;
-@property (nonatomic,copy) NSArray *timeArray;
-@property (nonatomic,copy) NSArray *numberArray;
-@property (nonatomic,copy) NSArray *amountArray;
+@property (nonatomic,copy) NSMutableArray *dataArray;
+
 
 @end
 
 @implementation MyCardController
 
--(NSArray *)priceArray{
-    if (!_priceArray) {
-        _priceArray = [NSArray arrayWithObjects:@"¥100",@"¥200",@"¥500", nil];
-    }
-    return _priceArray;
-}
-
--(NSArray *)timeArray{
-    if (!_timeArray) {
-        _timeArray = [NSArray arrayWithObjects:@"2016-05-01至2016-05-15",@"2016-05-10至2016-07-15",@"2016-08-01至2016-08-15", nil];
-    }
-    return _timeArray;
-}
-
--(NSArray *)numberArray{
-    if (!_numberArray) {
-        _numberArray = [NSArray arrayWithObjects:@"券编号:4567890234",@"券编号:48878130234",@"券编号:2547800937", nil];
-    }
-    return _numberArray;
-}
-
--(NSArray *)amountArray{
-    if (!_amountArray) {
-        _amountArray = [NSArray arrayWithObjects:@"认购金额100万起可用",@"认购金额300万起可用",@"认购金额500万起可用", nil];
-    }
-    return _amountArray;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self requestMyCardListData];
     [self setupRightBarBtn];
-    [self registerCell];
-    [self deleteBack];
-    self.hidesBottomBarWhenPushed = YES;
-
 }
 
-- (void)deleteBack{
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
-    backButtonItem.title = @"";
-    self.navigationItem.backBarButtonItem = backButtonItem;
+- (void)requestMyCardListData
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"pageIndex"] = 0;
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    [manager POST:Mine_MyCardList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dataArray = [ZXCardModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [self.cardTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
-static NSString *cellId = @"cellId";
-- (void)registerCell{
-    UINib *nib = [UINib nibWithNibName:@"CardCustomCell" bundle:nil];
-    [self.cardTableView registerNib:nib forCellReuseIdentifier:cellId];
-}
+
 - (void)setupRightBarBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 80, 30);
@@ -87,19 +59,12 @@ static NSString *cellId = @"cellId";
 
 #pragma mark  UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.priceArray.count;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CardCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!cell) {
-        cell = [[CardCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.priceLbl.text = self.priceArray[indexPath.row];
-    cell.numberLbl.text = self.numberArray[indexPath.row];
-    cell.amountLbl.text = self.amountArray[indexPath.row];
-    cell.timeLbl.text = self.timeArray[indexPath.row];
+    CardCustomCell *cell = [CardCustomCell cellWithTableView:tableView];
+    cell.cardModel = self.dataArray[indexPath.row];
     return cell;
 }
 
