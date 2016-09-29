@@ -11,12 +11,7 @@
 @implementation FirstView
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)didClickSelectProductStyle:(UIButton *)sender {
+    self.block(sender.tag);
 }
-*/
-
 @end

@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXShareModel.h"
 @interface CustomShareCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *typeLbl;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+
+
+
+
+
+@property (nonatomic,copy) ZXShareModel *shareModel;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

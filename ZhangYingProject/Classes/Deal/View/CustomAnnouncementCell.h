@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXAnnounceModel.h"
+
 @interface CustomAnnouncementCell : UITableViewCell
 
+@property (copy,nonatomic) ZXAnnounceModel *announceModel;
+
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLbl;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @end

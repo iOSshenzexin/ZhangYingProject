@@ -8,17 +8,23 @@
 
 #import "WithdrawCashStyleOneCell.h"
 
+static NSString *str = @"WithdrawCashStyleOneCell";
 @implementation WithdrawCashStyleOneCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=3;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    WithdrawCashStyleOneCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([WithdrawCashStyleOneCell class]) owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
+
 
 @end

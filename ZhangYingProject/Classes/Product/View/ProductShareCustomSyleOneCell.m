@@ -8,17 +8,17 @@
 
 #import "ProductShareCustomSyleOneCell.h"
 
+NSString *const productShareCustomSyleOneCell = @"ProductShareCustomSyleOneCell";
 @implementation ProductShareCustomSyleOneCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    ProductShareCustomSyleOneCell *cell = [tableView dequeueReusableCellWithIdentifier:productShareCustomSyleOneCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductShareCustomSyleOneCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
 }
 
 @end

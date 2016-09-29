@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MemberAuthenticationController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *pictureView;
+
+@property (weak, nonatomic) IBOutlet UIButton *pictureButton;
 
 @end

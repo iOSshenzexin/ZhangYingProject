@@ -81,7 +81,6 @@
     params[@"phone"] = self.telephoneTF.text;
     params[@"password"] = [self.pwdTF.text stringMD5Hash];
     [manager POST:Product_Login_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
         [MBProgressHUD hideHUD];
         if([responseObject[@"status"] intValue] == 1){
         ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
@@ -89,15 +88,20 @@
             
         AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
         app.isLogin = YES;
+        
+            if (app.selectedIndex ==0) {
+                
+            }else{
         UIApplication *application = [UIApplication sharedApplication];
         TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
+            
         tab.selectedIndex = app.selectedIndex;
         UIViewController *vc = tab.viewControllers[app.selectedIndex];
         [vc viewDidLoad];
-        
-            
-        [self.view endEditing:YES];
+        [vc.view setNeedsDisplay];
 
+        [self.view endEditing:YES];
+            }
         [self dismissViewControllerAnimated:YES completion:^{
             [MBProgressHUD showSuccess:@"恭喜你登录成功!"];
             [StandardUser setObject:self.pwdTF.text forKey:savePassword];
@@ -109,7 +113,6 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showError:@"登录失败,请检查网络!"];
-        ZXLog(@"%@",error);
     }];
     
 }

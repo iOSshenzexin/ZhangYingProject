@@ -49,7 +49,7 @@ NSString *const messageCustomCell = @"MessageCustomCell";
     _messageModel = messageModel;
     self.titleLbl.text = messageModel.title;
     self.subTitleLbl.text = messageModel.introduce;
-    [self.img sd_setImageWithURL:[NSURL URLWithString:messageModel.listImg] placeholderImage:[UIImage imageNamed:@"message01"]];
+    [self.img sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:messageModel.listImg]] placeholderImage:[UIImage imageNamed:@"message01"]];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd HH:mm"];
    

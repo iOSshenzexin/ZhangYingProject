@@ -39,7 +39,9 @@
         _tableView.delegate = self;
         _tableView.rowHeight = 80;
         _tableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.backgroundColor = backGroundColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     }
     return _tableView;
 }
@@ -51,6 +53,7 @@
         _withdrawalsTableView.delegate = self;
         _withdrawalsTableView.rowHeight = 124;
         _withdrawalsTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+        _withdrawalsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _withdrawalsTableView.backgroundColor = self.view.backgroundColor;
     }
     return _withdrawalsTableView;

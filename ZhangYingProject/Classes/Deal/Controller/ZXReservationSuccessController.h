@@ -23,4 +23,6 @@
 
 @property (nonatomic,copy) ZXReservationModel *reservationModel;
 
+- (IBAction)didClickUplaodProofIno:(id)sender;
+
 @end

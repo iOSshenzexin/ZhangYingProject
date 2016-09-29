@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface DealTopCustomCell : UITableViewCell
+
++ (instancetype)cellWithTableview:(UITableView *)tableview;
+
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UIView *backView;
 

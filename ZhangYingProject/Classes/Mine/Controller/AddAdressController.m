@@ -61,6 +61,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
+    params[@"pageIndex"] = @0;
     [manager POST:Mine_AddressList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZXLog(@"%@",responseObject);
         if ([responseObject[@"status"] intValue] == 1) {
@@ -93,11 +94,11 @@
         cell.btn.hidden = YES;
         cell.titleLabel.textColor = [UIColor redColor];
     }else if(indexPath.section == 1){
-        if (indexPath.row == 0) {
+        cell.address = self.titleArray[indexPath.section][indexPath.row];
+        if ([cell.address.isDefault intValue] == 1) {
             cell.defaultImage.hidden = NO;
         }
         cell.img.image = [UIImage imageNamed:@"my-trade05"];
-        cell.address = self.titleArray[indexPath.section][indexPath.row];
         cell.titleLabel.numberOfLines = 0;
         cell.btn.tag = 10 + indexPath.row;
         [cell.btn addTarget:self action:@selector(modifyAddress:) forControlEvents:UIControlEventTouchUpInside];
@@ -109,7 +110,6 @@
     DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
     AddressCustomCell *cell = [self.addressTableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:btn.tag -10 inSection:1]];
     vc.addressID = cell.address.listId;
-    NSLog(@"addressID : %@",vc.addressID);
     vc.title = @"修改收货地址";
     [self.navigationController pushViewController:vc animated:YES];
 }

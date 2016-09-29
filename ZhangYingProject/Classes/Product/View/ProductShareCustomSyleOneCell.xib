@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ProductShareCustomSyleOneCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductShareCustomSyleOneCell" id="KGk-i7-Jjw" customClass="ProductShareCustomSyleOneCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -22,23 +21,24 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Oad-Cf-yW0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro2-pho" translatesAutoresizingMaskIntoConstraints="NO" id="Yjx-Gs-kLY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yjx-Gs-kLY">
                                 <rect key="frame" x="8" y="29" width="48" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="8Es-EE-Srz"/>
                                     <constraint firstAttribute="height" constant="48" id="YUe-sS-R8P"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的投资顾问 &lt;刘丽雅&gt; 分享给您的投资项目,点击查看详情." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcY-ah-n24">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的投资顾问 &lt;刘丽雅&gt; 分享给您的投资项目" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcY-ah-n24">
                                 <rect key="frame" x="61" y="29" width="290" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="GaC-Wf-RJR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -109,7 +109,7 @@
                                     <constraint firstAttribute="width" constant="46" id="oVL-XZ-adp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="修改">
+                                <state key="normal">
                                     <color key="titleColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -155,6 +155,8 @@
                 <outlet property="editedBtn" destination="SM0-v0-Z76" id="NCo-fr-4vg"/>
                 <outlet property="headImageView" destination="Yjx-Gs-kLY" id="4ZT-nq-17B"/>
                 <outlet property="nameLbl" destination="XcY-ah-n24" id="8Jl-E5-p3f"/>
+                <outlet property="phoneLbl" destination="HbA-hO-Bn7" id="yU3-gf-ujp"/>
+                <outlet property="productTitleLbl" destination="rTI-M5-oqa" id="fNj-AT-jLF"/>
                 <outlet property="selectedBtn" destination="iq5-Dj-nw1" id="0yO-pA-DEC"/>
             </connections>
             <point key="canvasLocation" x="-114.5" y="281"/>
@@ -163,6 +165,5 @@
     <resources>
         <image name="my-code06" width="15" height="15"/>
         <image name="my-code07" width="15" height="15"/>
-        <image name="pro2-pho" width="48" height="48"/>
     </resources>
 </document>

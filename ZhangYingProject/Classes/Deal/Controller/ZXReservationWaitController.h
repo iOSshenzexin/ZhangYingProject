@@ -10,6 +10,24 @@
 #import "ZXReservationModel.h"
 @interface ZXReservationWaitController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *productTitleLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *userNameLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *identifierIdLbl;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *payDateLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *payAmountLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *telephoneLbl;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *addressLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLbl;
+
 @property (nonatomic,copy) ZXReservationModel *reservationModel;
 
 @end

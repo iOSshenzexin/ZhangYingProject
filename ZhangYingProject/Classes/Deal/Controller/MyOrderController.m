@@ -58,11 +58,12 @@
 }
 
 - (UITableView *)setupTableview{
-    UITableView *customTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
+    UITableView *customTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - topTitleMaxHeight)];
+    customTV.separatorStyle = UITableViewCellSeparatorStyleNone;
     customTV.dataSource = self;
     customTV.delegate = self;
     customTV.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-    customTV.backgroundColor = [UIColor clearColor];
+    customTV.backgroundColor = backGroundColor;
     customTV.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     return customTV;
 }
@@ -96,8 +97,11 @@
         view.backgroundColor = RGB(242, 242, 242, 1);
         [contentArray addObject:view];
     }
+    //在途
     [(UIView *)contentArray[0] addSubview:self.firstTableView];
+    //交易成功
     [(UIView *)contentArray[1] addSubview:self.secondTableView];
+    //交易失败
     [(UIView *)contentArray[2] addSubview:self.thirdTableView];
     
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
@@ -124,18 +128,23 @@
 {
     if (tableView == self.firstTableView){
         ZXOrderUnderwayController *vc = [[ZXOrderUnderwayController alloc] init];
+        vc.orderModel = self.dataArray[indexPath.row];
         vc.hidesBottomBarWhenPushed = YES;
         vc.title = @"在途订单详情";
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (tableView == self.thirdTableView) {
+    if (tableView == self.secondTableView) {
         ZXOrderCompletedController *vc = [[ZXOrderCompletedController alloc] init];
+        vc.orderModel = self.dataArray[indexPath.row];
+
         vc.hidesBottomBarWhenPushed = YES;
         vc.title = @"订单交易完成详情";
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (tableView == self.secondTableView) {
+    if (tableView == self.thirdTableView) {
         ZXOrderFailureController *vc = [[ZXOrderFailureController alloc] init];
+        vc.orderModel = self.dataArray[indexPath.row];
+
         vc.hidesBottomBarWhenPushed = YES;
         vc.title = @"订单交易失败详情";
         [self.navigationController pushViewController:vc animated:YES];

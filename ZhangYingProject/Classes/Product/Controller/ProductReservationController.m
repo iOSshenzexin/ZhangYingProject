@@ -99,7 +99,7 @@
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
     [manager POST:Product_MakeReservation_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
+        [MBProgressHUD showMessage:@"预约成功!"];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];

@@ -8,7 +8,19 @@
 
 #import "ZXReservationModel.h"
 
+#import "MJExtension.h"
+
 @implementation ZXReservationModel
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key  {
+    if([key isEqualToString:@"id"])
+        self.reserver_id = value;
+}
+
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{@"reserver_id" : @"id"};
+}
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -25,6 +37,7 @@
     model.userName = self.userName;
     model.memberId = self.memberId;
     model.cardNumber = self.cardNumber;
+    model.reserver_id = self.reserver_id;
     return model;
 }
 @end

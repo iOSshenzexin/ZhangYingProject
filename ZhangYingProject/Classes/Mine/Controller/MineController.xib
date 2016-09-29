@@ -59,13 +59,13 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5y-OO-aEC">
                                     <rect key="frame" x="0.0" y="10" width="375" height="100"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蔡秀秀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzY-Qg-wkQ">
-                                            <rect key="frame" x="87" y="14" width="89" height="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzY-Qg-wkQ">
+                                            <rect key="frame" x="87" y="14" width="180" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="pAu-4w-CpJ"/>
-                                                <constraint firstAttribute="width" constant="89" id="zUE-h3-J2w"/>
+                                                <constraint firstAttribute="width" constant="180" id="zUE-h3-J2w"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -88,6 +88,12 @@
                                                 <constraint firstAttribute="height" constant="72" id="J67-M0-4GS"/>
                                                 <constraint firstAttribute="width" constant="72" id="LpH-Hl-c2S"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="36"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4X-6d-sZE">
                                             <rect key="frame" x="235" y="40" width="120" height="20"/>

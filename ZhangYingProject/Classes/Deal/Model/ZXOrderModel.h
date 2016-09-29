@@ -11,19 +11,45 @@
 @interface ZXOrderModel : NSObject
 
 /**
- *"payAmount": "100.00",		//预计打款金额
- "phone": "15240248001",		//联系人手机号
- "payTimeStr": "2016-09-10",
- "status": 1,
- "productTitle": "中江信托-金鹤131号（第五期）",//产品名称
- "productId": 1,
- "bankCard": "images/banner.jpg",
- "address": "",			//收货地址
- "userName": "梁云",		//客户名称
- "memberId": 1,
- "cardNumber": "123124234124"	//证件编号
- "commission": 0,			//佣金比例
- "earnings": 0,			//预计收益
+ {
+
+ bankCard = "images/banner.jpg";
+ cardnImage = "images/banner.jpg";
+ cardpImage = "images/banner.jpg";
+ certificateImage = "images/banner.jpg";
+
+ createTime =                 {
+ date = 12;
+ day = 1;
+ hours = 0;
+ minutes = 0;
+ month = 8;
+ seconds = 0;
+ time = 1473609600000;
+ timezoneOffset = "-480";
+ year = 116;
+ };
+ earnings = 7;
+ endRow = 0;
+ id = 5;
+ investorAmount = "";
+ makeId = 1;
+ memberId = 12;
+ orderNo = 20160808491815;
+ pageIndex = 0;
+ pageSize = 0;
+
+ payAmounts = "";
+ payTime = "<null>";
+
+
+ productTerm = 1;
+
+ startRow = 0;
+
+ totalNum = 0;
+ userName = "";
+ },
 
  */
 
@@ -44,6 +70,13 @@
 @property (nonatomic,copy) NSString *cardNumber;
 @property (nonatomic,copy) NSString *commission;
 @property (nonatomic,copy) NSString *earnings;
+
+@property (nonatomic,copy) NSString *orderNo;
+
+@property (nonatomic,copy) NSString *cardnImage;
+@property (nonatomic,copy) NSString *cardpImage;
+@property (nonatomic,copy) NSString *certificateImage;
+
 
 
 

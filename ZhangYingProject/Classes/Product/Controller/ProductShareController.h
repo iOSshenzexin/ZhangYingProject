@@ -12,4 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *productShareTableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
+@property (nonatomic,copy) NSString *productTitle;
+@property (nonatomic,copy) NSString *product_id;
+
 @end

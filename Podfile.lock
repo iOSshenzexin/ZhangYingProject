@@ -23,7 +23,6 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SVProgressHUD (2.0.3)
-  - UMengSocialCOM (5.2.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -34,7 +33,6 @@ DEPENDENCIES:
   - Reachability
   - SDWebImage
   - SVProgressHUD (~> 2.0.3)
-  - UMengSocialCOM (~> 5.2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -45,6 +43,5 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
 
 COCOAPODS: 0.39.0

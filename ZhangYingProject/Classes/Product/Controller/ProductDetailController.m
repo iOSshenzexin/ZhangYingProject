@@ -38,6 +38,8 @@
     if (app.isLogin) {
         ProductShareController *vc = [[ProductShareController alloc] init];
         vc.title = @"产品分享";
+        vc.product_id = self.product_id;
+        vc.productTitle = self.title;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         LoginController *login = [[LoginController alloc] init];
@@ -87,12 +89,15 @@ static NSString *styleDefault = @"styleDefault";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pid"] = self.product_id;
+    params[@"pid"] = self.product_id;
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
     [manager POST:Product_Detail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         ZXResponseObject
        self.detailModel = [ZXProuctDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
         [self.productDetailTableview reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        ZXLog(@"%@",error);
+        ZXError
     }];
 }
 
@@ -147,18 +152,21 @@ static NSString *styleDefault = @"styleDefault";
 }
 
 - (IBAction)didClickCollecting:(id)sender {
-    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    //判断是否登录
-    if (app.isLogin) {
+//    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+//    //判断是否登录
+//    if (app.isLogin) {
         self.collectedBtn.selected = !self.collectedBtn.selected;
         (self.collectedBtn.selected)?([MBProgressHUD showSuccess:@"收藏成功!"]):([MBProgressHUD showSuccess:@"收藏取消!"]);
         [self addFavorite];
-    }else{
-        LoginController *login = [[LoginController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
-        [kWindowRootController presentViewController:nav animated:YES completion:nil];
-    }
-    
+//    }else{
+//        UIApplication *application = [UIApplication sharedApplication];
+//        TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
+//        //        tab.selectedIndex = app.selectedIndex;
+//        ZXLog(@"%ld",tab.selectedIndex);
+//        LoginController *login = [[LoginController alloc] init];
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+//        [kWindowRootController presentViewController:nav animated:YES completion:nil];
+//    }
 }
 
 /**
@@ -174,7 +182,6 @@ static NSString *styleDefault = @"styleDefault";
     [manager POST:Product_AddFavorite_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
     }];
 }
 

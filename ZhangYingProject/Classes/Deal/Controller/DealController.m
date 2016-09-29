@@ -20,11 +20,19 @@
 #import "ProductRequirementController.h"
 #import "MyCollectionController.h"
 #import "MyShareController.h"
-@interface DealController ()<UITableViewDelegate,UITableViewDataSource,PopoverViewDelegate>
+@interface DealController ()<UITableViewDelegate,UITableViewDataSource,PopoverViewDelegate>{
+    NSString *_billString;
+    NSString *_commissionString;
+    NSString *_reservationString;
+}
 
 @property (nonatomic,copy) NSArray *titleArray;
+
 @property (nonatomic,copy) NSArray *imgArray;
+
 @property (nonatomic,strong) PopoverView *pop;
+
+@property (nonatomic,copy) NSDictionary *dataDictionary;
 @end
 
 @implementation DealController
@@ -40,8 +48,6 @@
 //}
 
 static NSString *cellId = @"cell";
-
-static NSString *defaultCell = @"defaultCell";
 
 + (DealController *)sharedDealController{
     static DealController *vc = nil;
@@ -67,12 +73,18 @@ static NSString *defaultCell = @"defaultCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.dealTableView registerNib:[UINib nibWithNibName:@"DealTopCustomCell" bundle:nil] forCellReuseIdentifier:cellId];
+    
     self.dealTableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
     self.dealTableView.sectionFooterHeight = 20;
     self.dealTableView.sectionHeaderHeight = 0;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self requestDealHomeStatics];
+
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -85,23 +97,21 @@ static NSString *defaultCell = @"defaultCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        DealTopCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        if (!cell) {
-            cell = [[DealTopCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-        }
+        DealTopCustomCell *cell = [DealTopCustomCell cellWithTableview:tableView];
         self.seg = cell.segmentControl;
         [cell.showCardBtn addTarget:self action:@selector(didClickCheckCardInfo:) forControlEvents:UIControlEventTouchUpInside];
         self.seg.selectedSegmentIndex = cell.segmentControl.selectedSegmentIndex;
         [cell.segmentControl addTarget:self action:@selector(didClickSegmentControler:) forControlEvents:UIControlEventValueChanged];
+        [cell.collectionBtn setTitle:[NSString stringWithFormat:@"关注 %@",self.dataDictionary[@"collCount"]] forState:UIControlStateNormal];
         [cell.collectionBtn addTarget:self action:@selector(didClickEnterCollection:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.shareBtn setTitle:[NSString stringWithFormat:@"分享 %@",self.dataDictionary[@"shareCount"]] forState:UIControlStateNormal];
         [cell.shareBtn addTarget:self action:@selector(didClickEnterShare:) forControlEvents:UIControlEventTouchUpInside];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }else{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:defaultCell];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
      if (!cell) {
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultCell];
+         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
          cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -123,7 +133,7 @@ static NSString *defaultCell = @"defaultCell";
 - (void)didClickEnterCollection:(UIButton *)btn{
     MyCollectionController *vc = [[MyCollectionController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.title = @"我的收藏";
+    vc.title = @"我的关注";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -134,7 +144,6 @@ static NSString *defaultCell = @"defaultCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     self.seg.selectedSegmentIndex = 0;
@@ -144,7 +153,28 @@ static NSString *defaultCell = @"defaultCell";
     PopoverView *pop = [PopoverView sharedPopview];
     pop.delegate = self;
     self.pop = pop;
-    [pop showAtPoint:point inView:self.seg withText:@"· 交易成功 10 单 · 进行中 8 单 · 交易失败 0 单"];
+    [pop showAtPoint:point inView:self.seg withText:_billString];
+    [self.view setNeedsLayout];
+}
+
+- (void)requestDealHomeStatics
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"mid"] = model.mid;
+    [manager POST:Deal_HomeStatistics_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = responseObject[@"data"];
+        self.dataDictionary = dic;
+        _billString = [NSString stringWithFormat:@"· 交易成功 %@ 单 · 进行中 %@ 单 · 交易失败 %@ 单",dic[@"orderCount2"],dic[@"orderCount1"],dic[@"orderCount3"]];
+        _commissionString = [NSString stringWithFormat:@"· 我的佣金 %.2f 元 · 已提现金额 %.2f 元 · 可提现金额 %.2f 元",model.allCommision,(model.allCommision-model.commision),model.commision];
+        _reservationString = [NSString stringWithFormat:@"· 预约成功 %@ 单 · 进行中 %@ 单 · 预约失败 %@ 单",dic[@"makeCount2"],dic[@"makeCount1"],dic[@"makeCount3"]];
+        
+        [self.dealTableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
 - (void)didClickSegmentControler:(UISegmentedControl *)segmentControl{
@@ -153,19 +183,19 @@ static NSString *defaultCell = @"defaultCell";
         case 0:{
             CGFloat pointOneX = segmentControl.center.x - 130;
             CGPoint point = CGPointMake(pointOneX, pointOneY);
-            [self.pop showAtPoint:point inView:segmentControl withText:@"· 交易成功 10 单 · 进行中 8 单 · 交易失败 0 单"];
+            [self.pop showAtPoint:point inView:segmentControl withText:_billString];
         }
             break;
                 case 1:{
                     CGFloat pointOneX = segmentControl.center.x;
                     CGPoint point = CGPointMake(pointOneX, pointOneY);
-                    [self.pop showAtPoint:point inView:segmentControl withText:@"· 我的佣金 1000.00 元 · 已提现金额 800.00 元 · 可提现金额 10000 元"];
+                    [self.pop showAtPoint:point inView:segmentControl withText:_commissionString];
                 }
             break;
         case 2:{
             CGFloat pointOneX = segmentControl.center.x + 130;
             CGPoint point = CGPointMake(pointOneX, pointOneY);
-            [self.pop showAtPoint:point inView:segmentControl withText:@"· 我的预约 10 单 · 进行中 8 单 · 收藏预约 20 单"];
+            [self.pop showAtPoint:point inView:segmentControl withText:_reservationString];
         }
             break;
         default:
@@ -203,38 +233,33 @@ static NSString *defaultCell = @"defaultCell";
     if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:{
-                self.hidesBottomBarWhenPushed = YES;
                 MyReservationController *vc = [[MyReservationController alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
                 vc.title = @"我的预约";
             [self.navigationController pushViewController:vc animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
             }
                 break;
             case 1:{
-                self.hidesBottomBarWhenPushed = YES;
                 MyOrderController *vc = [[MyOrderController alloc] init];
                 vc.title = @"我的订单";
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
-                self.hidesBottomBarWhenPushed = NO;
             }
                 break;
             case 2:{
-                self.hidesBottomBarWhenPushed = YES;
                 ProductRequirementController *vc = [[ProductRequirementController alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
                 vc.title = @"产品需求";
                 [self.navigationController pushViewController:vc animated:YES];
-                self.hidesBottomBarWhenPushed = NO;
             }
                 break;
             case 3:{
-                self.hidesBottomBarWhenPushed = YES;
                 ProductAnnouncementController *vc = [[ProductAnnouncementController alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
                 vc.title = @"产品公告";
                 [self.navigationController pushViewController:vc animated:YES];
-                self.hidesBottomBarWhenPushed = NO;
             }
                 break;
-                
             default:
                 break;
         }

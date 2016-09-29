@@ -16,6 +16,8 @@
 #import "ZXNavgaitonController.h"
 @interface TabbarController ()
 
+@property (nonatomic,weak) UIControl *previousRepeatClickedButton;
+
 @end
 
 @implementation TabbarController
@@ -23,6 +25,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpAllChildViewController];
+    [self getTabBarButtonRepeatedClicked];
+}
+
+- (void)getTabBarButtonRepeatedClicked
+{
+    UITabBarItem *tabBarItem = self.tabBar.items[2];
+    tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    for (UIControl *tabBarButron in self.tabBar.subviews) {
+        if ([tabBarButron isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+           self.previousRepeatClickedButton = tabBarButron;
+            [tabBarButron addTarget:self action:@selector(tabBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+}
+
+- (void)tabBarButtonClicked:(UIControl *)tabBarButton
+{
+    if (self.previousRepeatClickedButton == tabBarButton) {
+       ZXFunc
+       [ZXNotificationCeter postNotificationName:ZXRepeatedClickTabbarButtonEventNotificationCeter object:nil];
+    }
+    self.previousRepeatClickedButton = tabBarButton;
 }
 
 + (TabbarController *)sharedTabBarController{
@@ -42,14 +66,15 @@
     [self setUpOneChildViewController:messageVC image:[UIImage imageNamed:@"nav02_normal"] selectImage:[UIImage imageNamed:@"nav02_click"] title:@"消息"];
     // 3.添加第3个控制器
     HomeController *homeVC = [[HomeController alloc]init];
-    [self setUpOneChildViewController:homeVC image:[UIImage imageNamed:@"nav05_normal"] selectImage:[UIImage imageNamed:@"nav05_click"] title:@""];
+    [self setUpOneChildViewController:homeVC image:[UIImage imageNamed:@"nav05_normal"] selectImage:[UIImage imageNamed:@"nav05_click"] title:nil];
     // 4.添加第4个控制器
     DealController *dealVC = [DealController sharedDealController];
     [self setUpOneChildViewController:dealVC image:[UIImage imageNamed:@"nav03_normal"] selectImage:[UIImage imageNamed:@"nav03_click"]  title:@"交易"];
     // 5.添加第5个控制器
     MineController *mineVC = [[MineController alloc]init];
     [self setUpOneChildViewController:mineVC image:[UIImage imageNamed:@"nav04_normal"] selectImage:[UIImage imageNamed:@"nav04_click"]  title:@"我的"];
-    [self setSelectedIndex:0];
+    [self setSelectedIndex:2];
+    
 }
 
 - (void)setUpOneChildViewController:(UIViewController *)viewController image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title {
@@ -58,10 +83,13 @@
     navC.tabBarItem.selectedImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
      navC.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [navC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} forState:UIControlStateSelected];
-    [navC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+    [navC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
     viewController.navigationItem.title = title;
     [self addChildViewController:navC];
 }
+
+
+
 
 
 @end

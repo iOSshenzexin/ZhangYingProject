@@ -31,7 +31,11 @@
     [coder encodeObject:self.mid forKey:@"mid"];
     
     
-    [coder encodeInt:self.allCommision forKey:@"allCommision"];
+    [coder encodeFloat:self.allCommision forKey:@"allCommision"];
+    
+    [coder encodeFloat:self.commision forKey:@"commision"];
+    
+    
     [coder encodeObject:self.address forKey:@"address"];
 
 }
@@ -52,7 +56,9 @@
         
         self.phone = [decoder decodeDoubleForKey:@"phone"];
         
-        self.allCommision = [decoder decodeIntForKey:@"allCommision"];
+        self.allCommision = [decoder decodeFloatForKey:@"allCommision"];
+        
+         self.commision = [decoder decodeFloatForKey:@"commision"];
         
         self.address = [decoder decodeObjectForKey:@"address"];
 
@@ -76,6 +82,7 @@
     model.email = self.email;
     model.phone = self.phone;
     model.allCommision = self.allCommision;
+    model.commision = self.commision;
     model.address = self.address;
     return model;
 }

@@ -57,7 +57,7 @@
         NSDictionary *dic = responseObject[@"data"];
         self.titleLbl.text = dic[@"title"];
         self.contentTxt.text = dic[@"content"];
-        [self.contentImg sd_setImageWithURL:[NSURL URLWithString:dic[@"conImg"]] placeholderImage:[UIImage imageNamed:@"message-banner"]];
+        [self.contentImg sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:dic[@"conImg"]]] placeholderImage:[UIImage imageNamed:@"message-banner"]];
         NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM-dd HH:mm"];
         self.timeLbl.text = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[dic[@"sTime"][@"time"] doubleValue]/1000.0]];

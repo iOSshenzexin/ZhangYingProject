@@ -9,6 +9,5 @@ pod "SDWebImage"
 pod "MJRefresh"
 pod 'SVProgressHUD', '~> 2.0.3'
 
-pod 'UMengSocialCOM', '~> 5.2.1'
 
 

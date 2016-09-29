@@ -32,43 +32,40 @@
 
 -(UITableView *)firstTableView{
     if (!_firstTableView) {
-        _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _firstTableView.dataSource = self;
-        _firstTableView.delegate = self;
-        _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _firstTableView.backgroundColor = [UIColor clearColor];
-        _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        _firstTableView = [self setupTableview];
     }
     return _firstTableView;
 }
 
 -(UITableView *)secondTableView{
     if (!_secondTableView) {
-        _secondTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _secondTableView.dataSource = self;
-        _secondTableView.delegate = self;
-        _secondTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _secondTableView.backgroundColor = [UIColor clearColor];
-        _secondTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        _secondTableView = [self setupTableview];
     }
     return _secondTableView;
 }
 
+- (UITableView *)setupTableview{
+    UITableView *customTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - topTitleMaxHeight)];
+    customTV.separatorStyle = UITableViewCellSeparatorStyleNone;
+    customTV.dataSource = self;
+    customTV.delegate = self;
+    customTV.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+    customTV.backgroundColor = backGroundColor;
+    customTV.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    return customTV;
+}
+
+
 -(UITableView *)thirdTableView{
     if (!_thirdTableView) {
-        _thirdTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _thirdTableView.dataSource = self;
-        _thirdTableView.delegate = self;
-        _thirdTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _thirdTableView.backgroundColor = [UIColor clearColor];
-        _thirdTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        _thirdTableView = [self setupTableview];
     }
     return _thirdTableView;
 }
 
 -(NSArray *)titleArray{
     if (!_titleArray) {
-        _titleArray = [NSArray arrayWithObjects:@"预约成功",@"待确认",@"预约失败",nil];
+        _titleArray = [NSArray arrayWithObjects:@"待确认",@"预约成功",@"预约失败",nil];
     }
     return _titleArray;
 }
@@ -146,7 +143,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.firstTableView){
+    if (tableView == self.firstTableView) {
+        ZXReservationWaitController *vc = [[ZXReservationWaitController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.reservationModel = self.dataArray[indexPath.row];
+        
+        vc.title = @"预约待确认详情";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if (tableView == self.secondTableView){
     ZXReservationSuccessController *vc = [[ZXReservationSuccessController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.reservationModel = self.dataArray[indexPath.row];
@@ -158,14 +163,6 @@
         vc.hidesBottomBarWhenPushed = YES;
         vc.reservationModel = self.dataArray[indexPath.row];
         vc.title = @"预约失败详情";
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    if (tableView == self.secondTableView) {
-        ZXReservationWaitController *vc = [[ZXReservationWaitController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.reservationModel = self.dataArray[indexPath.row];
-
-        vc.title = @"预约待确认详情";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

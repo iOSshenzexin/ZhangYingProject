@@ -51,8 +51,9 @@
 
 
 /**  */
-@property (nonatomic,assign) int allCommision;
+@property (nonatomic,assign) float allCommision;
 
+@property (nonatomic,assign) float commision;
 
 @property (nonatomic,copy) NSString *address;
 

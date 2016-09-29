@@ -37,6 +37,8 @@
 @property (nonatomic,copy) NSString *memberId;
 @property (nonatomic,copy) NSString *cardNumber;
 
+@property (nonatomic,copy) NSString *reserver_id;
+
 
 
 @end

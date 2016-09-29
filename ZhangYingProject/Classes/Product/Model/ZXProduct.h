@@ -44,7 +44,7 @@
 /** 投资领域 */
 @property (nonatomic,copy) NSString *productFieldName;
 /** 投资区域 */
-@property (nonatomic,copy) NSString *productAreaName;
+@property (nonatomic,copy) NSString *salesArea;
 
 
 

@@ -131,7 +131,6 @@
     params[@"password"] = [self.pwdTF.text stringMD5Hash];
     params[@"code"] = self.checkCodeTF.text ;
     [manager POST:Product_Register_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXLog(@"%@",responseObject);
         [MBProgressHUD hideHUD];
         if ([responseObject[@"status"] intValue] == 1) {
             AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
@@ -141,6 +140,12 @@
             tab.selectedIndex = app.selectedIndex;
             [self dismissViewControllerAnimated:YES completion:^{
                 [MBProgressHUD showSuccess:@"恭喜你注册成功!"];
+                ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
+                UIViewController *vc = tab.viewControllers[app.selectedIndex];
+                [vc viewDidLoad];
+                [vc.view setNeedsDisplay];
+                
+                [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
                 //保存密码
                 [StandardUser setObject:self.pwdTF.text forKey:savePassword];
                 [StandardUser synchronize];

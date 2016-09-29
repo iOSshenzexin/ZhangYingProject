@@ -10,4 +10,10 @@
 
 @interface WithdrawCashStyleThreeCell : UITableViewCell
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *bankName;
+
+@property (weak, nonatomic) IBOutlet UILabel *cardNumber;
+
 @end

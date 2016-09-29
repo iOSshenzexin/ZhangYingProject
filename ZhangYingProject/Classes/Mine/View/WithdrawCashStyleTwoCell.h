@@ -10,4 +10,6 @@
 
 @interface WithdrawCashStyleTwoCell : UITableViewCell
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
 @end

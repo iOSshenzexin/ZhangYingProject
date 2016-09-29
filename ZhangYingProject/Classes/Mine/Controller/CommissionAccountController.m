@@ -82,10 +82,24 @@ static NSString *cellID = @"cellId";
      DealCustomCell *cellBranch = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
     
     if ([self.registerAmount isEqualToString:@"registerAmount"]) {
-        if ([self.delegate respondsToSelector:@selector(commissionAccountController:andCardNumber:cardStyle:)]) {
-            [self.delegate commissionAccountController:self andCardNumber:@"12345678901234" cardStyle:nil];
-        }
-        [self.navigationController popViewControllerAnimated:YES];
+        params[@"accountName"] = cellAccount.txtField.text;
+        params[@"bankCard"] = cellCard.txtField.text;
+        params[@"bankName"] = cellName.txtField.text;
+        params[@"bankBranch"] = cellBranch.txtField.text;
+        ZXLoginModel *model = AppLoginModel;
+        params[@"memberId"] = model.mid;
+        [manager POST:Mine_AddBankAccount_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [MBProgressHUD hideHUDForView:self.view];
+            if([responseObject[@"status"]intValue] == 1){
+                [MBProgressHUD showSuccess:@"提交成功!"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }else{
+                [MBProgressHUD showError:@"提交失败,请重试!"];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [MBProgressHUD hideHUDForView:self.view];
+            [MBProgressHUD showError:@"提交失败,请检查网络!"];
+        }];
     }else{
         params[@"accountName"] = cellAccount.txtField.text;
         params[@"bankCard"] = cellCard.txtField.text;

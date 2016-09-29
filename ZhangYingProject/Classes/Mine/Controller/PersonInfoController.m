@@ -74,8 +74,7 @@ static NSString *str = @"cellId";
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
     self.loginModel = model;
     //设置头像
-    [self.headImageBtn  sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] forState:UIControlStateNormal placeholderImage:[ZXCircleHeadImage clipImageForHeadImage:[UIImage imageNamed:@"my-phone"] andBorderWidth:5 borderColor:[UIColor redColor]]];
-    NSLog(@"%@",self.loginModel.name);
+    [self.headImageBtn  sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] forState:UIControlStateNormal placeholderImage:[ZXCircleHeadImage clipImageForHeadImage:[UIImage imageNamed:@"my-phone"] andBorderWidth:2 borderColor:[UIColor redColor]]];
     
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
@@ -122,7 +121,6 @@ static NSString *str = @"cellId";
             cell.txtField.text = [NSString stringWithFormat:@"%d",self.loginModel.email];
         }
         cell.txtField.placeholder = self.txtPlaceHolder[indexPath.row];
-        
     }else{
         cell.txtField.text = [NSString stringWithFormat:@"%.0f",self.loginModel.phone];
         cell.txtField.enabled = NO;
@@ -238,12 +236,11 @@ static NSString *str = @"cellId";
    
     cropPictureController.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cropPictureController.photoAcceptedBlock = ^(UIImage *croppedPicture){
-        UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 5 borderColor: [UIColor redColor] ];
-        [self.headImageBtn setImage:img forState:UIControlStateNormal];
+        UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 2 borderColor: [UIColor redColor] ];
         self.headImage = img;
-        if ([self.delegate respondsToSelector:@selector(setupUserHeadImage:)]) {
-            [self.delegate setupUserHeadImage:self];
-        }
+
+        [self.headImageBtn setImage:img forState:UIControlStateNormal];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     };
     [self presentViewController:cropPictureController animated:YES completion:nil];
@@ -279,11 +276,15 @@ static NSString *str = @"cellId";
     params[@"headPortrait"] = [UIImagePNGRepresentation(self.headImage) base64EncodedStringWithOptions:0];
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
      params[@"mid"] = model.mid;
-    [manager POST:Product_MemberAuthentication_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:Product_MemberInfoChange_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
         ZXLog(@"responseObject: %@ ",responseObject);
         if([responseObject[@"status"] intValue] == 1){
             [MBProgressHUD showSuccess:@"修改成功!"];
+            self.userName = cellName.txtField.text;
+            if ([self.delegate respondsToSelector:@selector(setupUserHeadImage:)]) {
+                [self.delegate setupUserHeadImage:self];
+            }
         }else{
             [MBProgressHUD showError:@"修改失败,请重试!"];
         }

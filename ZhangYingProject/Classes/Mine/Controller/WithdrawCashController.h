@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *explainLbl;
 
 @property (weak, nonatomic) IBOutlet UIButton *withdrawCashBtn;
+
+
 @end

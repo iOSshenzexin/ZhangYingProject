@@ -11,7 +11,6 @@
 #import "LoginController.h"
 #import "FloatingView.h"
 
-#import "UMSocial.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //设置友盟Appkey
-    [UMSocialData setAppKey:UMengAppKey];
+    [self useUmengSDK];
+    //[UMSocialData setAppKey:UMengAppKey];
     
     
     //启用IQKeyboardManager
@@ -71,6 +71,17 @@
     return YES;
 }
 
+
+- (void)useUmengSDK{
+    [[UMSocialManager defaultManager] openLog:YES];
+    //设置友盟appkey
+    [[UMSocialManager defaultManager] setUmSocialAppkey:UMengAppKey];
+    //设置微信的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WeChatAppId appSecret:WeChatAppKey redirectURL:@"http://mobile.umeng.com/social"];
+}
+
+
+
 - (void)useIQKeyboardManager{
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;
@@ -79,6 +90,16 @@
     manager.enableAutoToolbar = YES;
     manager.toolbarManageBehaviour =IQAutoToolbarByTag;
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
 
 - (void)fixTextViewInitSlowly{
     UITextView *textView = [[UITextView alloc] init];

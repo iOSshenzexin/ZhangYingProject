@@ -10,6 +10,13 @@
 
 @interface ProductShareCustomSyleOneCell : UITableViewCell
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *phoneLbl;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *productTitleLbl;
+
 @property (weak, nonatomic) IBOutlet UIView *borderView;
 
 @property (weak, nonatomic) IBOutlet UIButton *selectedBtn;

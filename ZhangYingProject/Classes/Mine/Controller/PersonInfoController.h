@@ -25,5 +25,7 @@
 
 @property (nonatomic,strong) UIImage *headImage;
 
+@property (nonatomic,copy) NSString *userName;
+
 + (PersonInfoController *)sharedPersonController;
 @end

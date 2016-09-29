@@ -3,6 +3,7 @@
  *  掌盈 - PCH
  */
 
+#define topTitleMaxHeight 108
 #define RGB(a,b,c,d)      [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:d];
 
 #define backGroundColor     [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
@@ -16,8 +17,12 @@
 
 #define   ZXResponseObject  ZXLog(@"%@",responseObject);
 #define   ZXError  ZXLog(@"%@",error);
+
+#define   ZXFunc  ZXLog(@"%s",__func__);
 #define   ZXNotificationCeter [NSNotificationCenter defaultCenter]
 #define   kWindowRootController [UIApplication sharedApplication].keyWindow.rootViewController
+
+#define   ZXApplication [UIApplication sharedApplication]
 
 #import "ZXConst.h"
 #import "Reachability.h"
@@ -38,6 +43,11 @@
 #import "NSString+ZXMD5Hashing.h"
 
 #import "ZXLoginModel.h"
+
+#import <UMSocialCore/UMSocialCore.h>
+
+
+
 #ifdef DEBUG
 
 #define ZXLog(...)  NSLog(__VA_ARGS__)
@@ -70,6 +80,9 @@
 /** 产品-关注 API */
 #define Product_AddFavorite_Url [baseUrl stringByAppendingString:@"/m_collection/updateCollection.do"]
 
+/** 产品-添加分享记录 API */
+#define Product_AddShared_Url [baseUrl stringByAppendingString:@"/m_sharelog/addShareLog.do"]
+
 
 /** 消息-消息列表 API */
 #define Message_MessageList_Url [baseUrl stringByAppendingString:@"/m_message/messageList.do"]
@@ -91,7 +104,11 @@
 #define Product_UpdatePassword_Url [baseUrl stringByAppendingString:@"/m_member/updatePassword.do"]
 
 /** 用户个人资料修改 API */
-#define Product_MemberAuthentication_Url [baseUrl stringByAppendingString:@"/m_member/updateMember.do"]
+#define Product_MemberInfoChange_Url [baseUrl stringByAppendingString:@"/m_member/updateMember.do"]
+
+/** 用户身份认证 API */
+#define Product_MemberAuthentication_Url [baseUrl stringByAppendingString:@"/m_member/updateRegMember.do"]
+
 
 /** 用户身份信息 API */
 #define Product_UserInfomation_Url [baseUrl stringByAppendingString:@"/m_member/memberDetails.do"]
@@ -107,6 +124,13 @@
 
 /** 我的-结佣账号列表 API */
 #define Mine_BankAccountList_Url [baseUrl stringByAppendingString:@"/m_bank/bankList.do"]
+
+/** 我的-默认结佣账号 API */
+#define Mine_DefaultBankAccount_Url [baseUrl stringByAppendingString:@"/m_bank/queryBankAccount.do"]
+
+
+
+
 
 
 
@@ -134,6 +158,10 @@
 /** 我的-我的卡券 API */
 #define Mine_MyCardList_Url [baseUrl stringByAppendingString:@"/m_card/cardList.do"]
 
+/** 我的-提现 API */
+#define Mine_WithdrawalApply_Url [baseUrl stringByAppendingString:@"/m_withdrawallog/addWithdrawalLog.do"]
+
+
 
 /** 交易-我的交易 API */
 #define Deal_MyDealList_Url [baseUrl stringByAppendingString:@"/m_make/makeList.do"]
@@ -145,7 +173,27 @@
 #define Deal_ProductRequirement_Url [baseUrl stringByAppendingString:@"/m_demand/addProductDemand.do"]
 
 /** 交易-产品公告 API */
-#define Deal_ProductAnnounce_Url [baseUrl stringByAppendingString:@"/m_announce/productAnnounceList..do"]
+#define Deal_ProductAnnounce_Url [baseUrl stringByAppendingString:@"/m_announce/productAnnounceList.do"]
+
+/** 交易-主页统计 API */
+#define Deal_HomeStatistics_Url [baseUrl stringByAppendingString:@"/m_member/getStatistics.do"]
+
+/** 交易-预约成功上传凭证 API */
+#define Deal_UploadProofInfo_Url [baseUrl stringByAppendingString:@"/m_make/updateMakeImage.do"]
+
+/** 交易-预约详情 API */
+#define Deal_ReservationDetail_Url [baseUrl stringByAppendingString:@"/m_make/makeDetails.do"]
+
+
+/** 交易-关注列表 API */
+#define Deal_CollectionList_Url [baseUrl stringByAppendingString:@"/m_collection/collectionList.do"]
+
+/** 交易-分享列表 API */
+#define Deal_SharedList_Url [baseUrl stringByAppendingString:@"/m_sharelog/sharelogList.do"]
+
+
+
+
 
 
 
@@ -154,7 +202,11 @@
 #define Home_AdvertisementList_Url [baseUrl stringByAppendingString:@"/m_advertise/advertiseList.do"]
 
 /** 首页-推荐列表 API */
-//#define Home_AdvertisementList_Url [baseUrl stringByAppendingString:@"/m_product/recommendList.do"]
+#define Home_HotRecommandation_Url [baseUrl stringByAppendingString:@"/m_product/recommendList.do"]
+
+/** 首页-我的业绩 API */
+#define Home_MyGrade_Url [baseUrl stringByAppendingString:@"/m_index/getStatistics.do"]
+
 
 
 

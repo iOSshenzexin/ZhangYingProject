@@ -20,37 +20,37 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="QNS-Gl-OiP"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户姓名: 刘志宏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-KD-Xdv">
-                        <rect key="frame" x="8" y="48" width="180" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="8" y="48" width="180" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打款金额: 100万元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcK-5D-m22">
-                        <rect key="frame" x="188" y="48" width="179" height="20"/>
-                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="188" y="48" width="179" height="19"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkm-aX-Llr">
-                        <rect key="frame" x="8" y="76" width="359" height="1"/>
+                        <rect key="frame" x="8" y="75" width="359" height="1"/>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Iyk-ak-4sV"/>
                         </constraints>
                     </view>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VY-HB-td1">
-                        <rect key="frame" x="294" y="85" width="65" height="20"/>
+                        <rect key="frame" x="309" y="82" width="50" height="20"/>
                         <color key="backgroundColor" red="0.98070004109999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="MNJ-zU-PdU"/>
-                            <constraint firstAttribute="width" constant="65" id="x17-3P-I3m"/>
+                            <constraint firstAttribute="width" constant="50" id="x17-3P-I3m"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="详情">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -66,7 +66,7 @@
                     <constraint firstItem="Pkm-aX-Llr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="9kY-eI-j18"/>
                     <constraint firstItem="DcK-5D-m22" firstAttribute="height" secondItem="VAn-KD-Xdv" secondAttribute="height" id="9sj-x9-19i"/>
                     <constraint firstItem="DcK-5D-m22" firstAttribute="width" secondItem="VAn-KD-Xdv" secondAttribute="width" id="CLt-iH-pIG"/>
-                    <constraint firstItem="0VY-HB-td1" firstAttribute="top" secondItem="Pkm-aX-Llr" secondAttribute="bottom" constant="8" id="Jt0-hX-8z8"/>
+                    <constraint firstItem="0VY-HB-td1" firstAttribute="top" secondItem="Pkm-aX-Llr" secondAttribute="bottom" constant="6" id="Jt0-hX-8z8"/>
                     <constraint firstItem="VAn-KD-Xdv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="O0Y-E3-oO8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="0VY-HB-td1" secondAttribute="trailing" constant="8" id="RPA-99-14A"/>
                     <constraint firstItem="ybD-xW-hOP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="V3i-KC-u9n"/>

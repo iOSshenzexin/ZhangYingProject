@@ -10,15 +10,16 @@
 
 @implementation DealTopCustomCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+static NSString *dealTopCustomCell= @"DealTopCustomCell";
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableview:(UITableView *)tableview
+{
+    DealTopCustomCell *cell = [tableview dequeueReusableCellWithIdentifier:dealTopCustomCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"DealTopCustomCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 @end

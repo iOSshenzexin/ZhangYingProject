@@ -12,15 +12,18 @@ static NSString *customInTransitCell = @"CustomInTransitCell";
 
 @implementation CustomInTransitCell
 
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -= 8;
+    [super setFrame:frame];
+}
+
 +(instancetype)cellWithTableview:(UITableView *)tableview{
     CustomInTransitCell *cell = [tableview dequeueReusableCellWithIdentifier:customInTransitCell];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomInTransitCell" owner:nil options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
     return cell;
 }
 
@@ -29,6 +32,7 @@ static NSString *customInTransitCell = @"CustomInTransitCell";
     _orderModel = orderModel;
     self.productTitle.text = orderModel.productTitle;
     self.userName.text = [NSString stringWithFormat:@"客户姓名: %@",orderModel.userName];
-    self.account.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"打款金额: %@万元",orderModel.payAmount] Color:[UIColor redColor] FontSize:20];
+    self.account.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"打款金额: %@万元",orderModel.payAmount] Color:[UIColor redColor] FontSize:18];
+    self.orderNumber.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"订单编号: %@",orderModel.orderNo] Color:[UIColor redColor] FontSize:14];
 }
 @end

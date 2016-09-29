@@ -40,8 +40,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.messageTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self requestMessageData];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self requestMessageData];
 }
 
 - (void)requestMessageData

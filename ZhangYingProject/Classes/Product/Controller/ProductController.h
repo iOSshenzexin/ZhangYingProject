@@ -10,4 +10,5 @@
 
 @interface ProductController : UIViewController
 
+@property (nonatomic,assign)  int  number;
 @end

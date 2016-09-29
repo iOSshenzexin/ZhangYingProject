@@ -8,17 +8,22 @@
 
 #import "WithdrawCashStyleThreeCell.h"
 
+static NSString *withdrawCashStyleThreeCell = @"WithdrawCashStyleThreeCell";
 @implementation WithdrawCashStyleThreeCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=3;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    WithdrawCashStyleThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:withdrawCashStyleThreeCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([WithdrawCashStyleThreeCell class]) owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 @end

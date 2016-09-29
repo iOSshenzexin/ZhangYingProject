@@ -62,21 +62,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
-    self.nickName.text = model.name;
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:4 borderColor:[UIColor redColor]]];
+    // self.headImage.layer.masksToBounds
     PersonInfoController *vc = [PersonInfoController sharedPersonController];
     vc.delegate = self;
+    ZXLoginModel *model = AppLoginModel;
+    self.nickName.text = model.name;
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:2 borderColor:[UIColor redColor]]];
+    
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
     self.tableView.sectionFooterHeight = 0;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+   //
+}
 
 
 -(void)setupUserHeadImage:(PersonInfoController *)vc{
     self.headImage.image = vc.headImage;
+    self.nickName.text = vc.userName;
 }
 
 
@@ -113,7 +121,6 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
     switch (indexPath.row) {
         case 0:{
             self.hidesBottomBarWhenPushed = YES;
@@ -139,15 +146,9 @@
             self.hidesBottomBarWhenPushed = NO;
             break;
         }
-        case 3:
-        {
-            break;
-        }
-            
         default:
             break;
     }
-
 }
 
 
@@ -190,7 +191,9 @@
         AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
         app.isLogin = NO;
         vc.quit = 1;
-        [tab presentViewController:nav animated:YES completion:^{}];
+        [tab presentViewController:nav animated:YES completion:^{
+            [StandardUser removeObjectForKey:loginModel];
+        }];
     }];
     [alertController addAction:determineAction];
     [self presentViewController:alertController animated:YES completion:nil];

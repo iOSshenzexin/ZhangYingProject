@@ -10,4 +10,7 @@
 
 @interface WithdrawCashStyleOneCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UITextField *withdrawAmount;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

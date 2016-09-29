@@ -26,6 +26,12 @@
                                 <constraint firstAttribute="width" constant="80" id="yWt-9e-LRx"/>
                             </constraints>
                             <state key="normal" image="my-phone"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="36"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="handOffHeadImage:" destination="-1" eventType="touchUpInside" id="muE-SI-Rjf"/>
                             </connections>

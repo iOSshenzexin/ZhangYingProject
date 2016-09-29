@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCollectionController">
             <connections>
+                <outlet property="tableView" destination="WvL-6M-BIE" id="uGh-UK-eSf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,8 +15,25 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-6M-BIE">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="hXA-aY-KNy"/>
+                        <outlet property="delegate" destination="-1" id="Pwl-cc-ZsY"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WvL-6M-BIE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KQ0-L6-hye"/>
+                <constraint firstItem="WvL-6M-BIE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UEt-CC-yLN"/>
+                <constraint firstAttribute="trailing" secondItem="WvL-6M-BIE" secondAttribute="trailing" id="hUk-Dh-h4v"/>
+                <constraint firstAttribute="bottom" secondItem="WvL-6M-BIE" secondAttribute="bottom" id="iUH-ds-9nn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="433.5" y="324.5"/>
         </view>
     </objects>
 </document>

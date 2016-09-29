@@ -8,54 +8,65 @@
 
 #import "ProductAnnouncementController.h"
 #import "CustomAnnouncementCell.h"
+
+#import "ZXAnnounceModel.h"
 @interface ProductAnnouncementController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,copy) NSArray *titleArray;
-/**付息公告表格*/
+/**
+ *付息公告表格
+ */
 @property (nonatomic,strong) UITableView *firstTableView;
+
+@property (nonatomic,strong) UITableView *secondTableView;
+
+
+@property (nonatomic,copy) NSMutableArray *dataArray;
+
+
 @end
 
 @implementation ProductAnnouncementController
 
-static NSString *str = @"cellId";
--(UITableView *)firstTableView{
-    if (!_firstTableView) {
-        _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-        _firstTableView.dataSource = self;
-        _firstTableView.delegate = self;
-        _firstTableView.rowHeight = 80;
-        [_firstTableView registerNib:[UINib nibWithNibName:@"CustomAnnouncementCell" bundle:nil] forCellReuseIdentifier:str];
-        _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-        _firstTableView.backgroundColor = [UIColor clearColor];
-        _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    }
-    return _firstTableView;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupTopSegment];
-    [self requestProductAnnouncementInfo];
-}
-
-- (void)requestProductAnnouncementInfo
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [manager POST:Deal_ProductAnnounce_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-}
-
-
-
+// 公告标题
 -(NSArray *)titleArray{
     if (!_titleArray) {
         _titleArray = [NSArray arrayWithObjects:@"付息公告",@"到期公告",nil];
     }
     return _titleArray;
 }
+
+- (UITableView *)createTableView
+{
+    UITableView *tableVeiw = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - 130)];
+    tableVeiw.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableVeiw.dataSource = self;
+    tableVeiw.delegate = self;
+    tableVeiw.rowHeight = 80;
+    tableVeiw.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+    tableVeiw.backgroundColor = backGroundColor;
+    tableVeiw.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    return tableVeiw;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupTopSegment];
+    [self requestProductAnnouncementInfoWithUrl:Deal_ProductAnnounce_Url ModelClassString:@"ZXAnnounceModel" TableView:self.firstTableView Status:1];
+}
+
+- (void)requestProductAnnouncementInfoWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = @(status);
+    [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dataArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+}
+
 
 - (void)setupTopSegment{
     self.automaticallyAdjustsScrollViewInsets= NO; //iOS7新增属性
@@ -65,39 +76,30 @@ static NSString *str = @"cellId";
         view.backgroundColor = RGB(242, 242, 242, 1);
         [contentArray addObject:view];
     }
+    self.firstTableView = [self createTableView];
+    [(UIView *)contentArray[0] addSubview:self.firstTableView];
+    self.secondTableView = [self createTableView];
+    [(UIView *)contentArray[1] addSubview:self.secondTableView];
+    
     
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
+    scView.block = ^(int index){
+        UITableView *tableView = [(UIView *)contentArray[index-1] subviews][0];
+        [self requestProductAnnouncementInfoWithUrl:Deal_ProductAnnounce_Url ModelClassString:@"ZXAnnounceModel" TableView:tableView Status:index];
+    };
     [self.view addSubview:scView];
-    
-    UIView *view = (UIView *)contentArray[0];
-    [view addSubview:self.firstTableView];
 }
 
 #pragma mark UITableViewDelegate And UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CustomAnnouncementCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[CustomAnnouncementCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-    }
-    cell.subtitleLbl.attributedText = [self getAttributedString:cell.subtitleLbl.text];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
+    CustomAnnouncementCell *cell = [CustomAnnouncementCell cellWithTableView:tableView];
+    cell.announceModel = self.dataArray[indexPath.row];
     return cell;
-}
-
-/**富文本*/
-- (NSAttributedString *)getAttributedString:(NSString *)string{
-    NSMutableAttributedString *mabString = [[NSMutableAttributedString alloc] initWithString:string];
-    [mabString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(8, 4)];
-    [mabString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(8, 4)];
-    return mabString;
 }
 
 @end

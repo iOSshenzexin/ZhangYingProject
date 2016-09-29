@@ -21,9 +21,15 @@
 
 @property (nonatomic,assign) NSInteger count;
 
+
+@property (nonatomic,strong) UIButton *previousBtn;
+
+
 @end
 
 @implementation BlockView
+
+
 
 -(void)setupBlockViewContent:(NSArray *)titleArray buttonBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor title:(NSString *)title{
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 4, 16)];
@@ -45,6 +51,7 @@
         [btn setTitle:model.title forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:12];
         [btn addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
+
         btn.layer.cornerRadius = 3;
         btn.layer.borderWidth = 0.5;
         UIColor *color = RGB(227, 227, 227, 1);
@@ -75,7 +82,6 @@
         [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
     }
     btn.selected = isSelected;
-
     isSelected = !isSelected;
 }
 
@@ -86,16 +92,52 @@
     for (NSInteger i = 0; i < count ; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(10 + i % 4 *(btnW + 10),10 + (i / 4) * 40, btnW, 30);
+        btn.tag = i +1;
+        if (i == 0) {
+            [self didClickSortProduct:btn];
+        }else{
+            btn.backgroundColor = btnBackgroundColor;
+            [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
+        }
         [btn setTitle:titleArray[i] forState:UIControlStateNormal];
-        [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:12];
-        [btn addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(didClickSortProduct:) forControlEvents:UIControlEventTouchUpInside];
         btn.layer.cornerRadius = 3;
         btn.layer.borderWidth = 0.5;
         UIColor *color = RGB(227, 227, 227, 1);
         btn.layer.borderColor = [color CGColor];
-        btn.backgroundColor = btnBackgroundColor;
         [self addSubview:btn];
     }
 }
+
+- (void)didClickSortProduct:(UIButton *)btn
+{
+    ZXLog(@"btn.tag %ld",(long)btn.tag);
+    if (self.previousBtn != btn) {
+        btn.selected = YES;
+        self.previousBtn.selected = NO;
+    }else{
+       // btn.selected = !btn.selected;
+    }
+    if (btn.selected) {
+        btn.backgroundColor = [UIColor redColor];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        
+    }else{
+        btn.backgroundColor = btnBackgroundColor;
+        [btn setTitleColor:btnTitleColor forState:UIControlStateNormal];
+    }
+    if (self.previousBtn.selected) {
+         self.previousBtn.backgroundColor = [UIColor redColor];
+        [self.previousBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else{
+        self.previousBtn.backgroundColor = btnBackgroundColor;
+        [self.previousBtn setTitleColor:btnTitleColor forState:UIControlStateNormal];
+    }
+    self.previousBtn = btn;
+}
+
+
+
 @end

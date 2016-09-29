@@ -11,6 +11,11 @@
 static NSString *customOrderCell= @"CustomOrderCell";
 
 @implementation CustomOrderCell
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=5;
+    [super setFrame:frame];
+}
 
 +(instancetype)cellWithTableview:(UITableView *)tableview{
     CustomOrderCell *cell = [tableview dequeueReusableCellWithIdentifier:customOrderCell];
@@ -18,9 +23,6 @@ static NSString *customOrderCell= @"CustomOrderCell";
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomOrderCell" owner:nil options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.layer.borderWidth = 3;
-    UIColor *color = RGB(242, 242, 242, 1);
-    cell.layer.borderColor = [color CGColor];
     return cell;
 }
 

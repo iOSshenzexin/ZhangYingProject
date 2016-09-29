@@ -11,6 +11,12 @@
 #import "ZXEnterRecordModel.h"
 @implementation BankCardCell
 
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -=5;
+    [super setFrame:frame];
+}
+
 NSString *const cardCell = @"BankCardCell";
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{

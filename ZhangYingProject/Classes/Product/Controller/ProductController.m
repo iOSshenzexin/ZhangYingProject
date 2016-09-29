@@ -20,6 +20,9 @@
 #import "ZXProduct.h"
 #import "ZXSortModel.h"
 
+#import "LoginController.h"
+
+
 #define DurationTime 0.35
 
 @interface ProductController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
@@ -48,6 +51,12 @@
 
 
 @property (nonatomic,copy) NSMutableArray *models;
+
+
+@property (nonatomic,copy) NSMutableArray *contentArray;
+
+@property (nonatomic,copy) NSMutableArray *tableViewArray;
+
 @end
 
 @implementation ProductController
@@ -119,11 +128,28 @@
     [super viewDidLoad];
     [self setupNavigationBarSubviews];
     
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.firstTV Status:1];
+    self.number = 1;
     
     [self loadTopicTitle];
     
+    [ZXNotificationCeter addObserver:self selector:@selector(getProductListInfomation:) name:ZXSelectedProductStyleNotification object:nil];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.firstTV Status:self.number];
+}
+
+
+- (void)getProductListInfomation:(NSNotification *)noti
+{
+    NSDictionary *dic = noti.userInfo;
+    int index = [dic[@"index"] intValue];
+    ZXLog(@"Product Id :%d",index);
+}
+
 
 #pragma mark - 加载头部视图的网络数据
 - (void)loadTopicTitle
@@ -133,7 +159,7 @@
         self.titleArray = [ZXTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self setupTopSegment];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        ZXLog(@"%@",error);
+        ZXError
     }];
 }
 #pragma mark - 创建头部视图
@@ -148,6 +174,7 @@
         [topics addObject:topic.typeName];
         view.backgroundColor = RGB(242, 242, 242, 1);
         [contentArray addObject:view];
+        
     }
     [(UIView *)contentArray[0] addSubview:self.firstTV];
     [(UIView *)contentArray[1] addSubview:self.secondTV];
@@ -158,11 +185,11 @@
     [self.view addSubview:scView];
     
     scView.block = ^(int index){
+        self.number = index;
         ZXTopic *topic = self.titleArray[index-1];
         int productType = [topic.product_id intValue];
         UITableView *tableView = [(UIView *)contentArray[index-1] subviews][0];
         [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType];
-        ZXLog(@"Product Index :%d ",index);
     };
     
 }
@@ -174,6 +201,7 @@
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [tableView reloadData];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -216,8 +244,6 @@ static BOOL isCreated = YES;
 #pragma mark - 左边筛选按钮对应事件
 - (void)didClickFilter:(UIButton *)btn{
     NSMutableArray *sortTitles = [self requestDataByHttp:Product_SortList_Url];
-    NSInteger count = sortTitles.count;
-    
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isShow == YES) {
         if (self.showSortView) {
@@ -312,8 +338,6 @@ static BOOL isSetUp = YES;
 
 #pragma mark - 右边排序按钮对应事件
 - (void)didClickSort:(UIButton *)btn{
-    
-    
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isShow == YES) {
         if (self.showView) {
@@ -338,6 +362,12 @@ static BOOL isSetUp = YES;
         CGFloat blockH = 80;
         BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0,0, ScreenW, blockH)];
         [block setupSortBlockContentView:[NSArray arrayWithObjects:@"默认",@"最新",@"收益",@"佣金", nil]];
+        block.block = ^(int tag){
+            
+            ZXLog(@"tag : %d",tag);
+            
+        };
+        
         [self.sortView addSubview:block];
         [UIView animateWithDuration:DurationTime animations:^{
             self.showSortView.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0.65];}];
@@ -382,13 +412,21 @@ static BOOL isSetUp = YES;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZXProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    ProductDetailController *vc = [[ProductDetailController alloc] init];
-    vc.title = cell.product.productTitle;
-    ZXProduct *product = self.productArray[indexPath.row];
-    vc.product_id = product.proId;
-    ZXLog(@"product_id = %@",vc.product_id);
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+      AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    if (app.isLogin) {
+        ZXProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        ProductDetailController *vc = [[ProductDetailController alloc] init];
+        vc.title = cell.product.productTitle;
+        ZXProduct *product = self.productArray[indexPath.row];
+        vc.product_id = product.proId;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        LoginController *login = [[LoginController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+        [kWindowRootController presentViewController:nav animated:YES completion:nil];
+    }
+    
 }
+
 @end

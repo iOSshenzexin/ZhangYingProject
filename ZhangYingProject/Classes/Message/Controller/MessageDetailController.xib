@@ -20,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7l-Jf-cYc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="664"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7l-Jf-cYc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBg-fr-wh6">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,7 +30,7 @@
                                 <constraint firstAttribute="height" id="bKG-ON-onL"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[湖南信托-成都新益州] 1期派息提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuX-Up-dMR">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuX-Up-dMR">
                             <rect key="frame" x="8" y="70" width="359" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="rU8-vk-mjb"/>
@@ -39,8 +39,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-06-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-H9-3xl">
-                            <rect key="frame" x="8" y="138" width="120" height="15"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-H9-3xl">
+                            <rect key="frame" x="8" y="138" width="120" height="0.0"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="M9f-8g-keY"/>
                             </constraints>
@@ -48,19 +48,18 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-banner" translatesAutoresizingMaskIntoConstraints="NO" id="knm-D7-vP5">
-                            <rect key="frame" x="8" y="157" width="359" height="164"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="knm-D7-vP5">
+                            <rect key="frame" x="8" y="142" width="359" height="164"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="164" id="uoU-XS-4R7"/>
                             </constraints>
                         </imageView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5bg-PD-o7X">
-                            <rect key="frame" x="8" y="324" width="359" height="292"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="8" y="309" width="359" height="350"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="292" id="Odh-DP-zeW"/>
+                                <constraint firstAttribute="height" constant="350" id="Odh-DP-zeW"/>
                             </constraints>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -79,7 +78,7 @@
                         <constraint firstItem="knm-D7-vP5" firstAttribute="leading" secondItem="5bg-PD-o7X" secondAttribute="leading" id="mTH-ru-2N0"/>
                         <constraint firstItem="KuX-Up-dMR" firstAttribute="leading" secondItem="B7l-Jf-cYc" secondAttribute="leadingMargin" id="qkK-Sm-enl"/>
                         <constraint firstItem="wCb-H9-3xl" firstAttribute="leading" secondItem="knm-D7-vP5" secondAttribute="leading" id="shH-BM-aD5"/>
-                        <constraint firstAttribute="bottom" secondItem="5bg-PD-o7X" secondAttribute="bottom" constant="174" id="vzc-G8-4ch"/>
+                        <constraint firstAttribute="bottom" secondItem="5bg-PD-o7X" secondAttribute="bottom" id="vzc-G8-4ch"/>
                         <constraint firstItem="wCb-H9-3xl" firstAttribute="top" secondItem="KuX-Up-dMR" secondAttribute="bottom" constant="8" symbolic="YES" id="wwX-CJ-UPe"/>
                     </constraints>
                 </scrollView>
@@ -94,7 +93,4 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
-    <resources>
-        <image name="message-banner" width="335" height="134"/>
-    </resources>
 </document>

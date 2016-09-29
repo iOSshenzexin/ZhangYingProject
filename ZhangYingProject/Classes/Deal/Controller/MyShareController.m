@@ -11,32 +11,25 @@
 #import "CustomShareCell.h"
 #import "ShareDetailController.h"
 
+#import "ZXShareModel.h"
 @interface MyShareController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *firstTableView;
-@property (nonatomic,strong) NSMutableArray *rowsArray;
+
+@property (nonatomic,copy) NSMutableArray *sharedArray;
 
 @end
 
 @implementation MyShareController
 
--(NSMutableArray *)rowsArray{
-    if (!_rowsArray) {
-        _rowsArray = [NSMutableArray arrayWithObjects:@"在售产品",@"历史产品",@"在售产品",@"历史产品",@"在售产品",@"历史产品",nil];
-    }
-    return _rowsArray;
-}
-
-  static NSString *str = @"cellId";
 -(UITableView *)firstTableView{
     if (!_firstTableView) {
         _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
         _firstTableView.dataSource = self;
         _firstTableView.delegate = self;
         _firstTableView.rowHeight = 80;
-        [_firstTableView registerNib:[UINib nibWithNibName:@"CustomShareCell" bundle:nil] forCellReuseIdentifier:str];
         _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
-        _firstTableView.backgroundColor = [UIColor clearColor];
+        _firstTableView.backgroundColor = backGroundColor;
         _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return _firstTableView;
@@ -44,31 +37,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self requestSharedListContent];
     [self.view addSubview:self.firstTableView];
-    [self deleteBack];
 }
 
-- (void)deleteBack{
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
-    backButtonItem.title = @"";
-    self.navigationItem.backBarButtonItem = backButtonItem;
+
+- (void)requestSharedListContent
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    params[@"pageIndex"] = @(0);
+    [manager POST:Deal_SharedList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.sharedArray = [ZXShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [self.firstTableView reloadData];
+        ZXResponseObject
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.rowsArray.count;
+    return self.sharedArray.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-        CustomShareCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-        if (!cell) {
-            cell = [[CustomShareCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-        }
-      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-      cell.selectionStyle = UITableViewCellSelectionStyleNone;
-      cell.layer.borderWidth = 6;
-      UIColor *color = RGB(242, 242, 242, 1);
-      cell.layer.borderColor = [color CGColor];
+    CustomShareCell *cell = [CustomShareCell cellWithTableView:tableView];
+    cell.shareModel = self.sharedArray[indexPath.row];
       return cell;
 }
 
@@ -80,7 +78,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-            [self.rowsArray removeObjectAtIndex:indexPath.row];
+            [self.sharedArray removeObjectAtIndex:indexPath.row];
             [self.firstTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self.firstTableView reloadData];
     }

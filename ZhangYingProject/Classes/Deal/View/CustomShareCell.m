@@ -10,15 +10,37 @@
 
 @implementation CustomShareCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+static NSString *customShareCell= @"CustomShareCell";
+
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -= 5;
+    [super setFrame:frame];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    CustomShareCell *cell = [tableView dequeueReusableCellWithIdentifier:customShareCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomShareCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
 }
+
+-(void)setShareModel:(ZXShareModel *)shareModel{
+    _shareModel = shareModel;
+    self.typeLbl.text = shareModel.typeName;
+    self.titleLbl.text = shareModel.productTitle;
+    
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd HH:mm"];
+    
+    self.timeLbl.text = [NSString stringWithFormat:@"最后分享: %@",[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[shareModel.createTime[@"time"] doubleValue]/1000.0]]] ;
+    
+    
+}
+
 
 @end
