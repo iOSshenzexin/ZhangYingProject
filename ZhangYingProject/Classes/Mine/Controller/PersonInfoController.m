@@ -20,7 +20,6 @@
 }
 
 //@property (nonatomic, strong) IQKeyboardReturnKeyHandler    *returnKeyHandler;
-@property (weak, nonatomic) IBOutlet UIButton *headImageBtn;
 
 @property (nonatomic,copy) NSArray *imgArray;
 @property (nonatomic,copy) NSArray *nameArray;
@@ -111,14 +110,17 @@ static NSString *str = @"cellId";
     CustomPersonCell *cell = [CustomPersonCell cellWithTableView:tableView];
     cell.img.image = [UIImage imageNamed:self.imgArray[indexPath.row]];
     cell.nameLbl.text = self.nameArray[indexPath.row];
-     (indexPath.row == 3) ? (cell.changeNumberBtn.hidden = NO) : (cell.changeNumberBtn.hidden = YES);
+//     (indexPath.row == 3) ? (cell.changeNumberBtn.hidden = NO) : (cell.changeNumberBtn.hidden = YES);
+    if(indexPath.row != 3){
+        [cell.changeNumberBtn removeFromSuperview];
+    }
     if (indexPath.row != 3) {
         if (indexPath.row == 0) {
             cell.txtField.text = self.loginModel.name;
         }else if(indexPath.row == 1){
             cell.txtField.text = self.loginModel.nickname;
         }else{
-            cell.txtField.text = [NSString stringWithFormat:@"%d",self.loginModel.email];
+            cell.txtField.text = [NSString stringWithFormat:@"%@",self.loginModel.email];
         }
         cell.txtField.placeholder = self.txtPlaceHolder[indexPath.row];
     }else{
@@ -164,7 +166,6 @@ static NSString *str = @"cellId";
 }
 #pragma mark - UIPickerViewDataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    
     return 1;
 }
 
@@ -236,7 +237,7 @@ static NSString *str = @"cellId";
    
     cropPictureController.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cropPictureController.photoAcceptedBlock = ^(UIImage *croppedPicture){
-        UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 2 borderColor: [UIColor redColor] ];
+        UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 2 borderColor: [UIColor redColor]];
         self.headImage = img;
 
         [self.headImageBtn setImage:img forState:UIControlStateNormal];
@@ -264,7 +265,6 @@ static NSString *str = @"cellId";
 
 - (IBAction)didClickConfirmChange:(id)sender {
     [MBProgressHUD showMessage:@"正在提交修改..." toView:self.view];
-    //[MBProgressHUD showMessage:@"正在提交修改..."];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     CustomPersonCell *cellName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -273,15 +273,22 @@ static NSString *str = @"cellId";
     params[@"nickname"] = cellNickName.txtField.text;
     CustomPersonCell *cellEmail = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     params[@"email"] = cellEmail.txtField.text;
-    params[@"headPortrait"] = [UIImagePNGRepresentation(self.headImage) base64EncodedStringWithOptions:0];
+    params[@"headPortrait"] = [UIImagePNGRepresentation(self.headImageBtn.currentImage) base64EncodedStringWithOptions:0];
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
      params[@"mid"] = model.mid;
     [manager POST:Product_MemberInfoChange_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
-        ZXLog(@"responseObject: %@ ",responseObject);
         if([responseObject[@"status"] intValue] == 1){
             [MBProgressHUD showSuccess:@"修改成功!"];
             self.userName = cellName.txtField.text;
+            
+            //修改model  
+            [model setValue:cellName.txtField.text forKey:@"name"];
+            [model setValue:cellNickName.txtField.text forKey:@"nickname"];
+            [model setValue:cellEmail.txtField.text forKey:@"email"];
+            [model setValue:responseObject[@"data"] forKey:@"headPortrait"];
+            [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
+            [StandardUser synchronize];            
             if ([self.delegate respondsToSelector:@selector(setupUserHeadImage:)]) {
                 [self.delegate setupUserHeadImage:self];
             }
@@ -291,7 +298,7 @@ static NSString *str = @"cellId";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showError:@"修改失败,请检查网络!"];
-        ZXLog(@"%@",error);
+        ZXError
     }];
 }
 

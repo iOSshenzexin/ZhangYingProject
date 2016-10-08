@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LiuXSegmentView.h"
 
-typedef void(^DataBlock)(int selectedId);
+//typedef void(^DataBlock)(int selectedId);
+
+typedef void(^DataBlock)(int selectedId,CGFloat contentOffSet);
+
+typedef void (^testTFBlockParameter)(NSString *parameter1 , NSString *parameter2);
+
+
+typedef void(^segmentBlock)(int selected);
 
 @interface LXSegmentScrollView : UIView
 
@@ -17,5 +25,12 @@ typedef void(^DataBlock)(int selectedId);
             contentViewArray:(NSArray *)contentViewArray;
 
 @property (nonatomic,copy) DataBlock block;
+
+@property (nonatomic,strong) segmentBlock segBlock;
+
+@property (strong,nonatomic) UIScrollView *bgScrollView;
+
+@property (strong,nonatomic) LiuXSegmentView *segmentToolView;
+
 
 @end

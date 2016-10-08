@@ -16,7 +16,6 @@
 @implementation AboutUsController
 
 - (IBAction)didClickShowZYDelegate:(id)sender {
-    NSLog(@"ccccc");
     self.hidesBottomBarWhenPushed = YES;
     ZYDelegateController *vc = [[ZYDelegateController alloc] init];
     vc.title = @"掌盈用户服务协议";
@@ -57,6 +56,14 @@
         return 150;
     }
     return 50;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1 && indexPath.row == 3) {
+        ZXFunc
+    }
 }
 
 

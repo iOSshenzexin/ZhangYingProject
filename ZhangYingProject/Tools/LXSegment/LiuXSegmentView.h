@@ -50,6 +50,10 @@ typedef void(^btnClickBlock)(NSInteger index);
 
 
 @property (nonatomic,strong) UIButton *titleBtn;
+
+
 @property (nonatomic,strong) UIScrollView *bgScrollView;
 
+
+-(void)btnClick:(UIButton *)btn;
 @end

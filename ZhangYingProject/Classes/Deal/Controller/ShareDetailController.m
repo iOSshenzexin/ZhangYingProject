@@ -12,6 +12,8 @@
 #import "CustomShareStyleOneCell.h"
 
 #import "ShareModel.h"
+#import "UMSocialUIManager.h"
+
 @interface ShareDetailController ()<UITableViewDelegate,UITableViewDataSource,CustomHeaderViewDelegate>
 
 @property (nonatomic,strong) NSMutableArray *dataArray;
@@ -26,13 +28,8 @@ static NSString *styleTwo = @"styleTwo";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataArray = [NSMutableArray array];
-    for (NSInteger i = 0; i < 5; i++) {
-        ShareModel *model = [[ShareModel alloc] init];
-        model.array = [NSArray arrayWithObjects:@"2",@"3",nil];
-        model.title = [NSString stringWithFormat:@"2016-08-0%zd",i];
-        [self.dataArray addObject:model];
-    }
+    [self requestShareListDetailData];
+
     [self setupNavigationBarBtn];
     
     self.shareDetailTableView.tableHeaderView = [self createHeaderView];
@@ -41,6 +38,23 @@ static NSString *styleTwo = @"styleTwo";
     
     [self.shareDetailTableView registerNib:[UINib nibWithNibName:@"CustomShareStyleOneCell" bundle:nil] forCellReuseIdentifier:styleTwo];
 }
+
+- (void)requestShareListDetailData
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    params[@"productId"] = self.product_id;
+    [manager POST:Deal_SharedListDetail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+       // self.dataArray = [ShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        ZXResponseObject
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+}
+
 
 - (UIView *)createHeaderView{
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 40)];
@@ -103,6 +117,74 @@ static NSString *styleTwo = @"styleTwo";
 }
 
 - (void)didClickMoreShare:(UIButton *)btn{
+    __weak typeof(self) weakSelf = self;
+    //显示分享面板
+    [UMSocialUIManager showShareMenuViewInView:nil sharePlatformSelectionBlock:^(UMSocialShareSelectionView *shareSelectionView, NSIndexPath *indexPath, UMSocialPlatformType platformType) {
+      //  [weakSelf disMissShareMenuView];
+        [weakSelf shareDataWithPlatform:platformType];
+    }];
+}
+
+
+- (void)shareDataWithPlatform:(UMSocialPlatformType)platformType{
+    UMSocialMessageObject *messageObject = [self creatMessageObject];
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        NSString *message = nil;
+        if (!error) {
+            message = [NSString stringWithFormat:@"分享成功"];
+            [self recordShare];
+        }
+        else{
+            if (error) {
+                message = [NSString stringWithFormat:@"分享失败"];
+                // message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
+            }
+            else{
+                message = [NSString stringWithFormat:@"分享失败"];
+            }
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示:"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    }];
+}
+
+
+- (UMSocialMessageObject *)creatMessageObject
+{
+    ZXLoginModel *model = AppLoginModel;
+    NSString *text;
+//    if (self.telephoneBtn.selected) {
+//        text = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
+//    }else
+//    {
+//        text = self.content;
+//    }
+//    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    NSString *title = @"";
+    NSString *url = @"http://ios9quan.9quan.com.cn/www/wine/show/70488/37961/9502";
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:@"http://dev.umeng.com/images/tab2_1.png"];
+    [shareObject setWebpageUrl:url];
+    messageObject.shareObject = shareObject;
+    return messageObject;
     
+}
+
+
+- (void)recordShare{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"productId"] = self.product_id;
+    ZXLoginModel *model = AppLoginModel;
+    params[@"memberId"] = model.mid;
+    [manager POST:Product_AddShared_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
 }
 @end

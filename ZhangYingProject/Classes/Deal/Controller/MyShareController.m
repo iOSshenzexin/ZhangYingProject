@@ -25,6 +25,7 @@
 -(UITableView *)firstTableView{
     if (!_firstTableView) {
         _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
+        _firstTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _firstTableView.dataSource = self;
         _firstTableView.delegate = self;
         _firstTableView.rowHeight = 80;
@@ -91,6 +92,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.hidesBottomBarWhenPushed = YES;
     ShareDetailController *vc = [[ShareDetailController alloc] init];
+    ZXShareModel *model = self.sharedArray[indexPath.row];
+    vc.product_id = model.productId;
     vc.title = @"分享详情";
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^buttonClick)(NSInteger tag);
+
 @interface FourthView : UIView
+
+- (IBAction)didClickSelectedContent:(id)sender;
+
+@property (nonatomic,copy) buttonClick btnClick;
+
 
 @end

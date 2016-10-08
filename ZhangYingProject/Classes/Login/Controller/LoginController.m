@@ -29,7 +29,6 @@
     [self.view endEditing:YES];
 }
 
-
 - (void)setupNavigationBarBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 80, 30);
@@ -75,17 +74,18 @@
 }
 
 - (void)loginAppwithUsernameAndPassword{
-    [MBProgressHUD showMessage:@"登录中,请稍后...."];
+    [MBProgressHUD showMessage:@"登录中,请稍后...." toView:self.view];
+    //[MBProgressHUD showMessage:@"登录中,请稍后...." ];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = self.telephoneTF.text;
     params[@"password"] = [self.pwdTF.text stringMD5Hash];
     [manager POST:Product_Login_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD hideHUDForView:self.view];
         if([responseObject[@"status"] intValue] == 1){
         ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
         [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
-            
+        [StandardUser synchronize];
         AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
         app.isLogin = YES;
         
@@ -97,7 +97,7 @@
             
         tab.selectedIndex = app.selectedIndex;
         UIViewController *vc = tab.viewControllers[app.selectedIndex];
-        [vc viewDidLoad];
+        //[vc viewDidLoad];
         [vc.view setNeedsDisplay];
 
         [self.view endEditing:YES];
@@ -111,8 +111,8 @@
             [MBProgressHUD showError:@"用户名或者密码输入有误,请重试!"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD hideHUD];
-        [MBProgressHUD showError:@"登录失败,请检查网络!"];
+        [MBProgressHUD hideHUDForView:self.view];
+        [MBProgressHUD showError:@"登录失败,服务器或网络错误!"];
     }];
     
 }
@@ -120,7 +120,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUDForView:self.view];
 }
 
 - (void)setUpTextField{
@@ -133,9 +133,9 @@
     UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.pwdTF.frame.size.height)];
     UIImageView *rightImg = [[UIImageView alloc] init];
     rightImg.bounds = CGRectMake(0, 0, 20, 14);
-    rightImg.userInteractionEnabled = YES;
+    rightView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPassWord:)];
-    [rightImg addGestureRecognizer:tap];
+    [rightView addGestureRecognizer:tap];
     rightImg.center = rightView.center;
     [rightView addSubview:rightImg];
     rightImg.image = [UIImage imageNamed:@"my-code02"];

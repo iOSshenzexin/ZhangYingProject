@@ -9,11 +9,8 @@
 #define MainScreen_W [UIScreen mainScreen].bounds.size.width
 
 #import "LXSegmentScrollView.h"
-#import "LiuXSegmentView.h"
 
 @interface LXSegmentScrollView()<UIScrollViewDelegate>
-@property (strong,nonatomic) UIScrollView *bgScrollView;
-@property (strong,nonatomic) LiuXSegmentView *segmentToolView;
 @property (nonatomic,copy) NSArray *titleArray;
 @property (nonatomic,copy) NSArray *contentArray;
 
@@ -33,7 +30,8 @@
         self.contentArray = contentViewArray;
         
         _segmentToolView=[[LiuXSegmentView alloc] initWithFrame:CGRectMake(0, 0, MainScreen_W, 44) titles:titleArray clickBlick:^void(NSInteger index) {
-            self.block(index);
+            self.block((int)index,MainScreen_W * (index - 1));
+            ZXLog(@"ContentOffset %f",MainScreen_W * (index - 1));
             [_bgScrollView setContentOffset:CGPointMake(MainScreen_W * (index - 1), 0)];
         }];
         [self addSubview:_segmentToolView];
@@ -45,7 +43,6 @@
         }
         self.bgScrollView.contentSize = CGSizeMake(MainScreen_W * (self.contentArray.count), self.bounds.size.height - _segmentToolView.bounds.size.height);
     }
-    
     return self;
 }
 
@@ -69,8 +66,10 @@
         if (_bgScrollView.contentOffset.x >= (self.titleArray.count)* MainScreen_W ){
            [_bgScrollView setContentOffset:CGPointMake(MainScreen_W *(self.titleArray.count - 1), 0)];
         }
+        
         _segmentToolView.defaultIndex = _bgScrollView.contentOffset.x  / MainScreen_W + 1;
-        self.block(_segmentToolView.defaultIndex);
+        
+        
         CGFloat offsetX= _segmentToolView.titleBtn.frame.origin.x - 2 * _segmentToolView.titleBtn.frame.size.width;
         if (offsetX < 0) {
             offsetX = 0;
@@ -79,6 +78,8 @@
         if (offsetX > maxOffsetX) {
             offsetX = maxOffsetX;
         }
+        self.block((int)_segmentToolView.defaultIndex,offsetX);
+
         [_segmentToolView.bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     }
 }

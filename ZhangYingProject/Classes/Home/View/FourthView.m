@@ -18,4 +18,8 @@
 }
 */
 
+
+- (IBAction)didClickSelectedContent:(UIButton *)sender {
+    self.btnClick(sender.tag);
+}
 @end

@@ -73,7 +73,6 @@ static NSString *cellId = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.dealTableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
     self.dealTableView.sectionFooterHeight = 20;
     self.dealTableView.sectionHeaderHeight = 0;
@@ -82,9 +81,11 @@ static NSString *cellId = @"cell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self requestDealHomeStatics];
 
+    [self requestDealHomeStatics];
+    
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -271,4 +272,6 @@ static NSString *cellId = @"cell";
     [self.pop removeFromSuperview];
     [self.pop.contentView removeFromSuperview];
 }
+
+
 @end

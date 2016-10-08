@@ -34,9 +34,9 @@
     UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.txtField.frame.size.height)];
     UIImageView *rightImg = [[UIImageView alloc] init];
     rightImg.bounds = CGRectMake(0, 0, 20, 14);
-    rightImg.userInteractionEnabled = YES;
+    rightView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPassWord:)];
-    [rightImg addGestureRecognizer:tap];
+    [rightView addGestureRecognizer:tap];
     rightImg.center = rightView.center;
     [rightView addSubview:rightImg];
     rightImg.image = [UIImage imageNamed:@"my-code02"];

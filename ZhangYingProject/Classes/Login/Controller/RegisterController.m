@@ -65,9 +65,9 @@
     UIView *rightCodeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.pwdTF.frame.size.height)];
     UIImageView *rightImg = [[UIImageView alloc] init];
     rightImg.bounds = CGRectMake(0, 0, 20, 14);
-    rightImg.userInteractionEnabled = YES;
+    rightCodeView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPassWord:)];
-    [rightImg addGestureRecognizer:tap];
+    [rightCodeView addGestureRecognizer:tap];
     rightImg.center = rightCodeView.center;
     [rightCodeView addSubview:rightImg];
     rightImg.image = [UIImage imageNamed:@"my-code02"];
@@ -114,8 +114,6 @@
         }
     }
 }
-
-
 /**
  //如果有的话,判断被邀请的手机号码是否正确!
  if (self.recommendNumTF.text.length != 0){
@@ -124,6 +122,9 @@
  */
 #pragma mark - 点击注册按钮完成判断后需做的事情
 - (void)didFinishRegister{
+    if (!self.selectBtn.selected){
+        [MBProgressHUD showError:@"请点击同意按钮!"];
+    }else{
     [MBProgressHUD showMessage:@"正在注册...."];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -151,13 +152,13 @@
                 [StandardUser synchronize];
             }];
         }else{
-            [MBProgressHUD showError:@"对不起,您没有注册成功!"];
+            [MBProgressHUD showSuccess:@"此账号已注册成功，请直接登陆!"];
         }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"注册失败!"];
-            ZXLog(@"%@",error);
     }];
+    }
 }
 
 - (IBAction)didClickDelegate:(id)sender {

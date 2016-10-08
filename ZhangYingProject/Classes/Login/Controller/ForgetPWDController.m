@@ -61,7 +61,6 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showError:@"设置失败,请检查网络!"];
-        ZXLog(@"%@",error);
     }];
 }
 
@@ -131,9 +130,9 @@
     UIView *rightCodeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, self.pwdTF.frame.size.height)];
     UIImageView *rightImg = [[UIImageView alloc] init];
     rightImg.bounds = CGRectMake(0, 0, 20, 14);
-    rightImg.userInteractionEnabled = YES;
+    rightCodeView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPassWord:)];
-    [rightImg addGestureRecognizer:tap];
+    [rightCodeView addGestureRecognizer:tap];
     rightImg.center = rightCodeView.center;
     [rightCodeView addSubview:rightImg];
     rightImg.image = [UIImage imageNamed:@"my-code02"];

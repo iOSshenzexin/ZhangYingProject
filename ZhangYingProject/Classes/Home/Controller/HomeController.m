@@ -24,6 +24,9 @@
 
 #import "ZXAdvertisementController.h"
 #import "LoginController.h"
+
+#import "ProductController.h"
+#import "ZXHomeProductController.h"
 @interface HomeController ()<KNBannerViewDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -79,13 +82,20 @@
     [self requestHomeData];
 
     [self setupView];
+    
+    ProductController *vc = [ProductController sharedProductController];
+    [ZXNotificationCeter addObserver:vc selector:@selector(getProductListInfomation:) name: ZXSelectedProductStyleNotification object:nil];
+    
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.view setNeedsLayout];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.scrollView.contentOffset = CGPointMake(0, 64);
+    self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    //[self.view setNeedsLayout];
 }
 
 
@@ -112,7 +122,11 @@
                 AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
                 if (app.isLogin) {
                     ZXLoginModel *model = AppLoginModel;
-                    firstCustomView.lbl3.text = [NSString stringWithFormat:@"佣金 %.2f 元",model.allCommision];
+                    if (model.allCommision / 10000 > 0) {
+                         firstCustomView.lbl3.text = [NSString stringWithFormat:@"佣金 %.2f万元",model.allCommision/10000.0];
+                    }else{
+                    firstCustomView.lbl3.text = [NSString stringWithFormat:@"佣金 %.f 元",model.allCommision];
+                    }
                 }
                 firstCustomView.lbl4.text = [NSString stringWithFormat:@"%@款",self.dataDictionary[@"productCount1"]];
                 firstCustomView.lbl5.text = [NSString stringWithFormat:@"%@款",self.dataDictionary[@"productCount2"]];
@@ -174,6 +188,10 @@
     return NO;
 }
 
+- (void)viewWillLayoutSubviews
+{
+}
+
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     FirstView *firstCustomView = self.scrollView.subviews[0];
@@ -187,16 +205,13 @@
     self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(fourthView.frame)+30);
 }
 
-
 - (void)setupView{
     //第一部分 我的业绩
     FirstView *firstCustomView = [[[NSBundle mainBundle]loadNibNamed:@"FirstView" owner:self options:nil] firstObject];
     [self.scrollView addSubview:firstCustomView];
     firstCustomView.block = ^(NSInteger index){
-        ZXLog(@"index %ld",index);
         TabbarController *tab = (TabbarController *) ZXApplication.keyWindow.rootViewController;
         tab.selectedIndex = 0;
-        
         int selectIndex = (int)index;
         [ZXNotificationCeter postNotificationName:ZXSelectedProductStyleNotification object:nil userInfo:@{@"index":@((selectIndex-20))}];
     };
@@ -208,6 +223,13 @@
     [self.scrollView addSubview:self.tableView];
     
     FourthView *fourthView = [[[NSBundle mainBundle]loadNibNamed:@"FourthView" owner:self options:nil] firstObject];
+    fourthView.btnClick = ^(NSInteger index){
+        UIButton *btn = [fourthView viewWithTag:index];
+        ZXHomeProductController *vc = [[ZXHomeProductController alloc] init];
+        vc.title = btn.titleLabel.text;
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    
     [self.scrollView addSubview:fourthView];
 }
 
@@ -242,4 +264,13 @@
 {
     [ZXNotificationCeter removeObserver:self];
 }
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+     self.view = nil;
+
+}
+
+
 @end

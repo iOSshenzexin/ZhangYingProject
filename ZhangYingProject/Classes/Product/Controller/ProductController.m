@@ -21,25 +21,17 @@
 #import "ZXSortModel.h"
 
 #import "LoginController.h"
-
+#import "UIBarButtonItem+ZXItem.h"
 
 #define DurationTime 0.35
 
-@interface ProductController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
-@property (weak,nonatomic) UITextField *textField;
+@interface ProductController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
+{
+    CGFloat _lastBlockViewY;
+}
 
-@property (nonatomic,copy) NSMutableArray *titleArray;
-
+@property (nonatomic,strong) NSMutableArray *titleArray;
 @property (nonatomic,copy) NSMutableArray *productArray;
-
-/** 信托 */
-@property (nonatomic,strong) UITableView *firstTV;
-/** 资管 */
-@property (nonatomic,strong) UITableView *secondTV;
-/** 阳光私募 */
-@property (nonatomic,strong) UITableView *threeTV;
-/** 其他 */
-@property (nonatomic,strong) UITableView *fourTV;
 
 @property (nonatomic,strong) UIView *showView;
 @property (nonatomic,strong) UIView *showSortView;
@@ -49,59 +41,23 @@
 
 @property (nonatomic,assign) BOOL isShow;
 
-
 @property (nonatomic,copy) NSMutableArray *models;
 
+@property (nonatomic,strong) NSMutableArray *contentArray;
 
-@property (nonatomic,copy) NSMutableArray *contentArray;
+@property (nonatomic,strong) LXSegmentScrollView *segmentScollView;
 
-@property (nonatomic,copy) NSMutableArray *tableViewArray;
 
+@property (nonatomic,assign) int sortNumber;
 @end
 
 @implementation ProductController
 
--(void)viewWilllAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(!appDlg.isReachable){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-    }
-    //加载网络数据
-}
-
--(UITableView *)firstTV{
-    if (!_firstTV) {
-        _firstTV = [self createCustomTableView];
-    }
-    return _firstTV;
-}
-
--(UITableView *)secondTV{
-    if (!_secondTV) {
-        _secondTV = [self createCustomTableView];
-    }
-    return _secondTV;
-}
-
--(UITableView *)threeTV{
-    if (!_threeTV) {
-        _threeTV = [self createCustomTableView];
-    }
-    return _threeTV;
-}
-
--(UITableView *)fourTV{
-    if (!_fourTV) {
-        _fourTV = [self createCustomTableView];
-    }
-    return _fourTV;
-}
 
 - (UITableView *)createCustomTableView
 {
     UITableView *customTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
+    customTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     customTableView.dataSource = self;
     customTableView.delegate = self;
     customTableView.rowHeight = 120;
@@ -124,30 +80,104 @@
     return _productArray;
 }
 
++(ProductController *)sharedProductController{
+    static ProductController *vc = nil;
+    if (!vc) {
+        vc = [[ProductController alloc] init];
+    }
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupNavigationBarSubviews];
-    
+    self.sortNumber = 0;
     self.number = 1;
+    [ZXNotificationCeter addObserver:self selector:@selector(sort:) name:ZXSortButtonClickNotificationCeter object:nil];
     
-    [self loadTopicTitle];
-    
-    [ZXNotificationCeter addObserver:self selector:@selector(getProductListInfomation:) name:ZXSelectedProductStyleNotification object:nil];
+    [ZXNotificationCeter addObserver:self selector:@selector(filter:) name:ZXFilterButtonClickNotificationCeter object:nil];
 }
+
+- (void)filter:(NSNotification *)noti
+{
+    NSMutableDictionary *typeDictionary = [NSMutableDictionary dictionary];
+    NSString *keyString;
+    for (UIView *sub in self.filterView.subviews) {
+        if ([sub isKindOfClass:[BlockView class]]) {
+            for (UIView *subs in sub.subviews) {
+                UIButton *btn;
+                if ([subs isKindOfClass:[UILabel class]]) {
+                    UILabel *titleLbl = (UILabel *)subs;
+                    if ([titleLbl.text isEqualToString:@"销售状态"]) {
+                        keyString = @"salesStatus";
+                    }else if([titleLbl.text isEqualToString:@"投资领域"]){
+                        keyString = @"productField";
+                    }else if([titleLbl.text isEqualToString:@"产品期限"]){
+                        keyString = @"productDeadline";
+                    }else if([titleLbl.text isEqualToString:@"发行方"]){
+                        keyString = @"issuer";
+                    }else if([titleLbl.text isEqualToString:@"起投金额"]){
+                        keyString = @"initialAmount";
+                    }else{
+                        keyString = @"payInterest";
+                    }
+                }
+                if ([subs isKindOfClass:[UIButton class]]){
+                    btn = (UIButton *)subs;
+                }
+                if (btn.selected) {
+                    [typeDictionary setValue:@(btn.tag) forKey:keyString];
+                }
+            }
+        }
+    }
+    ZXTopic *topic = self.titleArray[self.number -1];
+    NSString * productType = topic.product_id ;
+    UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct"  tableView:tableView productType:productType andSort:[NSString stringWithFormat:@"%d",self.sortNumber] productDeadline:typeDictionary[@"productDeadline"] productField:typeDictionary[@"productField"]  issuer:typeDictionary[@"issuer"]  initialAmount:typeDictionary[@"initialAmount"]  payInterest:typeDictionary[@"payInterest"]  salesStatus:typeDictionary[@"salesStatus"]];
+    ZXLog(@"typeDictionary: %@",typeDictionary);
+}
+
+#pragma mark - 请求筛选数据列表
+- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString tableView:(UITableView *)tableView productType:(NSString *)productType andSort:(NSString *)sort productDeadline:(NSString *)productDeadline  productField:(NSString *)productField  issuer:(NSString *) issuer initialAmount:(NSString *)initialAmount payInterest:(NSString *)payInterest salesStatus:(NSString *)salesStatus
+{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"productType"] = productType;
+    params[@"productDeadline"] = productDeadline;
+    params[@"productField"] = productField;
+    params[@"issuer"] = issuer;
+    params[@"initialAmount"] = initialAmount;
+    params[@"payInterest"] = payInterest;
+    params[@"salesStatus"] = salesStatus;
+    params[@"sort"] = sort;
+    
+    [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+}
+
+
+
+- (void)sort:(NSNotification *)noti
+{
+    int sortNumber = [noti.userInfo[@"KEY"] intValue]-1;
+    self.sortNumber = sortNumber;
+    ZXTopic *topic = self.titleArray[self.number -1];
+    int productType = [topic.product_id intValue];
+    UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:sortNumber];
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:self.firstTV Status:self.number];
-}
-
-
-- (void)getProductListInfomation:(NSNotification *)noti
-{
-    NSDictionary *dic = noti.userInfo;
-    int index = [dic[@"index"] intValue];
-    ZXLog(@"Product Id :%d",index);
+    [self loadTopicTitle];
+    [self setupNavigationBarSubviews];
 }
 
 
@@ -157,78 +187,69 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:Product_Topic_Url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.titleArray = [ZXTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self setupTopSegment];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        ZXError
-    }];
+        [self setupTopSegmentAndContentOffset:self.number-1];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {ZXError}];
 }
+
+
+- (void)getProductListInfomation:(NSNotification *)noti
+{
+    NSDictionary *dic = noti.userInfo;
+    self.number = [dic[@"index"] intValue];
+}
+
 #pragma mark - 创建头部视图
-- (void)setupTopSegment{
+- (void)setupTopSegmentAndContentOffset:(int) indexSegment{
     self.automaticallyAdjustsScrollViewInsets= NO; //iOS7新增属性
-    NSMutableArray *contentArray= [NSMutableArray array];
+    self.contentArray = [NSMutableArray array];
     NSMutableArray *topics= [NSMutableArray array];
-    
     for (NSInteger i = 0; i < self.titleArray.count; i++) {
         UIView *view= [[UIView alloc] init];
         ZXTopic *topic = self.titleArray[i];
         [topics addObject:topic.typeName];
         view.backgroundColor = RGB(242, 242, 242, 1);
-        [contentArray addObject:view];
-        
+        [view addSubview:[self createCustomTableView]];
+        [self.contentArray addObject:view];
     }
-    [(UIView *)contentArray[0] addSubview:self.firstTV];
-    [(UIView *)contentArray[1] addSubview:self.secondTV];
-    [(UIView *)contentArray[2] addSubview:self.threeTV];
-    [(UIView *)contentArray[3] addSubview:self.fourTV];
+    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:topics contentViewArray:self.contentArray];
+    self.segmentScollView = scView;
+    [self.view addSubview:self.segmentScollView];
     
-    LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:topics contentViewArray:contentArray];
-    [self.view addSubview:scView];
+    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:0];
     
-    scView.block = ^(int index){
+     scView.block = ^(int index,CGFloat off){
         self.number = index;
         ZXTopic *topic = self.titleArray[index-1];
         int productType = [topic.product_id intValue];
-        UITableView *tableView = [(UIView *)contentArray[index-1] subviews][0];
-        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType];
+        UITableView *tableView = [(UIView *)self.contentArray[index-1] subviews][0];
+        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:0];
     };
-    
 }
+
 #pragma mark - 请求产品列表数据
-- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status{
+- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status andSort:(int)sort{
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"productType"] = @(status);
+    params[@"sort"] = @(sort);
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [tableView reloadData];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
 }
 
 - (void)setupNavigationBarSubviews{
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 60, 30);
-    leftBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);
-    leftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-    [leftBtn setTitle:@"筛选" forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(didClickFilter:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = leftBtn.frame;
-    rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -20);
-    rightBtn.titleLabel.font = leftBtn.titleLabel.font;
-    [rightBtn setTitle:@"排序" forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(didClickSort:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithFont:16 title:@"筛选" target:self action:@selector(didClickFilter:) edgeInset:25];
+                                            
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithFont:16 title:@"排序" target:self action:@selector(didClickSort:) edgeInset:-25];
+
     self.navigationItem.titleView = [ZXSearchBar searchBar];
     UITextField *txt = (UITextField *)self.navigationItem.titleView;
-    txt.placeholder = @"这里有你适合的...";
+    txt.placeholder = @"请输入您要搜索的产品";
     txt.delegate = self;
-    self.textField = txt;
 }
 
 #pragma mark UITextFielDelegate
@@ -239,11 +260,14 @@
     return NO;
 }
 
-
 static BOOL isCreated = YES;
 #pragma mark - 左边筛选按钮对应事件
 - (void)didClickFilter:(UIButton *)btn{
-    NSMutableArray *sortTitles = [self requestDataByHttp:Product_SortList_Url];
+    [self requestDataByHttp:Product_SortList_Url];
+    [self openSortlist];
+}
+
+- (void)openSortlist{
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isShow == YES) {
         if (self.showSortView) {
@@ -254,32 +278,16 @@ static BOOL isCreated = YES;
     if (isCreated) {
         UIView *showView = [[UIView alloc] initWithFrame:CGRectMake(0,64, ScreenW, ScreenH - 64)];
         self.showView = showView;
-        
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, ScreenW, 0)];
         scrollView.backgroundColor = [UIColor whiteColor];
         
         self.filterView = scrollView ;
+        
         [self.showView addSubview:self.filterView];
-        
-        FilterBottomView *filterBottomView = [[[NSBundle mainBundle]loadNibNamed:@"FilterBottomView" owner:self options:nil] firstObject];
-        [filterBottomView.cancleBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
-        [filterBottomView.confirmBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
-        
-        filterBottomView.frame = CGRectMake(0,660, ScreenW, 60);
-        UIColor *color = RGB(242, 242, 242, 1);
-        
-        filterBottomView.layer.borderColor = color.CGColor;
-        filterBottomView.layer.borderWidth = 1;
-        
-        [scrollView addSubview:filterBottomView];
-        
-        scrollView.contentSize = CGSizeMake(ScreenW, 720);
-        
-        
         [UIView animateWithDuration:DurationTime animations:^{
             self.showView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0  blue:255/255.0  alpha:1];
         }];
-
+        
         [UIView animateWithDuration:DurationTime animations:^{
             self.filterView.frame = CGRectMake(0, 64, self.filterView.frame.size.width,ScreenH - 64);
         }];
@@ -306,20 +314,46 @@ static BOOL isCreated = YES;
             [titles addObject:key];
             [models addObject: [ZXSortModel mj_objectArrayWithKeyValuesArray:[responseObject[@"data"]objectForKey:key]]];
         }
+        CGFloat sum = 0;
         for (NSInteger i = 0; i < titles.count; i ++) {
-            BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0, 0 + i * 110, ScreenW, 110)];
-            [block setupBlockViewContent:models[i] buttonBorderWidth:3 borderColor:[UIColor redColor]  title:titles[i]];
+            BlockView *block = [[BlockView alloc] init];
+            CGFloat Y = [block setupBlockViewContent:models[i] buttonBorderWidth:3 borderColor:[UIColor redColor]  title:titles[i]];
+            block.frame = CGRectMake(0, sum, ScreenW, Y);
+            sum += Y;
+            if (i == titles.count -1) {
+                _lastBlockViewY = sum;
+            }
             [self.filterView addSubview:block];
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        FilterBottomView *filterBottomView = [[[NSBundle mainBundle]loadNibNamed:@"FilterBottomView" owner:self options:nil] firstObject];
+        [filterBottomView.cancleBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
+        [filterBottomView.confirmBtn addTarget:self action:@selector(hideShowView:) forControlEvents:UIControlEventTouchUpInside];
+         [filterBottomView.removeBtn addTarget:self action:@selector(removeSelectButton:) forControlEvents:UIControlEventTouchUpInside];
+        [self.filterView addSubview:filterBottomView];
+        filterBottomView.frame = CGRectMake(0,_lastBlockViewY, ScreenW, 60);
+        self.filterView .contentSize = CGSizeMake(ScreenW, _lastBlockViewY + 60);
         
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       ZXError
     }];
     self.models = models;
     return titles;
 }
 
-
-
+- (void)removeSelectButton:(UIButton *)btn
+{
+    for (UIView *sub in self.filterView.subviews) {
+        if ([sub isKindOfClass:[BlockView class]]) {
+            for (UIView *subs in sub.subviews) {
+                if ([subs isKindOfClass:[UIButton class]]){
+                    UIButton *btn = (UIButton *)subs;
+                    btn.backgroundColor =[UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1]  ;
+                    [btn setTitleColor:[UIColor colorWithRed:150/255.0 green:150/255.0 blue:150/255.0 alpha:1] forState:UIControlStateNormal];
+                }
+            }
+        }
+    }
+}
 
   // 收起列表
 - (void)hideShowView:(UIButton *)btn{
@@ -331,11 +365,13 @@ static BOOL isCreated = YES;
         [self.showView removeFromSuperview];
     }];
     isCreated = YES;
+    if (btn.tag == 42) {
+        [ZXNotificationCeter postNotificationName:ZXFilterButtonClickNotificationCeter object:nil userInfo:@{@"KEY":@(btn.tag)}];
+    }
 }
 
 
 static BOOL isSetUp = YES;
-
 #pragma mark - 右边排序按钮对应事件
 - (void)didClickSort:(UIButton *)btn{
     UIApplication *app = [UIApplication sharedApplication];
@@ -348,7 +384,6 @@ static BOOL isSetUp = YES;
     }
     if (isSetUp) {
         UIView *showView = [[UIView alloc] initWithFrame:CGRectMake(0,64, ScreenW, ScreenH-64)];
-        
         self.showSortView = showView;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideShowSortView:)];
@@ -359,15 +394,9 @@ static BOOL isSetUp = YES;
         self.sortView = scrollView ;
         
         [self.showSortView addSubview:self.sortView];
-        CGFloat blockH = 80;
+        CGFloat blockH = 60;
         BlockView *block = [[BlockView alloc] initWithFrame:CGRectMake(0,0, ScreenW, blockH)];
         [block setupSortBlockContentView:[NSArray arrayWithObjects:@"默认",@"最新",@"收益",@"佣金", nil]];
-        block.block = ^(int tag){
-            
-            ZXLog(@"tag : %d",tag);
-            
-        };
-        
         [self.sortView addSubview:block];
         [UIView animateWithDuration:DurationTime animations:^{
             self.showSortView.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0.65];}];
@@ -410,7 +439,6 @@ static BOOL isSetUp = YES;
     return cell;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
       AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
     if (app.isLogin) {
@@ -426,7 +454,15 @@ static BOOL isSetUp = YES;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
         [kWindowRootController presentViewController:nav animated:YES completion:nil];
     }
-    
 }
 
+-(void)dealloc{
+    [ZXNotificationCeter removeObserver:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.view = nil;
+}
 @end

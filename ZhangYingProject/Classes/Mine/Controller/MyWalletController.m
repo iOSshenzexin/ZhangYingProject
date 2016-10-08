@@ -30,11 +30,20 @@
     ZXLoginModel *model = AppLoginModel;
     params[@"mid"] = model.mid;
     [mgr POST:Mine_MyWalletContent_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.commissionLbl.text =[NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"allCommision"]doubleValue] ];
+        if ([responseObject[@"data"][@"allCommision"]doubleValue] / 10000 > 0) {
+            self.commissionLbl.text = [NSString stringWithFormat:@"%.2f万",  [responseObject[@"data"][@"allCommision"]doubleValue]/10000.0];
+        }else{
+            self.commissionLbl.text =[NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"allCommision"]doubleValue] ];
+        }
         double alreadyMentionedCash = [responseObject[@"data"][@"allCommision"] doubleValue] - [responseObject[@"data"][@"commision"] doubleValue];
         self.alreadyMentionedLbl.text = [NSString stringWithFormat:@"%.2f",alreadyMentionedCash];
-        self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"commision"]doubleValue]];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if ([responseObject[@"data"][@"commision"]doubleValue] / 10000 > 0) {
+             self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f万",  [responseObject[@"data"][@"commision"]doubleValue]/10000.0];
+        }else{
+             self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"commision"]doubleValue]];
+        }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
 }
@@ -60,4 +69,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.view = nil;
+}
 @end

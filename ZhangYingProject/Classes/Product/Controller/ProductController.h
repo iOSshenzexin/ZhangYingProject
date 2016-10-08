@@ -11,4 +11,9 @@
 @interface ProductController : UIViewController
 
 @property (nonatomic,assign)  int  number;
+
+- (void)getProductListInfomation:(NSNotification *)noti;
+
++(ProductController *)sharedProductController;
+
 @end

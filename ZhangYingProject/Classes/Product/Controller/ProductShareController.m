@@ -16,6 +16,8 @@
 #import "UMSocialUIManager.h"
 @interface ProductShareController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,copy) NSString *content;
+
+@property (nonatomic,strong) UIButton *telephoneBtn;
 @end
 
 @implementation ProductShareController
@@ -25,14 +27,13 @@
     self.bottomView.layer.borderWidth = 1;
     UIColor *color = RGB(216, 216, 216, 0.8);
      self.bottomView.layer.borderColor = [color CGColor];
-    [self registerTableViewCustomCell];
-}
-
-static NSString *styleOne = @"styleOne";
-- (void)registerTableViewCustomCell{
-    [self.productShareTableView registerNib:[UINib nibWithNibName:@"ProductShareCustomSyleOneCell" bundle:nil] forCellReuseIdentifier:styleOne];
-//    [self.productShareTableView registerNib:[UINib nibWithNibName:@"ProductShareCustomSyleTwoCell" bundle:nil] forCellReuseIdentifier:styleTwo];
     self.productShareTableView.sectionFooterHeight = 0;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+   // [self.view setNeedsDisplay];
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -69,9 +70,7 @@ static NSString *styleOne = @"styleOne";
     cell.nameLbl.text = [NSString stringWithFormat:@"您的投资顾问 <%@> 分享给您的投资项目.",model.name];
     self.content = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情!",model.name];
     cell.phoneLbl.text = [NSString stringWithFormat:@"%.0f",model.phone];
-    
     return cell;
-
 }
 
 - (void)didClickedEditInfo:(UIButton *)btn{
@@ -82,6 +81,7 @@ static NSString *styleOne = @"styleOne";
 
 - (void)didClickSelected:(UIButton *)btn{
     btn.selected = !btn.selected;
+    self.telephoneBtn = btn;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -99,11 +99,18 @@ static NSString *styleOne = @"styleOne";
 
 - (UMSocialMessageObject *)creatMessageObject
 {
+    ZXLoginModel *model = AppLoginModel;
+    NSString *text;
+    if (self.telephoneBtn.selected) {
+      text = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
+    }else
+    {
+        text = self.content;
+    }
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     NSString *title = self.productTitle;
     NSString *url = @"http://ios9quan.9quan.com.cn/www/wine/show/70488/37961/9502";
-    NSString *text = self.content;
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:@"http://dev.umeng.com/images/tab2_1.png"];
     [shareObject setWebpageUrl:url];
     messageObject.shareObject = shareObject;
@@ -120,12 +127,10 @@ static NSString *styleOne = @"styleOne";
         if (!error) {
             message = [NSString stringWithFormat:@"分享成功"];
             [self recordShare];
-            
         }
         else{
             if (error) {
                 message = [NSString stringWithFormat:@"分享失败"];
-
                // message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
             }
             else{
@@ -153,5 +158,9 @@ static NSString *styleOne = @"styleOne";
     }];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.view = nil;
+}
 
 @end

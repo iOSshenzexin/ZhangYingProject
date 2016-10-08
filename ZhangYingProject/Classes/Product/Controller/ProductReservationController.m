@@ -87,6 +87,7 @@
 
 
 - (IBAction)didClickReservation:(id)sender {
+    [MBProgressHUD showMessage:@"正在预约,请稍后...." toView:self.view];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"productId"] = self.product_id ;
@@ -99,8 +100,14 @@
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
     [manager POST:Product_MakeReservation_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [MBProgressHUD showMessage:@"预约成功!"];
+        [MBProgressHUD hideHUDForView:self.view];
+        if ([responseObject[@"status"] intValue] == 1) {
+            [MBProgressHUD showSuccess:@"预约成功!"];
+        }else{
+            [MBProgressHUD showError:@"预约失败,请重试!"];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUDForView:self.view];
         ZXError
     }];
 }

@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^DataBlock)(int selectedId);
+typedef void(^ sortBlock )(int selectedId);
 @interface BlockView : UIView
 
 
-- (void)setupBlockViewContent:(NSArray *)titleArray buttonBorderWidth:(CGFloat )borderWidth borderColor:(UIColor *)borderColor title:(NSString *)title;
+- (CGFloat)setupBlockViewContent:(NSArray *)titleArray buttonBorderWidth:(CGFloat )borderWidth borderColor:(UIColor *)borderColor title:(NSString *)title;
 
 -(void)setupSortBlockContentView:(NSArray *)titleArray;
 
-@property (nonatomic,strong) DataBlock block;
+@property (nonatomic,copy) sortBlock clickBlock;
 
 @end

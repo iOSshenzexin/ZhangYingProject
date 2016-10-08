@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -15,13 +16,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MM7-oX-UIS">
-                        <rect key="frame" x="96" y="2" width="177" height="36"/>
+                        <rect key="frame" x="88" y="2" width="202" height="36"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6E-ny-6Ig">
-                        <rect key="frame" x="34" y="10" width="54" height="19"/>
+                        <rect key="frame" x="30" y="10" width="54" height="19"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="UKx-4H-mnm"/>
@@ -31,11 +32,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcp-b0-wnX">
-                        <rect key="frame" x="275" y="10" width="92" height="20"/>
+                        <rect key="frame" x="292" y="10" width="75" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="92" id="maZ-Gi-DW9"/>
+                            <constraint firstAttribute="width" constant="75" id="maZ-Gi-DW9"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <state key="normal" title="更换绑定手机">
                             <color key="titleColor" red="1" green="0.2029123732" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -48,7 +49,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="t6E-ny-6Ig" firstAttribute="leading" secondItem="GQY-lj-7bk" secondAttribute="trailing" constant="6" id="6NA-qq-74J"/>
+                    <constraint firstItem="t6E-ny-6Ig" firstAttribute="leading" secondItem="GQY-lj-7bk" secondAttribute="trailing" constant="2" id="6NA-qq-74J"/>
                     <constraint firstItem="hcp-b0-wnX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Bc9-zv-cXN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hcp-b0-wnX" secondAttribute="bottom" constant="1" id="FXO-S2-wnv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GQY-lj-7bk" secondAttribute="bottom" constant="2" id="G7a-Ke-L85"/>
@@ -56,7 +57,7 @@
                     <constraint firstItem="GQY-lj-7bk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Rxd-Su-DLK"/>
                     <constraint firstItem="GQY-lj-7bk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Sbc-i7-CPN"/>
                     <constraint firstItem="t6E-ny-6Ig" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="b5G-yT-LD5"/>
-                    <constraint firstItem="MM7-oX-UIS" firstAttribute="leading" secondItem="t6E-ny-6Ig" secondAttribute="trailing" constant="8" id="gzV-aU-Obt"/>
+                    <constraint firstItem="MM7-oX-UIS" firstAttribute="leading" secondItem="t6E-ny-6Ig" secondAttribute="trailing" constant="4" id="gzV-aU-Obt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="MM7-oX-UIS" secondAttribute="bottom" constant="-7" id="jde-tl-Xor"/>
                     <constraint firstItem="hcp-b0-wnX" firstAttribute="leading" secondItem="MM7-oX-UIS" secondAttribute="trailing" constant="2" id="tdD-bC-fR7"/>
                     <constraint firstItem="hcp-b0-wnX" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="zAj-7r-xbU"/>

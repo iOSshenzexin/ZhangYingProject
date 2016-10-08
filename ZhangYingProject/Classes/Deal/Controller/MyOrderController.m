@@ -107,7 +107,7 @@
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
     [self.view addSubview:scView];
 
-    scView.block = ^(int index){
+    scView.block = ^(int index,CGFloat off){
         switch (index) {
             case 1:
                 [self requestMyOrdeLogWithUrl:Deal_MyOrderList_Url ModelClassString:@"ZXOrderModel" TableView:self.firstTableView Status:index];

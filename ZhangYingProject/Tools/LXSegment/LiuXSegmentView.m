@@ -8,6 +8,7 @@
 
 #define windowContentWidth  ([[UIScreen mainScreen] bounds].size.width)
 #define SFQRedColor [UIColor colorWithRed:255/255.0 green:92/255.0 blue:79/255.0 alpha:1]
+
 #define MAX_TitleNumInWindow 5
 
 #import "LiuXSegmentView.h"
@@ -53,7 +54,7 @@
         _selectLine.backgroundColor=_titleSelectColor;
         [_bgScrollView addSubview:_selectLine];
         
-        for (int i=0; i<titleArray.count; i++) {
+        for (int i=0; i< titleArray.count; i++) {
             UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame=CGRectMake(_btn_w*i, 0, _btn_w, self.frame.size.height-2);
             btn.tag=i+1;

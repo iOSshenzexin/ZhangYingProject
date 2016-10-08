@@ -55,6 +55,10 @@
             [self.delegate bindingPhoneNumber:self];
         }
         [MBProgressHUD showSuccess:@"绑定成功!"];
+        ZXLoginModel *model = AppLoginModel;
+        [model setValue:self.NumberTxt.text forKey:@"phone"];
+        [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
+        [StandardUser synchronize];
         [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
         }else{
             [MBProgressHUD showError:@"绑定失败,请重试!"];
@@ -62,7 +66,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showError:@"绑定失败,请检查网络!"];
-        ZXLog(@"%@",error);
+        ZXError
     }];
 }
 

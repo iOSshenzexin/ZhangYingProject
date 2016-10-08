@@ -35,7 +35,7 @@
 @property (nonatomic,copy) NSString *headPortrait;
 
 /** 用户邮箱 */
-@property (nonatomic,assign)  int email;
+@property (nonatomic,copy)  NSString *email;
 
 /** 用户姓名 */
 @property (nonatomic,copy) NSString *name;

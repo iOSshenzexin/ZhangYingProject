@@ -19,8 +19,8 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.size = CGSizeMake(250, 32);
-        self.font = [UIFont systemFontOfSize:14];
+        self.size = CGSizeMake(270, 32);
+        self.font = [UIFont systemFontOfSize:12];
         self.adjustsFontSizeToFitWidth = YES;
         //拉伸图片防止变形的处理方法: 或者 提前在Xcode上设置图片中间拉伸
         UIImage *image = [UIImage imageNamed:@"searchbar_textfield_background"];

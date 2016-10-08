@@ -226,4 +226,6 @@
 
 @property (nonatomic,copy) NSString *initialAmount;
 
+@property (nonatomic,copy) NSString *isCollection;
+
 @end

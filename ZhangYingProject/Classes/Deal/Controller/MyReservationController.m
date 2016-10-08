@@ -106,7 +106,7 @@
     [viewThird addSubview:self.thirdTableView];
 
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
-    scView.block = ^(int index){
+    scView.block = ^(int index,CGFloat off){
         switch (index) {
             case 1:
                 [self requestReservationLogWithUrl:Deal_MyDealList_Url ModelClassString:@"ZXReservationModel" TableView:self.firstTableView Status:index];

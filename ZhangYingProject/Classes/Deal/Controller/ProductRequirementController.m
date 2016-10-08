@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.placeholder = @"请把你的产品需求告诉我们,稍后我们会以电话的方式跟你联系.";
-    self.textView.placeholderTextColor = [UIColor grayColor];
+    self.textView.placeholderTextColor = [UIColor lightGrayColor];
     ZXLoginModel *model = AppLoginModel;
     self.titleLbl.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"请确认 %.0f 能联系到您",model.phone] Color:[UIColor redColor] FontSize:16];
 }
@@ -85,6 +85,7 @@
     [manager POST:Deal_ProductRequirement_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if([responseObject[@"status"] intValue] == 1){
             [MBProgressHUD showSuccess:@"提交成功!"];
+            self.textView.textColor = [UIColor grayColor];
         }else{
             [MBProgressHUD showError:@"提交失败,请稍后重试!"];
         }

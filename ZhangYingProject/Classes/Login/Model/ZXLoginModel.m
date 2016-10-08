@@ -24,7 +24,7 @@
     
     [coder encodeObject:self.nickname forKey:@"nickname"];
     
-    [coder encodeInt:self.email forKey:@"email"];
+    [coder encodeObject:self.email forKey:@"email"];
     
     [coder encodeDouble:self.phone forKey:@"phone"];
     
@@ -52,7 +52,7 @@
 
         self.mid = [decoder decodeObjectForKey:@"mid"];
         
-        self.email = [decoder decodeIntForKey:@"email"];
+        self.email = [decoder decodeObjectForKey:@"email"];
         
         self.phone = [decoder decodeDoubleForKey:@"phone"];
         

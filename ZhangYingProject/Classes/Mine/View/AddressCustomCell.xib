@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,20 +13,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                <frame key="frameInset" width="375" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-wN-pUm">
-                        <rect key="frame" x="31" y="0.0" width="288" height="49"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-wN-pUm">
                         <constraints>
                             <constraint firstAttribute="height" constant="49" id="yGp-F4-q8W"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raF-YU-PsZ">
-                        <rect key="frame" x="320" y="15" width="17" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="D3J-Vd-IlK"/>
                             <constraint firstAttribute="width" constant="17" id="i3j-x2-tSd"/>
@@ -32,31 +32,27 @@
                         <state key="normal" image="my-trade04"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-trade05" translatesAutoresizingMaskIntoConstraints="NO" id="EqV-2k-hbm">
-                        <rect key="frame" x="8" y="17" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="Fvx-OZ-p9l"/>
                             <constraint firstAttribute="width" constant="18" id="oEB-CM-OMR"/>
                         </constraints>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="zWL-Cy-hZX">
-                        <rect key="frame" x="341" y="0.0" width="34" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="34" id="frm-CD-tjG"/>
-                            <constraint firstAttribute="height" constant="34" id="mtq-RO-kmN"/>
+                            <constraint firstAttribute="width" constant="25" id="frm-CD-tjG"/>
+                            <constraint firstAttribute="height" constant="25" id="mtq-RO-kmN"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydD-bt-ypJ">
-                        <rect key="frame" x="13" y="50" width="97" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="97" id="EXG-Oe-X54"/>
+                            <constraint firstAttribute="width" constant="100" id="EXG-Oe-X54"/>
                             <constraint firstAttribute="height" constant="21" id="LTo-ih-PdW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-3H-hgk">
-                        <rect key="frame" x="232" y="50" width="120" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="8tn-dv-ewI"/>
                             <constraint firstAttribute="width" constant="120" id="Ggu-nI-H25"/>
@@ -73,7 +69,7 @@
                     <constraint firstItem="C4o-wN-pUm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DzR-LG-CEP"/>
                     <constraint firstItem="C4o-wN-pUm" firstAttribute="leading" secondItem="EqV-2k-hbm" secondAttribute="trailing" constant="5" id="GNH-IC-UMn"/>
                     <constraint firstItem="ydD-bt-ypJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ISi-H3-gFF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="raF-YU-PsZ" secondAttribute="trailing" constant="30" id="Ib0-YG-HWV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="raF-YU-PsZ" secondAttribute="trailing" constant="10" id="Ib0-YG-HWV"/>
                     <constraint firstItem="2Pc-3H-hgk" firstAttribute="top" secondItem="C4o-wN-pUm" secondAttribute="bottom" constant="1" id="NqR-LH-ApA"/>
                     <constraint firstItem="raF-YU-PsZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Sx4-oP-15R"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2Pc-3H-hgk" secondAttribute="trailing" constant="15" id="ZjQ-vS-TTu"/>
@@ -94,7 +90,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="default" width="34" height="34"/>
+        <image name="default" width="33" height="33"/>
         <image name="my-trade04" width="18" height="18"/>
         <image name="my-trade05" width="18" height="18"/>
     </resources>

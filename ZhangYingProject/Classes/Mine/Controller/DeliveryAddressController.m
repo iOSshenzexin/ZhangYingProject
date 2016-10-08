@@ -160,11 +160,8 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showError:@"提交失败,请检查网络!"];
-        ZXLog(@"%@",error);
     }];
 }
-
-
 
 
 -(NSArray *)placeholderArray{
@@ -176,7 +173,7 @@
 
 -(NSArray *)titleArray{
     if (!_titleArray) {
-        _titleArray = [NSArray arrayWithObjects:@"联系人姓名",@"联系人手机",@"省/市/区",@"详细地址", nil];
+        _titleArray = [NSArray arrayWithObjects:@"联系人姓名 :",@"联系人手机 :",@"省/市/区 :",@"详细地址 :", nil];
     }
     return _titleArray;
 }

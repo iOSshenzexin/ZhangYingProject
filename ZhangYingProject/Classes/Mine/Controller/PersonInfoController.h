@@ -19,6 +19,10 @@
 
 @interface PersonInfoController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *headImageBtn;
+
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak,nonatomic) id <PersonInfoControllerDelegate> delegate;

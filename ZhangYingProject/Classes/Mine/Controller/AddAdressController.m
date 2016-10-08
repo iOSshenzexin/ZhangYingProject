@@ -11,11 +11,11 @@
 #import "AddressCustomCell.h"
 
 #import "DeliveryAddressController.h"
+
 #import "ZXAddressModel.h"
 @interface AddAdressController ()<UITableViewDelegate,UITableViewDataSource,DeliveryAddressControllerDelegate>
 
 @property (nonatomic,copy) NSMutableArray *titleArray;
-
 
 @end
 
@@ -42,7 +42,7 @@
     [self loadAdressData];
 }
 
-
+#warning Today Done Here
 - (void)setupTableView
 {
     self.addressTableVeiw.sectionFooterHeight = 15;
@@ -63,7 +63,6 @@
     params[@"memberId"] = model.mid;
     params[@"pageIndex"] = @0;
     [manager POST:Mine_AddressList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXLog(@"%@",responseObject);
         if ([responseObject[@"status"] intValue] == 1) {
             [self.titleArray addObject:[ZXAddressModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]]];
             [self.addressTableVeiw reloadData];
@@ -95,31 +94,18 @@
         cell.titleLabel.textColor = [UIColor redColor];
     }else if(indexPath.section == 1){
         cell.address = self.titleArray[indexPath.section][indexPath.row];
-        if ([cell.address.isDefault intValue] == 1) {
-            cell.defaultImage.hidden = NO;
-        }
         cell.img.image = [UIImage imageNamed:@"my-trade05"];
-        cell.titleLabel.numberOfLines = 0;
-        cell.btn.tag = 10 + indexPath.row;
-        [cell.btn addTarget:self action:@selector(modifyAddress:) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
 }
 
-- (void)modifyAddress:(UIButton *)btn{
-    DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
-    AddressCustomCell *cell = [self.addressTableVeiw cellForRowAtIndexPath:[NSIndexPath indexPathForRow:btn.tag -10 inSection:1]];
-    vc.addressID = cell.address.listId;
-    vc.title = @"修改收货地址";
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSIndexPath * indexP =[NSIndexPath indexPathForRow:0 inSection:0];
-    if (indexP == indexPath) {
-        return NO;
-    }
+    //NSIndexPath * indexP =[NSIndexPath indexPathForRow:0 inSection:0];
+   // if (indexP == indexPath) {
+     //   return NO;
+   // }
     return YES;
 }
 
@@ -146,12 +132,11 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"id"] = cell.address.listId;
     params[@"status"] = @2;
+    ZXLog(@"删除: %@",params);
     [manager POST:Mine_DeleteAddress_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        ZXLog(@"%@",responseObject);
-        
+        ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        ZXLog(@"%@",error);
+        ZXError
     }];
 }
 
@@ -162,7 +147,11 @@
         vc.title = @"新增收货地址";
         [self.navigationController pushViewController:vc animated:YES];
     }else{
-        
+        DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
+        AddressCustomCell *cell = [self.addressTableVeiw cellForRowAtIndexPath:indexPath];
+        vc.addressID = cell.address.listId;
+        vc.title = @"修改收货地址";
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

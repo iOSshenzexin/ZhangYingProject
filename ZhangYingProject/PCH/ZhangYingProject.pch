@@ -191,6 +191,10 @@
 /** 交易-分享列表 API */
 #define Deal_SharedList_Url [baseUrl stringByAppendingString:@"/m_sharelog/sharelogList.do"]
 
+/** 交易-分享详情 API */
+#define Deal_SharedListDetail_Url [baseUrl stringByAppendingString:@"/m_sharelog/sharelogDetails.do"]
+
+
 
 
 
@@ -207,6 +211,7 @@
 /** 首页-我的业绩 API */
 #define Home_MyGrade_Url [baseUrl stringByAppendingString:@"/m_index/getStatistics.do"]
 
+/** 首页-最赚钱,人气飙升,新发计划 API */
 
 
 

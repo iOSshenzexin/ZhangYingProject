@@ -21,7 +21,9 @@
 @implementation MyCollectionController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self requestCollectionProductData];
+    
 }
 
 - (void)requestCollectionProductData
@@ -81,6 +83,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.view = nil;
+}
 
 @end

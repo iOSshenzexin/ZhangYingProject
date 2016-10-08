@@ -21,6 +21,7 @@
 #import "ZXProuctDetailModel.h"
 
 #import "LoginController.h"
+
 @interface ProductDetailController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,copy) NSArray *titleArray;
@@ -89,12 +90,15 @@ static NSString *styleDefault = @"styleDefault";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pid"] = self.product_id;
-    params[@"pid"] = self.product_id;
+    //params[@"id"] = self.product_id;
     ZXLoginModel *model = AppLoginModel;
-    params[@"memberId"] = model.mid;
+    params[@"mid"] = model.mid;
     [manager POST:Product_Detail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         ZXResponseObject
        self.detailModel = [ZXProuctDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+        if ([self.detailModel.isCollection intValue] != 0) {
+            self.collectedBtn.selected = YES;
+        }
         [self.productDetailTableview reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError

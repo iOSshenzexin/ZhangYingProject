@@ -62,12 +62,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // self.headImage.layer.masksToBounds
     PersonInfoController *vc = [PersonInfoController sharedPersonController];
     vc.delegate = self;
-    ZXLoginModel *model = AppLoginModel;
-    self.nickName.text = model.name;
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:2 borderColor:[UIColor redColor]]];
     
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
@@ -78,12 +74,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   //
+    ZXLoginModel *model = AppLoginModel;
+    self.nickName.text = model.name;
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:2 borderColor:[UIColor redColor]]];
 }
 
 
 -(void)setupUserHeadImage:(PersonInfoController *)vc{
-    self.headImage.image = vc.headImage;
+    self.headImage.image = vc.headImageBtn.currentImage;
     self.nickName.text = vc.userName;
 }
 
@@ -198,6 +196,7 @@
     [alertController addAction:determineAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
 
 
 

@@ -89,7 +89,7 @@
         [contentArray addObject:view];
     }
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) titleArray:self.titleArray contentViewArray:contentArray];
-    scView.block = ^(int index){
+    scView.block = ^(int index,CGFloat off){
         (index == 1)?([self requestCommissionLogWithUrl:Mine_CommissionLog_Url ModelClassString:@"ZXEnterRecordModel" TableView:self.tableView]):([self requestCommissionLogWithUrl:Mine_WithdrawLog_Url ModelClassString:@"ZXWithdrawRecordModel" TableView:self.withdrawalsTableView]);
         NSLog(@"MyBillController: %d",index);
     };

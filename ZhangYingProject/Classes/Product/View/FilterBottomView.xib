@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,16 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUD-O2-h8F">
-                    <rect key="frame" x="284" y="15" width="80" height="30"/>
-                    <color key="backgroundColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="CWe-9R-sqi"/>
-                        <constraint firstAttribute="width" constant="80" id="NXO-gf-ePI"/>
-                    </constraints>
+                <button opaque="NO" tag="42" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUD-O2-h8F">
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="确定">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -28,61 +24,71 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="472-Kn-6Nz">
-                    <rect key="frame" x="138" y="15" width="80" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="DmZ-ft-btg"/>
-                        <constraint firstAttribute="width" constant="80" id="Zon-pX-mlz"/>
-                    </constraints>
+                <button opaque="NO" tag="41" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="472-Kn-6Nz">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="清空">
-                        <color key="titleColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorWithUIColor">
-                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jt-48-63P">
-                    <rect key="frame" x="14" y="15" width="80" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jt-48-63P">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="dHu-kW-rzU"/>
-                        <constraint firstAttribute="width" constant="80" id="qnW-UZ-ZgP"/>
+                        <constraint firstAttribute="height" constant="30" id="u1d-Lm-tv8"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="取消">
-                        <color key="titleColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorWithUIColor">
-                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfg-VP-cLD">
+                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="7w0-LM-9y5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="472-Kn-6Nz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.95" id="HWH-ke-Yog"/>
-                <constraint firstItem="cUD-O2-h8F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="amf-Y5-wNz"/>
-                <constraint firstItem="472-Kn-6Nz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="iST-ps-Xth"/>
-                <constraint firstItem="5Jt-48-63P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="jzW-7d-ZGb"/>
-                <constraint firstAttribute="trailing" secondItem="cUD-O2-h8F" secondAttribute="trailing" constant="11" id="k5k-SA-KlG"/>
-                <constraint firstItem="5Jt-48-63P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="sb8-zR-FX0"/>
+                <constraint firstItem="5Jt-48-63P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="4OV-v8-4bZ"/>
+                <constraint firstItem="cUD-O2-h8F" firstAttribute="width" secondItem="472-Kn-6Nz" secondAttribute="width" id="5cw-B5-HxA"/>
+                <constraint firstItem="cUD-O2-h8F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="6cy-x9-9Un"/>
+                <constraint firstItem="472-Kn-6Nz" firstAttribute="height" secondItem="5Jt-48-63P" secondAttribute="height" id="FQa-pn-Ldy"/>
+                <constraint firstAttribute="trailing" secondItem="Gfg-VP-cLD" secondAttribute="trailing" id="J71-IS-xqf"/>
+                <constraint firstItem="Gfg-VP-cLD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kec-C4-9ht"/>
+                <constraint firstItem="472-Kn-6Nz" firstAttribute="width" secondItem="5Jt-48-63P" secondAttribute="width" id="Krg-JM-iNN"/>
+                <constraint firstItem="472-Kn-6Nz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="OnE-t4-B4X"/>
+                <constraint firstItem="472-Kn-6Nz" firstAttribute="leading" secondItem="5Jt-48-63P" secondAttribute="trailing" constant="30" id="ZAU-rQ-ed3"/>
+                <constraint firstItem="cUD-O2-h8F" firstAttribute="height" secondItem="472-Kn-6Nz" secondAttribute="height" id="aC9-0V-e8o"/>
+                <constraint firstItem="Gfg-VP-cLD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="fWg-vv-kDX"/>
+                <constraint firstItem="cUD-O2-h8F" firstAttribute="leading" secondItem="472-Kn-6Nz" secondAttribute="trailing" constant="30" id="pLm-yO-WBt"/>
+                <constraint firstAttribute="trailing" secondItem="cUD-O2-h8F" secondAttribute="trailing" constant="30" id="xVf-Xt-yB1"/>
+                <constraint firstItem="5Jt-48-63P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="zDr-jL-L1r"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -91,7 +97,7 @@
                 <outlet property="confirmBtn" destination="cUD-O2-h8F" id="co0-gA-Srs"/>
                 <outlet property="removeBtn" destination="472-Kn-6Nz" id="8SP-f9-6SE"/>
             </connections>
-            <point key="canvasLocation" x="42.5" y="160"/>
+            <point key="canvasLocation" x="76.5" y="177"/>
         </view>
     </objects>
 </document>

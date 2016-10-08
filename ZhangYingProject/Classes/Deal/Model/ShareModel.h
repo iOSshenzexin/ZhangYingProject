@@ -9,8 +9,33 @@
 #import <Foundation/Foundation.h>
 
 @interface ShareModel : NSObject
+/*
+ browseCount = 0;
+ createTime =             {
+ date = 29;
+ day = 4;
+ hours = 0;
+ minutes = 0;
+ month = 8;
+ seconds = 0;
+ time = 1475078400000;
+ timezoneOffset = "-480";
+ year = 116;
+ };
+ id = 50;
+ memberId = 12;
+ productId = 4;
+ productTitle = "";
+ typeName = "";
+ 
+ 
+ */
+
+@property (nonatomic,copy) NSDictionary *createTime;
+
 
 @property (nonatomic,retain) NSArray *array;
+
 @property (nonatomic,copy) NSString * title;
 @property (nonatomic,assign,getter = isOpened) BOOL opened;
 

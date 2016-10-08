@@ -18,3 +18,8 @@ UIKIT_EXTERN NSString *const  ZXRepeatedClickTabbarButtonEventNotificationCeter;
 UIKIT_EXTERN NSString *const WeChatAppId;
 
 UIKIT_EXTERN NSString *const WeChatAppKey;
+
+
+UIKIT_EXTERN NSString *const  ZXSortButtonClickNotificationCeter;
+
+UIKIT_EXTERN NSString *const  ZXFilterButtonClickNotificationCeter;

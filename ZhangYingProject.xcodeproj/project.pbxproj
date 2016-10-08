@@ -45,6 +45,8 @@
 		016DA97E1D9D0539006E8EAD /* ZXCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DA97C1D9D0539006E8EAD /* ZXCollectionCell.m */; };
 		016DA97F1D9D0539006E8EAD /* ZXCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016DA97D1D9D0539006E8EAD /* ZXCollectionCell.xib */; };
 		016DA9821D9D25CD006E8EAD /* ZXCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DA9811D9D25CD006E8EAD /* ZXCollectionModel.m */; };
+		016F80321DA8976700636D2D /* ZXHomeProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80301DA8976700636D2D /* ZXHomeProductController.m */; };
+		016F80331DA8976700636D2D /* ZXHomeProductController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016F80311DA8976700636D2D /* ZXHomeProductController.xib */; };
 		0179452F1D98D584000772C7 /* ZXAdvertisementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0179452D1D98D584000772C7 /* ZXAdvertisementController.m */; };
 		017945301D98D584000772C7 /* ZXAdvertisementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0179452E1D98D584000772C7 /* ZXAdvertisementController.xib */; };
 		019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 019198DC1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld */; };
@@ -323,6 +325,9 @@
 		016DA97D1D9D0539006E8EAD /* ZXCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXCollectionCell.xib; sourceTree = "<group>"; };
 		016DA9801D9D25CD006E8EAD /* ZXCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXCollectionModel.h; sourceTree = "<group>"; };
 		016DA9811D9D25CD006E8EAD /* ZXCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXCollectionModel.m; sourceTree = "<group>"; };
+		016F802F1DA8976700636D2D /* ZXHomeProductController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXHomeProductController.h; sourceTree = "<group>"; };
+		016F80301DA8976700636D2D /* ZXHomeProductController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXHomeProductController.m; sourceTree = "<group>"; };
+		016F80311DA8976700636D2D /* ZXHomeProductController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXHomeProductController.xib; sourceTree = "<group>"; };
 		0179452C1D98D584000772C7 /* ZXAdvertisementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXAdvertisementController.h; sourceTree = "<group>"; };
 		0179452D1D98D584000772C7 /* ZXAdvertisementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXAdvertisementController.m; sourceTree = "<group>"; };
 		0179452E1D98D584000772C7 /* ZXAdvertisementController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXAdvertisementController.xib; sourceTree = "<group>"; };
@@ -1062,6 +1067,9 @@
 				01DAC37B1D88E11600DB0477 /* HomeController.h */,
 				01DAC37C1D88E11600DB0477 /* HomeController.m */,
 				01DAC37D1D88E11600DB0477 /* HomeController.xib */,
+				016F802F1DA8976700636D2D /* ZXHomeProductController.h */,
+				016F80301DA8976700636D2D /* ZXHomeProductController.m */,
+				016F80311DA8976700636D2D /* ZXHomeProductController.xib */,
 				0179452C1D98D584000772C7 /* ZXAdvertisementController.h */,
 				0179452D1D98D584000772C7 /* ZXAdvertisementController.m */,
 				0179452E1D98D584000772C7 /* ZXAdvertisementController.xib */,
@@ -1603,6 +1611,7 @@
 					019198CC1D3CC32B000F2483 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = SY5LQ5UGTM;
+						ProvisioningStyle = Automatic;
 					};
 					019198E81D3CC32D000F2483 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1727,6 +1736,7 @@
 				01DAC4661D88E11700DB0477 /* MessageController.xib in Resources */,
 				014099B41D9CA7AD00FC472E /* README.txt in Resources */,
 				01DAC46E1D88E11700DB0477 /* AddAdressController.xib in Resources */,
+				016F80331DA8976700636D2D /* ZXHomeProductController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1868,6 +1878,7 @@
 				014099D41D9CAC1300FC472E /* UMSocialUIManager.m in Sources */,
 				01C8ABC81D8F853900B7E575 /* ZXOrderUnderwayController.m in Sources */,
 				01D262B61D94BDB2009E6E61 /* ZXSortModel.m in Sources */,
+				016F80321DA8976700636D2D /* ZXHomeProductController.m in Sources */,
 				015360E11D91100600713825 /* ForgetPWDController.m in Sources */,
 				015360E51D91100600713825 /* RegisterController.m in Sources */,
 				01DAC4FF1D88E12700DB0477 /* MBProgressHUD.m in Sources */,
@@ -2061,6 +2072,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SY5LQ5UGTM;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2069,7 +2081,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject副本/ZhangYingProject/PCH/ZhangYingProject.pch";
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2113,6 +2125,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SY5LQ5UGTM;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2121,7 +2134,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject副本/ZhangYingProject/PCH/ZhangYingProject.pch";
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

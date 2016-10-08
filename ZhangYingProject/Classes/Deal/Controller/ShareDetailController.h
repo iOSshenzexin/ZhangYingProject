@@ -12,5 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *shareDetailTableView;
 
-
+@property (nonatomic,copy) NSString *product_id;
 @end

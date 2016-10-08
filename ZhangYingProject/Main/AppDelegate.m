@@ -73,14 +73,11 @@
 
 
 - (void)useUmengSDK{
-    [[UMSocialManager defaultManager] openLog:YES];
     //设置友盟appkey
     [[UMSocialManager defaultManager] setUmSocialAppkey:UMengAppKey];
     //设置微信的appKey和appSecret
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WeChatAppId appSecret:WeChatAppKey redirectURL:@"http://mobile.umeng.com/social"];
 }
-
-
 
 - (void)useIQKeyboardManager{
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
