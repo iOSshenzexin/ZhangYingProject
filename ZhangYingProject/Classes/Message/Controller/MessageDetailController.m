@@ -21,32 +21,6 @@
     [self requestMessageData];
 }
 
-/**
- *{
- data =     {
- conImg = "E:\\workspace_camelot\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\palmWin\\jpg1474688018192.jpg";
- content = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy;
- id = 5;
- introduce = yyyyyyyyyyyyyyyyyyyyyyyyyyy;
- listImg = "E:\\workspace_camelot\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\palmWin\\jpg1474688018175.jpg";
- sTime =         {
- date = 24;
- day = 6;
- hours = 0;
- minutes = 0;
- month = 8;
- seconds = 0;
- time = 1474646400000;
- timezoneOffset = "-480";
- year = 116;
- };
- title = ttttttttttyy;
- };
- msg = "\U67e5\U770b\U6d88\U606f\U8be6\U60c5\U6210\U529f";
- status = 1;
- token = "";
- }
- */
 
 - (void)requestMessageData
 {

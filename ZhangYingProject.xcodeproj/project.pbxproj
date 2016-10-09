@@ -40,6 +40,8 @@
 		015360E51D91100600713825 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015360DD1D91100600713825 /* RegisterController.m */; };
 		015360E61D91100600713825 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015360DE1D91100600713825 /* RegisterController.xib */; };
 		015360E91D91103D00713825 /* ZXLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 015360E81D91103D00713825 /* ZXLoginModel.m */; };
+		015A4FB81DAA3CC60055B711 /* ZXDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015A4FB61DAA3CC60055B711 /* ZXDelegateController.m */; };
+		015A4FB91DAA3CC60055B711 /* ZXDelegateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015A4FB71DAA3CC60055B711 /* ZXDelegateController.xib */; };
 		016DA9791D9D00E8006E8EAD /* MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DA9771D9D00E8006E8EAD /* MyCollectionController.m */; };
 		016DA97A1D9D00E8006E8EAD /* MyCollectionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016DA9781D9D00E8006E8EAD /* MyCollectionController.xib */; };
 		016DA97E1D9D0539006E8EAD /* ZXCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016DA97C1D9D0539006E8EAD /* ZXCollectionCell.m */; };
@@ -317,6 +319,9 @@
 		015360DE1D91100600713825 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		015360E71D91103D00713825 /* ZXLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXLoginModel.h; sourceTree = "<group>"; };
 		015360E81D91103D00713825 /* ZXLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXLoginModel.m; sourceTree = "<group>"; };
+		015A4FB51DAA3CC60055B711 /* ZXDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXDelegateController.h; sourceTree = "<group>"; };
+		015A4FB61DAA3CC60055B711 /* ZXDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXDelegateController.m; sourceTree = "<group>"; };
+		015A4FB71DAA3CC60055B711 /* ZXDelegateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXDelegateController.xib; sourceTree = "<group>"; };
 		016DA9761D9D00E8006E8EAD /* MyCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionController.h; sourceTree = "<group>"; };
 		016DA9771D9D00E8006E8EAD /* MyCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionController.m; sourceTree = "<group>"; };
 		016DA9781D9D00E8006E8EAD /* MyCollectionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionController.xib; sourceTree = "<group>"; };
@@ -784,6 +789,9 @@
 				015360DC1D91100600713825 /* RegisterController.h */,
 				015360DD1D91100600713825 /* RegisterController.m */,
 				015360DE1D91100600713825 /* RegisterController.xib */,
+				015A4FB51DAA3CC60055B711 /* ZXDelegateController.h */,
+				015A4FB61DAA3CC60055B711 /* ZXDelegateController.m */,
+				015A4FB71DAA3CC60055B711 /* ZXDelegateController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1176,6 +1184,9 @@
 		01DAC3A71D88E11600DB0477 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01DAC3C01D88E11700DB0477 /* MineController.h */,
+				01DAC3C11D88E11700DB0477 /* MineController.m */,
+				01DAC3C21D88E11700DB0477 /* MineController.xib */,
 				01DAC3A81D88E11600DB0477 /* AboutUsController.h */,
 				01DAC3A91D88E11600DB0477 /* AboutUsController.m */,
 				01DAC3AA1D88E11700DB0477 /* AboutUsController.storyboard */,
@@ -1200,9 +1211,6 @@
 				01DAC3BD1D88E11700DB0477 /* MemberAuthenticationController.h */,
 				01DAC3BE1D88E11700DB0477 /* MemberAuthenticationController.m */,
 				01DAC3BF1D88E11700DB0477 /* MemberAuthenticationController.xib */,
-				01DAC3C01D88E11700DB0477 /* MineController.h */,
-				01DAC3C11D88E11700DB0477 /* MineController.m */,
-				01DAC3C21D88E11700DB0477 /* MineController.xib */,
 				01DAC3C31D88E11700DB0477 /* ModifyPhoneController.h */,
 				01DAC3C41D88E11700DB0477 /* ModifyPhoneController.m */,
 				01DAC3C51D88E11700DB0477 /* ModifyPhoneController.xib */,
@@ -1696,6 +1704,7 @@
 				01DAC4941D88E11700DB0477 /* BankCardCell.xib in Resources */,
 				017945301D98D584000772C7 /* ZXAdvertisementController.xib in Resources */,
 				01DAC4B71D88E11700DB0477 /* ProductDetailStyleTwoCustomCell.xib in Resources */,
+				015A4FB91DAA3CC60055B711 /* ZXDelegateController.xib in Resources */,
 				015360E61D91100600713825 /* RegisterController.xib in Resources */,
 				01DAC4431D88E11700DB0477 /* CustomAnnouncementCell.xib in Resources */,
 				01DAC4881D88E11700DB0477 /* RegularIntroduceController.xib in Resources */,
@@ -1935,6 +1944,7 @@
 				01DAC44B1D88E11700DB0477 /* CustomOrderCell.m in Sources */,
 				014099D21D9CAC1300FC472E /* UMSocialShareSelectionViewCell.m in Sources */,
 				01DAC4B61D88E11700DB0477 /* ProductDetailStyleTwoCustomCell.m in Sources */,
+				015A4FB81DAA3CC60055B711 /* ZXDelegateController.m in Sources */,
 				01DAC4A41D88E11700DB0477 /* ProductController.m in Sources */,
 				01C8ABDA1D8F9AB400B7E575 /* ZXProductCell.m in Sources */,
 				01DAC4BC1D88E11700DB0477 /* TrustCustomCell.m in Sources */,

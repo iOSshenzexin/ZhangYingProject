@@ -74,16 +74,14 @@ static NSString *cellId = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dealTableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
-    self.dealTableView.sectionFooterHeight = 20;
+    self.dealTableView.sectionFooterHeight = 10;
     self.dealTableView.sectionHeaderHeight = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
     [self requestDealHomeStatics];
-    
 }
 
 
@@ -147,15 +145,15 @@ static NSString *cellId = @"cell";
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    self.seg.selectedSegmentIndex = 0;
-    CGFloat pointOneX = self.seg.center.x - 130;
-    CGFloat pointOneY = self.seg.center.y - 10;
-    CGPoint point = CGPointMake(pointOneX, pointOneY);
-    PopoverView *pop = [PopoverView sharedPopview];
-    pop.delegate = self;
-    self.pop = pop;
-    [pop showAtPoint:point inView:self.seg withText:_billString];
     [self.view setNeedsLayout];
+//    self.seg.selectedSegmentIndex = 0;
+//    CGFloat pointOneX = self.seg.center.x - 130;
+//    CGFloat pointOneY = self.seg.center.y - 10;
+//    CGPoint point = CGPointMake(pointOneX, pointOneY);
+//    PopoverView *pop = [PopoverView sharedPopview];
+//    pop.delegate = self;
+//    self.pop = pop;
+//    [pop showAtPoint:point inView:self.seg withText:@"· 交易成功 0 单 · 进行中 0 单 · 交易失败 0 单"];
 }
 
 - (void)requestDealHomeStatics
@@ -170,8 +168,15 @@ static NSString *cellId = @"cell";
         _billString = [NSString stringWithFormat:@"· 交易成功 %@ 单 · 进行中 %@ 单 · 交易失败 %@ 单",dic[@"orderCount2"],dic[@"orderCount1"],dic[@"orderCount3"]];
         _commissionString = [NSString stringWithFormat:@"· 我的佣金 %.2f 元 · 已提现金额 %.2f 元 · 可提现金额 %.2f 元",model.allCommision,(model.allCommision-model.commision),model.commision];
         _reservationString = [NSString stringWithFormat:@"· 预约成功 %@ 单 · 进行中 %@ 单 · 预约失败 %@ 单",dic[@"makeCount2"],dic[@"makeCount1"],dic[@"makeCount3"]];
-        
         [self.dealTableView reloadData];
+        self.seg.selectedSegmentIndex = 0;
+        CGFloat pointOneX = self.seg.center.x - 130;
+        CGFloat pointOneY = self.seg.center.y - 10;
+        CGPoint point = CGPointMake(pointOneX, pointOneY);
+        PopoverView *pop = [PopoverView sharedPopview];
+        pop.delegate = self;
+        self.pop = pop;
+        [pop showAtPoint:point inView:self.seg withText:_billString];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
@@ -225,9 +230,9 @@ static NSString *cellId = @"cell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 230;
+        return 205;
     }
-    return 60;
+    return 50;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

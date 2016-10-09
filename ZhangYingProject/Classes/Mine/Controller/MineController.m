@@ -64,7 +64,6 @@
     [super viewDidLoad];
     PersonInfoController *vc = [PersonInfoController sharedPersonController];
     vc.delegate = self;
-    
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
@@ -75,8 +74,12 @@
 {
     [super viewWillAppear:animated];
     ZXLoginModel *model = AppLoginModel;
-    self.nickName.text = model.name;
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:2 borderColor:[UIColor redColor]]];
+    if(model){
+        self.nickName.text = model.name;
+        [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:2 borderColor:[UIColor redColor]]];
+    }else{
+        self.headImage.image = [UIImage imageNamed:@"my-phone"] ;
+    }
 }
 
 

@@ -188,16 +188,13 @@
     return NO;
 }
 
-- (void)viewWillLayoutSubviews
-{
-}
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     FirstView *firstCustomView = self.scrollView.subviews[0];
-    firstCustomView.frame = CGRectMake(0, 180, ScreenW, 320);
+    firstCustomView.frame = CGRectMake(0, 180, ScreenW, 200);
     ThirdView *thirdView = self.scrollView.subviews[1];
-    thirdView.frame = CGRectMake(0, CGRectGetMaxY(firstCustomView.frame)-20, ScreenW, 40);
+    thirdView.frame = CGRectMake(0, CGRectGetMaxY(firstCustomView.frame) - 5, ScreenW, 30);
     self.tableView = self.scrollView.subviews[2];
     self.tableView.frame = CGRectMake(0, CGRectGetMaxY(thirdView.frame), ScreenW, (self.hotRecommandationArray.count) * 120);
     FourthView *fourthView = self.scrollView.subviews[3];

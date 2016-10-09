@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,11 +14,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp9-Pa-qwA">
-                    <rect key="frame" x="7" y="0.0" width="361" height="85"/>
                     <subviews>
                         <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCq-R0-gXs">
-                            <rect key="frame" x="284" y="11" width="64" height="64"/>
-                            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="0yR-eC-MeZ"/>
                                 <constraint firstAttribute="width" constant="64" id="CMf-8D-WCW"/>
@@ -26,15 +25,14 @@
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="更多" image="index-more04">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didClickSelectedContent:" destination="1f1-pX-If6" eventType="touchUpInside" id="zX2-Ub-2Tm"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6M-Kz-ydJ">
-                            <rect key="frame" x="103" y="11" width="64" height="64"/>
-                            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="64" id="FJq-wX-StN"/>
                                 <constraint firstAttribute="height" constant="64" id="inJ-95-Xg6"/>
@@ -43,15 +41,14 @@
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="人气飙升" image="index-more02">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didClickSelectedContent:" destination="1f1-pX-If6" eventType="touchUpInside" id="kHG-pR-Ihi"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TD4-Qi-XaE">
-                            <rect key="frame" x="13" y="11" width="64" height="64"/>
-                            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="64" id="VBs-pf-G8d"/>
                                 <constraint firstAttribute="height" constant="64" id="YwM-e0-3E6"/>
@@ -60,15 +57,14 @@
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="最赚钱" image="index-more01">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didClickSelectedContent:" destination="1f1-pX-If6" eventType="touchUpInside" id="i9h-OE-IJe"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-ml-YNn">
-                            <rect key="frame" x="194" y="11" width="64" height="64"/>
-                            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="3jb-xS-IZe"/>
                                 <constraint firstAttribute="width" constant="64" id="pRR-As-7o9"/>
@@ -77,14 +73,14 @@
                             <inset key="titleEdgeInsets" minX="-35" minY="45" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="-15" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="新发计划" image="index-more03">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didClickSelectedContent:" destination="1f1-pX-If6" eventType="touchUpInside" id="UUf-r9-7yS"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="b6M-Kz-ydJ" firstAttribute="centerX" secondItem="xp9-Pa-qwA" secondAttribute="centerX" multiplier="0.75" id="3X0-JK-9Yj"/>
                         <constraint firstItem="Bch-ml-YNn" firstAttribute="centerX" secondItem="xp9-Pa-qwA" secondAttribute="centerX" multiplier="1.25" id="82V-h2-IMB"/>

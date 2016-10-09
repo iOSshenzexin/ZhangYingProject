@@ -10,6 +10,8 @@
 #import "ZXGetCheckCode.h"
 
 #import "UITextField+ZXTF.h"
+
+#import "ZXDelegateController.h"
 @interface RegisterController ()
 
 @end
@@ -123,7 +125,7 @@
 #pragma mark - 点击注册按钮完成判断后需做的事情
 - (void)didFinishRegister{
     if (!self.selectBtn.selected){
-        [MBProgressHUD showError:@"请点击同意按钮!"];
+        [MBProgressHUD showError:@"请阅读协议后选择同意!"];
     }else{
     [MBProgressHUD showMessage:@"正在注册...."];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -134,25 +136,24 @@
     [manager POST:Product_Register_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUD];
         if ([responseObject[@"status"] intValue] == 1) {
+            ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
+            [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
+            //保存密码
+            [StandardUser setObject:self.pwdTF.text forKey:savePassword];
+            [StandardUser synchronize];
             AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
             app.isLogin = YES;
             UIApplication *application = [UIApplication sharedApplication];
             TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
             tab.selectedIndex = app.selectedIndex;
+
             [self dismissViewControllerAnimated:YES completion:^{
                 [MBProgressHUD showSuccess:@"恭喜你注册成功!"];
-                ZXLoginModel *model = [ZXLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
-                UIViewController *vc = tab.viewControllers[app.selectedIndex];
-                [vc viewDidLoad];
+                                UIViewController *vc = tab.viewControllers[app.selectedIndex];
                 [vc.view setNeedsDisplay];
-                
-                [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
-                //保存密码
-                [StandardUser setObject:self.pwdTF.text forKey:savePassword];
-                [StandardUser synchronize];
             }];
         }else{
-            [MBProgressHUD showSuccess:@"此账号已注册成功，请直接登陆!"];
+            [MBProgressHUD showSuccess:@"此账号已注册，请直接登陆!"];
         }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD hideHUD];
@@ -162,6 +163,8 @@
 }
 
 - (IBAction)didClickDelegate:(id)sender {
+    ZXDelegateController *vc = [[ZXDelegateController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
