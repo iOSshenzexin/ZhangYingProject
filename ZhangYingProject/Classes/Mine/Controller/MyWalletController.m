@@ -11,7 +11,10 @@
 #import "MyBillController.h"
 
 #import "WithdrawCashController.h"
+#import "UIBarButtonItem+ZXItem.h"
 @interface MyWalletController ()
+
+@property (nonatomic,copy) NSString *canUseMoney;
 
 @end
 
@@ -19,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupRightBarBtn];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithFont:16 title:@"账单" target:self action:@selector(didClickMyBill:) edgeInset:20];
     [self loadMyWalletInfomation];
 }
 
@@ -33,29 +36,22 @@
         if ([responseObject[@"data"][@"allCommision"]doubleValue] / 10000 > 0) {
             self.commissionLbl.text = [NSString stringWithFormat:@"%.2f万",  [responseObject[@"data"][@"allCommision"]doubleValue]/10000.0];
         }else{
-            self.commissionLbl.text =[NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"allCommision"]doubleValue] ];
+            self.commissionLbl.text =[NSString stringWithFormat:@"%.2f",[responseObject[@"data"][@"allCommision"]doubleValue]];
         }
         double alreadyMentionedCash = [responseObject[@"data"][@"allCommision"] doubleValue] - [responseObject[@"data"][@"commision"] doubleValue];
         self.alreadyMentionedLbl.text = [NSString stringWithFormat:@"%.2f",alreadyMentionedCash];
         
+        self.canUseMoney = [NSString stringWithFormat:@"%.2f",[responseObject[@"data"][@"commision"]doubleValue]];
         if ([responseObject[@"data"][@"commision"]doubleValue] / 10000 > 0) {
              self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f万",  [responseObject[@"data"][@"commision"]doubleValue]/10000.0];
         }else{
-             self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f",  [responseObject[@"data"][@"commision"]doubleValue]];
+             self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f",[responseObject[@"data"][@"commision"]doubleValue]];
         }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
 }
 
-- (void)setupRightBarBtn{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 40, 30);
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-    [btn setTitle:@"账单" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(didClickMyBill:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-}
 
 - (void)didClickMyBill:(UIButton *)btn{
     MyBillController *vc = [[MyBillController alloc] init];
@@ -65,6 +61,7 @@
 
 - (IBAction)didClickWithdrawCash:(id)sender {
     WithdrawCashController *vc = [[WithdrawCashController alloc] init];
+    vc.amount = self.canUseMoney;
     vc.title = @"提现";
     [self.navigationController pushViewController:vc animated:YES];
 }

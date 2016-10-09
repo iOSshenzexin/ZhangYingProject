@@ -43,13 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.amountTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
-    [self registerCell];
-}
-
-static NSString *cellID = @"cellId";
-- (void)registerCell{
-    UINib *nib = [UINib nibWithNibName:@"DealCustomCell" bundle:nil];
-    [self.amountTableView registerNib:nib forCellReuseIdentifier:cellID];
     self.amountTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -62,10 +55,7 @@ static NSString *cellID = @"cellId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DealCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell = [[DealCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    }
+    DealCustomCell *cell = [DealCustomCell cellWithTableView:tableView];
     cell.txtField.placeholder = self.placeholderArray[indexPath.row];
     cell.lbl.text = self.titleArray[indexPath.row];
     return cell;

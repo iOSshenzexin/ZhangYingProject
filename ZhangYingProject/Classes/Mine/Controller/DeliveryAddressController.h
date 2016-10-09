@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXAddressModel.h"
 @class DeliveryAddressController;
 @protocol DeliveryAddressControllerDelegate <NSObject>
 
@@ -24,8 +25,12 @@
 
 @property (nonatomic,copy) NSString *address;
 
-
 @property (nonatomic,copy) NSString *addressID;
+
+@property (nonatomic,strong) ZXAddressModel *addressModel;
+
+@property (weak, nonatomic) IBOutlet UIButton *submitChange;
+
 
 @property (weak,nonatomic) id<DeliveryAddressControllerDelegate> delegate;
 

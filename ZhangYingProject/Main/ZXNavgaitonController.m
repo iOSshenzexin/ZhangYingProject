@@ -16,19 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
-    [self.view addGestureRecognizer:pan];
-    // 控制手势什么时候触发,只有非根控制器才需要触发手势
-    pan.delegate = self;
-    
-    // 禁止之前手势
-    self.interactivePopGestureRecognizer.enabled = NO;
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+//    [self.view addGestureRecognizer:pan];
+//    // 控制手势什么时候触发,只有非根控制器才需要触发手势
+//    pan.delegate = self;
+////
+////    // 禁止之前手势
+//    self.interactivePopGestureRecognizer.enabled = NO;
     // 假死状态:程序还在运行,但是界面死了.
 }
 
 //手势对应的事件
 - (void)handleNavigationTransition:(UIPanGestureRecognizer *)pan{
-    
+    [self popViewControllerAnimated:YES];
 }
 
 #pragma mark - UIGestureRecognizerDelegate

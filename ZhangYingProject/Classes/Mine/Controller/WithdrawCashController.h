@@ -19,5 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *withdrawCashBtn;
 
+@property (nonatomic,copy) NSString *amount;
 
 @end

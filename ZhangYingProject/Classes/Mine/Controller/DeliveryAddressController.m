@@ -22,6 +22,8 @@
 
 @property (nonatomic,copy) NSArray *titleArray;
 
+
+@property (nonatomic,copy) NSArray *userInfo;
 @end
 
 @implementation DeliveryAddressController
@@ -179,16 +181,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.addressModel) {
+        [self.submitChange setTitle:@"修改地址" forState:UIControlStateNormal];
+        self.userInfo = [NSArray arrayWithObjects:self.addressModel.userName,self.addressModel.userPhone,[NSString stringWithFormat:@"%@ %@ %@",self.addressModel.provinceName,self.addressModel.cityName,self.addressModel.areaName],self.addressModel.addressDetail, nil];
+    }
     self.addressTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     self.addressTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self registerCell];
 }
 
-static NSString *cellID = @"cellId";
-- (void)registerCell{
-    UINib *nib = [UINib nibWithNibName:@"DealCustomCell" bundle:nil];
-    [self.addressTableView registerNib:nib forCellReuseIdentifier:cellID];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
@@ -199,24 +199,24 @@ static NSString *cellID = @"cellId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DealCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell = [[DealCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    DealCustomCell *cell = [DealCustomCell cellWithTableView:tableView];
     cell.txtField.placeholder = self.placeholderArray[indexPath.row];
+    
+    cell.lbl.text = self.titleArray[indexPath.row];
+    if (self.addressModel) {
+        cell.txtField.text = self.userInfo[indexPath.row];
+    }
     if (indexPath.row == 2){
         cell.txtField.adjustsFontSizeToFitWidth = YES;
         SZXSelectProvinceView *keyBoardView = [SZXSelectProvinceView selectProvinceView];
         //
         keyBoardView.selectDelegate = self;
         [[cell.txtField valueForKey:@"textInputTraits"] setValue:[UIColor clearColor] forKey:@"insertionPointColor"];
-       cell.txtField.inputView = keyBoardView;
+        cell.txtField.inputView = keyBoardView;
         self.pickerView =  keyBoardView.provincePickerView;
         self.pickerView.delegate = self;
         [self refreshPickerView:self.pickerView];
     }
-    cell.lbl.text = self.titleArray[indexPath.row];
     return cell;
 }
 

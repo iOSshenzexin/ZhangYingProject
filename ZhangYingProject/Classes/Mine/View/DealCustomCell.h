@@ -13,5 +13,5 @@
 @property (nonatomic,strong) UILabel *lbl;
 @property (nonatomic,strong) UIView *leftView;
 @property (nonatomic,copy) NSString *title;
-
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

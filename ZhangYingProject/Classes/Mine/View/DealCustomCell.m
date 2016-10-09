@@ -10,6 +10,7 @@
 
 @implementation DealCustomCell
 
+static NSString *dealCustomCell = @"DealCustomCell";
 - (void)awakeFromNib {
     [super awakeFromNib];
     UIView *leftView = [[UIView alloc] init];
@@ -27,16 +28,13 @@
     self.layer.borderColor = [color CGColor];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        //[self setTextFieldLeftView];
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    DealCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:dealCustomCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"DealCustomCell" owner:nil options:nil] lastObject];
     }
-    return self;
+     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 

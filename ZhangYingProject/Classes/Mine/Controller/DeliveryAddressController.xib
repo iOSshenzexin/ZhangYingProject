@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveryAddressController">
             <connections>
                 <outlet property="addressTableView" destination="GaL-ut-t5c" id="bmC-iZ-SxD"/>
+                <outlet property="submitChange" destination="l3i-Ta-ATP" id="QA6-34-Oen"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
