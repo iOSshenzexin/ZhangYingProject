@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithFont:16 title:@"账单" target:self action:@selector(didClickMyBill:) edgeInset:20];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithFont:14 title:@"账单" target:self action:@selector(didClickMyBill:) edgeInset:-20];
     [self loadMyWalletInfomation];
 }
 

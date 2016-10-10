@@ -13,7 +13,7 @@ NSString *const cardCustomCell = @"CardCustomCell";
 
 -(void)setFrame:(CGRect)frame
 {
-    frame.size.height -=5;
+    frame.size.height -=3;
     [super setFrame:frame];
 }
 

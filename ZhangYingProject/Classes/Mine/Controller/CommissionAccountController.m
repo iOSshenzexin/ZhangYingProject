@@ -63,14 +63,17 @@
 
 - (IBAction)didClickSubmit:(id)sender {
     [self.view endEditing:YES];
-    [MBProgressHUD showMessage:@"提交中......" toView:self.view];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
     DealCustomCell *cellAccount = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
      DealCustomCell *cellCard = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
      DealCustomCell *cellName = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
      DealCustomCell *cellBranch = [self.amountTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    
+    if (cellAccount.txtField.text.length == 0 |cellCard.txtField.text.length == 0 |cellName.txtField.text.length == 0|cellBranch.txtField.text.length == 0) {
+        [MBProgressHUD showError:@"所填内容不可为空!"];
+    }else{
+    [MBProgressHUD showMessage:@"提交中......" toView:self.view];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
     if ([self.registerAmount isEqualToString:@"registerAmount"]) {
         params[@"accountName"] = cellAccount.txtField.text;
         params[@"bankCard"] = cellCard.txtField.text;
@@ -109,6 +112,7 @@
             [MBProgressHUD hideHUDForView:self.view];
             [MBProgressHUD showError:@"提交失败,请检查网络!"];
         }];
+    }
     }
 }
 

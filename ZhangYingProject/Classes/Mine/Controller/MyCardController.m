@@ -45,7 +45,7 @@
 - (void)setupRightBarBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 80, 30);
-    btn.titleLabel.font = [UIFont systemFontOfSize:13];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitle:@"规则说明" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(didClickRegularIntrouduce:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];

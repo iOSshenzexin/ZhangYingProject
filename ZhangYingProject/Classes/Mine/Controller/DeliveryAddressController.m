@@ -122,7 +122,11 @@
 - (IBAction)didClickSubmitAddress:(id)sender {
     DealCustomCell *cellName = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     DealCustomCell *cellPhone = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    DealCustomCell *cellArea = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     DealCustomCell *cellDetail = [self.addressTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    if (cellName.txtField.text.length == 0 |cellPhone.txtField.text.length == 0|cellDetail.txtField.text.length == 0|cellArea.txtField.text.length == 0) {
+        [MBProgressHUD showError:@"请填写完整的收货信息!"];
+    }else{
     [MBProgressHUD showMessage:@"提交中......"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -154,15 +158,15 @@
             [MBProgressHUD showSuccess:@"提交成功!"];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:cellName.txtField.text,@"name",cellPhone.txtField.text,@"phone",[NSString stringWithFormat:@"%@%@%@%@",self.provinceArray[_provinceIndex][@"province"],[self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"city"],[self.provinceArray[_provinceIndex][@"citys"]objectAtIndex:_cityIndex][@"districts"][_regionIndex],cellDetail.txtField.text],@"address", nil];
             [ZXNotificationCeter postNotificationName:@"changAddress" object:nil userInfo:dic];
-           
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             [MBProgressHUD showError:@"提交失败,请重试!"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
-        [MBProgressHUD showError:@"提交失败,请检查网络!"];
+        [MBProgressHUD showError:@"提交失败,网络或服务器错误!"];
     }];
+    }
 }
 
 

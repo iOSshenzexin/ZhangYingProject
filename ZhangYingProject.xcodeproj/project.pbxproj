@@ -845,16 +845,8 @@
 				01DAC3301D88DFEB00DB0477 /* Category */,
 				01DAC32E1D88DF7000DB0477 /* PCH */,
 				0191991A1D3CC8DA000F2483 /* Other */,
-				019198D01D3CC32C000F2483 /* Supporting Files */,
 			);
 			path = ZhangYingProject;
-			sourceTree = "<group>";
-		};
-		019198D01D3CC32C000F2483 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		019198EC1D3CC32D000F2483 /* ZhangYingProjectTests */ = {
