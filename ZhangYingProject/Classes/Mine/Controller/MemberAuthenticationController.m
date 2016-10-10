@@ -83,6 +83,9 @@
 
 - (void)submitAuthentication
 {
+    if (self.nameTxt.text.length == 0 | self.memberIDTxt.text.length == 0 |self.base64String.length == 0 ) {
+        [MBProgressHUD showError:@"名片不可为空!"];
+    }else{
     [MBProgressHUD showMessage:@"正在提交认证....." toView:self.view];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -99,10 +102,11 @@
             [MBProgressHUD showError:@"认证有误,请重试!"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD showError:@"认证失败,请检查网络!"];
+        [MBProgressHUD showError:@"认证失败,网络或服务器错误!"];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         ZXError
     }];
+    }
 }
 
 - (IBAction)didClickPicture:(id)sender {

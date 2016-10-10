@@ -15,7 +15,6 @@
 
 @property (nonatomic,copy) NSMutableArray *dataArray;
 
-
 @end
 
 @implementation MyCollectionController

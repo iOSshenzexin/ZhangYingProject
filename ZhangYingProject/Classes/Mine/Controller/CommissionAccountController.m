@@ -87,11 +87,11 @@
                 [MBProgressHUD showSuccess:@"提交成功!"];
                 [self.navigationController popViewControllerAnimated:YES];
             }else{
-                [MBProgressHUD showError:@"提交失败,请重试!"];
+                [MBProgressHUD showError:@"此结佣账户已经存在!"];
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD hideHUDForView:self.view];
-            [MBProgressHUD showError:@"提交失败,请检查网络!"];
+            [MBProgressHUD showError:@"提交失败,网络或服务器错误!"];
         }];
     }else{
         params[@"accountName"] = cellAccount.txtField.text;
@@ -106,11 +106,11 @@
                 [MBProgressHUD showSuccess:@"提交成功!"];
                 [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
             }else{
-                [MBProgressHUD showError:@"提交失败,请重试!"];
+                [MBProgressHUD showError:@"此结佣账户已经存在!"];
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD hideHUDForView:self.view];
-            [MBProgressHUD showError:@"提交失败,请检查网络!"];
+            [MBProgressHUD showError:@"提交失败,网络或服务器错误!"];
         }];
     }
     }

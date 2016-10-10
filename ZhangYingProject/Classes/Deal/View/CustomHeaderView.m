@@ -47,7 +47,7 @@
 
 -(void)setModel:(ShareModel *)model{
     _model = model;
-    [self.btn setTitle:model.title forState:UIControlStateNormal];
+    [self.btn setTitle:model.ymdTime forState:UIControlStateNormal];
     [self.btn setImage:[UIImage imageNamed:@"my-right"] forState:UIControlStateNormal];
 }
 

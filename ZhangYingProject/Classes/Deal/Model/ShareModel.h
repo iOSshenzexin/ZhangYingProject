@@ -31,12 +31,11 @@
  
  */
 
-@property (nonatomic,copy) NSDictionary *createTime;
 
+@property (nonatomic,retain) NSArray * datas;
 
-@property (nonatomic,retain) NSArray *array;
+@property (nonatomic,copy) NSString *ymdTime;
 
-@property (nonatomic,copy) NSString * title;
 @property (nonatomic,assign,getter = isOpened) BOOL opened;
 
 @end

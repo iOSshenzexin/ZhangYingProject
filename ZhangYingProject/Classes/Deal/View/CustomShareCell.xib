@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,44 +13,45 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                <frame key="frameInset" width="375" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-IN-AOM">
-                        <rect key="frame" x="55" y="10" width="308" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-IN-AOM">
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最后分享: 2016-07-20 09:17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-co-8rP">
-                        <rect key="frame" x="12" y="42" width="210" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-co-8rP">
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="5wN-yk-Trt"/>
-                            <constraint firstAttribute="width" constant="210" id="fc6-u6-ljn"/>
+                            <constraint firstAttribute="width" constant="300" id="fc6-u6-ljn"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-U3-hl0">
-                        <rect key="frame" x="12" y="12" width="40" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-U3-hl0">
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="SOZ-7B-zu8"/>
+                            <constraint firstAttribute="width" constant="60" id="SOZ-7B-zu8"/>
                             <constraint firstAttribute="height" constant="21" id="Zrn-wV-Qh5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.97491776320000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.97491776320000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="cwL-IN-AOM" firstAttribute="leading" secondItem="4Pv-U3-hl0" secondAttribute="trailing" constant="3" id="07C-IS-kpJ"/>
-                    <constraint firstItem="oWT-co-8rP" firstAttribute="top" secondItem="cwL-IN-AOM" secondAttribute="bottom" constant="8" id="0js-8Y-Ggr"/>
+                    <constraint firstItem="oWT-co-8rP" firstAttribute="top" secondItem="cwL-IN-AOM" secondAttribute="bottom" constant="2" id="0js-8Y-Ggr"/>
                     <constraint firstItem="oWT-co-8rP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="3dd-aq-FcZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cwL-IN-AOM" secondAttribute="trailing" constant="4" id="Bz6-mu-Elw"/>
                     <constraint firstItem="cwL-IN-AOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="LCi-ZF-QU2"/>
+                    <constraint firstItem="cwL-IN-AOM" firstAttribute="leading" secondItem="4Pv-U3-hl0" secondAttribute="trailing" constant="3" id="OLg-ml-rC4"/>
                     <constraint firstItem="4Pv-U3-hl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="Pos-0O-HnW"/>
+                    <constraint firstItem="cwL-IN-AOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Qdf-rr-E7Y"/>
                     <constraint firstAttribute="bottom" secondItem="oWT-co-8rP" secondAttribute="bottom" constant="7" id="T0k-4m-hOb"/>
                     <constraint firstItem="4Pv-U3-hl0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="Vhu-rA-yvl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cwL-IN-AOM" secondAttribute="trailing" constant="4" id="WaR-OV-RGU"/>
+                    <constraint firstItem="oWT-co-8rP" firstAttribute="top" secondItem="cwL-IN-AOM" secondAttribute="bottom" constant="2" id="sMu-2C-8A4"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

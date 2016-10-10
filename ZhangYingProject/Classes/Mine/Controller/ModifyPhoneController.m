@@ -61,7 +61,7 @@
         [StandardUser synchronize];
         [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
         }else{
-            [MBProgressHUD showError:@"绑定失败,请重试!"];
+            [MBProgressHUD showError:@"此手机号已经被绑定!"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];

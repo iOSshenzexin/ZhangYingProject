@@ -43,9 +43,9 @@
 #import "NSString+ZXMD5Hashing.h"
 
 #import "ZXLoginModel.h"
+#import "UIBarButtonItem+ZXItem.h"
 
 #import <UMSocialCore/UMSocialCore.h>
-
 
 
 #ifdef DEBUG

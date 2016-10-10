@@ -143,6 +143,7 @@ static NSString *str = @"cellId";
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(10 + (ScreenW -80) *i, 4, 60, 30);
         [btn setTitle:titles[i] forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.tag = i + 1;
         [btn addTarget:self action:@selector(didClickSelectSex:) forControlEvents:UIControlEventTouchUpInside];
         [inputView addSubview:btn];
@@ -272,6 +273,7 @@ static NSString *str = @"cellId";
     CustomPersonCell *cellNickName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     params[@"nickname"] = cellNickName.txtField.text;
     CustomPersonCell *cellEmail = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+     CustomPersonCell *cellPhone = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
     params[@"email"] = cellEmail.txtField.text;
     params[@"headPortrait"] = [UIImagePNGRepresentation(self.headImageBtn.currentImage) base64EncodedStringWithOptions:0];
     ZXLoginModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:loginModel]];
@@ -280,8 +282,7 @@ static NSString *str = @"cellId";
         [MBProgressHUD hideHUDForView:self.view];
         if([responseObject[@"status"] intValue] == 1){
             [MBProgressHUD showSuccess:@"修改成功!"];
-            self.userName = cellName.txtField.text;
-            
+            self.userName = cellPhone.txtField.text;
             //修改model  
             [model setValue:cellName.txtField.text forKey:@"name"];
             [model setValue:cellNickName.txtField.text forKey:@"nickname"];

@@ -16,5 +16,5 @@
 
 + (UIBarButtonItem *)itemWithimage:(UIImage *)image title:(NSString *)title target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)itemWithFont:(CGFloat)fontsize title:(NSString *)title target:( id)target action:( SEL)action edgeInset:(CGFloat)EdgeInset;
++(UIBarButtonItem *)itemWithFont:(CGFloat)fontsize title:(NSString *)title target:(_Nonnull id)target action:(_Nonnull SEL)action edgeInset:(CGFloat)EdgeInset;
 @end

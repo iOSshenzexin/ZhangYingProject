@@ -9,6 +9,10 @@
 #import "SearchController.h"
 
 #import "HomeController.h"
+
+#import "ZXProduct.h"
+#import "ZXProductCell.h"
+
 @interface SearchController ()<UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource,HomeControllerDelegate>{
     UISearchBar *_searchBar;
     UISearchDisplayController *searchDisplayController;
@@ -17,6 +21,7 @@
 
 @property (nonatomic,strong) UISearchBar *searchBarTop;
 
+@property (nonatomic,copy) NSMutableArray *dataArray;
 @end
 
 @implementation SearchController
@@ -33,7 +38,6 @@
     [super viewDidLoad];
     //隐藏掉当前页的返回按钮
     self.navigationItem.hidesBackButton = YES;
-    
     [self initSearchBarAndMysearchDisPlay];
     //添加右侧返回按钮
     [self setupRightBarBtn];
@@ -80,6 +84,44 @@
     self.navigationItem.titleView = _searchBar;
 }
 
+-(void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
+{
+    ZXFunc
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [self requestSearchData:searchBar.text];
+    ZXFunc
+}
+
+- (void)requestSearchData:(NSString *)content
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"productTitle"] = content;
+    [manager POST:Home_SearchProduct_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
+        self.dataArray = [ZXProduct mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZXProductCell *cell = [ZXProductCell cellWithTableView:tableView];
+    cell.product = self.dataArray[indexPath.row];
+    return cell;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -94,6 +136,9 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+
+
+
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];

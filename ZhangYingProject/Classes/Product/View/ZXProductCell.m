@@ -29,13 +29,13 @@ NSString *const cellId = @"ZXProductCell";
 {
     _product = product;
     self.productTitle.text = product.productTitle;
-    self.commision.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@%%佣金",product.commision] Color:[UIColor redColor] FontSize:18];
+    self.commision.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@%%佣金",product.commision] Color:[UIColor redColor] FontSize:16];
     ;
     self.earnings.text = [NSString stringWithFormat:@"%.2f%%",[product.earnings floatValue]];
     
-    self.initialAmount.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@万起",product.initialAmount]  Color:[UIColor blackColor] FontSize:18];
+    self.initialAmount.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@万起",product.initialAmount]  Color:[UIColor blackColor] FontSize:16];
     
-    self.productDeadlineName.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@",product.productDeadlineName]  Color:[UIColor blackColor] FontSize:18];
+    self.productDeadlineName.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@",product.productDeadlineName]  Color:[UIColor blackColor] FontSize:16];
     ;
     //产品类型名称
     self.productTypeName.text = product.productTypeName;

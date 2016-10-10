@@ -75,7 +75,7 @@
     [super viewWillAppear:animated];
     ZXLoginModel *model = AppLoginModel;
     if(model){
-        self.nickName.text = model.name;
+        self.nickName.text = [NSString stringWithFormat:@"%.0f",model.phone];
         [self.headImage sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:model.headPortrait]] placeholderImage:[ZXCircleHeadImage clipOriginImage:[UIImage imageNamed:@"my-phone"] scaleToSize:self.headImage.frame.size borderWidth:2 borderColor:[UIColor redColor]]];
     }else{
         self.headImage.image = [UIImage imageNamed:@"my-phone"] ;

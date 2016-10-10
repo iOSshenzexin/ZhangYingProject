@@ -17,6 +17,7 @@
 @interface ShareDetailController ()<UITableViewDelegate,UITableViewDataSource,CustomHeaderViewDelegate>
 
 @property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic,copy) NSMutableArray *sectionTitles;
 
 
 @end
@@ -47,12 +48,12 @@ static NSString *styleTwo = @"styleTwo";
     params[@"memberId"] = model.mid;
     params[@"productId"] = self.product_id;
     [manager POST:Deal_SharedListDetail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       // self.dataArray = [ShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        self.dataArray = [ShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.shareDetailTableView reloadData];
         ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        ZXError
     }];
-    
 }
 
 
@@ -86,7 +87,7 @@ static NSString *styleTwo = @"styleTwo";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     ShareModel *model = self.dataArray[section];
-    return (model.isOpened ? model.array.count:0);
+    return (model.isOpened ? model.datas.count:0);
 }
 
 -(void)didClickOpenHeaderVeiw:(CustomHeaderView *)headerView{
@@ -94,9 +95,17 @@ static NSString *styleTwo = @"styleTwo";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ShareModel *model = self.dataArray[indexPath.section];
     CustomShareStyleOneCell *cell = [tableView dequeueReusableCellWithIdentifier:styleTwo forIndexPath:indexPath];
     if (!cell) {
         cell = [[CustomShareStyleOneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleTwo];
+    }
+    cell.timeLbl.text = [NSString stringWithFormat:@"%@ 分享",model.datas[indexPath.row][@"createTime"]];
+    if ([model.datas[indexPath.row][@"browseCount"] integerValue] > 0) {
+        cell.readOrNoLbl.text = [NSString stringWithFormat:@"已读(%@次阅读)",model.datas[indexPath.row][@"browseCount"] ];
+    }else
+    {
+        cell.readOrNoLbl.text = @"未读";
     }
     cell.backgroundColor = [UIColor clearColor];
     return cell;
@@ -110,6 +119,7 @@ static NSString *styleTwo = @"styleTwo";
 - (void)setupNavigationBarBtn{
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 80, 30);
+    rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
     rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [rightBtn setTitle:@"再次分享" forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(didClickMoreShare:) forControlEvents:UIControlEventTouchUpInside];
@@ -159,7 +169,7 @@ static NSString *styleTwo = @"styleTwo";
     ZXLoginModel *model = AppLoginModel;
     NSString *text;
 //    if (self.telephoneBtn.selected) {
-//        text = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
+        text = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
 //    }else
 //    {
 //        text = self.content;

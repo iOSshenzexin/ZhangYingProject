@@ -146,15 +146,16 @@ static NSString *cellId = @"cell";
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
    // [self requestDealHomeStatics];
-    [self.view setNeedsDisplay];
-//    self.seg.selectedSegmentIndex = 0;
-//    CGFloat pointOneX = self.seg.center.x - 130;
-//    CGFloat pointOneY = self.seg.center.y - 10;
-//    CGPoint point = CGPointMake(pointOneX, pointOneY);
-//    PopoverView *pop = [PopoverView sharedPopview];
-//    pop.delegate = self;
-//    self.pop = pop;
-//    [pop showAtPoint:point inView:self.seg withText:@"· 交易成功 0 单 · 进行中 0 单 · 交易失败 0 单"];
+    self.seg.selectedSegmentIndex = 0;
+    CGFloat pointOneX = self.seg.center.x - 130;
+    CGFloat pointOneY = self.seg.center.y - 10;
+    CGPoint point = CGPointMake(pointOneX, pointOneY);
+    PopoverView *pop = [PopoverView sharedPopview];
+    pop.delegate = self;
+    self.pop = pop;
+    [pop showAtPoint:point inView:self.seg withText:_billString];
+    [self.view setNeedsLayout];
+
 }
 
 - (void)requestDealHomeStatics
@@ -169,14 +170,6 @@ static NSString *cellId = @"cell";
         _billString = [NSString stringWithFormat:@"· 交易成功 %@ 单 · 进行中 %@ 单 · 交易失败 %@ 单",dic[@"orderCount2"],dic[@"orderCount1"],dic[@"orderCount3"]];
         _commissionString = [NSString stringWithFormat:@"· 我的佣金 %.2f 元 · 已提现金额 %.2f 元 · 可提现金额 %.2f 元",model.allCommision,(model.allCommision-model.commision),model.commision];
         _reservationString = [NSString stringWithFormat:@"· 预约成功 %@ 单 · 进行中 %@ 单 · 预约失败 %@ 单",dic[@"makeCount2"],dic[@"makeCount1"],dic[@"makeCount3"]];
-        self.seg.selectedSegmentIndex = 0;
-        CGFloat pointOneX = self.seg.center.x - 130;
-        CGFloat pointOneY = self.seg.center.y - 10;
-        CGPoint point = CGPointMake(pointOneX, pointOneY);
-        PopoverView *pop = [PopoverView sharedPopview];
-        pop.delegate = self;
-        self.pop = pop;
-        [pop showAtPoint:point inView:self.seg withText:_billString];
         [self.dealTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError

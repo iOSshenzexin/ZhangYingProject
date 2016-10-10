@@ -463,6 +463,7 @@ static BOOL isSetUp = YES;
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    self.productArray = nil;
     self.view = nil;
 }
 @end

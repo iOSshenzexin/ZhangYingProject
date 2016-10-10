@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ShareModel.h"
 @interface CustomShareStyleOneCell : UITableViewCell
 
+@property (nonatomic,copy) ShareModel *onceShareModel;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+
+@property (weak, nonatomic) IBOutlet UILabel *readOrNoLbl;
 @end

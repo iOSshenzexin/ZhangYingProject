@@ -10,6 +10,7 @@
 
 @interface SearchController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 + (SearchController *)sharedSearchController;
 
