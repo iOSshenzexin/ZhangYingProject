@@ -303,6 +303,10 @@ static NSString *str = @"cellId";
     }];
 }
 
-
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.view = nil;
+}
 
 @end

@@ -94,7 +94,6 @@ static NSString *styleDefault = @"styleDefault";
     ZXLoginModel *model = AppLoginModel;
     params[@"mid"] = model.mid;
     [manager POST:Product_Detail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
-        ZXResponseObject
        self.detailModel = [ZXProuctDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
         if ([self.detailModel.isCollection intValue] != 0) {
             self.collectedBtn.selected = YES;

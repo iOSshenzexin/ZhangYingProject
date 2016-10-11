@@ -54,7 +54,7 @@
                 <constraint firstItem="l3i-Ta-ATP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="WTX-Uy-S57"/>
                 <constraint firstAttribute="trailing" secondItem="GaL-ut-t5c" secondAttribute="trailing" id="heI-gO-omh"/>
                 <constraint firstItem="GaL-ut-t5c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jJT-eN-ssI"/>
-                <constraint firstItem="l3i-Ta-ATP" firstAttribute="top" secondItem="GaL-ut-t5c" secondAttribute="bottom" constant="60" id="wd4-YF-jVu"/>
+                <constraint firstItem="l3i-Ta-ATP" firstAttribute="top" secondItem="GaL-ut-t5c" secondAttribute="bottom" constant="50" id="wd4-YF-jVu"/>
             </constraints>
         </view>
     </objects>

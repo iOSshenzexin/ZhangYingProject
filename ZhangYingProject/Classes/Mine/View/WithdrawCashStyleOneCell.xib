@@ -25,7 +25,7 @@
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="每天最多提现100000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5wm-n7-MQi">
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-wg-5hA">
@@ -33,7 +33,7 @@
                             <constraint firstAttribute="width" constant="20" id="iVf-2D-VIm"/>
                             <constraint firstAttribute="height" constant="40" id="vir-AG-FeR"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,7 +54,7 @@
                     <constraint firstItem="5wm-n7-MQi" firstAttribute="leading" secondItem="2oV-Zq-DhL" secondAttribute="trailing" constant="13" id="nBa-MI-SN0"/>
                     <constraint firstItem="g9m-El-LZZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="nw4-k3-VKu"/>
                     <constraint firstItem="g9m-El-LZZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="rbV-st-ydE"/>
-                    <constraint firstItem="9Em-wg-5hA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="zSC-5c-A0L"/>
+                    <constraint firstItem="9Em-wg-5hA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zSC-5c-A0L"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

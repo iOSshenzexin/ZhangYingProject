@@ -35,7 +35,7 @@
 
 -(NSArray *)titleArray{
     if (!_titleArray) {
-        _titleArray = [NSArray arrayWithObjects:@"账户名称",@"收款账户",@"银行名称",@"开户支行", nil];
+        _titleArray = [NSArray arrayWithObjects:@"账户名称:",@"收款账户:",@"银行名称:",@"开户支行:", nil];
     }
     return _titleArray;
 }
@@ -51,7 +51,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

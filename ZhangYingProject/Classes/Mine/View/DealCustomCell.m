@@ -17,6 +17,7 @@ static NSString *dealCustomCell = @"DealCustomCell";
     self.leftView = leftView;
     leftView.bounds = CGRectMake(0, 0, 100, 60);
     UILabel *leftLbl = [[UILabel alloc] init];
+    leftLbl.font = [UIFont systemFontOfSize:14];
     leftLbl.frame = CGRectMake(0, 0, 100, 60);
     leftLbl.textAlignment = NSTextAlignmentCenter;
     [leftView addSubview:leftLbl];

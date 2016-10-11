@@ -46,16 +46,19 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"memberId"] = model.mid;
     [manager POST:Product_DefaultAddress_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
-        NSDictionary *dic = responseObject[@"data"];
-        if ([dic[@"status"] intValue] == 1) {
-            self.addressLbl.text = [NSString stringWithFormat:@"%@%@%@%@",dic[@"provinceName"],dic[@"cityName"],dic[@"areaName"],dic[@"addressDetail"]];
+        if ([responseObject[@"data"] isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = responseObject[@"data"];
+            
+            if ([dic[@"status"] intValue] == 1) {
+                self.addressLbl.text = [NSString stringWithFormat:@"%@%@%@%@",dic[@"provinceName"],dic[@"cityName"],dic[@"areaName"],dic[@"addressDetail"]];
+            }
         }
-        
+        else{
+            self.addressLbl.text = @"您还没有添加收货地址,可以点击修改添加!";
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
-    
 }
 
 

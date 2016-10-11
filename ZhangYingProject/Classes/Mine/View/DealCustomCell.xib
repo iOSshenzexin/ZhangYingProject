@@ -3,36 +3,34 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DealCustomCell" id="KGk-i7-Jjw" customClass="DealCustomCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="375" height="59"/>
+                <frame key="frameInset" width="375" height="39"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DpD-Wg-yef">
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="DpD-Wg-yef" secondAttribute="trailing" constant="2" id="DeW-ad-VGI"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="DpD-Wg-yef" secondAttribute="bottom" constant="2" id="IoF-xK-nbU"/>
-                    <constraint firstItem="DpD-Wg-yef" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="aQ8-0r-JJL"/>
-                    <constraint firstItem="DpD-Wg-yef" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="yrK-u2-x0C"/>
+                    <constraint firstAttribute="bottom" secondItem="DpD-Wg-yef" secondAttribute="bottom" constant="3" id="2sT-Ld-nGY"/>
+                    <constraint firstItem="DpD-Wg-yef" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="DHO-WD-eUC"/>
+                    <constraint firstAttribute="trailing" secondItem="DpD-Wg-yef" secondAttribute="trailing" constant="10" id="TBr-b7-JP9"/>
+                    <constraint firstItem="DpD-Wg-yef" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="vfI-DP-CV0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="txtField" destination="DpD-Wg-yef" id="Lof-AD-k5m"/>
             </connections>
-            <point key="canvasLocation" x="128" y="87"/>
+            <point key="canvasLocation" x="127.5" y="87"/>
         </tableViewCell>
     </objects>
 </document>

@@ -39,10 +39,10 @@
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="NmY-dL-LFt" secondAttribute="trailing" id="5mq-am-xci"/>
-                        <constraint firstItem="JIt-GU-PYr" firstAttribute="top" secondItem="NmY-dL-LFt" secondAttribute="bottom" id="ArY-xU-93c"/>
+                        <constraint firstItem="JIt-GU-PYr" firstAttribute="top" secondItem="NmY-dL-LFt" secondAttribute="bottom" constant="1" id="ArY-xU-93c"/>
                         <constraint firstAttribute="height" constant="88" id="IxX-3S-lOS"/>
                         <constraint firstAttribute="trailing" secondItem="JIt-GU-PYr" secondAttribute="trailing" id="Mpf-pH-SwF"/>
                         <constraint firstItem="JIt-GU-PYr" firstAttribute="leading" secondItem="PLi-JT-uqB" secondAttribute="leading" id="daA-cC-P7K"/>
@@ -75,7 +75,7 @@
                                 <constraint firstAttribute="width" constant="200" id="38N-HL-G3Y"/>
                                 <constraint firstAttribute="height" constant="20" id="Gxv-FF-exj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
