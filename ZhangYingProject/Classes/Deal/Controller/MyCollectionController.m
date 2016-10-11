@@ -22,7 +22,6 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self requestCollectionProductData];
-    
 }
 
 - (void)requestCollectionProductData
@@ -67,7 +66,7 @@
         [self.tableView reloadData];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
 

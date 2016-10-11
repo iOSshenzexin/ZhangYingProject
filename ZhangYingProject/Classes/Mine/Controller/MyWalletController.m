@@ -47,6 +47,11 @@
         }else{
              self.canWithdrawLbl.text = [NSString stringWithFormat:@"%.2f",[responseObject[@"data"][@"commision"]doubleValue]];
         }
+        //修改model
+        [model setValue:responseObject[@"data"][@"allCommision"] forKey:@"allCommision"];
+        [model setValue:responseObject[@"data"][@"commision"] forKey:@"commision"];
+        [StandardUser setObject:[NSKeyedArchiver archivedDataWithRootObject:model] forKey:loginModel];
+        [StandardUser synchronize];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];

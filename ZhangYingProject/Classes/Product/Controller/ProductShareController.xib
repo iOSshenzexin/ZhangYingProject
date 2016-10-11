@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductShareController">
@@ -17,28 +19,24 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HDy-dr-kMl">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="elD-Ba-uGZ"/>
                         <outlet property="delegate" destination="-1" id="3Zv-ea-GvR"/>
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySc-FJ-XGQ">
-                    <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享到" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3D-vz-1dn">
-                            <rect key="frame" x="8" y="8" width="88" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="88" id="VJ7-Yu-Pz1"/>
                                 <constraint firstAttribute="height" constant="21" id="kKu-Sb-E8U"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="522" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk5-Gu-FES">
-                            <rect key="frame" x="160" y="32" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="CiN-Cc-HhX"/>
                                 <constraint firstAttribute="height" constant="55" id="dre-Kw-z65"/>
@@ -49,7 +47,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="521" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiQ-cv-Hz2">
-                            <rect key="frame" x="46" y="32" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="F1a-N2-cSz"/>
                                 <constraint firstAttribute="width" constant="55" id="vYW-CX-vIU"/>
@@ -60,7 +57,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="523" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITN-pK-Qt1">
-                            <rect key="frame" x="273" y="32" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="DHc-KI-NnL"/>
                                 <constraint firstAttribute="width" constant="55" id="OCe-qU-iM3"/>
@@ -71,7 +67,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="ITN-pK-Qt1" firstAttribute="leading" secondItem="jk5-Gu-FES" secondAttribute="trailing" constant="58" id="2v6-ZN-9OU"/>
                         <constraint firstItem="jk5-Gu-FES" firstAttribute="centerX" secondItem="ySc-FJ-XGQ" secondAttribute="centerX" id="3ts-wC-GFn"/>
@@ -85,7 +81,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="HDy-dr-kMl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Sq-tS-00r"/>
                 <constraint firstItem="HDy-dr-kMl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CIl-hV-a39"/>
@@ -95,7 +91,6 @@
                 <constraint firstAttribute="trailing" secondItem="ySc-FJ-XGQ" secondAttribute="trailing" id="dO5-q5-YEZ"/>
                 <constraint firstItem="ySc-FJ-XGQ" firstAttribute="top" secondItem="HDy-dr-kMl" secondAttribute="bottom" id="wKr-Hu-oIa"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="244.5" y="260.5"/>
         </view>
     </objects>

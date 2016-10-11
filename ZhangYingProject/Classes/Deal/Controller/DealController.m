@@ -145,7 +145,6 @@ static NSString *cellId = @"cell";
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-   // [self requestDealHomeStatics];
     self.seg.selectedSegmentIndex = 0;
     CGFloat pointOneX = self.seg.center.x - 130;
     CGFloat pointOneY = self.seg.center.y - 10;
@@ -155,25 +154,29 @@ static NSString *cellId = @"cell";
     self.pop = pop;
     [pop showAtPoint:point inView:self.seg withText:_billString];
     [self.view setNeedsLayout];
-
 }
 
 - (void)requestDealHomeStatics
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    //同步post请求
+    NSURL *url = [NSURL URLWithString:Deal_HomeStatistics_Url];
+    //第二步，创建请求
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    [request setHTTPMethod:@"POST"];//设置请求方式为POST，默认为GET
     ZXLoginModel *model = AppLoginModel;
-    params[@"mid"] = model.mid;
-    [manager POST:Deal_HomeStatistics_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *dic = responseObject[@"data"];
+    NSString *str = [NSString stringWithFormat:@"mid=%@",model.mid];//设置参数
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:data];
+    //第三步，连接服务器
+    NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    if (received) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:received options:NSJSONReadingMutableContainers error:nil] [@"data"];
         self.dataDictionary = dic;
         _billString = [NSString stringWithFormat:@"· 交易成功 %@ 单 · 进行中 %@ 单 · 交易失败 %@ 单",dic[@"orderCount2"],dic[@"orderCount1"],dic[@"orderCount3"]];
         _commissionString = [NSString stringWithFormat:@"· 我的佣金 %.2f 元 · 已提现金额 %.2f 元 · 可提现金额 %.2f 元",model.allCommision,(model.allCommision-model.commision),model.commision];
         _reservationString = [NSString stringWithFormat:@"· 预约成功 %@ 单 · 进行中 %@ 单 · 预约失败 %@ 单",dic[@"makeCount2"],dic[@"makeCount1"],dic[@"makeCount3"]];
         [self.dealTableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        ZXError
-    }];
+    }
 }
 
 - (void)didClickSegmentControler:(UISegmentedControl *)segmentControl{

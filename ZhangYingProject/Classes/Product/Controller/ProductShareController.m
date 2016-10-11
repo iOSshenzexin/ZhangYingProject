@@ -102,7 +102,7 @@
     ZXLoginModel *model = AppLoginModel;
     NSString *text;
     if (self.telephoneBtn.selected) {
-      text = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
+      text = [NSString stringWithFormat:@"理财投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
     }else
     {
         text = self.content;

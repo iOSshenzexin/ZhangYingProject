@@ -79,9 +79,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-            [self.sharedArray removeObjectAtIndex:indexPath.row];
-            [self.firstTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self.firstTableView reloadData];
+        [self.sharedArray removeObjectAtIndex:indexPath.row];
+        [self.firstTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.firstTableView reloadData];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -94,7 +94,15 @@
     ShareDetailController *vc = [[ShareDetailController alloc] init];
     ZXShareModel *model = self.sharedArray[indexPath.row];
     vc.product_id = model.productId;
+    vc.productTitle = model.productTitle;
     vc.title = @"分享详情";
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.view = nil;
 }
 @end

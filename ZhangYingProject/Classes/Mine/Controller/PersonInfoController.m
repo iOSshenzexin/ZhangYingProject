@@ -298,7 +298,7 @@ static NSString *str = @"cellId";
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUDForView:self.view];
-        [MBProgressHUD showError:@"修改失败,请检查网络!"];
+        [MBProgressHUD showError:@"修改失败,网络或服务器错误!"];
         ZXError
     }];
 }

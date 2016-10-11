@@ -35,6 +35,7 @@ NSString *const collectionCell = @"ZXCollectionCell";
     self.earnings.text = [NSString stringWithFormat:@"%@%%",collectionModel.earnings];
 //
     self.initialAmount.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@",collectionModel.initialAmount]  Color:[UIColor redColor] FontSize:15];
+    ZXLog(@"self.initialAmount.attributedText %@",self.initialAmount.attributedText);
 //
     self.productDeadlineName.attributedText = [UILabel labelWithRichNumber:[NSString stringWithFormat:@"%@",collectionModel.productDeadline]  Color:[UIColor redColor] FontSize:15];
 //    ;

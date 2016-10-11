@@ -112,15 +112,15 @@ static NSString *styleTwo = @"styleTwo";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 30;
+    return 35;
 }
 
 
 - (void)setupNavigationBarBtn{
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 80, 30);
-    rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
-    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -20);
+    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [rightBtn setTitle:@"再次分享" forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(didClickMoreShare:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -169,14 +169,14 @@ static NSString *styleTwo = @"styleTwo";
     ZXLoginModel *model = AppLoginModel;
     NSString *text;
 //    if (self.telephoneBtn.selected) {
-        text = [NSString stringWithFormat:@"投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
+        text = [NSString stringWithFormat:@"理财投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
 //    }else
 //    {
 //        text = self.content;
 //    }
 //    //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    NSString *title = @"";
+    NSString *title = self.productTitle;
     NSString *url = @"http://ios9quan.9quan.com.cn/www/wine/show/70488/37961/9502";
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:@"http://dev.umeng.com/images/tab2_1.png"];
     [shareObject setWebpageUrl:url];
