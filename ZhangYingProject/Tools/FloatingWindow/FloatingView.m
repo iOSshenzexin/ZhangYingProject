@@ -8,6 +8,9 @@
 
 #import "FloatingView.h"
 #import "AppDelegate.h"
+#import "RNGridMenu.h"
+
+#import "ZXOnlineSeviceViewController.h"
 
 #define MAINCOLOER [UIColor redColor]
 
@@ -16,7 +19,7 @@
 #define kOffSet kDownLoadWidth / 2
 
 
-@interface FloatingView ()<UIDynamicAnimatorDelegate>
+@interface FloatingView ()<UIDynamicAnimatorDelegate,RNGridMenuDelegate>
 
 @property (nonatomic , retain ) UIView *backgroundView;//背景视图
 
@@ -25,6 +28,8 @@
 @property (nonatomic , retain ) UIButton *floatingBtn;//按钮
 
 @property (nonatomic , retain ) UIDynamicAnimator *animator;//物理仿真动画
+
+@property (nonatomic,strong) RNGridMenu *av;
 @end
 
 @implementation FloatingView
@@ -73,76 +78,93 @@
         _imageView.center = CGPointMake(kDownLoadWidth / 2 , kDownLoadWidth / 2);
         
         [self addSubview:_imageView];
-        self.layer.cornerRadius = kDownLoadWidth / 2;
-        
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenH, ScreenW, ScreenH)];
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        btn.frame = CGRectMake(view.frame.size.width - 80, view.frame.size.height - 200, 80, 30);
-        btn.backgroundColor = [UIColor orangeColor];
-        [btn setTitle:@"联系客服" forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [view addSubview:btn];
-        
-        UIButton *callBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        callBtn.frame = CGRectMake(view.frame.size.width - 80, view.frame.size.height-250, 80, 30);
-        callBtn.backgroundColor = [UIColor orangeColor];
-        [callBtn setTitle:@"拨打电话" forState:UIControlStateNormal];
-        [callBtn addTarget:self action:@selector(didClickCallPhone:) forControlEvents:UIControlEventTouchUpInside];
-        callBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [view addSubview:callBtn];
-        
-        view.backgroundColor = [UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:0.65];
-        self.popView = view;
-        UITapGestureRecognizer *clickTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidePopView:)];
-        [self.popView addGestureRecognizer:clickTap];
-        //开启呼吸动画
-        [self HighlightAnimation];
     }
     return self;
     
 }
-   static BOOL isCreated = YES;
-- (void)hidePopView:(UITapGestureRecognizer *)tap{
-    CGFloat animationDuration = 0.4;
-    NSInteger animationCurve = 7;
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationCurve:animationCurve];
-    self.popView.transform = CGAffineTransformIdentity;
-    [UIView commitAnimations];
-     isCreated = !isCreated;
+
+
+- (void)showGrid {
+    NSInteger numberOfOptions = 2;
+    NSArray *items = @[
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"my-data04"] title:@"拨打电话"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"my-icon04"] title:@"在线咨询"]
+                       ];
+    
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    self.av = av;
+    av.delegate = self;
+    av.bounces = NO;
+    UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    header.text = @"联系客服";
+    header.font = [UIFont boldSystemFontOfSize:18];
+    header.backgroundColor = [UIColor clearColor];
+    header.textColor = [UIColor whiteColor];
+    header.textAlignment = NSTextAlignmentCenter;
+     av.headerView = header;
+    [av showInViewController: self.window.rootViewController
+ center:CGPointMake(ScreenW/2.f, ScreenH/2.f)];
+   // [av showInViewController:self.window.rootViewController center:CGPointMake(ScreenW/2.f, ScreenH/2.f)];
+
 }
+
+
 
 - (void)didClickFloatingImage:(UITapGestureRecognizer *)tap{
-    UIApplication *app = [UIApplication sharedApplication];
-    CGFloat animationDuration = 0.4;
-    NSInteger animationCurve = 7;
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationCurve:animationCurve];
-    if (isCreated) {
-        self.popView.transform = CGAffineTransformTranslate( self.popView.transform, 0, - self.popView.bounds.size.height);
-        [UIView commitAnimations];
-        [app.keyWindow insertSubview: self.popView atIndex:1];
-    }else{
-        self.popView.transform = CGAffineTransformIdentity;
-        [UIView commitAnimations];
-        }
-    isCreated = !isCreated;
+
+        [self showGrid];
 }
 
-- (void)didClickCallPhone:(UIButton *)btn{
-    UIWebView *callWebview =[[UIWebView alloc] init];
-    NSURL *telURL =[NSURL URLWithString:@"tel://400-666-8888"];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-    [self.superview addSubview:callWebview];
+
+- (void)showGridWithHeaderFromPoint:(CGPoint)point {
+    NSInteger numberOfOptions = 9;
+    NSArray *items = @[
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"attachment"] title:@"Attach"],
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"bluetooth"] title:@"Bluetooth"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"cube"] title:@"Deliver"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"download"] title:@"Download"],
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"file"] title:@"Source Code"],
+                       [RNGridMenuItem emptyItem]
+                       ];
+    
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    av.bounces = NO;
+    av.animationDuration = 0.2;
+    av.blurExclusionPath = [UIBezierPath bezierPathWithOvalInRect:self.imageView.frame];
+    av.backgroundPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.f, 0.f, av.itemSize.width*3, av.itemSize.height*3)];
+    
+    UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    header.text = @"Example Header";
+    header.font = [UIFont boldSystemFontOfSize:18];
+    header.backgroundColor = [UIColor clearColor];
+    header.textColor = [UIColor whiteColor];
+    header.textAlignment = NSTextAlignmentCenter;
+    av.headerView = header;
+    
+    [av showInViewController:self.window.rootViewController center:point];
 }
+
+#pragma mark - RNGridMenuDelegate
+
+- (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
+    if (itemIndex == 0) {
+        UIWebView *callWebview =[[UIWebView alloc] init];
+        NSURL *telURL =[NSURL URLWithString:@"tel://400-666-8888"];
+        [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+        [self.superview addSubview:callWebview];
+    }else
+    {
+        ZXOnlineSeviceViewController *vc = [[ZXOnlineSeviceViewController alloc] init];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+    }
+    NSLog(@"Dismissed with item %zd: %@", itemIndex, item.title);
+}
+
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     //得到触摸点

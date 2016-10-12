@@ -64,7 +64,7 @@
     
     //添加悬浮窗
     FloatingView * floatingView = [[FloatingView alloc]initWithFrame:CGRectMake(ScreenW - 54, ScreenH - 110, 52.5, 52.5)];
-    [self.window addSubview:floatingView];
+    [self.window.rootViewController.view addSubview:floatingView];
     
     [self fixTextViewInitSlowly];
     
@@ -106,6 +106,7 @@
 
 
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    self.selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];
 //    NSLog(@"--tabbaritem.index--%lu",[tabBarController.viewControllers indexOfObject:viewController]);
     if ([viewController.tabBarItem.title isEqualToString:@"交易"] | [viewController.tabBarItem.title isEqualToString:@"我的"] ) {
         //如果用户ID存在的话，说明已登陆

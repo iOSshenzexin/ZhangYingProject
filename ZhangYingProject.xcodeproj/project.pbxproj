@@ -246,6 +246,9 @@
 		01DAC5301D88E5C400DB0477 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC52A1D88E5C400DB0477 /* UIView+Extension.m */; };
 		01DAC5331D894A8A00DB0477 /* UITextField+ZXTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC5321D894A8A00DB0477 /* UITextField+ZXTF.m */; };
 		01DAC5371D894F0C00DB0477 /* ZXConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC5361D894F0C00DB0477 /* ZXConst.m */; };
+		01DE226C1DADD1F500D2E5BA /* RNGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DE226B1DADD1F500D2E5BA /* RNGridMenu.m */; };
+		01DE22701DADE18900D2E5BA /* ZXOnlineSeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DE226E1DADE18900D2E5BA /* ZXOnlineSeviceViewController.m */; };
+		01DE22711DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DE226F1DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib */; };
 		01E378F91D92309F00DC63EE /* ZXAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E378F81D92309F00DC63EE /* ZXAddressModel.m */; };
 		136CE08FD2D9F8F1D4F9B348 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482BFF76FA8D3ABF36CD44C1 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -654,6 +657,11 @@
 		01DAC5321D894A8A00DB0477 /* UITextField+ZXTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ZXTF.m"; sourceTree = "<group>"; };
 		01DAC5351D894F0C00DB0477 /* ZXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXConst.h; sourceTree = "<group>"; };
 		01DAC5361D894F0C00DB0477 /* ZXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXConst.m; sourceTree = "<group>"; };
+		01DE226A1DADD1F500D2E5BA /* RNGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNGridMenu.h; sourceTree = "<group>"; };
+		01DE226B1DADD1F500D2E5BA /* RNGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGridMenu.m; sourceTree = "<group>"; };
+		01DE226D1DADE18900D2E5BA /* ZXOnlineSeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXOnlineSeviceViewController.h; sourceTree = "<group>"; };
+		01DE226E1DADE18900D2E5BA /* ZXOnlineSeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXOnlineSeviceViewController.m; sourceTree = "<group>"; };
+		01DE226F1DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXOnlineSeviceViewController.xib; sourceTree = "<group>"; };
 		01E378F71D92309F00DC63EE /* ZXAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXAddressModel.h; sourceTree = "<group>"; };
 		01E378F81D92309F00DC63EE /* ZXAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXAddressModel.m; sourceTree = "<group>"; };
 		17B154C749B70D47B63A439E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -913,6 +921,9 @@
 				01DAC3371D88E04C00DB0477 /* main.m */,
 				01DAC3381D88E04C00DB0477 /* TabbarController.h */,
 				01DAC3391D88E04C00DB0477 /* TabbarController.m */,
+				01DE226D1DADE18900D2E5BA /* ZXOnlineSeviceViewController.h */,
+				01DE226E1DADE18900D2E5BA /* ZXOnlineSeviceViewController.m */,
+				01DE226F1DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1379,6 +1390,7 @@
 		01DAC4C01D88E12700DB0477 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				01DE22691DADD1F500D2E5BA /* PopMenu */,
 				01DAC51E1D88E5C400DB0477 /* KNBannerView */,
 				01DAC4C11D88E12700DB0477 /* AddPicture */,
 				01DAC4C51D88E12700DB0477 /* FloatingWindow */,
@@ -1515,6 +1527,15 @@
 				01DAC5361D894F0C00DB0477 /* ZXConst.m */,
 			);
 			path = Const;
+			sourceTree = "<group>";
+		};
+		01DE22691DADD1F500D2E5BA /* PopMenu */ = {
+			isa = PBXGroup;
+			children = (
+				01DE226A1DADD1F500D2E5BA /* RNGridMenu.h */,
+				01DE226B1DADD1F500D2E5BA /* RNGridMenu.m */,
+			);
+			path = PopMenu;
 			sourceTree = "<group>";
 		};
 		76E100CE699F656BBC901953 /* Frameworks */ = {
@@ -1692,6 +1713,7 @@
 				01DAC4A31D88E11700DB0477 /* WithdrawCashStyleTwoCell.xib in Resources */,
 				01C8ABCE1D8F859300B7E575 /* ZXOrderCompletedController.xib in Resources */,
 				01DAC4381D88E11700DB0477 /* MyShareController.xib in Resources */,
+				01DE22711DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib in Resources */,
 				019198E01D3CC32D000F2483 /* Assets.xcassets in Resources */,
 				01DAC48E1D88E11700DB0477 /* WithdrawCashController.xib in Resources */,
 				01DAC4301D88E11700DB0477 /* DealController.xib in Resources */,
@@ -1902,6 +1924,7 @@
 				016DA9791D9D00E8006E8EAD /* MyCollectionController.m in Sources */,
 				01DAC4811D88E11700DB0477 /* MyCardController.m in Sources */,
 				01DAC49A1D88E11700DB0477 /* DealCustomCell.m in Sources */,
+				01DE22701DADE18900D2E5BA /* ZXOnlineSeviceViewController.m in Sources */,
 				01DAC4FB1D88E12700DB0477 /* LiuXSegmentView.m in Sources */,
 				01DAC49E1D88E11700DB0477 /* WithdrawCashStyleOneCell.m in Sources */,
 				01DAC4331D88E11700DB0477 /* MyOrderController.m in Sources */,
@@ -1939,6 +1962,7 @@
 				014099D21D9CAC1300FC472E /* UMSocialShareSelectionViewCell.m in Sources */,
 				01DAC4B61D88E11700DB0477 /* ProductDetailStyleTwoCustomCell.m in Sources */,
 				015A4FB81DAA3CC60055B711 /* ZXDelegateController.m in Sources */,
+				01DE226C1DADD1F500D2E5BA /* RNGridMenu.m in Sources */,
 				01DAC4A41D88E11700DB0477 /* ProductController.m in Sources */,
 				01C8ABDA1D8F9AB400B7E575 /* ZXProductCell.m in Sources */,
 				01DAC4BC1D88E11700DB0477 /* TrustCustomCell.m in Sources */,
@@ -2091,7 +2115,7 @@
 					"$(PROJECT_DIR)/ZhangYingProject/Library/UMSocialSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject副本/ZhangYingProject/PCH/ZhangYingProject.pch";
+				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject使用副本/ZhangYingProject/PCH/ZhangYingProject.pch";
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2145,7 +2169,7 @@
 					"$(PROJECT_DIR)/ZhangYingProject/Library/UMSocialSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject副本/ZhangYingProject/PCH/ZhangYingProject.pch";
+				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject使用副本/ZhangYingProject/PCH/ZhangYingProject.pch";
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
