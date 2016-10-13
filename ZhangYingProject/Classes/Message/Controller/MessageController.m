@@ -15,19 +15,9 @@
 
 @property (nonatomic,copy) NSArray *dataArray;
 
-
 @end
 
 @implementation MessageController
-
-//-(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:YES];
-//    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    if(!appDlg.isReachable){
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry,您当前网络连接异常!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-//        [alert show];
-//    }
-//}
 
 -(NSArray *)dataArray
 {
@@ -40,14 +30,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.messageTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    self.messageTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+   
+    [self.messageTableView.mj_header beginRefreshing];
+}
+
+-(void)loadNewInfo
+{
     [self requestMessageData];
 }
+
 
 - (void)requestMessageData
 {
@@ -55,6 +52,7 @@
     [mgr POST:Message_MessageList_Url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.dataArray = [ZXMessageModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.messageTableView reloadData];
+        [self.messageTableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];

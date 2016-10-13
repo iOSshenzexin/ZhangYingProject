@@ -254,7 +254,7 @@
 
 #pragma mark UITextFielDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    SearchController *vc = [SearchController sharedSearchController];
+    SearchController *vc = [[SearchController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     return NO;

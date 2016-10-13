@@ -134,7 +134,6 @@
                 firstCustomView.lbl7.text = [NSString stringWithFormat:@"%@款",self.dataDictionary[@"productCount4"]];
             }
         }
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -182,7 +181,7 @@
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    SearchController *vc = [SearchController sharedSearchController];
+    SearchController *vc = [[SearchController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     return NO;

@@ -13,6 +13,9 @@
 #import "ZXProduct.h"
 #import "ZXProductCell.h"
 
+#import "ProductDetailController.h"
+#import "LoginController.h"
+
 @interface SearchController ()<UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource,HomeControllerDelegate>{
     UISearchBar *_searchBar;
     UISearchDisplayController *searchDisplayController;
@@ -21,18 +24,18 @@
 
 @property (nonatomic,strong) UISearchBar *searchBarTop;
 
-@property (nonatomic,copy) NSMutableArray *dataArray;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @end
 
 @implementation SearchController
 
-+ (SearchController *)sharedSearchController{
-    static SearchController *vc = nil;
-    if (!vc) {
-        vc = [[SearchController alloc] init];
-    }
-    return vc;
-}
+//+ (SearchController *)sharedSearchController{
+//    static SearchController *vc = nil;
+//    if (!vc) {
+//        vc = [[SearchController alloc] init];
+//    }
+//    return vc;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,16 +87,26 @@
     self.navigationItem.titleView = _searchBar;
 }
 
--(void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+
 {
-    ZXFunc
+    [self requestSearchData:searchBar.text];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length == 0) {
+        [self.dataArray removeAllObjects];
+        //self.dataArray = nil;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-    [self requestSearchData:searchBar.text];
-    ZXFunc
 }
+
+
 
 - (void)requestSearchData:(NSString *)content
 {
@@ -101,9 +114,12 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"productTitle"] = content;
     [manager POST:Product_List_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
+        if ([responseObject[@"data"][@"datas"] count] == 0) {
+            [MBProgressHUD showError:@"没有搜索到匹配内容!"];
+        }else{
         self.dataArray = [ZXProduct mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [self.tableView reloadData];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -138,6 +154,22 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    if (app.isLogin) {
+        ZXProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        ProductDetailController *vc = [[ProductDetailController alloc] init];
+        vc.title = cell.product.productTitle;
+        ZXProduct *product = self.dataArray[indexPath.row];
+        vc.product_id = product.proId;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        LoginController *login = [[LoginController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+        [kWindowRootController presentViewController:nav animated:YES completion:nil];
+    }
+}
 
 
 -(void)viewWillDisappear:(BOOL)animated{

@@ -12,6 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-+ (SearchController *)sharedSearchController;
 
 @end
