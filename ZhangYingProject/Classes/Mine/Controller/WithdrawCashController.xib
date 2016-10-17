@@ -33,7 +33,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="fRY-BL-0AY"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -42,7 +42,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="QLX-Ee-rh7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                     <state key="normal" title="提现">
                         <color key="titleColor" red="0.94901960780000005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>

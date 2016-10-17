@@ -61,7 +61,10 @@
         }else if([self.txtField.text isEqualToString:[StandardUser objectForKey:savePassword]]){
             SetNewPWDController *vc = [[SetNewPWDController alloc] init];
             vc.title = @"修改登录密码";
-            [self.navigationController pushViewController:vc animated:YES];        }else{
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            [self.view endEditing:YES];
+        }else{
             [MBProgressHUD showError:@"原密码输入错误!"];
         }
     }

@@ -104,7 +104,10 @@
 
 - (IBAction)didClickWithdrawCash:(id)sender {
     WithdrawCashStyleOneCell *cell = [self.withdrawCashTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
-    if ([cell.withdrawAmount.text doubleValue] > [self.amount doubleValue]) {
+    if ([cell.withdrawAmount.text doubleValue] == 0) {
+         [MBProgressHUD showError:@"提现金额不可为空!"];
+    }
+    else if ([cell.withdrawAmount.text doubleValue] > [self.amount doubleValue]) {
         [MBProgressHUD showError:@"对不起,提现金额超出可提现金额!"];
     }else{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

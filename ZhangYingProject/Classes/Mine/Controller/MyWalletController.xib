@@ -47,7 +47,7 @@
                         <constraint firstAttribute="width" constant="90" id="L69-dV-fed"/>
                         <constraint firstAttribute="height" constant="26" id="oJz-2g-DEr"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -78,6 +78,7 @@
                         <constraint firstAttribute="height" constant="90" id="Hg5-lm-ZAu"/>
                         <constraint firstAttribute="width" constant="199" id="a7U-1Y-voR"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                     <connections>
                         <action selector="didClickWithdrawCash:" destination="-1" eventType="touchUpInside" id="UrS-1d-fyP"/>
                     </connections>
@@ -138,7 +139,7 @@
                         <constraint firstAttribute="height" constant="20" id="Na7-cD-67K"/>
                         <constraint firstAttribute="width" constant="86" id="V1V-7c-tkC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

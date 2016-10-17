@@ -71,17 +71,18 @@
             params[@"password"] = [self.txtField.text stringMD5Hash];
             params[@"mid"] = model.mid;
             [manager POST:Mine_UpdatePassword_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSLog(@"%@",responseObject);
                 [MBProgressHUD hideHUDForView:self.view];
                 if ([responseObject[@"status"] intValue] == 1) {
                     [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+                    
+                    [StandardUser setObject:self.txtField.text forKey:savePassword];
+                    [StandardUser synchronize];
                     [MBProgressHUD showSuccess:@"密码修改成功!"];
                 }
                 else{
                     [MBProgressHUD showError:@"密码修改失败,请重试!"];
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                ZXLog(@"%@",error);
                 [MBProgressHUD hideHUDForView:self.view];
                 [MBProgressHUD showError:@"网络错误,请重试!"];
             }];

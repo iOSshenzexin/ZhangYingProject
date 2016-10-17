@@ -23,7 +23,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3Cp-Bv-yvV"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-jQ-I4L">
@@ -31,7 +31,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="hFq-ae-Xfv"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                     <state key="normal" title="绑定">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -49,7 +49,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="WtH-uf-Ja4"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
             </subviews>

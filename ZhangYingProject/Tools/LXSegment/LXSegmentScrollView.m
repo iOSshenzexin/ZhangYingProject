@@ -31,7 +31,6 @@
         
         _segmentToolView=[[LiuXSegmentView alloc] initWithFrame:CGRectMake(0, 0, MainScreen_W, 44) titles:titleArray clickBlick:^void(NSInteger index) {
             self.block((int)index,MainScreen_W * (index - 1));
-            ZXLog(@"ContentOffset %f",MainScreen_W * (index - 1));
             [_bgScrollView setContentOffset:CGPointMake(MainScreen_W * (index - 1), 0)];
         }];
         [self addSubview:_segmentToolView];

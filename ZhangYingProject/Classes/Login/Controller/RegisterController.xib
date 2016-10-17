@@ -28,7 +28,7 @@
                                 <constraint firstAttribute="width" constant="86" id="Jk3-CY-Dxg"/>
                                 <constraint firstAttribute="height" constant="30" id="SEj-Vw-kSj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -61,7 +61,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="PQ7-gz-J5t"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zQZ-vF-W12">
@@ -69,7 +69,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="FiW-50-luz"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="6-20位数字和字母组合" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mkx-sN-NjE">
@@ -77,7 +77,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="JAR-OJ-u7T"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邀请人或推荐人手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jPV-3Z-tNd">
@@ -85,7 +85,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Gjh-ar-IrT"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以下为选填内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3G-ra-avP">
@@ -151,7 +151,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="xn6-3c-KC9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                     <state key="normal" title="注册">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>

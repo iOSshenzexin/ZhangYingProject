@@ -40,7 +40,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="oFs-9B-yRM"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                     <state key="normal" title="退出登录">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -124,7 +124,7 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQd-nh-Tea">
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="-55" minY="55" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="10" minY="-20" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="卡券" image="my-coupon">
@@ -139,7 +139,7 @@
                                         <constraint firstAttribute="width" constant="74" id="Nh2-Hh-dgB"/>
                                         <constraint firstAttribute="height" constant="66" id="j0E-I3-H3G"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="-55" minY="55" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="10" minY="-20" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="钱包" image="my-wallet">

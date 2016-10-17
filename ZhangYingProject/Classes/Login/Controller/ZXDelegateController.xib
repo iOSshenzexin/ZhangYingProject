@@ -23,7 +23,7 @@
                                 <constraint firstAttribute="height" constant="30" id="QkQ-OB-np7"/>
                                 <constraint firstAttribute="width" constant="150" id="s3q-Xo-Obt"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

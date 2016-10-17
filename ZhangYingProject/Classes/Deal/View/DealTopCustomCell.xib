@@ -53,7 +53,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="b2U-rz-HHy"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                         <inset key="titleEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="关注 0" image="trade-icon01">
@@ -74,7 +74,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="M8X-kb-mD7"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                         <inset key="titleEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="订阅 0" image="trade-icon03">
@@ -85,7 +85,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="tDU-JI-OMC"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                         <inset key="titleEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="分享 0" image="trade-icon02">

@@ -120,7 +120,7 @@ static NSString *styleTwo = @"styleTwo";
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 80, 30);
     rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -20);
-    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [rightBtn setTitle:@"再次分享" forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(didClickMoreShare:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];

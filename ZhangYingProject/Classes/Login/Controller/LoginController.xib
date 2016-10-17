@@ -25,7 +25,7 @@
                                 <constraint firstAttribute="height" constant="30" id="51C-9G-10f"/>
                                 <constraint firstAttribute="width" constant="86" id="jOA-IR-a9B"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -47,7 +47,7 @@
                                 <constraint firstAttribute="height" constant="20" id="J8f-9x-mF5"/>
                                 <constraint firstAttribute="width" constant="72" id="zgb-TP-PhR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                             <state key="normal" title="立即注册">
                                 <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -72,7 +72,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="klW-VL-80x"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="6-20位数字和字母组合" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-lS-TIO">
@@ -80,7 +80,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="hRa-fs-aT1"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yig-uB-rwY">
@@ -88,7 +88,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="L5S-jL-kdk"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -106,7 +106,7 @@
                         <constraint firstAttribute="height" constant="30" id="BaU-RI-Tfb"/>
                         <constraint firstAttribute="width" constant="70" id="Jie-vj-BPj"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <state key="normal" title="忘记密码">
                         <color key="titleColor" red="1" green="0.20392156859999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>

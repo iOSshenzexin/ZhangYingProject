@@ -48,6 +48,7 @@
 -(void)setModel:(ShareModel *)model{
     _model = model;
     [self.btn setTitle:model.ymdTime forState:UIControlStateNormal];
+    self.btn.titleLabel.font = [UIFont systemFontOfSize:13];
     [self.btn setImage:[UIImage imageNamed:@"my-right"] forState:UIControlStateNormal];
 }
 

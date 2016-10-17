@@ -44,7 +44,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="DWk-s2-VDK"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -53,7 +53,7 @@
                             <constraint firstAttribute="width" constant="98" id="89p-LQ-SKj"/>
                             <constraint firstAttribute="height" constant="22" id="MWh-hC-fGU"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.63529411764705879" green="0.63529411764705879" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -89,7 +89,7 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="aCT-OP-5m6"/>
                             <constraint firstAttribute="height" constant="22" id="xJ1-mY-e4O"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                         <color key="textColor" red="0.94117647059999998" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

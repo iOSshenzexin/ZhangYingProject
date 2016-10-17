@@ -30,7 +30,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="b1C-xt-w9c"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                     <state key="normal" title="提交">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>

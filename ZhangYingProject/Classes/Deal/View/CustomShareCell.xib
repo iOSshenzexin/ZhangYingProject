@@ -16,8 +16,9 @@
                 <frame key="frameInset" width="375" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-IN-AOM">
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-IN-AOM">
+                        <frame key="frameInset" minX="74" minY="8" width="289" height="33"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-co-8rP">
@@ -25,33 +26,26 @@
                             <constraint firstAttribute="height" constant="30" id="5wN-yk-Trt"/>
                             <constraint firstAttribute="width" constant="300" id="fc6-u6-ljn"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                         <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-U3-hl0">
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="SOZ-7B-zu8"/>
-                            <constraint firstAttribute="height" constant="21" id="Zrn-wV-Qh5"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-U3-hl0">
+                        <frame key="frameInset" minX="12" minY="8" width="60" height="34"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                         <color key="textColor" red="0.97491776320000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cwL-IN-AOM" firstAttribute="leading" secondItem="4Pv-U3-hl0" secondAttribute="trailing" constant="3" id="07C-IS-kpJ"/>
-                    <constraint firstItem="oWT-co-8rP" firstAttribute="top" secondItem="cwL-IN-AOM" secondAttribute="bottom" constant="2" id="0js-8Y-Ggr"/>
+                    <constraint firstItem="cwL-IN-AOM" firstAttribute="leading" secondItem="4Pv-U3-hl0" secondAttribute="trailing" id="2Q4-th-tCO"/>
                     <constraint firstItem="oWT-co-8rP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="3dd-aq-FcZ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="cwL-IN-AOM" secondAttribute="trailing" constant="4" id="Bz6-mu-Elw"/>
-                    <constraint firstItem="cwL-IN-AOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="LCi-ZF-QU2"/>
-                    <constraint firstItem="cwL-IN-AOM" firstAttribute="leading" secondItem="4Pv-U3-hl0" secondAttribute="trailing" constant="3" id="OLg-ml-rC4"/>
-                    <constraint firstItem="4Pv-U3-hl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="Pos-0O-HnW"/>
-                    <constraint firstItem="cwL-IN-AOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Qdf-rr-E7Y"/>
+                    <constraint firstItem="4Pv-U3-hl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="5Xc-yP-czR"/>
+                    <constraint firstItem="cwL-IN-AOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="OgX-nY-Ran"/>
                     <constraint firstAttribute="bottom" secondItem="oWT-co-8rP" secondAttribute="bottom" constant="7" id="T0k-4m-hOb"/>
-                    <constraint firstItem="4Pv-U3-hl0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="Vhu-rA-yvl"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="cwL-IN-AOM" secondAttribute="trailing" constant="4" id="WaR-OV-RGU"/>
-                    <constraint firstItem="oWT-co-8rP" firstAttribute="top" secondItem="cwL-IN-AOM" secondAttribute="bottom" constant="2" id="sMu-2C-8A4"/>
+                    <constraint firstItem="4Pv-U3-hl0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="XIv-fk-5It"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cwL-IN-AOM" secondAttribute="trailing" id="lwz-LF-vSS"/>
+                    <constraint firstItem="cwL-IN-AOM" firstAttribute="leading" secondItem="4Pv-U3-hl0" secondAttribute="trailing" id="zyZ-GQ-eEm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -60,7 +60,7 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 60, 30);
     btn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, EdgeInset);
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:fontsize];
+    btn.titleLabel.font = [UIFont systemFontOfSize:fontsize];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     return [[UIBarButtonItem alloc] initWithCustomView:btn];

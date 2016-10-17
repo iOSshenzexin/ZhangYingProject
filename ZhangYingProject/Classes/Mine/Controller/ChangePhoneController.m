@@ -59,6 +59,7 @@
         }else if([self.txtField.text isEqualToString:[StandardUser objectForKey:savePassword]]){
             ModifyPhoneController *vc = [ModifyPhoneController sharedModifyPhoneController];
             vc.title = @"更换绑定手机";
+            [self.view endEditing:YES];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             [MBProgressHUD showError:@"原密码输入错误!"];

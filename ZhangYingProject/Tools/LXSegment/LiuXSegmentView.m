@@ -39,10 +39,10 @@
         }
         _titles=titleArray;
         _defaultIndex = 1;
-        _titleFont=[UIFont systemFontOfSize:15];
+        _titleFont=[UIFont systemFontOfSize:13];
         _btns=[[NSMutableArray alloc] initWithCapacity:0];
-        _titleNomalColor=[UIColor blackColor];
-        _titleSelectColor=SFQRedColor;
+        _titleNomalColor = [UIColor blackColor];
+        _titleSelectColor = SFQRedColor;
         
         _bgScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, windowContentWidth, self.frame.size.height)];
         _bgScrollView.backgroundColor=[UIColor whiteColor];
