@@ -7,7 +7,7 @@
 //
 
 #import "DealSettingController.h"
-#import "CommissionAccountController.h"
+#import "ZXCommissionListController.h"
 #import "AddAdressController.h"
 @interface DealSettingController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -38,15 +38,8 @@
     self.dealTableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     self.dealTableView.sectionHeaderHeight = 10;
     self.dealTableView.tableHeaderView = 0;
-    [self deleteBack];
 }
 
-- (void)deleteBack{
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
-    backButtonItem.title = @"";
-    self.navigationItem.backBarButtonItem = backButtonItem;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -81,14 +74,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:{
-            self.hidesBottomBarWhenPushed = YES;
-            CommissionAccountController *vc = [[CommissionAccountController alloc] init];
-            vc.title = @"结佣账户";
+            ZXCommissionListController *vc = [[ZXCommissionListController alloc] init];
+            vc.title = @"添加结佣账户";
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case 1:{
-            self.hidesBottomBarWhenPushed = YES;
             AddAdressController *vc = [[AddAdressController alloc] init];
             vc.title = @"添加收货地址";
             [self.navigationController pushViewController:vc animated:YES];

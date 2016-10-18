@@ -32,7 +32,8 @@
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         //添加子控件
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = [UIColor whiteColor];
+        btn.backgroundColor = RGB(163, 163, 163, 0.5);
+        btn.layer.cornerRadius = 2;
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(didClickBtn:) forControlEvents:UIControlEventTouchUpInside];
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

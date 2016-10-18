@@ -15,10 +15,10 @@ static NSString *dealCustomCell = @"DealCustomCell";
     [super awakeFromNib];
     UIView *leftView = [[UIView alloc] init];
     self.leftView = leftView;
-    leftView.bounds = CGRectMake(0, 0, 100, 60);
+    leftView.bounds = CGRectMake(0, 0, 80, 60);
     UILabel *leftLbl = [[UILabel alloc] init];
     leftLbl.font = [UIFont systemFontOfSize:14];
-    leftLbl.frame = CGRectMake(0, 0, 100, 60);
+    leftLbl.frame = CGRectMake(0, 0, 80, 60);
     leftLbl.textAlignment = NSTextAlignmentCenter;
     [leftView addSubview:leftLbl];
     self.lbl = leftLbl;
@@ -34,7 +34,7 @@ static NSString *dealCustomCell = @"DealCustomCell";
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"DealCustomCell" owner:nil options:nil] lastObject];
     }
-     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

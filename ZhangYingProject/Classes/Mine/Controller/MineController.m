@@ -124,27 +124,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:{
-            self.hidesBottomBarWhenPushed = YES;
             DealSettingController *vc = [[DealSettingController alloc] init];
             vc.title = @"交易设置";
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
             break;
         }
         case 1:{
-            self.hidesBottomBarWhenPushed = YES;
             SecuritySetController *vc = [[SecuritySetController alloc] init];
             vc.title = @"安全设置";
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
             break;
         }
         case 2:{
-            self.hidesBottomBarWhenPushed = YES;
             AboutUsController *vc = [[UIStoryboard storyboardWithName:@"AboutUsController" bundle:nil]instantiateViewControllerWithIdentifier:@"aboutUs"];
             vc.title = @"关于我们";
+            vc.hidesBottomBarWhenPushed = NO;
             [self.navigationController pushViewController:vc animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
             break;
         }
         default:
@@ -155,26 +152,23 @@
 
 - (IBAction)memberAuthenticationBtn:(id)sender {
     MemberAuthenticationController *vc = [[MemberAuthenticationController alloc] init];
-    self.hidesBottomBarWhenPushed = YES;
     vc.title = @"身份认证";
+    vc.hidesBottomBarWhenPushed = NO;
     [self.navigationController pushViewController:vc animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (IBAction)didClickEnterMyWallet:(id)sender {
     MyWalletController *vc = [[MyWalletController alloc] init];
-    self.hidesBottomBarWhenPushed = YES;
     vc.title = @"钱包";
+    vc.hidesBottomBarWhenPushed = NO;
     [self.navigationController pushViewController:vc animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (IBAction)didClickEnterMyCard:(id)sender {
     MyCardController *vc = [[MyCardController alloc] init];
-    self.hidesBottomBarWhenPushed = YES;
     vc.title = @"我的卡券";
+    vc.hidesBottomBarWhenPushed = NO;
     [self.navigationController pushViewController:vc animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (IBAction)didClickExitLogin:(id)sender {

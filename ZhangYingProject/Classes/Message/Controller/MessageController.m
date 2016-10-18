@@ -45,12 +45,13 @@
     [self requestMessageData];
 }
 
-
 - (void)requestMessageData
 {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+   // NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    //params[@""] =
     [mgr POST:Message_MessageList_Url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.dataArray = [ZXMessageModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        self.dataArray = [ZXMessageModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [self.messageTableView reloadData];
         [self.messageTableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

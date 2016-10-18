@@ -214,7 +214,7 @@ static NSString *str = @"cellId";
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             [self presentViewController:imagePicker animated:YES completion:nil];
         }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示" message:@"您的照相机不可用或被您禁用了!" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的照相机不可用或被您禁用了!" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
             [alert show];
         }
     }
@@ -228,22 +228,24 @@ static NSString *str = @"cellId";
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+
     [picker dismissViewControllerAnimated:NO completion:nil];
     
     LECropPictureViewController *cropPictureController = [[LECropPictureViewController alloc] initWithImage:image andCropPictureType:LECropPictureTypeRounded];
-    cropPictureController.view.backgroundColor = [UIColor blackColor];
+    cropPictureController.view.backgroundColor = [UIColor whiteColor];
     cropPictureController.cropFrame = CGRectMake(ScreenW * 0.5 - 75, ScreenH * 0.5 -75, 150, 150);
-    cropPictureController.borderColor = [UIColor grayColor];
+    cropPictureController.borderColor = [UIColor redColor];
     cropPictureController.borderWidth = 1.0;
    
     cropPictureController.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cropPictureController.photoAcceptedBlock = ^(UIImage *croppedPicture){
         UIImage *img = [ZXCircleHeadImage clipOriginImage:croppedPicture scaleToSize:self.headImageBtn.frame.size borderWidth: 2 borderColor: [UIColor redColor]];
-        self.headImage = img;
-
-        [self.headImageBtn setImage:img forState:UIControlStateNormal];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.headImageBtn setImage: img forState:UIControlStateNormal];
+            self.headImage = self.headImageBtn.currentImage;
+        }];
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+
     };
     [self presentViewController:cropPictureController animated:YES completion:nil];
     
@@ -254,15 +256,9 @@ static NSString *str = @"cellId";
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.tableView resignFirstResponder];
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.view endEditing:YES];
-}
 
 - (IBAction)didClickConfirmChange:(id)sender {
     [MBProgressHUD showMessage:@"正在提交修改..." toView:self.view];
@@ -306,6 +302,7 @@ static NSString *str = @"cellId";
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [self.view endEditing:YES];
     self.view = nil;
 }
 

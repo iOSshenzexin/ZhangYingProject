@@ -50,7 +50,6 @@ static NSString *styleTwo = @"styleTwo";
     [manager POST:Deal_SharedListDetail_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.dataArray = [ShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.shareDetailTableView reloadData];
-        ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -82,7 +81,7 @@ static NSString *styleTwo = @"styleTwo";
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44;
+    return 35;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -100,6 +99,8 @@ static NSString *styleTwo = @"styleTwo";
     if (!cell) {
         cell = [[CustomShareStyleOneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:styleTwo];
     }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+
     cell.timeLbl.text = [NSString stringWithFormat:@"%@ 分享",model.datas[indexPath.row][@"createTime"]];
     if ([model.datas[indexPath.row][@"browseCount"] integerValue] > 0) {
         cell.readOrNoLbl.text = [NSString stringWithFormat:@"已读(%@次阅读)",model.datas[indexPath.row][@"browseCount"] ];
@@ -118,9 +119,9 @@ static NSString *styleTwo = @"styleTwo";
 
 - (void)setupNavigationBarBtn{
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 0, 80, 30);
-    rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -20);
-    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    rightBtn.frame = CGRectMake(0, 0, 80, 40);
+   // rightBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -20);
+    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
     [rightBtn setTitle:@"再次分享" forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(didClickMoreShare:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];

@@ -10,15 +10,16 @@
 
 @implementation ZXAmountListOneCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+NSString *const amountListOneCell = @"ZXAmountListOneCell";
 
-    // Configure the view for the selected state
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    ZXAmountListOneCell *cell = [tableView dequeueReusableCellWithIdentifier:amountListOneCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ZXAmountListOneCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+    return cell;
 }
 
 @end

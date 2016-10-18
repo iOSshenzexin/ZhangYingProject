@@ -10,4 +10,5 @@
 
 @interface ZXAmountListOneCell : UITableViewCell
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

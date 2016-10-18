@@ -8,6 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXAccountInfoModel.h"
+@class ZXCommissionListController;
+@protocol ZXCommissionListControllerDelegate <NSObject>
+
+@optional
+
+- (void)ZXCommissionListControllerDelegatePassAccountModel:(ZXCommissionListController *)vc;
+
+@end
+
 @interface ZXCommissionListController : UIViewController
 
+@property (nonatomic,weak) id <ZXCommissionListControllerDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic,copy) NSString *withdraw;
+
+@property (nonatomic,strong) ZXAccountInfoModel *accountModel;
+
++(ZXCommissionListController *)sharedZXCommissionListController;
 @end

@@ -10,15 +10,34 @@
 
 @implementation ZXAmountListTwoCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+//-(void)setFrame:(CGRect)frame
+//{
+//    frame.size.height -= 2;
+//    [super setFrame:frame];
+//}
+
+NSString *const amountListTwoCell = @"amountListTwoCell";
+
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    ZXAmountListTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:amountListTwoCell];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ZXAmountListTwoCell" owner:nil options:nil] lastObject];
+    }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+    return cell;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setAccountModel:(ZXAccountInfoModel *)accountModel
+{
+    _accountModel = accountModel;
+    self.cardInfo.text = [NSString stringWithFormat:@"%@  %@",accountModel.bankName,accountModel.bankBranch];
+    self.cardNumber.text = accountModel.bankCard;
+    if ([accountModel.isDefault intValue] == 1) {
+        self.defaultImage.hidden = NO;
+    }else{
+        self.defaultImage.hidden = YES;
+    }
+    
 }
 
 @end

@@ -125,13 +125,15 @@
 /** 我的-结佣账号列表 API */
 #define Mine_BankAccountList_Url [baseUrl stringByAppendingString:@"/m_bank/bankList.do"]
 
+/** 我的-结佣账号列表删除 API */
+#define Mine_BankAccountListDelete_Url [baseUrl stringByAppendingString:@"/m_bank/updateBankAccountStatus.do"]
+
+/** 我的-结佣账号列表修改 API */
+#define Mine_BankAccountListUpdate_Url [baseUrl stringByAppendingString:@"/m_bank/updateBankAccount.do"]
+
+
 /** 我的-默认结佣账号 API */
 #define Mine_DefaultBankAccount_Url [baseUrl stringByAppendingString:@"/m_bank/queryBankAccount.do"]
-
-
-
-
-
 
 
 /** 我的-收货地址列表 API */

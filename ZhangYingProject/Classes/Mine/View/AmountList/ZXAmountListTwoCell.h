@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXAccountInfoModel.h"
+
 @interface ZXAmountListTwoCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *cardInfo;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *cardNumber;
+
+@property (nonatomic,copy) ZXAccountInfoModel *accountModel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *defaultImage;
+
+@property (weak, nonatomic) IBOutlet UIButton *updateBtn;
 
 @end

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ZXAccountInfoModel.h"
 @class CommissionAccountController;
+
 @protocol CommissionAccountControllerDelegate <NSObject>
 
 @optional
@@ -17,9 +19,14 @@
 
 @end
 
+
+
+
 @interface CommissionAccountController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *amountTableView;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 
+@property (nonatomic,retain) ZXAccountInfoModel *accountModel;
 
 @property (nonatomic,copy) NSString *registerAmount;
 

@@ -54,7 +54,7 @@
     
     //更改导航栏的颜色跟字体颜色
     [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:18.f]}];
     //更改状态栏的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window = window;

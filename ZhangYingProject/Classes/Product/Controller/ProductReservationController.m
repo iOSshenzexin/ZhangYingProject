@@ -90,6 +90,9 @@
 
 
 - (IBAction)didClickReservation:(id)sender {
+    if (self.product_id.length == 0 | self.nameTxt.text.length == 0 | self.idTxt.text.length == 0 | self.dateTxt.text.length == 0 | self.accountTxt.text.length == 0 | self.phoneLbl.text.length == 0 | self.addressLbl.text.length == 0) {
+        [MBProgressHUD showError:@"请填写完整预约条件!"];
+    }else{
     [MBProgressHUD showMessage:@"正在预约,请稍后...." toView:self.view];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -113,6 +116,7 @@
         [MBProgressHUD hideHUDForView:self.view];
         ZXError
     }];
+    }
 }
 
 

@@ -28,7 +28,7 @@
         _firstTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _firstTableView.dataSource = self;
         _firstTableView.delegate = self;
-        _firstTableView.rowHeight = 80;
+        _firstTableView.rowHeight = 60;
         _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
         _firstTableView.backgroundColor = backGroundColor;
         _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -38,8 +38,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self requestSharedListContent];
     [self.view addSubview:self.firstTableView];
+
+    [self requestSharedListContent];
 }
 
 
@@ -53,7 +54,6 @@
     [manager POST:Deal_SharedList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.sharedArray = [ZXShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [self.firstTableView reloadData];
-        ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];

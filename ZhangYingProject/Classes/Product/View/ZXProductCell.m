@@ -20,7 +20,7 @@ NSString *const cellId = @"ZXProductCell";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.layer.borderWidth = 5;
-    UIColor *color = RGB(216, 216, 216, 0.8);
+    UIColor *color = RGB(242, 242, 242, 1);
     cell.layer.borderColor = [color CGColor];
     return cell;
 }

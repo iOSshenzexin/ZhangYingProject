@@ -10,30 +10,48 @@
 #import "WithdrawCashStyleOneCell.h"
 #import "WithdrawCashStyleTwoCell.h"
 #import "WithdrawCashStyleThreeCell.h"
+
+#import "ZXCommissionListController.h"
 #import "CommissionAccountController.h"
 
 #import "ZXAccountInfoModel.h"
-@interface WithdrawCashController ()<UITableViewDelegate,UITableViewDataSource,CommissionAccountControllerDelegate>
+@interface WithdrawCashController ()<UITableViewDelegate,UITableViewDataSource,CommissionAccountControllerDelegate,ZXCommissionListControllerDelegate>
 
 @property (nonatomic,copy) NSMutableArray *accountListArray;
 
 @property (nonatomic,copy) NSDictionary *defaultAccount;
 
+@property (nonatomic,copy) NSArray *accountSelected;
+
 @end
 
 @implementation WithdrawCashController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.withdrawCashTableView.sectionFooterHeight = 0;
     self.withdrawCashTableView.sectionHeaderHeight = 0;
+    ZXCommissionListController *vc = [ZXCommissionListController sharedZXCommissionListController];
+    vc.delegate = self;
+    
 }
+
+-(void)ZXCommissionListControllerDelegatePassAccountModel:(ZXCommissionListController *)vc
+{
+    self.accountSelected = [NSArray arrayWithObjects:vc.accountModel.bankName,vc.accountModel.bankCard,nil];
+    self.isDefault = YES;
+    [self.withdrawCashTableView reloadData];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     self.defaultAccount = nil;
+    self.defaultAccount = nil;
+    self.accountSelected = nil;
+    self.isDefault = YES;
     [self loadUserDefaultAccountList];
-
 }
 
 - (void)loadUserDefaultAccountList
@@ -65,8 +83,13 @@
     if (indexPath.section == 0) {
         if (self.isDefault) {
             WithdrawCashStyleThreeCell *cell = [WithdrawCashStyleThreeCell cellWithTableView:tableView];
+            if (self.accountSelected.count != 0) {
+                cell.bankName.text = self.accountSelected[0];
+                cell.cardNumber.text = self.accountSelected[1];
+            }else{
             cell.bankName.text = self.defaultAccount[@"bankName"];
             cell.cardNumber.text = self.defaultAccount[@"bankCard"];
+            }
             return cell;
         }else{
             WithdrawCashStyleTwoCell *cell = [WithdrawCashStyleTwoCell cellWithTableView:tableView];
@@ -86,9 +109,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row ==0) {
-        CommissionAccountController *vc = [[CommissionAccountController alloc] init];
-        vc.registerAmount = @"registerAmount";
-        vc.title = @"结佣账户";
+        ZXCommissionListController *vc = [ZXCommissionListController sharedZXCommissionListController];
+        vc.withdraw = @"withdraw";
+        vc.title = @"结佣账号列表";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

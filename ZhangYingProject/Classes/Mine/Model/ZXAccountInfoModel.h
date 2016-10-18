@@ -31,7 +31,7 @@
 
 @property (nonatomic,copy) NSString * accountName;
 
-@property (nonatomic,copy) NSDictionary *bankBranch;
+@property (nonatomic,copy) NSString *bankBranch;
 
 @property (nonatomic,copy) NSString *bankCard;
 

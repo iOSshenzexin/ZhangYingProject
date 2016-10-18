@@ -134,7 +134,6 @@
     NSString * productType = topic.product_id ;
     UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
     [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct"  tableView:tableView productType:productType andSort:[NSString stringWithFormat:@"%d",self.sortNumber] productDeadline:typeDictionary[@"productDeadline"] productField:typeDictionary[@"productField"]  issuer:typeDictionary[@"issuer"]  initialAmount:typeDictionary[@"initialAmount"]  payInterest:typeDictionary[@"payInterest"]  salesStatus:typeDictionary[@"salesStatus"]];
-    ZXLog(@"typeDictionary: %@",typeDictionary);
 }
 
 #pragma mark - 请求筛选数据列表

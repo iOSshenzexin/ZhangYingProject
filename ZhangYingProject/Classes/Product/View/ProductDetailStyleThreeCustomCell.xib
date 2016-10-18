@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -114,18 +114,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中江信托-金鹤131号东旭集团产业投资集合资金信托计划(第五期)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FQ-pP-FHM">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="41" id="Gwz-f2-bCn"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中江国际信托股份有限公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nex-fS-ID4">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="CKL-k7-ZAg"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -133,7 +127,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="5sz-Qq-irC"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -141,7 +135,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Cor-3K-0Qp"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -149,7 +143,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="wT7-Te-mkn"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -157,7 +151,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="NzT-dw-XJ9"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -165,7 +159,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="se6-04-ayV"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -173,7 +167,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="582-c7-8kE"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -198,7 +192,6 @@
                     <constraint firstItem="SMA-LM-66s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="A4Q-fe-dEZ"/>
                     <constraint firstItem="u6A-hE-4f2" firstAttribute="top" secondItem="oj5-vT-OHt" secondAttribute="bottom" constant="4" id="AkF-W8-Blh"/>
                     <constraint firstItem="kMS-bt-cL9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="CW3-Cu-wQX"/>
-                    <constraint firstItem="7FQ-pP-FHM" firstAttribute="top" secondItem="Tdj-hW-jRS" secondAttribute="bottom" constant="7" id="DGi-vj-wLV"/>
                     <constraint firstItem="oj5-vT-OHt" firstAttribute="top" secondItem="Bq7-d8-Owe" secondAttribute="bottom" constant="4" id="E1Y-7L-kww"/>
                     <constraint firstItem="ctq-sB-OIk" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="EL1-TX-PRa"/>
                     <constraint firstAttribute="trailing" secondItem="Tdj-hW-jRS" secondAttribute="trailing" constant="8" id="HIw-Pd-k4Q"/>
@@ -210,9 +203,12 @@
                     <constraint firstItem="Nex-fS-ID4" firstAttribute="leading" secondItem="8HB-Zs-EfS" secondAttribute="trailing" constant="1" id="PkY-UQ-4zQ"/>
                     <constraint firstItem="ctq-sB-OIk" firstAttribute="top" secondItem="dbU-V4-usx" secondAttribute="bottom" constant="5" id="RtA-j4-f7s"/>
                     <constraint firstItem="Tdj-hW-jRS" firstAttribute="top" secondItem="SMA-LM-66s" secondAttribute="bottom" constant="8" id="SI5-sa-Ydz"/>
+                    <constraint firstItem="7FQ-pP-FHM" firstAttribute="centerY" secondItem="zhJ-pU-wMe" secondAttribute="centerY" id="T8h-uj-c1S"/>
                     <constraint firstItem="u6A-hE-4f2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="USA-DB-iO6"/>
+                    <constraint firstItem="Nex-fS-ID4" firstAttribute="centerY" secondItem="8HB-Zs-EfS" secondAttribute="centerY" id="UlX-lR-t1c"/>
                     <constraint firstItem="8HB-Zs-EfS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="XEG-Ic-Sez"/>
                     <constraint firstItem="dbU-V4-usx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ZBm-qg-EzM"/>
+                    <constraint firstItem="VRI-Ji-mYi" firstAttribute="centerY" secondItem="u6A-hE-4f2" secondAttribute="centerY" id="Zz6-kM-rHY"/>
                     <constraint firstItem="7LV-pV-5Qd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="czf-dV-1dl"/>
                     <constraint firstItem="oj5-vT-OHt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hS8-kN-iuw"/>
                     <constraint firstItem="kMS-bt-cL9" firstAttribute="top" secondItem="8HB-Zs-EfS" secondAttribute="bottom" constant="4" id="i37-m6-JEr"/>

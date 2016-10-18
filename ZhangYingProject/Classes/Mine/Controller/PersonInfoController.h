@@ -19,7 +19,7 @@
 
 @interface PersonInfoController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *headImageBtn;
+@property (strong, nonatomic) IBOutlet UIButton *headImageBtn;
 
 
 
