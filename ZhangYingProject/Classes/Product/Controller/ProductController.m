@@ -31,7 +31,7 @@
 }
 
 @property (nonatomic,strong) NSMutableArray *titleArray;
-@property (nonatomic,copy) NSMutableArray *productArray;
+@property (nonatomic,strong) NSMutableArray *productArray;
 
 @property (nonatomic,strong) UIView *showView;
 @property (nonatomic,strong) UIView *showSortView;
@@ -49,6 +49,9 @@
 
 
 @property (nonatomic,assign) int sortNumber;
+
+
+@property (nonatomic,assign) int pageIndex;
 @end
 
 @implementation ProductController
@@ -63,8 +66,29 @@
     customTableView.rowHeight = 120;
     customTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
     customTableView.backgroundColor = [UIColor clearColor];
+    customTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
+    customTableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    customTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreInfo)];
     return customTableView;
 }
+
+-(void)loadNewInfo
+{
+    [self.productArray removeAllObjects];
+    self.pageIndex = 0;
+    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:0 type:0];
+}
+
+- (void)loadMoreInfo
+{
+    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:0 type:1];
+}
+
+
+
 
 -(NSMutableArray *)titleArray{
     if (!_titleArray) {
@@ -167,7 +191,7 @@
     ZXTopic *topic = self.titleArray[self.number -1];
     int productType = [topic.product_id intValue];
     UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:sortNumber];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:sortNumber type:0];
 }
 
 
@@ -215,26 +239,42 @@
     [self.view addSubview:self.segmentScollView];
     
     UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:0];
+     [tableView.mj_header beginRefreshing];
+
     
      scView.block = ^(int index,CGFloat off){
         self.number = index;
         ZXTopic *topic = self.titleArray[index-1];
-        int productType = [topic.product_id intValue];
+        self.number = [topic.product_id intValue];
         UITableView *tableView = [(UIView *)self.contentArray[index-1] subviews][0];
-        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:0];
+         [tableView.mj_header beginRefreshing];
     };
 }
 
 #pragma mark - 请求产品列表数据
-- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status andSort:(int)sort{
+- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString TableView:(UITableView *)tableView Status:(int)status andSort:(int)sort type:(NSInteger)type{
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"productType"] = @(status);
+    params[@"pageIndex"] = @(self.pageIndex);
     params[@"sort"] = @(sort);
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+      NSMutableArray *items = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        if (type == 0) {
+            self.productArray = items;
+        }else{
+            if (items.count == 0) {
+                [MBProgressHUD showSuccess:@"已经是最后一页了"];
+            }else{
+                [self.productArray addObjectsFromArray:items];
+        }
+        }
+        self.pageIndex ++;
+        
         [tableView reloadData];
+        [tableView.mj_header endRefreshing];
+        [tableView.mj_footer endRefreshing];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];

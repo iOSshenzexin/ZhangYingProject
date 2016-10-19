@@ -40,14 +40,14 @@
 
 -(NSArray *)dataSource{
     if (!_dataSource) {
-        _dataSource = [NSArray arrayWithObjects:@"交易设置",@"安全设置",@"关于我们",@"呼叫客服", nil];
+        _dataSource = [NSArray arrayWithObjects:@"交易设置",@"安全设置",@"关于我们",@"呼叫客服",@"邀请好友", nil];
     }
     return _dataSource;
 }
 
 -(NSArray *)imageArray{
     if (!_imageArray) {
-        _imageArray = [NSArray arrayWithObjects:@"my-icon01",@"my-icon02",@"my-icon03",@"my-icon04", nil];
+        _imageArray = [NSArray arrayWithObjects:@"my-icon01",@"my-icon02",@"my-icon03",@"my-icon04",@"my-icon04",nil];
     }
     return _imageArray;
 }
@@ -90,7 +90,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,6 +103,10 @@
     }
     cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.textLabel.text = self.dataSource[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16.f];
+
+    cell.detailTextLabel.text = @"设置结佣账户和收货地址";
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Thin" size:12.f];
     if (indexPath.row == 3) {
         cell.detailTextLabel.text = @"400-666-8888";
         cell.detailTextLabel.textColor = [UIColor redColor];
@@ -140,7 +144,7 @@
         case 2:{
             AboutUsController *vc = [[UIStoryboard storyboardWithName:@"AboutUsController" bundle:nil]instantiateViewControllerWithIdentifier:@"aboutUs"];
             vc.title = @"关于我们";
-            vc.hidesBottomBarWhenPushed = NO;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

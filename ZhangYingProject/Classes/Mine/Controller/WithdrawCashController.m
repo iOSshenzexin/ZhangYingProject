@@ -39,8 +39,10 @@
 
 -(void)ZXCommissionListControllerDelegatePassAccountModel:(ZXCommissionListController *)vc
 {
-    self.accountSelected = [NSArray arrayWithObjects:vc.accountModel.bankName,vc.accountModel.bankCard,nil];
-    self.isDefault = YES;
+    self.accountSelected = [NSArray arrayWithObjects:vc.accountModel.bankName,vc.accountModel.bankCard,vc.accountModel.accountId,nil];
+    
+//    self.isDefault = YES;
+    
     [self.withdrawCashTableView reloadData];
 }
 
@@ -48,10 +50,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.defaultAccount = nil;
-    self.accountSelected = nil;
     self.isDefault = YES;
+
+    if (self.accountSelected.count != 0) {
+        
+    }else
+    {
+    self.accountSelected = nil;
+    self.defaultAccount = nil;
     [self loadUserDefaultAccountList];
+    }
 }
 
 - (void)loadUserDefaultAccountList
@@ -81,14 +89,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        if (self.isDefault) {
+        if (self.isDefault ) {
             WithdrawCashStyleThreeCell *cell = [WithdrawCashStyleThreeCell cellWithTableView:tableView];
             if (self.accountSelected.count != 0) {
                 cell.bankName.text = self.accountSelected[0];
                 cell.cardNumber.text = self.accountSelected[1];
             }else{
-            cell.bankName.text = self.defaultAccount[@"bankName"];
-            cell.cardNumber.text = self.defaultAccount[@"bankCard"];
+                cell.bankName.text = self.defaultAccount[@"bankName"];
+                cell.cardNumber.text = self.defaultAccount[@"bankCard"];
             }
             return cell;
         }else{
@@ -138,7 +146,11 @@
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
     params[@"amount"] = cell.withdrawAmount.text;
-    params[@"bankAccountId"] = self.defaultAccount[@"id"];
+        if (self.accountSelected) {
+            params[@"bankAccountId"] = self.accountSelected[2];
+        }else{
+            params[@"bankAccountId"] = self.defaultAccount[@"id"];
+        }
     
     [manager POST:Mine_WithdrawalApply_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if ([responseObject[@"status"] intValue] ==1) {
@@ -156,8 +168,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    self.view = nil;
+   
     [super viewDidDisappear:animated];
+    self.view = nil;
+    self.accountSelected = nil;
 }
 
 @end

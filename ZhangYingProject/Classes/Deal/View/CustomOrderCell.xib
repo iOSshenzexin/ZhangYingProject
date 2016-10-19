@@ -41,6 +41,12 @@
                             <constraint firstAttribute="height" constant="1" id="Iyk-ak-4sV"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7k-pE-jHF">
+                        <color key="backgroundColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Aka-7C-EGr"/>
+                        </constraints>
+                    </view>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VY-HB-td1">
                         <color key="backgroundColor" red="0.98070004109999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -62,6 +68,8 @@
                     <constraint firstItem="DcK-5D-m22" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="92j-Tf-sYd"/>
                     <constraint firstItem="Pkm-aX-Llr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="9kY-eI-j18"/>
                     <constraint firstItem="DcK-5D-m22" firstAttribute="height" secondItem="VAn-KD-Xdv" secondAttribute="height" id="9sj-x9-19i"/>
+                    <constraint firstAttribute="bottom" secondItem="P7k-pE-jHF" secondAttribute="bottom" id="ADv-m8-fid"/>
+                    <constraint firstItem="P7k-pE-jHF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="C1K-Tm-FFf"/>
                     <constraint firstItem="DcK-5D-m22" firstAttribute="width" secondItem="VAn-KD-Xdv" secondAttribute="width" id="CLt-iH-pIG"/>
                     <constraint firstItem="0VY-HB-td1" firstAttribute="top" secondItem="Pkm-aX-Llr" secondAttribute="bottom" constant="6" id="Jt0-hX-8z8"/>
                     <constraint firstItem="VAn-KD-Xdv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="O0Y-E3-oO8"/>
@@ -74,6 +82,7 @@
                     <constraint firstItem="DcK-5D-m22" firstAttribute="leading" secondItem="VAn-KD-Xdv" secondAttribute="trailing" id="lb8-YN-dzd"/>
                     <constraint firstAttribute="trailing" secondItem="ybD-xW-hOP" secondAttribute="trailing" constant="8" id="mo0-NT-cnF"/>
                     <constraint firstAttribute="trailing" secondItem="Pkm-aX-Llr" secondAttribute="trailing" constant="8" id="sMj-uv-Cak"/>
+                    <constraint firstAttribute="trailing" secondItem="P7k-pE-jHF" secondAttribute="trailing" id="vap-89-Lxt"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

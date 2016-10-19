@@ -107,7 +107,6 @@
         if (self.withdraw) {
             vc.registerAmount = @"withdraw";
         }
-        
         vc.title = @"结佣账户";
         [self.navigationController pushViewController:vc animated:YES];
     }

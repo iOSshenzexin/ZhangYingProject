@@ -75,7 +75,6 @@
 
 - (void)loginAppwithUsernameAndPassword{
     [MBProgressHUD showMessage:@"登录中,请稍后...." toView:self.view];
-    //[MBProgressHUD showMessage:@"登录中,请稍后...." ];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = self.telephoneTF.text;
@@ -88,10 +87,9 @@
         [StandardUser synchronize];
         AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
         app.isLogin = YES;
-        
-            if (app.selectedIndex ==0) {
-                
-            }else{
+        if (app.selectedIndex ==0) {
+            
+        }else{
         UIApplication *application = [UIApplication sharedApplication];
         TabbarController *tab = (TabbarController *) application.keyWindow.rootViewController;
             

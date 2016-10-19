@@ -110,8 +110,13 @@
     [manager POST:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             [MBProgressHUD hideHUDForView:self.view];
             if([responseObject[@"status"]intValue] == 1){
+                if (self.registerAmount) {
+                    NSInteger count = self.navigationController.viewControllers.count;
+                    [self.navigationController popToViewController:self.navigationController.viewControllers[count - 3] animated:YES];
+                }else{
                 [MBProgressHUD showSuccess:@"提交成功!"];
                 [self.navigationController popViewControllerAnimated:YES];
+                }
             }else{
                 [MBProgressHUD showError:@"此结佣账户已经存在!"];
             }
@@ -119,11 +124,9 @@
             [MBProgressHUD hideHUDForView:self.view];
             [MBProgressHUD showError:@"提交失败,网络或服务器错误!"];
         }];
+       
     }
-    if (self.registerAmount) {
-        NSInteger count = self.navigationController.viewControllers.count;
-        [self.navigationController popToViewController:self.navigationController.viewControllers[count - 3] animated:YES];
-    }
+   
 
 }
 

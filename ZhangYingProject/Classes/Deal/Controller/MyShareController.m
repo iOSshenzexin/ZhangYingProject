@@ -14,46 +14,81 @@
 #import "ZXShareModel.h"
 @interface MyShareController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong) UITableView *firstTableView;
+@property (nonatomic,strong) UITableView *shareTableView;
 
-@property (nonatomic,copy) NSMutableArray *sharedArray;
+@property (nonatomic,strong) NSMutableArray *sharedArray;
+
+
+@property(nonatomic,assign) int pageIndex;
 
 @end
 
 @implementation MyShareController
 
--(UITableView *)firstTableView{
-    if (!_firstTableView) {
-        _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
-        _firstTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _firstTableView.dataSource = self;
-        _firstTableView.delegate = self;
-        _firstTableView.rowHeight = 60;
-        _firstTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
-        _firstTableView.backgroundColor = backGroundColor;
-        _firstTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+-(UITableView *)shareTableView{
+    if (!_shareTableView) {
+        _shareTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
+        _shareTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _shareTableView.dataSource = self;
+        _shareTableView.delegate = self;
+        _shareTableView.rowHeight = 60;
+        _shareTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+        _shareTableView.backgroundColor = backGroundColor;
+        _shareTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        _shareTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
+        _shareTableView.mj_header.automaticallyChangeAlpha = YES;
+        _shareTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreInfo)];
+        [self.view addSubview:_shareTableView];
+
     }
-    return _firstTableView;
+    return _shareTableView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.firstTableView];
 
-    [self requestSharedListContent];
+    [self.shareTableView.mj_header beginRefreshing];
+}
+
+-(void)loadNewInfo
+{
+    [self.sharedArray removeAllObjects];
+    self.pageIndex = 0;
+    [self requestSharedListContentWithType:0];
+}
+
+- (void)loadMoreInfo
+{
+    [self requestSharedListContentWithType:1];
 }
 
 
-- (void)requestSharedListContent
+
+- (void)requestSharedListContentWithType:(NSInteger)type
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
-    params[@"pageIndex"] = @(0);
+    params[@"pageIndex"] = @(self.pageIndex);
+    ZXLog(@"%@",params);
     [manager POST:Deal_SharedList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.sharedArray = [ZXShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
-        [self.firstTableView reloadData];
+        NSMutableArray *items = [ZXShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        if (type == 0) {
+            self.sharedArray = items;
+        }else{
+             ZXLog(@"items.count %zd",items.count);
+            if (items.count == 0) {
+                [MBProgressHUD showSuccess:@"已经是最后一页了"];
+            }else{
+                [self.sharedArray addObjectsFromArray:items];
+            }
+        }
+        self.pageIndex ++;
+        
+        [self.shareTableView reloadData];
+        [self.shareTableView.mj_header endRefreshing];
+        [self.shareTableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -80,8 +115,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.sharedArray removeObjectAtIndex:indexPath.row];
-        [self.firstTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [self.firstTableView reloadData];
+        [self.shareTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.shareTableView reloadData];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
