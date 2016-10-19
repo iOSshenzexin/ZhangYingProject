@@ -184,8 +184,6 @@
 		01DAC48E1D88E11700DB0477 /* WithdrawCashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DAC3DD1D88E11700DB0477 /* WithdrawCashController.xib */; };
 		01DAC48F1D88E11700DB0477 /* ZYDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3DF1D88E11700DB0477 /* ZYDelegateController.m */; };
 		01DAC4901D88E11700DB0477 /* ZYDelegateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DAC3E01D88E11700DB0477 /* ZYDelegateController.xib */; };
-		01DAC4911D88E11700DB0477 /* AddressCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3E41D88E11700DB0477 /* AddressCustomCell.m */; };
-		01DAC4921D88E11700DB0477 /* AddressCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DAC3E51D88E11700DB0477 /* AddressCustomCell.xib */; };
 		01DAC4931D88E11700DB0477 /* BankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3E71D88E11700DB0477 /* BankCardCell.m */; };
 		01DAC4941D88E11700DB0477 /* BankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DAC3E81D88E11700DB0477 /* BankCardCell.xib */; };
 		01DAC4951D88E11700DB0477 /* CardCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC3EA1D88E11700DB0477 /* CardCustomCell.m */; };
@@ -252,6 +250,12 @@
 		01DAC5301D88E5C400DB0477 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC52A1D88E5C400DB0477 /* UIView+Extension.m */; };
 		01DAC5331D894A8A00DB0477 /* UITextField+ZXTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC5321D894A8A00DB0477 /* UITextField+ZXTF.m */; };
 		01DAC5371D894F0C00DB0477 /* ZXConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DAC5361D894F0C00DB0477 /* ZXConst.m */; };
+		01DCCD961DB73B930095B83B /* ZXInviteFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DCCD941DB73B920095B83B /* ZXInviteFriendsController.m */; };
+		01DCCD971DB73B930095B83B /* ZXInviteFriendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DCCD951DB73B920095B83B /* ZXInviteFriendsController.xib */; };
+		01DCCD9C1DB74BAE0095B83B /* AddressCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DCCD9A1DB74BAE0095B83B /* AddressCustomCell.m */; };
+		01DCCD9D1DB74BAE0095B83B /* AddressCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DCCD9B1DB74BAE0095B83B /* AddressCustomCell.xib */; };
+		01DCCDA11DB74BD00095B83B /* AddressCustomAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DCCD9F1DB74BD00095B83B /* AddressCustomAddCell.m */; };
+		01DCCDA21DB74BD00095B83B /* AddressCustomAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DCCDA01DB74BD00095B83B /* AddressCustomAddCell.xib */; };
 		01DE226C1DADD1F500D2E5BA /* RNGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DE226B1DADD1F500D2E5BA /* RNGridMenu.m */; };
 		01DE22701DADE18900D2E5BA /* ZXOnlineSeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DE226E1DADE18900D2E5BA /* ZXOnlineSeviceViewController.m */; };
 		01DE22711DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DE226F1DADE18900D2E5BA /* ZXOnlineSeviceViewController.xib */; };
@@ -559,9 +563,6 @@
 		01DAC3DE1D88E11700DB0477 /* ZYDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDelegateController.h; sourceTree = "<group>"; };
 		01DAC3DF1D88E11700DB0477 /* ZYDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDelegateController.m; sourceTree = "<group>"; };
 		01DAC3E01D88E11700DB0477 /* ZYDelegateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYDelegateController.xib; sourceTree = "<group>"; };
-		01DAC3E31D88E11700DB0477 /* AddressCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCustomCell.h; sourceTree = "<group>"; };
-		01DAC3E41D88E11700DB0477 /* AddressCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCustomCell.m; sourceTree = "<group>"; };
-		01DAC3E51D88E11700DB0477 /* AddressCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCustomCell.xib; sourceTree = "<group>"; };
 		01DAC3E61D88E11700DB0477 /* BankCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardCell.h; sourceTree = "<group>"; };
 		01DAC3E71D88E11700DB0477 /* BankCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardCell.m; sourceTree = "<group>"; };
 		01DAC3E81D88E11700DB0477 /* BankCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardCell.xib; sourceTree = "<group>"; };
@@ -672,6 +673,15 @@
 		01DAC5321D894A8A00DB0477 /* UITextField+ZXTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ZXTF.m"; sourceTree = "<group>"; };
 		01DAC5351D894F0C00DB0477 /* ZXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXConst.h; sourceTree = "<group>"; };
 		01DAC5361D894F0C00DB0477 /* ZXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXConst.m; sourceTree = "<group>"; };
+		01DCCD931DB73B920095B83B /* ZXInviteFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXInviteFriendsController.h; sourceTree = "<group>"; };
+		01DCCD941DB73B920095B83B /* ZXInviteFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXInviteFriendsController.m; sourceTree = "<group>"; };
+		01DCCD951DB73B920095B83B /* ZXInviteFriendsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXInviteFriendsController.xib; sourceTree = "<group>"; };
+		01DCCD991DB74BAE0095B83B /* AddressCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCustomCell.h; sourceTree = "<group>"; };
+		01DCCD9A1DB74BAE0095B83B /* AddressCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCustomCell.m; sourceTree = "<group>"; };
+		01DCCD9B1DB74BAE0095B83B /* AddressCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCustomCell.xib; sourceTree = "<group>"; };
+		01DCCD9E1DB74BD00095B83B /* AddressCustomAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCustomAddCell.h; sourceTree = "<group>"; };
+		01DCCD9F1DB74BD00095B83B /* AddressCustomAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCustomAddCell.m; sourceTree = "<group>"; };
+		01DCCDA01DB74BD00095B83B /* AddressCustomAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCustomAddCell.xib; sourceTree = "<group>"; };
 		01DE226A1DADD1F500D2E5BA /* RNGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNGridMenu.h; sourceTree = "<group>"; };
 		01DE226B1DADD1F500D2E5BA /* RNGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGridMenu.m; sourceTree = "<group>"; };
 		01DE226D1DADE18900D2E5BA /* ZXOnlineSeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXOnlineSeviceViewController.h; sourceTree = "<group>"; };
@@ -1218,6 +1228,9 @@
 				01DAC3C01D88E11700DB0477 /* MineController.h */,
 				01DAC3C11D88E11700DB0477 /* MineController.m */,
 				01DAC3C21D88E11700DB0477 /* MineController.xib */,
+				01DCCD931DB73B920095B83B /* ZXInviteFriendsController.h */,
+				01DCCD941DB73B920095B83B /* ZXInviteFriendsController.m */,
+				01DCCD951DB73B920095B83B /* ZXInviteFriendsController.xib */,
 				01DAC3A81D88E11600DB0477 /* AboutUsController.h */,
 				01DAC3A91D88E11600DB0477 /* AboutUsController.m */,
 				01DAC3AA1D88E11700DB0477 /* AboutUsController.storyboard */,
@@ -1299,10 +1312,8 @@
 		01DAC3E21D88E11700DB0477 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01DCCD981DB74BAE0095B83B /* AddressCustomCell */,
 				012BDC1A1DB4D0090040CB08 /* AmountList */,
-				01DAC3E31D88E11700DB0477 /* AddressCustomCell.h */,
-				01DAC3E41D88E11700DB0477 /* AddressCustomCell.m */,
-				01DAC3E51D88E11700DB0477 /* AddressCustomCell.xib */,
 				01DAC3E61D88E11700DB0477 /* BankCardCell.h */,
 				01DAC3E71D88E11700DB0477 /* BankCardCell.m */,
 				01DAC3E81D88E11700DB0477 /* BankCardCell.xib */,
@@ -1561,6 +1572,19 @@
 			path = Const;
 			sourceTree = "<group>";
 		};
+		01DCCD981DB74BAE0095B83B /* AddressCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				01DCCD991DB74BAE0095B83B /* AddressCustomCell.h */,
+				01DCCD9A1DB74BAE0095B83B /* AddressCustomCell.m */,
+				01DCCD9B1DB74BAE0095B83B /* AddressCustomCell.xib */,
+				01DCCD9E1DB74BD00095B83B /* AddressCustomAddCell.h */,
+				01DCCD9F1DB74BD00095B83B /* AddressCustomAddCell.m */,
+				01DCCDA01DB74BD00095B83B /* AddressCustomAddCell.xib */,
+			);
+			path = AddressCustomCell;
+			sourceTree = "<group>";
+		};
 		01DE22691DADD1F500D2E5BA /* PopMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1722,6 +1746,7 @@
 				01DAC46C1D88E11700DB0477 /* AboutUsController.storyboard in Resources */,
 				01DAC45A1D88E11700DB0477 /* FourthView.xib in Resources */,
 				01DAC43E1D88E11700DB0477 /* ShareDetailController.xib in Resources */,
+				01DCCDA21DB74BD00095B83B /* AddressCustomAddCell.xib in Resources */,
 				01DAC4721D88E11700DB0477 /* ChangePhoneController.xib in Resources */,
 				01DAC4581D88E11700DB0477 /* FirstView.xib in Resources */,
 				014099CE1D9CAC1300FC472E /* UMSocialSDKResources.bundle in Resources */,
@@ -1742,6 +1767,7 @@
 				01DAC4521D88E11700DB0477 /* DealTopCustomCell.xib in Resources */,
 				01DAC44E1D88E11700DB0477 /* CustomShareCell.xib in Resources */,
 				01C380F31D8E3F1B002A888F /* ZXReservationSuccessController.xib in Resources */,
+				01DCCD9D1DB74BAE0095B83B /* AddressCustomCell.xib in Resources */,
 				01DAC4B51D88E11700DB0477 /* ProductDetailStyleThreeCustomCell.xib in Resources */,
 				01DAC4AB1D88E11700DB0477 /* ProductShareController.xib in Resources */,
 				01DAC4A31D88E11700DB0477 /* WithdrawCashStyleTwoCell.xib in Resources */,
@@ -1770,6 +1796,7 @@
 				01DAC4BB1D88E11700DB0477 /* ProductShareCustomSyleTwoCell.xib in Resources */,
 				01DAC4991D88E11700DB0477 /* CustomPersonCell.xib in Resources */,
 				01DAC47C1D88E11700DB0477 /* MineController.xib in Resources */,
+				01DCCD971DB73B930095B83B /* ZXInviteFriendsController.xib in Resources */,
 				016DA97A1D9D00E8006E8EAD /* MyCollectionController.xib in Resources */,
 				01DAC4B91D88E11700DB0477 /* ProductShareCustomSyleOneCell.xib in Resources */,
 				01C8ABC91D8F853900B7E575 /* ZXOrderUnderwayController.xib in Resources */,
@@ -1791,7 +1818,6 @@
 				014099CD1D9CAC1300FC472E /* UMSocialLocalizable.strings in Resources */,
 				01DAC4761D88E11700DB0477 /* DealSettingController.xib in Resources */,
 				01C380FE1D8E6535002A888F /* ZXReservationFailureController.xib in Resources */,
-				01DAC4921D88E11700DB0477 /* AddressCustomCell.xib in Resources */,
 				01DAC4AF1D88E11700DB0477 /* FilterBottomView.xib in Resources */,
 				01DAC4661D88E11700DB0477 /* MessageController.xib in Resources */,
 				014099B41D9CA7AD00FC472E /* README.txt in Resources */,
@@ -1908,6 +1934,7 @@
 				01DAC5301D88E5C400DB0477 /* UIView+Extension.m in Sources */,
 				01DAC4AE1D88E11700DB0477 /* FilterBottomView.m in Sources */,
 				01DAC4651D88E11700DB0477 /* MessageController.m in Sources */,
+				01DCCD9C1DB74BAE0095B83B /* AddressCustomCell.m in Sources */,
 				01DAC4871D88E11700DB0477 /* RegularIntroduceController.m in Sources */,
 				01DAC4511D88E11700DB0477 /* DealTopCustomCell.m in Sources */,
 				01DAC52B1D88E5C400DB0477 /* KNBannerView.m in Sources */,
@@ -1916,7 +1943,6 @@
 				01DAC5031D88E12700DB0477 /* ZXVerificationObject.m in Sources */,
 				01DAC4531D88E11700DB0477 /* HomeController.m in Sources */,
 				01C8ABC41D8F707C00B7E575 /* ZXTopic.m in Sources */,
-				01DAC4911D88E11700DB0477 /* AddressCustomCell.m in Sources */,
 				01BAE76E1D936AB4009CACCD /* ZXWithdrawCell.m in Sources */,
 				01DAC5021D88E12700DB0477 /* TopBannerTool.m in Sources */,
 				01DAC4391D88E11700DB0477 /* ProductAnnouncementController.m in Sources */,
@@ -1939,6 +1965,7 @@
 				014099D41D9CAC1300FC472E /* UMSocialUIManager.m in Sources */,
 				012BDC181DB4CFAA0040CB08 /* ZXCommissionListController.m in Sources */,
 				01C8ABC81D8F853900B7E575 /* ZXOrderUnderwayController.m in Sources */,
+				01DCCD961DB73B930095B83B /* ZXInviteFriendsController.m in Sources */,
 				01D262B61D94BDB2009E6E61 /* ZXSortModel.m in Sources */,
 				016F80321DA8976700636D2D /* ZXHomeProductController.m in Sources */,
 				015360E11D91100600713825 /* ForgetPWDController.m in Sources */,
@@ -1967,6 +1994,7 @@
 				01DAC4331D88E11700DB0477 /* MyOrderController.m in Sources */,
 				01DAC4AA1D88E11700DB0477 /* ProductShareController.m in Sources */,
 				01DAC52E1D88E5C400DB0477 /* NSData+KNCache.m in Sources */,
+				01DCCDA11DB74BD00095B83B /* AddressCustomAddCell.m in Sources */,
 				015360D41D90C37A00713825 /* NSString+ZXMD5Hashing.m in Sources */,
 				019198DE1D3CC32D000F2483 /* ZhangYingProject.xcdatamodeld in Sources */,
 				01C380F21D8E3F1B002A888F /* ZXReservationSuccessController.m in Sources */,

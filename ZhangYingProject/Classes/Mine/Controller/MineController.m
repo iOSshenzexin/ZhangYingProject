@@ -16,12 +16,14 @@
 #import "DealSettingController.h"
 #import "SecuritySetController.h"
 #import "AboutUsController.h"
-
+#import "ZXInviteFriendsController.h"
 #import "LoginController.h"
 @interface MineController ()<UITableViewDelegate,UITableViewDataSource,PersonInfoControllerDelegate>
 
 @property (nonatomic,copy) NSArray *dataSource;
 @property (nonatomic,copy) NSArray *imageArray;
+
+@property (nonatomic,copy) NSArray *detailArray;
 
 - (IBAction)didClickSetPersonInfo:(id)sender;
 
@@ -45,9 +47,17 @@
     return _dataSource;
 }
 
+-(NSArray *)detailArray
+{
+    if (!_detailArray) {
+        _detailArray = [NSArray arrayWithObjects:@"设置结佣账户和收货地址设置",@"修改密码和绑定手机号",@"青岛技术科技公司",@"400-666-8888",@"", nil];
+    }
+    return _detailArray;
+}
+
 -(NSArray *)imageArray{
     if (!_imageArray) {
-        _imageArray = [NSArray arrayWithObjects:@"my-icon01",@"my-icon02",@"my-icon03",@"my-icon04",@"my-icon04",nil];
+        _imageArray = [NSArray arrayWithObjects:@"my-icon01",@"my-icon02",@"my-icon03",@"my-icon04",@"invent",nil];
     }
     return _imageArray;
 }
@@ -103,12 +113,11 @@
     }
     cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.textLabel.text = self.dataSource[indexPath.row];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16.f];
+    cell.textLabel.font = [UIFont fontWithName:@".SFUIText-Light" size:15.f];
 
-    cell.detailTextLabel.text = @"设置结佣账户和收货地址";
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Thin" size:12.f];
+    cell.detailTextLabel.text = self.detailArray[indexPath.row];
+    cell.detailTextLabel.font = [UIFont fontWithName:@".SFUIText-Light" size:12.f];
     if (indexPath.row == 3) {
-        cell.detailTextLabel.text = @"400-666-8888";
         cell.detailTextLabel.textColor = [UIColor redColor];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(makeServiceCall:)];
         cell.detailTextLabel.userInteractionEnabled = YES;
@@ -148,6 +157,14 @@
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
+        case 4:{
+            ZXInviteFriendsController *vc = [[ZXInviteFriendsController alloc] init];
+            vc.title = @"邀请好友";
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+
         default:
             break;
     }
@@ -161,7 +178,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)didClickEnterMyWallet:(id)sender {
+- (IBAction)didClickEnterMyWallet:(UIButton *)sender {
     MyWalletController *vc = [[MyWalletController alloc] init];
     vc.title = @"钱包";
     vc.hidesBottomBarWhenPushed = NO;

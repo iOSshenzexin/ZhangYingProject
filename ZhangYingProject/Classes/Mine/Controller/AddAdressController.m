@@ -13,9 +13,10 @@
 #import "DeliveryAddressController.h"
 
 #import "ZXAddressModel.h"
+#import "AddressCustomAddCell.h"
 @interface AddAdressController ()<UITableViewDelegate,UITableViewDataSource,DeliveryAddressControllerDelegate>
 
-@property (nonatomic,copy) NSMutableArray *titleArray;
+@property (nonatomic,strong) NSMutableArray *titleArray;
 
 @end
 
@@ -32,24 +33,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSMutableArray *firstArray = [NSMutableArray arrayWithObject:@" 新增收货地址"];
-    [self.titleArray addObject:firstArray];
-    [self setupTableView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self loadAdressData];
 }
 
-- (void)setupTableView
-{
-    self.addressTableVeiw.sectionFooterHeight = 15;
-    self.addressTableVeiw.sectionHeaderHeight = 0;
-    self.addressTableVeiw.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) return 60;
     return 85;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
 
 - (void)loadAdressData
 {
@@ -61,7 +68,7 @@
     [manager POST:Mine_AddressList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZXResponseObject
         if ([responseObject[@"status"] intValue] == 1) {
-            [self.titleArray addObject:[ZXAddressModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]]];
+            self.titleArray = [ZXAddressModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
             [self.addressTableVeiw reloadData];
             }
         else{
@@ -73,27 +80,23 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.titleArray.count;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.titleArray[section] count];
+    if (section == 0)  return 1;
+    return self.titleArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    AddressCustomCell *cell = [AddressCustomCell cellWithTableView:tableView];
     if (indexPath.section == 0) {
-        cell.img.image = [UIImage imageNamed:@"my-trade03"];
-        cell.titleLabel.text = self.titleArray[indexPath.section][indexPath.row];
-        cell.nameLbl.hidden = YES;
-        cell.phoneLbl.hidden = YES;
-        cell.btn.hidden = YES;
-        cell.titleLabel.textColor = [UIColor redColor];
-    }else if(indexPath.section == 1){
-        cell.address = self.titleArray[indexPath.section][indexPath.row];
-        cell.img.image = [UIImage imageNamed:@"my-trade05"];
+      AddressCustomAddCell *cell = [AddressCustomAddCell cellWithTableView:tableView];
+        return cell;
+    }else{
+        AddressCustomCell *cell = [AddressCustomCell cellWithTableView:tableView];
+        cell.address = self.titleArray[indexPath.row];
+         return cell;
     }
-    return cell;
 }
 
 
@@ -109,7 +112,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self deleteInternetAddressInfo:indexPath];
-        [self.titleArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+        [self.titleArray removeObjectAtIndex:indexPath.row];
         [self.addressTableVeiw deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.addressTableVeiw reloadData];
     }
@@ -122,7 +125,7 @@
  */
 - (void)deleteInternetAddressInfo:(NSIndexPath *)indexPath
 {
-    ZXAddressModel *addressMoel = self.titleArray[indexPath.section][indexPath.row];
+    ZXAddressModel *addressMoel = self.titleArray[indexPath.row];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"id"] = addressMoel.listId;
@@ -142,7 +145,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         DeliveryAddressController *vc = [[DeliveryAddressController alloc] init];
-         ZXAddressModel *addressMoel = self.titleArray[indexPath.section][indexPath.row];
+         ZXAddressModel *addressMoel = self.titleArray[indexPath.row];
         vc.addressID = addressMoel.listId;
         vc.addressModel = addressMoel;
         vc.title = @"修改收货地址";

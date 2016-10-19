@@ -15,6 +15,14 @@
 
 @implementation AboutUsController
 
+- (IBAction)didClickPaste:(UIButton *)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = sender.titleLabel.text;
+    [MBProgressHUD showSuccess:@"已复制到剪贴板"];
+}
+
+
+
 - (IBAction)didClickShowZYDelegate:(id)sender {
     self.hidesBottomBarWhenPushed = YES;
     ZYDelegateController *vc = [[ZYDelegateController alloc] init];
@@ -35,6 +43,9 @@
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     [self.view addSubview:callWebview];
 }
+
+
+
 
 #pragma mark - Table view data source
 

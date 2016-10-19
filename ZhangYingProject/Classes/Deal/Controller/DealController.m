@@ -115,6 +115,8 @@ static NSString *cellId = @"cell";
     }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = self.titleArray[indexPath.row];
+        cell.textLabel.font = [UIFont fontWithName:@".SFUIText-Light" size:15.f];
+
         cell.imageView.image =[UIImage imageNamed:self.imgArray[indexPath.row]];
         return cell;
     }
