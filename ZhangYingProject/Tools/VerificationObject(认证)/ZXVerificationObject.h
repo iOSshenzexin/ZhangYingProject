@@ -26,5 +26,6 @@
 /** 身份证有效性验证 */
 + (BOOL) validateIdentityCard: (NSString *)identityCard;
 
-
+/** 银行卡有效性验证 */
++ (BOOL) checkCardNo:(NSString*) cardNo;
 @end

@@ -2181,7 +2181,7 @@
 					"$(PROJECT_DIR)/ZhangYingProject/Library/UMSocialSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject使用副本/ZhangYingProject/PCH/ZhangYingProject.pch";
+				GCC_PREFIX_HEADER = ZhangYingProject/PCH/ZhangYingProject.pch;
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2235,7 +2235,7 @@
 					"$(PROJECT_DIR)/ZhangYingProject/Library/UMSocialSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/yangxiaojing/Desktop/掌盈/ZhangYingProject使用副本/ZhangYingProject/PCH/ZhangYingProject.pch";
+				GCC_PREFIX_HEADER = ZhangYingProject/PCH/ZhangYingProject.pch;
 				INFOPLIST_FILE = ZhangYingProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

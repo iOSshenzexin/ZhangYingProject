@@ -34,6 +34,7 @@
 @property (nonatomic,strong) NSMutableArray *productArray;
 
 @property (nonatomic,strong) UIView *showView;
+
 @property (nonatomic,strong) UIView *showSortView;
 
 @property (nonatomic,strong) UIScrollView *sortView;
@@ -157,6 +158,7 @@
     ZXTopic *topic = self.titleArray[self.number -1];
     NSString * productType = topic.product_id ;
     UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
+    [tableView.mj_header beginRefreshing];
     [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct"  tableView:tableView productType:productType andSort:[NSString stringWithFormat:@"%d",self.sortNumber] productDeadline:typeDictionary[@"productDeadline"] productField:typeDictionary[@"productField"]  issuer:typeDictionary[@"issuer"]  initialAmount:typeDictionary[@"initialAmount"]  payInterest:typeDictionary[@"payInterest"]  salesStatus:typeDictionary[@"salesStatus"]];
 }
 
@@ -176,7 +178,6 @@
     
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
-        [tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -187,11 +188,17 @@
 - (void)sort:(NSNotification *)noti
 {
     int sortNumber = [noti.userInfo[@"KEY"] intValue]-1;
-    self.sortNumber = sortNumber;
-    ZXTopic *topic = self.titleArray[self.number -1];
-    int productType = [topic.product_id intValue];
-    UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:sortNumber type:0];
+    if (sortNumber > 0) {
+        self.sortNumber = sortNumber;
+        ZXTopic *topic = self.titleArray[self.number -1];
+        int productType = [topic.product_id intValue];
+        UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
+        [tableView.mj_header beginRefreshing];
+        
+        ZXLog(@"self.sortNumber %zd",self.sortNumber);
+        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:sortNumber type:0];
+        self.productArray = nil;
+    }
 }
 
 
@@ -240,7 +247,6 @@
     
     UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
      [tableView.mj_header beginRefreshing];
-
     
      scView.block = ^(int index,CGFloat off){
         self.number = index;
@@ -270,7 +276,6 @@
         }
         }
         self.pageIndex ++;
-        
         [tableView reloadData];
         [tableView.mj_header endRefreshing];
         [tableView.mj_footer endRefreshing];
@@ -349,6 +354,7 @@ static BOOL isCreated = YES;
     NSMutableArray *models = [NSMutableArray array];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
         for (NSString *key in [responseObject[@"data"] allKeys]) {
             [titles addObject:key];
             [models addObject: [ZXSortModel mj_objectArrayWithKeyValuesArray:[responseObject[@"data"]objectForKey:key]]];
@@ -498,6 +504,20 @@ static BOOL isSetUp = YES;
 -(void)dealloc{
     [ZXNotificationCeter removeObserver:self];
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (self.showView) {
+        isCreated = !isCreated;
+        [self.filterView removeFromSuperview];
+        [self.showView removeFromSuperview];
+    }
+    if (self.showSortView) {
+        [self.showSortView removeFromSuperview];
+    }
+}
+
 
 - (void)viewDidDisappear:(BOOL)animated
 {

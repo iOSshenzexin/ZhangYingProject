@@ -2,8 +2,8 @@
 #import <UIKit/UIKit.h>
 
 NSString *const showSearchBarKeyBoard = @"showSearchBarKeyBoard";
-// 126   梁 114 104
-NSString *const baseUrl = @"http://192.168.0.107:8080/palmWin";
+// 126   梁 114 104  http://192.168.0.122:8080/palmWin
+NSString *const baseUrl = @"http://zy.64wrj.com";
 
 NSString *const savePassword = @"savePassword";
 

@@ -10,4 +10,9 @@
 
 @interface UITextField (ZXTF)
 + (void)setupTextFieldImageView:(UITextField *)textField image:(UIImage *)image borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor viewMode:(UITextFieldViewMode)viewMode;
+
+
+-(NSString *)backbankenameWithBanknumber:(NSString *)banknumber;
+
+-(NSString *)normalNumToBankNum:(NSString *)tmpStr;
 @end

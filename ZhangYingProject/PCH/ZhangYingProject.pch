@@ -44,7 +44,7 @@
 
 #import "ZXLoginModel.h"
 #import "UIBarButtonItem+ZXItem.h"
-
+#import "UITextField+ZXTF.h"
 #import <UMSocialCore/UMSocialCore.h>
 
 

@@ -16,9 +16,6 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylY-Lz-Abl">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="VtY-F1-1I7"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                         <state key="normal" title="新增收货地址" image="my-trade03">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -26,9 +23,9 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ylY-Lz-Abl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="6ds-cR-ljd"/>
-                    <constraint firstItem="ylY-Lz-Abl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="p9H-P0-BbC"/>
-                    <constraint firstItem="ylY-Lz-Abl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vCg-ax-zeG"/>
+                    <constraint firstItem="ylY-Lz-Abl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UeH-cc-Cj6"/>
+                    <constraint firstItem="ylY-Lz-Abl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZGd-LX-0hs"/>
+                    <constraint firstItem="ylY-Lz-Abl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="u4W-Ya-opt"/>
                 </constraints>
             </tableViewCellContentView>
         </tableViewCell>
