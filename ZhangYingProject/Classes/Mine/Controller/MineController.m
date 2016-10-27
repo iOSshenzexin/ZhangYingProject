@@ -50,7 +50,7 @@
 -(NSArray *)detailArray
 {
     if (!_detailArray) {
-        _detailArray = [NSArray arrayWithObjects:@"设置结佣账户和收货地址设置",@"修改密码和绑定手机号",@"青岛技术科技公司",@"400-666-8888",@"", nil];
+        _detailArray = [NSArray arrayWithObjects:@"设置结佣账户和收货地址设置",@"修改密码和绑定手机号",@"青岛鼎鸿股权投资管理有限公司",@"400-666-8888",@"", nil];
     }
     return _detailArray;
 }

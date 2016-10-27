@@ -53,7 +53,8 @@
     tabBar.backgroundImage = image;
     
     //更改导航栏的颜色跟字体颜色
-    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    UIColor * navigationBarColor = RGB(216,38,35,1);
+    [[UINavigationBar appearance] setBarTintColor: navigationBarColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:18.f]}];
     //更改状态栏的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

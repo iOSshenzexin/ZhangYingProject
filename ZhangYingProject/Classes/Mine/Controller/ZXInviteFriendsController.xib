@@ -73,7 +73,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOy-ZD-h7i">
-                                    <color key="backgroundColor" red="0.97491776320000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.84705882349999995" green="0.14901960780000001" blue="0.13725490200000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                     <state key="normal" title="分享到朋友圈" image="wechat_circle"/>
                                     <userDefinedRuntimeAttributes>
@@ -83,7 +83,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrX-B5-uaA">
-                                    <color key="backgroundColor" red="0.97491776320000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.84705882349999995" green="0.14901960780000001" blue="0.13725490200000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="cBq-ZZ-7nR"/>
                                     </constraints>

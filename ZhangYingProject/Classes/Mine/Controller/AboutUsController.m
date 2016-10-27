@@ -66,7 +66,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         return 150;
     }
-    return 50;
+    return 40;
 }
 
 

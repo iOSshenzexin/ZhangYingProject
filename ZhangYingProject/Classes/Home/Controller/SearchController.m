@@ -87,7 +87,7 @@
     self.navigationItem.titleView = _searchBar;
 }
 
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 
 {
     [self requestSearchData:searchBar.text];
