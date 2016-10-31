@@ -44,6 +44,24 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>open.sobot.com</key>
+			<dict>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>img.sobot.com</key>
+			<dict>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>akamaihd.net</key>
 			<dict>
 				<key>NSExceptionRequiresForwardSecrecy</key>

@@ -42,11 +42,16 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3pP-ys-2Ce">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon57x57" translatesAutoresizingMaskIntoConstraints="NO" id="3pP-ys-2Ce">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="JU4-Q6-jry"/>
                                                 <constraint firstAttribute="height" constant="44" id="fmD-IR-pAo"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我加入了 [掌盈],聪明的理财师都在这里,在这里您将感受到最专业,最用心的服务." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6u-f5-1ih">
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
@@ -173,6 +178,7 @@
         </view>
     </objects>
     <resources>
+        <image name="appIcon57x57" width="57" height="57"/>
         <image name="line_invent" width="255" height="23"/>
         <image name="wechat" width="20" height="17"/>
         <image name="wechat_circle" width="17" height="17"/>

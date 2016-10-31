@@ -22,6 +22,7 @@ PODS:
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - SobotFramework (1.6.0)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - MJRefresh
   - Reachability
   - SDWebImage
+  - SobotFramework (~> 1.6.0)
   - SVProgressHUD (~> 2.0.3)
 
 SPEC CHECKSUMS:
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SobotFramework: bbdcbdf3d9eec443bf73af17d6162b408203406c
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
 COCOAPODS: 0.39.0

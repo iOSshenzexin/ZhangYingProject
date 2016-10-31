@@ -61,6 +61,10 @@
     self.window = window;
     [window makeKeyAndVisible];
     
+    ZXLoginModel *model = AppLoginModel;
+    if (model) {
+        self.isLogin = YES;
+    }
 
     
     //添加悬浮窗

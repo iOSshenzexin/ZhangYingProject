@@ -35,9 +35,6 @@
         _shareTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
         _shareTableView.backgroundColor = backGroundColor;
         _shareTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        _shareTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
-        _shareTableView.mj_header.automaticallyChangeAlpha = YES;
-        _shareTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreInfo)];
         [self.view addSubview:_shareTableView];
 
     }
@@ -46,9 +43,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.shareTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
+    self.shareTableView.mj_header.automaticallyChangeAlpha = YES;
+    self.shareTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreInfo)];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self.shareTableView.mj_header beginRefreshing];
 }
+
+
 
 -(void)loadNewInfo
 {
@@ -71,7 +77,6 @@
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
     params[@"pageIndex"] = @(self.pageIndex);
-    ZXLog(@"%@",params);
     [manager POST:Deal_SharedList_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSMutableArray *items = [ZXShareModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         if (type == 0) {
@@ -138,6 +143,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    self.shareTableView = nil;
     self.view = nil;
 }
 @end

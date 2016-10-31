@@ -8,6 +8,7 @@ pod "Reachability"
 pod "SDWebImage"
 pod "MJRefresh"
 pod 'SVProgressHUD', '~> 2.0.3'
+pod 'SobotFramework’, '~> 1.6.0'
 
 
 

@@ -11,7 +11,7 @@
 #import "RNGridMenu.h"
 
 #import "ZXOnlineSeviceViewController.h"
-
+#import "SobotKit/SobotKit.h"
 #define MAINCOLOER [UIColor redColor]
 
 #define kDownLoadWidth 52.5
@@ -158,10 +158,137 @@
         [self.superview addSubview:callWebview];
     }else
     {
-        ZXOnlineSeviceViewController *vc = [[ZXOnlineSeviceViewController alloc] init];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        [self createOnlineSevices];
+//        ZXOnlineSeviceViewController *vc = [[ZXOnlineSeviceViewController alloc] init];
+//        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
     }
     NSLog(@"Dismissed with item %zd: %@", itemIndex, item.title);
+}
+
+- (void)createOnlineSevices
+{
+    //企业编号，必填
+    NSString *sysNumber = @"dada12172d5e4d36bf479d4f8b666f8a";
+    //启动
+    ZCLibInitInfo *initInfo = [ZCLibInitInfo new];
+    initInfo.enterpriseId = sysNumber;
+    //用户id，用于标识用户，建议填写
+    ZXLoginModel *model = AppLoginModel;
+    if (model) {
+        initInfo.userId = model.mid;
+        initInfo.phone = [NSString stringWithFormat:@"%.0f",model.phone];
+        initInfo.nickName = model.name;
+        initInfo.serviceMode = 4;
+        initInfo.avatarUrl = [baseUrl stringByAppendingString:model.headPortrait];
+        initInfo.email = model.email;
+    }else{
+        initInfo.nickName = @"游客";
+    }
+    ZCKitInfo *uiInfo = [ZCKitInfo new];
+    uiInfo.info = initInfo;
+    [self customerUI:uiInfo];
+    [ZCSobot startZCChatView:uiInfo with:self.window.rootViewController
+                   pageBlock:^(ZCUIChatController *object, ZCPageBlockType type) {
+                       //点击返回
+                       
+                       if(type==ZCPageBlockGoBack){
+                           NSLog(@"点击了关闭按钮");
+                       }
+                       //页面UI初始化完成，可以获取UIView，自定义UI
+                       if(type==ZCPageBlockLoadFinish){
+                           //banner 返回按钮
+                           //[object.backButton setTitle:@" 返回" forState:UIControlStateNormal];
+                           
+                           //banner 标题
+                           
+                           //[object.titleLabel setFont:[UIFont systemFontOfSize:30]];
+                           
+                           //banner 底部View
+                           
+                           //[object.topView setBackgroundColor:[UIColor greenColor]];
+                           //输入框
+                           
+                           //UITextView *tv=[object getChatTextView];
+                           
+                           //[tv setBackgroundColor:[UIColor redColor]];
+                           
+                       }
+                       //messageLinkClick ,不重写，系统自己跳转，sdk内部不做任何处理
+                       
+                   } messageLinkClick:nil];
+}
+
+-(void) customerUI:(ZCKitInfo *) kitInfo{
+    //顶部导航条标题文字 评价标题文字 系统相册标题文字 评价客服（立即结束 取消）按钮文字
+    
+    kitInfo.titleFont = [UIFont systemFontOfSize:15];
+    
+    //返回按钮 输入框文字 评价客服是否有以下情况 label 文字 提价评价按钮
+    
+    kitInfo.listTitleFont = [UIFont systemFontOfSize:12];
+    
+    //没有网络提醒的button 没有更多记录label的文字 语音输入的按钮文字 评价不满意（4个button）文字
+    
+    //占位图片的lablel文字 语音输入时间label文字 语音tipLabel的文字 voiceButton标题文字
+    
+    kitInfo.listDetailFont = [UIFont systemFontOfSize:15];
+    
+    //消息提醒 （转人工、客服接待等）
+    
+    kitInfo.listTimeFont = [UIFont systemFontOfSize:12];
+    
+    //聊天气泡中的文字
+    
+    kitInfo.chatFont = [UIFont systemFontOfSize:12];
+    
+    //聊天的背景颜色
+    
+    kitInfo.backgroundColor = RGB(239, 239, 239, 1);
+    
+    //导航、客服气泡、线条的颜色
+    
+    kitInfo.customBannerColor = RGB(216,38,35,1);
+    
+    //左边气泡的颜色
+    
+    kitInfo.leftChatColor = [UIColor whiteColor];
+    
+    //右边气泡的颜色
+    
+    kitInfo.rightChatColor = [UIColor whiteColor];
+    
+    //底部bottom的背景颜色
+    
+    kitInfo.backgroundBottomColor = [UIColor whiteColor];
+    
+    //底部bottom的输入框线条背景颜色
+    
+    kitInfo.backgroundBottomColor = [UIColor whiteColor];
+    
+    //提示气泡的背景颜色
+    
+    kitInfo.BgTipAirBubblesColor = [UIColor whiteColor];
+    
+    //顶部文字的颜色
+    
+    kitInfo.topViewTextColor = [UIColor whiteColor];
+    
+    //提示气泡文字颜色
+    
+    kitInfo.tipLayerTextColor = [UIColor blackColor];
+    
+    //左边气泡文字的颜色
+    
+    kitInfo.leftChatTextColor = [UIColor blackColor];
+    
+    //右边气泡文字的颜色[注意：语音动画图片，需要单独替换]
+    
+    kitInfo.rightChatTextColor = [UIColor blackColor];
+    
+    //时间文字的颜色
+    kitInfo.timeTextColor = [UIColor blackColor];
+    //客服昵称颜色
+    kitInfo.serviceNameTextColor = [UIColor blackColor];
 }
 
 

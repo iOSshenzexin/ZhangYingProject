@@ -83,11 +83,11 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yig-uB-rwY">
-                    <color key="backgroundColor" red="0.84705882352941175" green="0.14901960784313725" blue="0.13725490196078433" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.96914859693877553" green="0.1764705882352941" blue="0.1764705882352941" alpha="0.78000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="L5S-jL-kdk"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
