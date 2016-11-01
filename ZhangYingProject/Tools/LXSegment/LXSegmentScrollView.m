@@ -30,7 +30,7 @@
         self.contentArray = contentViewArray;
         
         _segmentToolView=[[LiuXSegmentView alloc] initWithFrame:CGRectMake(0, 0, MainScreen_W, 44) titles:titleArray clickBlick:^void(NSInteger index) {
-            self.block((int)index,MainScreen_W * (index - 1));
+            self.block((int)index);
             [_bgScrollView setContentOffset:CGPointMake(MainScreen_W * (index - 1), 0)];
         }];
         [self addSubview:_segmentToolView];
@@ -77,7 +77,7 @@
         if (offsetX > maxOffsetX) {
             offsetX = maxOffsetX;
         }
-        self.block((int)_segmentToolView.defaultIndex,offsetX);
+        self.block((int)_segmentToolView.defaultIndex);
 
         [_segmentToolView.bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     }

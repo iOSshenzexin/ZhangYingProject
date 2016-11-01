@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *address;
 
 
-@property (nonatomic,copy) ZXReservationModel *reservationModel;
+@property (nonatomic,strong) ZXReservationModel *reservationModel;
 
 - (IBAction)didClickUplaodProofIno:(id)sender;
 

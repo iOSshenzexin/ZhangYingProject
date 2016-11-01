@@ -83,6 +83,7 @@
     params[@"memberId"] = model.mid;
     params[@"status"] = @(status);
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZXResponseObject
         self.dataArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         [tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -106,7 +107,7 @@
     [viewThird addSubview:self.thirdTableView];
 
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
-    scView.block = ^(int index,CGFloat off){
+    scView.block = ^(int index){
         switch (index) {
             case 1:
                 [self requestReservationLogWithUrl:Deal_MyDealList_Url ModelClassString:@"ZXReservationModel" TableView:self.firstTableView Status:index];
@@ -155,6 +156,7 @@
     ZXReservationSuccessController *vc = [[ZXReservationSuccessController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.reservationModel = self.dataArray[indexPath.row];
+    ZXLog(@"vc.reservationModel.cardnImage %@",vc.reservationModel.cardnImage);
     vc.title = @"预约成功详情";
     [self.navigationController pushViewController:vc animated:YES];
     }

@@ -21,6 +21,12 @@
  "userName": "梁云",		//客户名称
  "memberId": 1,
  "cardNumber": "123124234124"	//证件编号
+ 
+ cardnImage = "/images/banner.jpg";
+ cardpImage = "/images/banner.jpg";
+ certificateImage = "/
+ 
+ 
  */
 
 @property (nonatomic,copy) NSString *payAmount;
@@ -40,5 +46,8 @@
 @property (nonatomic,copy) NSString *reserver_id;
 
 
+@property (nonatomic,copy) NSString *cardnImage;
+@property (nonatomic,copy) NSString *cardpImage;
+@property (nonatomic,copy) NSString *certificateImage;
 
 @end

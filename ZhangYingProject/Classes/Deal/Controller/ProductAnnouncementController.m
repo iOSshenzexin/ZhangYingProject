@@ -83,7 +83,7 @@
     
     
     LXSegmentScrollView *scView=[[LXSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) titleArray:self.titleArray contentViewArray:contentArray];
-    scView.block = ^(int index,CGFloat off){
+    scView.block = ^(int index){
         UITableView *tableView = [(UIView *)contentArray[index-1] subviews][0];
         [self requestProductAnnouncementInfoWithUrl:Deal_ProductAnnounce_Url ModelClassString:@"ZXAnnounceModel" TableView:tableView Status:index];
     };

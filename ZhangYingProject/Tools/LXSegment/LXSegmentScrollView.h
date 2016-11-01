@@ -11,7 +11,7 @@
 
 //typedef void(^DataBlock)(int selectedId);
 
-typedef void(^DataBlock)(int selectedId,CGFloat contentOffSet);
+typedef void(^DataBlock)(int selectedId);
 
 typedef void (^testTFBlockParameter)(NSString *parameter1 , NSString *parameter2);
 

@@ -30,8 +30,10 @@
     CGFloat _lastBlockViewY;
 }
 
-@property (nonatomic,strong) NSMutableArray *titleArray;
+@property (nonatomic,strong) NSMutableArray <__kindof ZXTopic *>*titleArray;
 @property (nonatomic,strong) NSMutableArray *productArray;
+
+
 
 @property (nonatomic,strong) UIView *showView;
 
@@ -57,40 +59,7 @@
 
 @implementation ProductController
 
-
-- (UITableView *)createCustomTableView
-{
-    UITableView *customTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
-    customTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    customTableView.dataSource = self;
-    customTableView.delegate = self;
-    customTableView.rowHeight = 120;
-    customTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
-    customTableView.backgroundColor = [UIColor clearColor];
-    customTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
-    customTableView.mj_header.automaticallyChangeAlpha = YES;
-    
-    customTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreInfo)];
-    return customTableView;
-}
-
--(void)loadNewInfo
-{
-    [self.productArray removeAllObjects];
-    self.pageIndex = 0;
-    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:0 type:0];
-}
-
-- (void)loadMoreInfo
-{
-    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:0 type:1];
-}
-
-
-
-
+//**************懒加载部分********************
 -(NSMutableArray *)titleArray{
     if (!_titleArray) {
         _titleArray = [NSMutableArray array];
@@ -113,10 +82,49 @@
     return vc;
 }
 
+- (UITableView *)createCustomTableView
+{
+    UITableView *customTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH-148)];
+    customTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    customTableView.dataSource = self;
+    customTableView.delegate = self;
+    customTableView.rowHeight = 120;
+    customTableView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+    customTableView.backgroundColor = [UIColor clearColor];
+    customTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewInfo)];
+    customTableView.mj_header.automaticallyChangeAlpha = YES;
+
+    customTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreInfo)];
+    return customTableView;
+}
+
+
+
+-(void)loadNewInfo
+{
+    [self.productArray removeAllObjects];
+    self.pageIndex = 0;
+    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:self.sortNumber type:0];
+}
+
+- (void)loadMoreInfo
+{
+    UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
+    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:self.number andSort:self.sortNumber type:1];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupNavigationBarSubviews];
+
     self.sortNumber = 0;
+    
     self.number = 1;
+    
+    [self loadTopicTitle];
+
     [ZXNotificationCeter addObserver:self selector:@selector(sort:) name:ZXSortButtonClickNotificationCeter object:nil];
     
     [ZXNotificationCeter addObserver:self selector:@selector(filter:) name:ZXFilterButtonClickNotificationCeter object:nil];
@@ -156,34 +164,39 @@
         }
     }
     ZXTopic *topic = self.titleArray[self.number -1];
-    NSString * productType = topic.product_id ;
+    [typeDictionary setValue:topic.product_id  forKey:@"productType"];
     UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
-    [tableView.mj_header beginRefreshing];
-    [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct"  tableView:tableView productType:productType andSort:[NSString stringWithFormat:@"%d",self.sortNumber] productDeadline:typeDictionary[@"productDeadline"] productField:typeDictionary[@"productField"]  issuer:typeDictionary[@"issuer"]  initialAmount:typeDictionary[@"initialAmount"]  payInterest:typeDictionary[@"payInterest"]  salesStatus:typeDictionary[@"salesStatus"]];
-}
 
+    [self requestProductList:Product_List_Url modelClassName:@"ZXProduct" tableView:tableView dictionary:typeDictionary];
+ 
+}
 #pragma mark - 请求筛选数据列表
-- (void)requestProductListWithUrl:(NSString *)url ModelClassString:(NSString *)modelString tableView:(UITableView *)tableView productType:(NSString *)productType andSort:(NSString *)sort productDeadline:(NSString *)productDeadline  productField:(NSString *)productField  issuer:(NSString *) issuer initialAmount:(NSString *)initialAmount payInterest:(NSString *)payInterest salesStatus:(NSString *)salesStatus
+- (void)requestProductList:(NSString *)url modelClassName:(NSString *)model tableView:(UITableView *)tableView dictionary:(NSMutableDictionary *)typeDic
 {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"productType"] = productType;
-    params[@"productDeadline"] = productDeadline;
-    params[@"productField"] = productField;
-    params[@"issuer"] = issuer;
-    params[@"initialAmount"] = initialAmount;
-    params[@"payInterest"] = payInterest;
-    params[@"salesStatus"] = salesStatus;
-    params[@"sort"] = sort;
-    
+    params[@"productType"] = typeDic[@"productType"];
+    params[@"productDeadline"] = typeDic[@"productDeadline"];
+    params[@"productField"] = typeDic[@"productField"];
+    params[@"issuer"] = typeDic[@"issuer"];
+    params[@"initialAmount"] = typeDic[@"initialAmount"];
+    params[@"payInterest"] = typeDic[@"payInterest"];
+    params[@"salesStatus"] = typeDic[@"salesStatus"];
+    params[@"sort"] = @(self.sortNumber);
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.productArray = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        NSMutableArray *items = [NSClassFromString(model) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
+        if (items.count == 0) {
+            self.productArray = items;
+            [MBProgressHUD showSuccess:@"已经是最后一页了"];
+        }else{
+            self.productArray = items;
+        }
+        [tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
+    
 }
-
-
 
 - (void)sort:(NSNotification *)noti
 {
@@ -194,21 +207,10 @@
         int productType = [topic.product_id intValue];
         UITableView *tableView = [(UIView *)self.contentArray[self.number -1] subviews][0];
         [tableView.mj_header beginRefreshing];
-        
-        ZXLog(@"self.sortNumber %zd",self.sortNumber);
-        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:sortNumber type:0];
-        self.productArray = nil;
+        [self requestProductListWithUrl:Product_List_Url ModelClassString:@"ZXProduct" TableView:tableView Status:productType andSort:self.sortNumber type:0];
     }
 }
 
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self loadTopicTitle];
-    [self setupNavigationBarSubviews];
-}
 
 
 #pragma mark - 加载头部视图的网络数据
@@ -217,10 +219,9 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:Product_Topic_Url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.titleArray = [ZXTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self setupTopSegmentAndContentOffset:self.number-1];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {ZXError}];
+        [self setupTopSegment];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){ZXError}];
 }
-
 
 - (void)getProductListInfomation:(NSNotification *)noti
 {
@@ -229,8 +230,8 @@
 }
 
 #pragma mark - 创建头部视图
-- (void)setupTopSegmentAndContentOffset:(int) indexSegment{
-    self.automaticallyAdjustsScrollViewInsets= NO; //iOS7新增属性
+- (void)setupTopSegment{
+    self.automaticallyAdjustsScrollViewInsets = NO; //iOS7新增属性
     self.contentArray = [NSMutableArray array];
     NSMutableArray *topics= [NSMutableArray array];
     for (NSInteger i = 0; i < self.titleArray.count; i++) {
@@ -246,14 +247,14 @@
     [self.view addSubview:self.segmentScollView];
     
     UITableView *tableView = [(UIView *)self.contentArray[self.number-1] subviews][0];
-     [tableView.mj_header beginRefreshing];
+    [tableView.mj_header beginRefreshing];
     
-     scView.block = ^(int index,CGFloat off){
+    scView.block = ^(int index){
         self.number = index;
         ZXTopic *topic = self.titleArray[index-1];
         self.number = [topic.product_id intValue];
         UITableView *tableView = [(UIView *)self.contentArray[index-1] subviews][0];
-         [tableView.mj_header beginRefreshing];
+        [tableView.mj_header beginRefreshing];
     };
 }
 
@@ -263,7 +264,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"productType"] = @(status);
     params[@"pageIndex"] = @(self.pageIndex);
-    params[@"sort"] = @(sort);
+    params[@"sort"] = @(self.sortNumber);
     [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
       NSMutableArray *items = [NSClassFromString(modelString) mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"datas"]];
         if (type == 0) {
@@ -279,7 +280,6 @@
         [tableView reloadData];
         [tableView.mj_header endRefreshing];
         [tableView.mj_footer endRefreshing];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         ZXError
     }];
@@ -289,11 +289,11 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithFont:16 title:@"筛选" target:self action:@selector(didClickFilter:) edgeInset:25];
                                             
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithFont:16 title:@"排序" target:self action:@selector(didClickSort:) edgeInset:-25];
-
-    self.navigationItem.titleView = [ZXSearchBar searchBar];
-    UITextField *txt = (UITextField *)self.navigationItem.titleView;
-    txt.placeholder = @"请输入您要搜索的产品";
-    txt.delegate = self;
+    UITextField *searchText = [ZXSearchBar searchBar];
+    searchText.frame = CGRectMake(0, 0, ScreenW, 32);
+    self.navigationItem.titleView = searchText;
+    searchText.placeholder = @"请输入您要搜索的产品";
+    searchText.delegate = self;
 }
 
 #pragma mark UITextFielDelegate
@@ -377,7 +377,6 @@ static BOOL isCreated = YES;
         [self.filterView addSubview:filterBottomView];
         filterBottomView.frame = CGRectMake(0,_lastBlockViewY, ScreenW, 60);
         self.filterView .contentSize = CGSizeMake(ScreenW, _lastBlockViewY + 60);
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        ZXError
     }];
@@ -522,7 +521,7 @@ static BOOL isSetUp = YES;
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    self.productArray = nil;
-    self.view = nil;
+    //self.productArray = nil;
+    //self.view = nil;
 }
 @end

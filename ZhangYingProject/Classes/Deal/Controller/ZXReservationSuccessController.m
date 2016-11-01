@@ -8,7 +8,17 @@
 
 #import "ZXReservationSuccessController.h"
 
+#import "UIButton+WebCache.h"
 @interface ZXReservationSuccessController ()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UIButton *card1;
+
+@property (weak, nonatomic) IBOutlet UIButton *card2;
+
+@property (weak, nonatomic) IBOutlet UIButton *card3;
+
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
@@ -18,6 +28,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.reservationModel.cardnImage) {
+        [self.card1 sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:self.reservationModel.cardnImage]] forState:UIControlStateNormal];
+    }
+    if (self.reservationModel.cardpImage) {
+        [self.card2 sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:self.reservationModel.cardpImage]] forState:UIControlStateNormal];
+    }
+    if (self.reservationModel.certificateImage) {
+        [self.card3 sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:self.reservationModel.certificateImage]] forState:UIControlStateNormal];
+    }
+    
+    if (self.reservationModel.cardnImage.length != 0 && self.reservationModel.cardpImage.length != 0 && self.reservationModel.certificateImage.length != 0) {
+        self.submitBtn.enabled = NO;
+        self.submitBtn.backgroundColor = RGB(166, 166, 166, 1);
+    }
+    
+    
     self.productTitle.text = self.reservationModel.proTitle;
     self.useName.text = [NSString stringWithFormat:@"客户姓名: %@",self.reservationModel.userName];
     self.memberId.text = [NSString stringWithFormat:@"客户身份证号: %@",self.reservationModel.memberId];
@@ -74,6 +100,9 @@
 }
 
 - (IBAction)didClickUplaodProofIno:(id)sender {
+    if (self.card1.currentImage == nil | self.card1.currentImage == nil | self.card1.currentImage == nil) {
+        [MBProgressHUD showError:@"图片不可为空"];
+    }else{
     [MBProgressHUD showMessage:@"正在上传...." toView:self.view];
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -90,7 +119,6 @@
         }
     }
     [mgr POST:Deal_UploadProofInfo_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
         [MBProgressHUD hideHUDForView:self.view];
         if([responseObject[@"status"] intValue] == 1){
             [MBProgressHUD showSuccess:@"提交凭证成功!"];
@@ -102,6 +130,7 @@
         ZXError
         [MBProgressHUD showError:@"网络错误,请重试!"];
     }];
+    }
     
 }
     

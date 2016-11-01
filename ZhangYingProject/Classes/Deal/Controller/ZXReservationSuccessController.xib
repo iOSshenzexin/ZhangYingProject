@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,10 +10,14 @@
             <connections>
                 <outlet property="address" destination="zJh-u5-1nq" id="nKf-Dh-d9y"/>
                 <outlet property="bottomView" destination="YLz-S3-AdV" id="JhH-Tr-PJh"/>
+                <outlet property="card1" destination="Ivm-Cs-IMY" id="crj-5U-tHo"/>
+                <outlet property="card2" destination="tOm-I3-5D2" id="cq1-UY-19Q"/>
+                <outlet property="card3" destination="LnH-4V-6DU" id="dp2-uU-Fzo"/>
                 <outlet property="memberId" destination="YN8-AN-5Yg" id="EFo-W9-XED"/>
                 <outlet property="payAccount" destination="mSr-sU-6aJ" id="7Wl-QR-mD9"/>
                 <outlet property="payDate" destination="iDR-g3-g9Z" id="osR-AQ-rNW"/>
                 <outlet property="productTitle" destination="P3M-E8-xoX" id="Y6Q-j8-gHJ"/>
+                <outlet property="submitBtn" destination="kFT-fl-jVL" id="33V-XH-wfR"/>
                 <outlet property="telephone" destination="ESt-Aq-Nc8" id="97C-3R-BMf"/>
                 <outlet property="useName" destination="rSn-3z-mOu" id="3H1-zo-BTo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

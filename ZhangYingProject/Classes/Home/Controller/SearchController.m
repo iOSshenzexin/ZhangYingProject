@@ -69,7 +69,7 @@
     _searchBar.searchBarStyle = UISearchBarStyleProminent;
     _searchBar.translucent = NO; //是否半透明
     [_searchBar setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    _searchBar.placeholder = @"请输入您要搜索的产品";
+    _searchBar.placeholder = @"请输入搜索的产品关键字";
     [_searchBar sizeToFit];
     [_searchBar becomeFirstResponder];
     
