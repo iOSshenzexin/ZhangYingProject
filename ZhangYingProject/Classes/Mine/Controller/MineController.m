@@ -20,6 +20,9 @@
 #import "LoginController.h"
 @interface MineController ()<UITableViewDelegate,UITableViewDataSource,PersonInfoControllerDelegate>
 
+
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+
 @property (nonatomic,copy) NSArray *dataSource;
 @property (nonatomic,copy) NSArray *imageArray;
 
@@ -80,6 +83,27 @@
     self.tableView.sectionFooterHeight = 0;
 }
 
+- (void)requestMemberInfomation
+{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"mid"] = model.mid;
+    [mgr POST:Product_UserInfomation_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *status = responseObject[@"data"][@"status"];
+        if ([status integerValue] == 3) {//已认证
+            [self.confirmButton setImage:[UIImage imageNamed:@"yirenzheng"] forState:UIControlStateNormal];
+            self.confirmButton.userInteractionEnabled = NO;
+        }else if ([status integerValue] == 2){//待审核
+            [self.confirmButton setImage:[UIImage imageNamed:@"daishenhe"] forState:UIControlStateNormal];
+             self.confirmButton.userInteractionEnabled = YES;
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -90,6 +114,7 @@
     }else{
         self.headImage.image = [UIImage imageNamed:@"my-phone"] ;
     }
+    [self requestMemberInfomation];
 }
 
 
@@ -214,8 +239,5 @@
     [alertController addAction:determineAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
-
-
 
 @end

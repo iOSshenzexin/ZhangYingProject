@@ -112,7 +112,6 @@
         [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showError:@"登录失败,服务器或网络错误!"];
     }];
-    
 }
 
 

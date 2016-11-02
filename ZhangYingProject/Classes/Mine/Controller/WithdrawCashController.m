@@ -89,25 +89,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        if (self.isDefault ) {
+        if (self.isDefault) {
             WithdrawCashStyleThreeCell *cell = [WithdrawCashStyleThreeCell cellWithTableView:tableView];
             if (self.accountSelected.count != 0) {
                 cell.bankName.text = self.accountSelected[0];
                 cell.cardNumber.text = self.accountSelected[1];
             }else{
-                cell.bankName.text = self.defaultAccount[@"bankName"];
-                cell.cardNumber.text = self.defaultAccount[@"bankCard"];
+                if (self.defaultAccount != nil) {
+                    cell.bankName.text = self.defaultAccount[@"bankName"];
+                    cell.cardNumber.text = self.defaultAccount[@"bankCard"];
+                }else{
+                    WithdrawCashStyleTwoCell *cell = [WithdrawCashStyleTwoCell cellWithTableView:tableView];
+                    return cell;
+                }
             }
             return cell;
-        }else{
-            WithdrawCashStyleTwoCell *cell = [WithdrawCashStyleTwoCell cellWithTableView:tableView];
-            return cell;
         }
-    }else{
-        WithdrawCashStyleOneCell *cell = [WithdrawCashStyleOneCell cellWithTableView:tableView];
-    return cell;
     }
-    return nil;
+    WithdrawCashStyleOneCell *cell = [WithdrawCashStyleOneCell cellWithTableView:tableView];
+    return cell;
 }
 
 

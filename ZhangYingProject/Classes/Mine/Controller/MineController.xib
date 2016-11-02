@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineController">
             <connections>
+                <outlet property="confirmButton" destination="jQR-cm-6uM" id="Fx1-hh-Qno"/>
                 <outlet property="headImage" destination="eK7-ln-ehB" id="cgF-5V-MrW"/>
                 <outlet property="nickName" destination="LzY-Qg-wkQ" id="VtM-aV-e8E"/>
                 <outlet property="tableView" destination="39l-GD-Ufr" id="mQA-IZ-XbH"/>

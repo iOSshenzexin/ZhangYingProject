@@ -12,6 +12,7 @@
                 <outlet property="memberIDTxt" destination="JIt-GU-PYr" id="EAS-Cc-vt0"/>
                 <outlet property="nameTxt" destination="NmY-dL-LFt" id="QtR-ke-5Be"/>
                 <outlet property="pictureButton" destination="loQ-B3-Gea" id="bbI-2d-msY"/>
+                <outlet property="submitButton" destination="ogu-2R-mZ6" id="owh-fd-XrV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

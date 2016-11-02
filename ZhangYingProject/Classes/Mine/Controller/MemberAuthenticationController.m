@@ -8,6 +8,7 @@
 
 #import "MemberAuthenticationController.h"
 #import "CustomLine.h"
+#import "UIButton+WebCache.h"
 @interface MemberAuthenticationController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
 }
@@ -19,6 +20,7 @@
 
 @property (nonatomic,copy) NSString *base64String;
 
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
 
@@ -34,6 +36,27 @@
     line.backgroundColor = RGB(242/255.0, 242/255.0, 242/255.0, 0.3);
     [self.backgroundView addSubview:line];
     [self setupTxtFieldAndImage];
+    [self requestMemberInfomation];
+}
+
+- (void)requestMemberInfomation
+{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    ZXLoginModel *model = AppLoginModel;
+    params[@"mid"] = model.mid;
+    [mgr POST:Product_UserInfomation_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *status = responseObject[@"data"][@"status"];
+        if ([status integerValue] == 2){
+            [self.submitButton setTitle:@"提交修改" forState:UIControlStateNormal];
+            self.nameTxt.text = responseObject[@"data"][@"name"];
+            self.memberIDTxt.text =  responseObject[@"data"][@"cardNumber"];
+            [self.pictureButton setTitle:@"" forState:UIControlStateNormal];
+            [self.pictureButton sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:responseObject[@"data"][@"businessCard"]]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        ZXError
+    }];
 }
 
 - (void)setupTxtFieldAndImage{
@@ -84,7 +107,7 @@
 - (void)submitAuthentication
 {
     if (self.nameTxt.text.length == 0 | self.memberIDTxt.text.length == 0 |self.base64String.length == 0 ) {
-        [MBProgressHUD showError:@"名片不可为空!"];
+        [MBProgressHUD showError:@"认证内容不可为空!"];
     }else{
     [MBProgressHUD showMessage:@"正在提交认证....." toView:self.view];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
