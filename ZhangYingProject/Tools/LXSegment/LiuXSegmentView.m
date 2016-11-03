@@ -37,17 +37,17 @@
         }else{
             _btn_w=windowContentWidth/MAX_TitleNumInWindow;
         }
-        _titles=titleArray;
+        _titles = titleArray;
         _defaultIndex = 1;
-        _titleFont=[UIFont systemFontOfSize:13];
-        _btns=[[NSMutableArray alloc] initWithCapacity:0];
-        _titleNomalColor = [UIColor blackColor];
+        _titleFont = [UIFont fontWithName:@"Helvetica" size:16.f];
+        _btns = [[NSMutableArray alloc] initWithCapacity:0];
+        _titleNomalColor = RGB(160, 160, 160, 1);
         _titleSelectColor = SFQRedColor;
         
-        _bgScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, windowContentWidth, self.frame.size.height)];
-        _bgScrollView.backgroundColor=[UIColor whiteColor];
-        _bgScrollView.showsHorizontalScrollIndicator= NO;
-        _bgScrollView.contentSize=CGSizeMake(_btn_w * (titleArray.count), self.frame.size.height);
+        _bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, windowContentWidth, self.frame.size.height)];
+        _bgScrollView.backgroundColor = [UIColor whiteColor];
+        _bgScrollView.showsHorizontalScrollIndicator = NO;
+        _bgScrollView.contentSize = CGSizeMake(_btn_w * (titleArray.count), self.frame.size.height);
         [self addSubview:_bgScrollView];
         
         _selectLine=[[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-2, _btn_w, 2)];
