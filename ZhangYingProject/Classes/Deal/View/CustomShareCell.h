@@ -17,9 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
 
-
-
-
 @property (nonatomic,copy) ZXShareModel *shareModel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;

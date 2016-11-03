@@ -61,7 +61,7 @@
                                                 <constraint firstAttribute="height" constant="32" id="pAu-4w-CpJ"/>
                                                 <constraint firstAttribute="width" constant="180" id="zUE-h3-J2w"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>

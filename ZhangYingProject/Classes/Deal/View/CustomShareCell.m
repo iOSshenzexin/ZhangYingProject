@@ -12,12 +12,6 @@
 
 static NSString *customShareCell= @"CustomShareCell";
 
--(void)setFrame:(CGRect)frame
-{
-    frame.size.height -= 5;
-    [super setFrame:frame];
-}
-
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
     CustomShareCell *cell = [tableView dequeueReusableCellWithIdentifier:customShareCell];
@@ -38,8 +32,6 @@ static NSString *customShareCell= @"CustomShareCell";
     [formatter setDateFormat:@"MM-dd HH:mm"];
     
     self.timeLbl.text = [NSString stringWithFormat:@"最后分享: %@",[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[shareModel.createTime[@"time"] doubleValue]/1000.0]]] ;
-    
-    
 }
 
 

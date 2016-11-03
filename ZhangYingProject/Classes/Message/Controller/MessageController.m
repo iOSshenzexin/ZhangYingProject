@@ -71,7 +71,7 @@
             if (items.count == 0) {
                 [MBProgressHUD showSuccess:@"已经是最后一页了"];
             }else{
-         [self.dataArray addObjectsFromArray:items];
+                [self.dataArray addObjectsFromArray:items];
             }
         }
         self.pageIndex ++;

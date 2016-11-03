@@ -19,6 +19,7 @@
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,copy) NSMutableArray *sectionTitles;
 
+@property (nonatomic,copy) NSString *time;
 
 @end
 
@@ -129,9 +130,9 @@ static NSString *styleTwo = @"styleTwo";
 
 - (void)didClickMoreShare:(UIButton *)btn{
     __weak typeof(self) weakSelf = self;
+ 
     //显示分享面板
     [UMSocialUIManager showShareMenuViewInView:nil sharePlatformSelectionBlock:^(UMSocialShareSelectionView *shareSelectionView, NSIndexPath *indexPath, UMSocialPlatformType platformType) {
-      //  [weakSelf disMissShareMenuView];
         [weakSelf shareDataWithPlatform:platformType];
     }];
 }
@@ -149,17 +150,12 @@ static NSString *styleTwo = @"styleTwo";
         else{
             if (error) {
                 message = [NSString stringWithFormat:@"分享失败"];
-                // message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
             }
             else{
                 message = [NSString stringWithFormat:@"分享失败"];
             }
         }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示:"
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示:" message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"确定", nil) otherButtonTitles:nil];
         [alert show];
     }];
 }
@@ -169,23 +165,25 @@ static NSString *styleTwo = @"styleTwo";
 {
     ZXLoginModel *model = AppLoginModel;
     NSString *text;
-//    if (self.telephoneBtn.selected) {
-        text = [NSString stringWithFormat:@"理财投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
-//    }else
-//    {
-//        text = self.content;
-//    }
-//    //创建分享消息对象
+    text = [NSString stringWithFormat:@"理财投资顾问 <%@> 分享给您的投资项目.点击查看详情! 联系方式:%@",model.name,[NSString stringWithFormat:@"%.0f",model.phone]];
+    //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     NSString *title = self.productTitle;
-    NSString *url = @"http://ios9quan.9quan.com.cn/www/wine/show/70488/37961/9502";
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:@"http://dev.umeng.com/images/tab2_1.png"];
+    self.time = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+    NSString *url = [baseUrl stringByAppendingString:[NSString stringWithFormat: @"/m_sharelog/shareDetails.do?memberId=%@&productId=%@&timeSign=%@",model.mid,self.product_id,self.time]];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:[UIImage imageNamed:@"appIcon57x57"]];
     [shareObject setWebpageUrl:url];
     messageObject.shareObject = shareObject;
     return messageObject;
-    
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.dataArray = nil;
+    self.sectionTitles = nil;
+    self.view = nil;
+}
 
 - (void)recordShare{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -193,9 +191,12 @@ static NSString *styleTwo = @"styleTwo";
     params[@"productId"] = self.product_id;
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
+    params[@"timeSign"] = self.time;
     [manager POST:Product_AddShared_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
     }];
 }
+
+
+
 @end

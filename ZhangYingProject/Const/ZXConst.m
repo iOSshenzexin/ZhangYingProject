@@ -3,7 +3,10 @@
 
 NSString *const showSearchBarKeyBoard = @"showSearchBarKeyBoard";
 // 126   梁 114 104  http://192.168.0.122:8080/palmWin
+
 NSString *const baseUrl = @"http://zy.64wrj.com";
+
+//NSString *const baseUrl = @"http://192.168.1.110:8080/palmWin";
 
 NSString *const savePassword = @"savePassword";
 

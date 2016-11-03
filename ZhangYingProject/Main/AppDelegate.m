@@ -42,20 +42,20 @@
     UITabBarItem *tabBarItem = tabBar.items[2];
     tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
     
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    UIColor *color =  RGB(230, 230, 230, 1);
-    CGContextSetFillColorWithColor(context,[color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    tabBar.backgroundImage = image;
+//    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+//    UIGraphicsBeginImageContext(rect.size);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    UIColor *color =  RGB(230, 230, 230, 1);
+//    CGContextSetFillColorWithColor(context,[color CGColor]);
+//    CGContextFillRect(context, rect);
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    tabBar.backgroundImage = image;
     
     //更改导航栏的颜色跟字体颜色
     UIColor * navigationBarColor = RGB(216,38,35,1);
     [[UINavigationBar appearance] setBarTintColor: navigationBarColor];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:18.f]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:16.f]}];
     //更改状态栏的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window = window;

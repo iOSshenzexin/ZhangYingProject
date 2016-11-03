@@ -32,7 +32,7 @@
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         //添加子控件
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = RGB(163, 163, 163, 0.5);
+        btn.backgroundColor = RGB(220, 220, 220, 1);
         btn.layer.cornerRadius = 2;
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(didClickBtn:) forControlEvents:UIControlEventTouchUpInside];

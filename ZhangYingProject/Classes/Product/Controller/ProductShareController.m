@@ -18,6 +18,9 @@
 @property (nonatomic,copy) NSString *content;
 
 @property (nonatomic,strong) UIButton *telephoneBtn;
+
+@property (nonatomic,copy) NSString *time;
+
 @end
 
 @implementation ProductShareController
@@ -28,12 +31,6 @@
     UIColor *color = RGB(216, 216, 216, 0.8);
      self.bottomView.layer.borderColor = [color CGColor];
     self.productShareTableView.sectionFooterHeight = 0;
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-   // [self.view setNeedsDisplay];
-    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -110,8 +107,9 @@
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     NSString *title = self.productTitle;
-    NSString *url = @"http://ios9quan.9quan.com.cn/www/wine/show/70488/37961/9502";
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:@"http://dev.umeng.com/images/tab2_1.png"];
+    self.time = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+    NSString *url = [baseUrl stringByAppendingString:[NSString stringWithFormat: @"/m_sharelog/shareDetails.do?memberId=%@&productId=%@&timeSign=%@",model.mid,self.product_id,self.time]];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:text thumImage:[UIImage imageNamed:@"appIcon57x57"]];
     [shareObject setWebpageUrl:url];
     messageObject.shareObject = shareObject;
     return messageObject;
@@ -137,8 +135,7 @@
                 message = [NSString stringWithFormat:@"分享失败"];
             }
         }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示:"
-                                                        message:message
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示:" message:message
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"确定", nil)
                                               otherButtonTitles:nil];
@@ -152,6 +149,7 @@
     params[@"productId"] = self.product_id;
     ZXLoginModel *model = AppLoginModel;
     params[@"memberId"] = model.mid;
+    params[@"timeSign"] = self.time;
     [manager POST:Product_AddShared_Url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ZXResponseObject
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
